@@ -15,7 +15,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Do any additional setup after loading the view, typically from a nib.
         
         if (FBSDKAccessToken.currentAccessToken() != nil) {
-            // Do shit
+            
+            let friendsListViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendsListViewController") as! FriendsListViewController
+            
+            self.navigationController!.pushViewController(friendsListViewController, animated: true)
         }
         else {
             let loginView : FBSDKLoginButton = FBSDKLoginButton()
@@ -33,7 +36,10 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("User logged in")
+        let friendsListViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendsListViewController") as! FriendsListViewController
         
+        self.navigationController!.pushViewController(friendsListViewController, animated: true)
+
         if ((error) != nil)
         {
             println("Shit's fucked")

@@ -17,6 +17,7 @@
 		336344B91B3286B000DF3D90 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336344B61B3286B000DF3D90 /* FBSDKLoginKit.framework */; };
 		336344BA1B3286B000DF3D90 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336344B71B3286B000DF3D90 /* FBSDKShareKit.framework */; };
 		336344BD1B328F2700DF3D90 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336344BC1B328F2700DF3D90 /* Bolts.framework */; };
+		336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		336344B71B3286B000DF3D90 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		336344BB1B32893900DF3D90 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		336344BC1B328F2700DF3D90 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
+		336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				336344B71B3286B000DF3D90 /* FBSDKShareKit.framework */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
 				336344971B3283F800DF3D90 /* ViewController.swift */,
+				336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				336344981B3283F800DF3D90 /* ViewController.swift in Sources */,
+				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
