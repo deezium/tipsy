@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		006FA42A43BF392B78DAA90B /* Pods-tipsy-SwiftAddressBook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E5D591946E2A8E3A7873ECB /* Pods-tipsy-SwiftAddressBook-dummy.m */; };
+		1B8A58910AEEEC5D7E72632E /* SwiftAddressBookHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E4EB2D15B0B5D811938B45 /* SwiftAddressBookHelperMethods.swift */; };
+		3AAB01CE109ABEF3ECEE2D38 /* SwiftAddressBookSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317A47CF937D09DB3C16C1BD /* SwiftAddressBookSource.swift */; };
+		3E7EB16B2DB637651C1F4378 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 670B352253DD7346AEFBE013 /* AddressBookUI.framework */; };
+		6048300B947BE36B2B095E16 /* Pods-tipsy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B1D7FBAE95869DB529C355 /* Pods-tipsy-dummy.m */; };
+		6162A86E6AEA29D36B91B496 /* SwiftAddressBookPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E684570F2731359017AF1 /* SwiftAddressBookPerson.swift */; };
+		6CFB7410FA511A0DA2F8B20F /* Pods-tipsy-SwiftAddressBook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C14A5AA1BE04DE8B1F557291 /* Pods-tipsy-SwiftAddressBook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		793B4C0DEFF4A5B0E4103DF7 /* Pods-tipsy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7558BEFEAC782F4E232ECAD5 /* Pods-tipsy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CF541AE13EF5804756E7572 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDF00333155211DDF06939 /* Foundation.framework */; };
+		CF027CEC3F99A0403EF7434A /* SwiftAddressBookGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC7E381AA4B4BCA49D95E52 /* SwiftAddressBookGroup.swift */; };
+		DB230C1AE13AD025A7DA38A5 /* SwiftAddressBookDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA146930D01BB63E21279FF /* SwiftAddressBookDataStructures.swift */; };
+		DF7F8A1DE830614DAF6B9A82 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EDF00333155211DDF06939 /* Foundation.framework */; };
+		E388E822EA3480075CE1A17B /* SwiftAddressBookWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0F6DCEB1C65E60570E3CBA /* SwiftAddressBookWrapper.swift */; };
+		EF92EC5BF4A70D0955218E2E /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1745456DE2A455021FBF131E /* AddressBook.framework */; };
+		FA7CB1DD071B5EA682F1764E /* SwiftAddressBookRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A57476F228ED5E390B6089 /* SwiftAddressBookRecord.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A28EACEE1D47F01145F09A8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E57F5A2EBB02008F7EFECFDD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 45AA2273E1C24C367BD08681;
+			remoteInfo = "Pods-tipsy-SwiftAddressBook";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0540823605C5F47DA40031DE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1299F76966C60B56C4285E96 /* Pods-tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy.debug.xcconfig"; sourceTree = "<group>"; };
+		12A57476F228ED5E390B6089 /* SwiftAddressBookRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookRecord.swift; path = Pod/Classes/SwiftAddressBookRecord.swift; sourceTree = "<group>"; };
+		1745456DE2A455021FBF131E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
+		2107E71C16F4FEF015C407DD /* Pods-tipsy-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-tipsy-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2557EA4C89691CC561D200BD /* SwiftAddressBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftAddressBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FEDA30FB0358EDF822C194E /* Pods-tipsy-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-environment.h"; sourceTree = "<group>"; };
+		317A47CF937D09DB3C16C1BD /* SwiftAddressBookSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookSource.swift; path = Pod/Classes/SwiftAddressBookSource.swift; sourceTree = "<group>"; };
+		4265B20812F7BD5E50595076 /* Pods-tipsy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy.modulemap"; sourceTree = "<group>"; };
+		43B1D7FBAE95869DB529C355 /* Pods-tipsy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-dummy.m"; sourceTree = "<group>"; };
+		58E4EB2D15B0B5D811938B45 /* SwiftAddressBookHelperMethods.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookHelperMethods.swift; path = Pod/Classes/SwiftAddressBookHelperMethods.swift; sourceTree = "<group>"; };
+		5B0F6DCEB1C65E60570E3CBA /* SwiftAddressBookWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookWrapper.swift; path = Pod/Classes/SwiftAddressBookWrapper.swift; sourceTree = "<group>"; };
+		5DC7E381AA4B4BCA49D95E52 /* SwiftAddressBookGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookGroup.swift; path = Pod/Classes/SwiftAddressBookGroup.swift; sourceTree = "<group>"; };
+		5FF80E7DE92CB1B434C464B6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		643EE5C287553E265EF65380 /* Pods-tipsy-SwiftAddressBook-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SwiftAddressBook-prefix.pch"; sourceTree = "<group>"; };
+		670B352253DD7346AEFBE013 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AddressBookUI.framework; sourceTree = DEVELOPER_DIR; };
+		6F45D347ED2D3D1EFBE5EA9A /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7558BEFEAC782F4E232ECAD5 /* Pods-tipsy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-umbrella.h"; sourceTree = "<group>"; };
+		77E5B2CA97B5C1C47D0F8423 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SwiftAddressBook-Private.xcconfig"; sourceTree = "<group>"; };
+		77EDF00333155211DDF06939 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7E5D591946E2A8E3A7873ECB /* Pods-tipsy-SwiftAddressBook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-SwiftAddressBook-dummy.m"; sourceTree = "<group>"; };
+		869860050AC6DC98FA28C5DC /* Pods-tipsy-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tipsy-frameworks.sh"; sourceTree = "<group>"; };
+		878E96645EC7A75B73988256 /* Pods-tipsy-SwiftAddressBook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-SwiftAddressBook.modulemap"; sourceTree = "<group>"; };
+		941E684570F2731359017AF1 /* SwiftAddressBookPerson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookPerson.swift; path = Pod/Classes/SwiftAddressBookPerson.swift; sourceTree = "<group>"; };
+		AE0B4B3974869331A4538217 /* Pods-tipsy-SwiftAddressBook.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SwiftAddressBook.xcconfig"; sourceTree = "<group>"; };
+		B66A36DA80D83301C07F2D26 /* Pods-tipsy-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-tipsy-acknowledgements.plist"; sourceTree = "<group>"; };
+		BF80D46CCDA34EF7FD816AA3 /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C14A5AA1BE04DE8B1F557291 /* Pods-tipsy-SwiftAddressBook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SwiftAddressBook-umbrella.h"; sourceTree = "<group>"; };
+		D195F6B73A9D60660E99FE28 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
+		D98E347654C815B48BB99362 /* Pods-tipsy-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tipsy-resources.sh"; sourceTree = "<group>"; };
+		DDA146930D01BB63E21279FF /* SwiftAddressBookDataStructures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookDataStructures.swift; path = Pod/Classes/SwiftAddressBookDataStructures.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		748C7408C7B497AED9A91F92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF92EC5BF4A70D0955218E2E /* AddressBook.framework in Frameworks */,
+				3E7EB16B2DB637651C1F4378 /* AddressBookUI.framework in Frameworks */,
+				DF7F8A1DE830614DAF6B9A82 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A76A34C4205F6DC083CDB55F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CF541AE13EF5804756E7572 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B9E3DA878B2318CAC2E0C8C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1745456DE2A455021FBF131E /* AddressBook.framework */,
+				670B352253DD7346AEFBE013 /* AddressBookUI.framework */,
+				77EDF00333155211DDF06939 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		363BAB796A4970E6F20AF076 = {
+			isa = PBXGroup;
+			children = (
+				6F45D347ED2D3D1EFBE5EA9A /* Podfile */,
+				942C8A2CC50512714D1B1837 /* Frameworks */,
+				4707B1B22BAC63381FD14EB7 /* Pods */,
+				51DB0AF116DD608D8AA0973C /* Products */,
+				37C82692B63129B0964E3A99 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		37C82692B63129B0964E3A99 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				65783700EE6F3D3EE330972E /* Pods-tipsy */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		4707B1B22BAC63381FD14EB7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F03959A6F8A122547D00146 /* SwiftAddressBook */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4F03959A6F8A122547D00146 /* SwiftAddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				DDA146930D01BB63E21279FF /* SwiftAddressBookDataStructures.swift */,
+				5DC7E381AA4B4BCA49D95E52 /* SwiftAddressBookGroup.swift */,
+				58E4EB2D15B0B5D811938B45 /* SwiftAddressBookHelperMethods.swift */,
+				941E684570F2731359017AF1 /* SwiftAddressBookPerson.swift */,
+				12A57476F228ED5E390B6089 /* SwiftAddressBookRecord.swift */,
+				317A47CF937D09DB3C16C1BD /* SwiftAddressBookSource.swift */,
+				5B0F6DCEB1C65E60570E3CBA /* SwiftAddressBookWrapper.swift */,
+				CFB2ED13DE848856704DE68D /* Support Files */,
+			);
+			path = SwiftAddressBook;
+			sourceTree = "<group>";
+		};
+		51DB0AF116DD608D8AA0973C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF80D46CCDA34EF7FD816AA3 /* Pods_tipsy.framework */,
+				2557EA4C89691CC561D200BD /* SwiftAddressBook.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65783700EE6F3D3EE330972E /* Pods-tipsy */ = {
+			isa = PBXGroup;
+			children = (
+				0540823605C5F47DA40031DE /* Info.plist */,
+				4265B20812F7BD5E50595076 /* Pods-tipsy.modulemap */,
+				2107E71C16F4FEF015C407DD /* Pods-tipsy-acknowledgements.markdown */,
+				B66A36DA80D83301C07F2D26 /* Pods-tipsy-acknowledgements.plist */,
+				43B1D7FBAE95869DB529C355 /* Pods-tipsy-dummy.m */,
+				2FEDA30FB0358EDF822C194E /* Pods-tipsy-environment.h */,
+				869860050AC6DC98FA28C5DC /* Pods-tipsy-frameworks.sh */,
+				D98E347654C815B48BB99362 /* Pods-tipsy-resources.sh */,
+				7558BEFEAC782F4E232ECAD5 /* Pods-tipsy-umbrella.h */,
+				1299F76966C60B56C4285E96 /* Pods-tipsy.debug.xcconfig */,
+				D195F6B73A9D60660E99FE28 /* Pods-tipsy.release.xcconfig */,
+			);
+			name = "Pods-tipsy";
+			path = "Target Support Files/Pods-tipsy";
+			sourceTree = "<group>";
+		};
+		942C8A2CC50512714D1B1837 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B9E3DA878B2318CAC2E0C8C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CFB2ED13DE848856704DE68D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5FF80E7DE92CB1B434C464B6 /* Info.plist */,
+				878E96645EC7A75B73988256 /* Pods-tipsy-SwiftAddressBook.modulemap */,
+				AE0B4B3974869331A4538217 /* Pods-tipsy-SwiftAddressBook.xcconfig */,
+				77E5B2CA97B5C1C47D0F8423 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */,
+				7E5D591946E2A8E3A7873ECB /* Pods-tipsy-SwiftAddressBook-dummy.m */,
+				643EE5C287553E265EF65380 /* Pods-tipsy-SwiftAddressBook-prefix.pch */,
+				C14A5AA1BE04DE8B1F557291 /* Pods-tipsy-SwiftAddressBook-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-tipsy-SwiftAddressBook";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4B52E969F3120D89C809F8F5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				793B4C0DEFF4A5B0E4103DF7 /* Pods-tipsy-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1285C643A7D1D7403299832 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6CFB7410FA511A0DA2F8B20F /* Pods-tipsy-SwiftAddressBook-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		45AA2273E1C24C367BD08681 /* Pods-tipsy-SwiftAddressBook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AA3B37285F152A6755C73A46 /* Build configuration list for PBXNativeTarget "Pods-tipsy-SwiftAddressBook" */;
+			buildPhases = (
+				122251BEE67C64E5A7E363D0 /* Sources */,
+				748C7408C7B497AED9A91F92 /* Frameworks */,
+				B1285C643A7D1D7403299832 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-tipsy-SwiftAddressBook";
+			productName = "Pods-tipsy-SwiftAddressBook";
+			productReference = 2557EA4C89691CC561D200BD /* SwiftAddressBook.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		F9BBD78AF7A992209C586978 /* Pods-tipsy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3705E65445D43117B3852E39 /* Build configuration list for PBXNativeTarget "Pods-tipsy" */;
+			buildPhases = (
+				54AD109E9244E9BC4C7845E8 /* Sources */,
+				A76A34C4205F6DC083CDB55F /* Frameworks */,
+				4B52E969F3120D89C809F8F5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C8D78723B5AF286FE0B07ED /* PBXTargetDependency */,
+			);
+			name = "Pods-tipsy";
+			productName = "Pods-tipsy";
+			productReference = BF80D46CCDA34EF7FD816AA3 /* Pods_tipsy.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E57F5A2EBB02008F7EFECFDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+			};
+			buildConfigurationList = 0CD78BE80140D42D4591FA63 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 363BAB796A4970E6F20AF076;
+			productRefGroup = 51DB0AF116DD608D8AA0973C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9BBD78AF7A992209C586978 /* Pods-tipsy */,
+				45AA2273E1C24C367BD08681 /* Pods-tipsy-SwiftAddressBook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		122251BEE67C64E5A7E363D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				006FA42A43BF392B78DAA90B /* Pods-tipsy-SwiftAddressBook-dummy.m in Sources */,
+				DB230C1AE13AD025A7DA38A5 /* SwiftAddressBookDataStructures.swift in Sources */,
+				CF027CEC3F99A0403EF7434A /* SwiftAddressBookGroup.swift in Sources */,
+				1B8A58910AEEEC5D7E72632E /* SwiftAddressBookHelperMethods.swift in Sources */,
+				6162A86E6AEA29D36B91B496 /* SwiftAddressBookPerson.swift in Sources */,
+				FA7CB1DD071B5EA682F1764E /* SwiftAddressBookRecord.swift in Sources */,
+				3AAB01CE109ABEF3ECEE2D38 /* SwiftAddressBookSource.swift in Sources */,
+				E388E822EA3480075CE1A17B /* SwiftAddressBookWrapper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		54AD109E9244E9BC4C7845E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6048300B947BE36B2B095E16 /* Pods-tipsy-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C8D78723B5AF286FE0B07ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-tipsy-SwiftAddressBook";
+			target = 45AA2273E1C24C367BD08681 /* Pods-tipsy-SwiftAddressBook */;
+			targetProxy = A28EACEE1D47F01145F09A8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16392A16DF0A96CF7861C79B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		1C25E2A55641182A075C069A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1299F76966C60B56C4285E96 /* Pods-tipsy.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy/Pods-tipsy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_tipsy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		47EE13A4721ABEC80E5B1E2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77E5B2CA97B5C1C47D0F8423 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftAddressBook;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		77C6A587C6EC008A54145C4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92D27B6DBDB8D20D73227E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D195F6B73A9D60660E99FE28 /* Pods-tipsy.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy/Pods-tipsy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_tipsy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		EE8C2009B37F843B4E799A20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77E5B2CA97B5C1C47D0F8423 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftAddressBook;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0CD78BE80140D42D4591FA63 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16392A16DF0A96CF7861C79B /* Debug */,
+				77C6A587C6EC008A54145C4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3705E65445D43117B3852E39 /* Build configuration list for PBXNativeTarget "Pods-tipsy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1C25E2A55641182A075C069A /* Debug */,
+				92D27B6DBDB8D20D73227E8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AA3B37285F152A6755C73A46 /* Build configuration list for PBXNativeTarget "Pods-tipsy-SwiftAddressBook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE8C2009B37F843B4E799A20 /* Debug */,
+				47EE13A4721ABEC80E5B1E2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E57F5A2EBB02008F7EFECFDD /* Project object */;
+}

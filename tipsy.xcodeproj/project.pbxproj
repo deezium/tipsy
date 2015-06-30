@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EB6F515DD0D220EC8E91B1A /* Pods_tipsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
+		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
+		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
+		3339CDD91B4222DE001C222C /* RSS-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD81B4222DE001C222C /* RSS-25.png */; };
+		3339CDDB1B4223CA001C222C /* Gender Neutral User-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */; };
+		3339CDDD1B42253A001C222C /* Edit-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDDC1B42253A001C222C /* Edit-25.png */; };
+		3339CDDF1B422C9B001C222C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CDDE1B422C9B001C222C /* libsqlite3.dylib */; };
 		336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344951B3283F800DF3D90 /* AppDelegate.swift */; };
 		336344981B3283F800DF3D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344971B3283F800DF3D90 /* ViewController.swift */; };
 		3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336344991B3283F800DF3D90 /* Main.storyboard */; };
@@ -18,6 +26,7 @@
 		336344BA1B3286B000DF3D90 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336344B71B3286B000DF3D90 /* FBSDKShareKit.framework */; };
 		336344BD1B328F2700DF3D90 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336344BC1B328F2700DF3D90 /* Bolts.framework */; };
 		336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */; };
+		336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344C01B3B271200DF3D90 /* FacebookController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		329318A9E52DEB351C66B293 /* Pods-tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.debug.xcconfig"; sourceTree = "<group>"; };
+		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
+		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
+		3339CDD81B4222DE001C222C /* RSS-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RSS-25.png"; path = "../../../../Downloads/RSS-25.png"; sourceTree = "<group>"; };
+		3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gender Neutral User-25.png"; path = "../../../../Downloads/Gender Neutral User-25.png"; sourceTree = "<group>"; };
+		3339CDDC1B42253A001C222C /* Edit-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Edit-25.png"; path = "../../../../Downloads/Edit-25.png"; sourceTree = "<group>"; };
+		3339CDDE1B422C9B001C222C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		336344901B3283F800DF3D90 /* tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336344941B3283F800DF3D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336344951B3283F800DF3D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +64,9 @@
 		336344BB1B32893900DF3D90 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		336344BC1B328F2700DF3D90 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
 		336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		336344C01B3B271200DF3D90 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
+		C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,10 +74,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3339CDDF1B422C9B001C222C /* libsqlite3.dylib in Frameworks */,
 				336344B91B3286B000DF3D90 /* FBSDKLoginKit.framework in Frameworks */,
 				336344B81B3286B000DF3D90 /* FBSDKCoreKit.framework in Frameworks */,
 				336344BA1B3286B000DF3D90 /* FBSDKShareKit.framework in Frameworks */,
 				336344BD1B328F2700DF3D90 /* Bolts.framework in Frameworks */,
+				0EB6F515DD0D220EC8E91B1A /* Pods_tipsy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +99,8 @@
 				336344921B3283F800DF3D90 /* tipsy */,
 				336344A81B3283F800DF3D90 /* tipsyTests */,
 				336344911B3283F800DF3D90 /* Products */,
+				61752CEC4A8536A6ECE6FD63 /* Pods */,
+				A8ED42A2B6BF0F87DAAC8F3B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -92,6 +116,11 @@
 		336344921B3283F800DF3D90 /* tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				3339CDD41B422165001C222C /* Map-50.png */,
+				3339CDD81B4222DE001C222C /* RSS-25.png */,
+				3339CDDC1B42253A001C222C /* Edit-25.png */,
+				3339CDD61B422186001C222C /* Map-25.png */,
+				3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */,
 				336344BC1B328F2700DF3D90 /* Bolts.framework */,
 				336344B51B3286B000DF3D90 /* FBSDKCoreKit.framework */,
 				336344B61B3286B000DF3D90 /* FBSDKLoginKit.framework */,
@@ -100,6 +129,8 @@
 				336344971B3283F800DF3D90 /* ViewController.swift */,
 				336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
+				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
 				336344931B3283F800DF3D90 /* Supporting Files */,
@@ -133,6 +164,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		61752CEC4A8536A6ECE6FD63 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				329318A9E52DEB351C66B293 /* Pods-tipsy.debug.xcconfig */,
+				EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A8ED42A2B6BF0F87DAAC8F3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3339CDDE1B422C9B001C222C /* libsqlite3.dylib */,
+				C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,9 +189,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 336344AF1B3283F800DF3D90 /* Build configuration list for PBXNativeTarget "tipsy" */;
 			buildPhases = (
+				52F994BDA820F1885187AD29 /* Check Pods Manifest.lock */,
 				3363448C1B3283F800DF3D90 /* Sources */,
 				3363448D1B3283F800DF3D90 /* Frameworks */,
 				3363448E1B3283F800DF3D90 /* Resources */,
+				66F758DD3E9127F83B2146EE /* Embed Pods Frameworks */,
+				82CD7307E3AECA9322D0FE4D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,9 +265,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3339CDDD1B42253A001C222C /* Edit-25.png in Resources */,
 				3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */,
+				3339CDDB1B4223CA001C222C /* Gender Neutral User-25.png in Resources */,
+				3339CDD91B4222DE001C222C /* RSS-25.png in Resources */,
+				3339CDD51B422165001C222C /* Map-50.png in Resources */,
 				336344A01B3283F800DF3D90 /* LaunchScreen.xib in Resources */,
 				3363449D1B3283F800DF3D90 /* Images.xcassets in Resources */,
+				3339CDD71B422186001C222C /* Map-25.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,12 +285,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		52F994BDA820F1885187AD29 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		66F758DD3E9127F83B2146EE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tipsy/Pods-tipsy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82CD7307E3AECA9322D0FE4D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-tipsy/Pods-tipsy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3363448C1B3283F800DF3D90 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */,
 				336344981B3283F800DF3D90 /* ViewController.swift in Sources */,
+				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
 			);
@@ -362,6 +469,7 @@
 		};
 		336344B01B3283F800DF3D90 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 329318A9E52DEB351C66B293 /* Pods-tipsy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -377,6 +485,7 @@
 		};
 		336344B11B3283F800DF3D90 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -443,6 +552,7 @@
 				336344B11B3283F800DF3D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		336344B21B3283F800DF3D90 /* Build configuration list for PBXNativeTarget "tipsyTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +561,7 @@
 				336344B41B3283F800DF3D90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
