@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'tipsy' do
 	pod 'SwiftAddressBook'
+	pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
 
 end
 

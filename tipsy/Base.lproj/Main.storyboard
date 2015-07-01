@@ -147,7 +147,7 @@
         <!--Check In-->
         <scene sceneID="Ke4-kz-Fof">
             <objects>
-                <viewController id="b9L-2j-42A" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckInViewController" id="b9L-2j-42A" customClass="CheckInViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rsk-tz-LbP"/>
                         <viewControllerLayoutGuide type="bottom" id="5V0-ul-ePC"/>
@@ -155,9 +155,43 @@
                     <view key="view" contentMode="scaleToFill" id="ADC-pS-fOP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write your message here." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A8H-eN-Ypm">
+                                <rect key="frame" x="252" y="175" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELP-C3-Ceq">
+                                <rect key="frame" x="160" y="179" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZV-HM-3Cp">
+                                <rect key="frame" x="319" y="248" width="65" height="30"/>
+                                <state key="normal" title="Check in!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkinButtonPressed:" destination="b9L-2j-42A" eventType="touchUpInside" id="q9J-HU-I6q"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="n86-Q2-t0y">
+                                <rect key="frame" x="0.0" y="322" width="600" height="236"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A8H-eN-Ypm" firstAttribute="leading" secondItem="ELP-C3-Ceq" secondAttribute="trailing" constant="36" id="1NW-za-rk0"/>
+                            <constraint firstAttribute="centerX" secondItem="kZV-HM-3Cp" secondAttribute="centerX" constant="-52" id="DYE-d4-qOV"/>
+                            <constraint firstAttribute="centerX" secondItem="A8H-eN-Ypm" secondAttribute="centerX" constant="-0.5" id="m3f-Zw-VnL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Check In" image="Edit-25.png" id="IL9-tx-bvR"/>
+                    <connections>
+                        <outlet property="mapView" destination="n86-Q2-t0y" id="agN-sf-T0U"/>
+                        <outlet property="message" destination="A8H-eN-Ypm" id="V6a-bT-ECL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mss-85-pxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,7 +219,7 @@
         <!--Me-->
         <scene sceneID="1DS-84-icw">
             <objects>
-                <viewController title="Me" id="aFY-6q-pq2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" title="Me" id="aFY-6q-pq2" customClass="ProfileViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="avj-oT-ufX"/>
                         <viewControllerLayoutGuide type="bottom" id="G0N-gV-2XR"/>

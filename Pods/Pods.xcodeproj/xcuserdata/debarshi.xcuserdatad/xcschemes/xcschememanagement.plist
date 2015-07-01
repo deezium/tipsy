@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-tipsy-SQLite.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-tipsy-SwiftAddressBook.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>45AA2273E1C24C367BD08681</key>
+		<key>B819563079656EC0EED1F22E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F9BBD78AF7A992209C586978</key>
+		<key>BEBAA46E5AF2526B3A3B4AC2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DE3A90E55AD8236B386BABB6</key>
 		<dict>
 			<key>primary</key>
 			<true/>

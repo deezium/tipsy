@@ -1,10 +1,26 @@
 PODS:
+  - SQLite.swift (0.1.0.pre):
+    - SQLite.swift/Library (= 0.1.0.pre)
+  - SQLite.swift/Core (0.1.0.pre)
+  - SQLite.swift/Library (0.1.0.pre):
+    - SQLite.swift/Core
   - SwiftAddressBook (0.4.3)
 
 DEPENDENCIES:
+  - SQLite.swift (from `https://github.com/stephencelis/SQLite.swift.git`)
   - SwiftAddressBook
 
+EXTERNAL SOURCES:
+  SQLite.swift:
+    :git: https://github.com/stephencelis/SQLite.swift.git
+
+CHECKOUT OPTIONS:
+  SQLite.swift:
+    :commit: fde8c3391b265eb34b6407e3665160fb981b6857
+    :git: https://github.com/stephencelis/SQLite.swift.git
+
 SPEC CHECKSUMS:
+  SQLite.swift: 6e05cc2b8efb0e91911e9cfb93551dd682b25843
   SwiftAddressBook: 295fe9099a2e420e214a8beec36050030ece0436
 
 COCOAPODS: 0.37.2

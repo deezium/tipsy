@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DE3A90E55AD8236B386BABB6"
-               BuildableName = "SwiftAddressBook.framework"
-               BlueprintName = "Pods-tipsy-SwiftAddressBook"
+               BlueprintIdentifier = "B819563079656EC0EED1F22E"
+               BuildableName = "SQLite.framework"
+               BlueprintName = "Pods-tipsy-SQLite.swift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

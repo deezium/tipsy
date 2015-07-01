@@ -15,6 +15,16 @@
 		3339CDDB1B4223CA001C222C /* Gender Neutral User-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */; };
 		3339CDDD1B42253A001C222C /* Edit-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDDC1B42253A001C222C /* Edit-25.png */; };
 		3339CDDF1B422C9B001C222C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CDDE1B422C9B001C222C /* libsqlite3.dylib */; };
+		3339CDF21B423EB2001C222C /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDF11B423EB2001C222C /* Checkin.swift */; };
+		3339CDF41B4244D1001C222C /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDF31B4244D1001C222C /* Util.swift */; };
+		3339CDF61B424B7D001C222C /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDF51B424B7D001C222C /* ModelManager.swift */; };
+		3339CE121B424EE6001C222C /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE091B424EE6001C222C /* FMDatabase.m */; };
+		3339CE131B424EE6001C222C /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE0B1B424EE6001C222C /* FMResultSet.m */; };
+		3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE0D1B424EE6001C222C /* FMDatabaseQueue.m */; };
+		3339CE151B424EE6001C222C /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE0F1B424EE6001C222C /* FMDatabaseAdditions.m */; };
+		3339CE161B424EE6001C222C /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE111B424EE6001C222C /* FMDatabasePool.m */; };
+		3339CE181B425172001C222C /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE171B425172001C222C /* CheckInViewController.swift */; };
+		3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE191B4357C2001C222C /* ProfileViewController.swift */; };
 		336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344951B3283F800DF3D90 /* AppDelegate.swift */; };
 		336344981B3283F800DF3D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344971B3283F800DF3D90 /* ViewController.swift */; };
 		3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336344991B3283F800DF3D90 /* Main.storyboard */; };
@@ -48,6 +58,22 @@
 		3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Gender Neutral User-25.png"; path = "../../../../Downloads/Gender Neutral User-25.png"; sourceTree = "<group>"; };
 		3339CDDC1B42253A001C222C /* Edit-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Edit-25.png"; path = "../../../../Downloads/Edit-25.png"; sourceTree = "<group>"; };
 		3339CDDE1B422C9B001C222C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		3339CDF11B423EB2001C222C /* Checkin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
+		3339CDF31B4244D1001C222C /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		3339CDF51B424B7D001C222C /* ModelManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		3339CE071B424EE6001C222C /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = ../../fmdb/src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		3339CE081B424EE6001C222C /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = ../../fmdb/src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		3339CE091B424EE6001C222C /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = ../../fmdb/src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
+		3339CE0A1B424EE6001C222C /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = ../../fmdb/src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		3339CE0B1B424EE6001C222C /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = ../../fmdb/src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		3339CE0C1B424EE6001C222C /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = ../../fmdb/src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		3339CE0D1B424EE6001C222C /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = ../../fmdb/src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		3339CE0E1B424EE6001C222C /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		3339CE0F1B424EE6001C222C /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = ../../fmdb/src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		3339CE101B424EE6001C222C /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = ../../fmdb/src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		3339CE111B424EE6001C222C /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = ../../fmdb/src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		3339CE171B425172001C222C /* CheckInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
+		3339CE191B4357C2001C222C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		336344901B3283F800DF3D90 /* tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336344941B3283F800DF3D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336344951B3283F800DF3D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +142,18 @@
 		336344921B3283F800DF3D90 /* tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				3339CE071B424EE6001C222C /* FMDB.h */,
+				3339CE081B424EE6001C222C /* FMDatabase.h */,
+				3339CE091B424EE6001C222C /* FMDatabase.m */,
+				3339CE0A1B424EE6001C222C /* FMResultSet.h */,
+				3339CE0B1B424EE6001C222C /* FMResultSet.m */,
+				3339CE0C1B424EE6001C222C /* FMDatabaseQueue.h */,
+				3339CE0D1B424EE6001C222C /* FMDatabaseQueue.m */,
+				3339CE0E1B424EE6001C222C /* FMDatabaseAdditions.h */,
+				3339CE0F1B424EE6001C222C /* FMDatabaseAdditions.m */,
+				3339CE101B424EE6001C222C /* FMDatabasePool.h */,
+				3339CE111B424EE6001C222C /* FMDatabasePool.m */,
+				3339CDF31B4244D1001C222C /* Util.swift */,
 				3339CDD41B422165001C222C /* Map-50.png */,
 				3339CDD81B4222DE001C222C /* RSS-25.png */,
 				3339CDDC1B42253A001C222C /* Edit-25.png */,
@@ -126,8 +164,12 @@
 				336344B61B3286B000DF3D90 /* FBSDKLoginKit.framework */,
 				336344B71B3286B000DF3D90 /* FBSDKShareKit.framework */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
+				3339CDF51B424B7D001C222C /* ModelManager.swift */,
 				336344971B3283F800DF3D90 /* ViewController.swift */,
 				336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */,
+				3339CE171B425172001C222C /* CheckInViewController.swift */,
+				3339CE191B4357C2001C222C /* ProfileViewController.swift */,
+				3339CDF11B423EB2001C222C /* Checkin.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
 				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
@@ -339,10 +381,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */,
+				3339CDF61B424B7D001C222C /* ModelManager.swift in Sources */,
+				3339CE161B424EE6001C222C /* FMDatabasePool.m in Sources */,
 				336344981B3283F800DF3D90 /* ViewController.swift in Sources */,
+				3339CE121B424EE6001C222C /* FMDatabase.m in Sources */,
+				3339CE131B424EE6001C222C /* FMResultSet.m in Sources */,
+				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
+				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
+				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
+				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
+				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,
+				3339CE151B424EE6001C222C /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
