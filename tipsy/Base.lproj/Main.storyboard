@@ -264,6 +264,9 @@
                             <constraint firstAttribute="centerX" secondItem="7Pz-uL-gil" secondAttribute="centerX" constant="-0.5" id="hDz-gS-MXy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="YNR-Lo-PPY" kind="show" identifier="loggedInSegue" id="hu6-Gw-IAy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Lc-ut-vTK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

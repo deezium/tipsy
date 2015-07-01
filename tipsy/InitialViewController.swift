@@ -8,7 +8,12 @@
 
 import Foundation
 
+protocol InitialViewControllerDelegate {
+    func initialViewControllerDidLogin(controller: InitialViewController)
+}
+
 class InitialViewController: UIViewController {
+    
     
     @IBAction func didTapFacebookLogin(sender: AnyObject) {
         
@@ -18,9 +23,12 @@ class InitialViewController: UIViewController {
             if let user = user {
                 if user.isNew {
                     println("Successful sign up!")
+                    self.performSegueWithIdentifier("loggedInSegue", sender: nil)
                 }
                 else {
-                    println("User logged in!")
+                    println("User already logged in!")
+                    println(user)
+                    self.performSegueWithIdentifier("loggedInSegue", sender: nil)
                 }
             }
             else {
@@ -31,16 +39,16 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var testObject = PFObject(className: "TestObject")
-        testObject.setObject(2048, forKey: "score")
-        testObject.saveInBackgroundWithBlock {
-            (success, error) -> Void in
-            if success == true {
-                println("Success")
-            }
-            else {
-                println("Fail")
-            }
-        }
+//        var testObject = PFObject(className: "TestObject")
+//        testObject.setObject(2048, forKey: "score")
+//        testObject.saveInBackgroundWithBlock {
+//            (success, error) -> Void in
+//            if success == true {
+//                println("Success")
+//            }
+//            else {
+//                println("Fail")
+//            }
+//        }
     }
 }

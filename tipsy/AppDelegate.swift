@@ -19,10 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
       //  PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
+        if (PFUser.currentUser() != nil) {
+            println("sup")
+//            self.window?.rootViewController?.performSegueWithIdentifier("loggedInSegue", sender: nil)
+        }
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-
+        
     }
     
+    func initialViewControllerDidLogin(controller: InitialViewController) {
+    }
     
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {

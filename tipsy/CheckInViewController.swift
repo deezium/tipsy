@@ -36,31 +36,31 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         println("yay loaded!")
-        let filemgr = NSFileManager.defaultManager()
-        let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let docsDir = dirPaths[0] as! String
-        
-        databasePath = docsDir.stringByAppendingPathComponent("tipsy.db")
-        
-        if !filemgr.fileExistsAtPath(databasePath as String) {
-            let tipsyDB = FMDatabase(path: databasePath as String)
-        
-            if tipsyDB == nil {
-                println("Error: \(tipsyDB.lastErrorMessage())")
-            }
-            
-            if tipsyDB.open() {
-                let sql_statement = "CREATE TABLE IF NOT EXISTS CHECKINS (ID INTEGER PRIMARY KEY AUTOINCREMENT, MESSAGE TEXT, LATITUDE REAL, LONGITUDE REAL, DATE INTEGER)"
-                
-                if !tipsyDB.executeStatements(sql_statement) {
-                    println("Error: \(tipsyDB.lastErrorMessage())")
-                }
-                else {
-                    println("Error: \(tipsyDB.lastErrorMessage())")
-                }
-
-            }
-        }
+//        let filemgr = NSFileManager.defaultManager()
+//        let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+//        let docsDir = dirPaths[0] as! String
+//        
+//        databasePath = docsDir.stringByAppendingPathComponent("tipsy.db")
+//        
+//        if !filemgr.fileExistsAtPath(databasePath as String) {
+//            let tipsyDB = FMDatabase(path: databasePath as String)
+//        
+//            if tipsyDB == nil {
+//                println("Error: \(tipsyDB.lastErrorMessage())")
+//            }
+//            
+//            if tipsyDB.open() {
+//                let sql_statement = "CREATE TABLE IF NOT EXISTS CHECKINS (ID INTEGER PRIMARY KEY AUTOINCREMENT, MESSAGE TEXT, LATITUDE REAL, LONGITUDE REAL, DATE INTEGER)"
+//                
+//                if !tipsyDB.executeStatements(sql_statement) {
+//                    println("Error: \(tipsyDB.lastErrorMessage())")
+//                }
+//                else {
+//                    println("Error: \(tipsyDB.lastErrorMessage())")
+//                }
+//
+//            }
+//        }
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -90,30 +90,58 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func checkinButtonPressed(sender: AnyObject) {
         var locValue:CLLocationCoordinate2D = self.locationManager.location.coordinate
-        let tipsyDB = FMDatabase(path: databasePath as String)
-        let date = NSDate().timeIntervalSince1970
-        let humanLocalDate = NSDate(timeIntervalSince1970: date)
+    
+        let user = PFUser.currentUser()
         
-        if tipsyDB.open() {
-            let insertSQL = "INSERT INTO CHECKINS (message, latitude, longitude, date) VALUES ('\(message.text)', '\(locValue.latitude)', '\(locValue.longitude)', '\(date)')"
-            
-            let result = tipsyDB.executeUpdate(insertSQL, withArgumentsInArray: nil)
-            
-            if !result {
-                println("Failed to checkin")
-                println("Error: \(tipsyDB.lastErrorMessage())")
+        let currentPoint = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        let checkInObject = PFObject(className: "CheckIn")
+        checkInObject.setObject(message.text, forKey: "message")
+        checkInObject.setObject(currentPoint, forKey: "location")
+        checkInObject.setObject(user!, forKey: "creatingUser")
+        
+        let readOnlyACL = PFACL()
+        readOnlyACL.setPublicReadAccess(true)
+        readOnlyACL.setPublicWriteAccess(false)
+        checkInObject.ACL = readOnlyACL
+        
+        checkInObject.saveInBackgroundWithBlock {
+            (success, error) -> Void in
+            if success == true {
+                println("Success")
             }
             else {
-                println("Checkin successful!")
-                message.text = ""
-                println("date \(date)")
-                println("human date \(humanLocalDate)")
-                println("latitude \(locValue.latitude) longitude \(locValue.longitude)")
-                println("Everything's fine: \(tipsyDB.databasePath())")
+                println("Fail")
             }
         }
-        else {
-            println("Error: \(tipsyDB.lastErrorMessage())")
-        }
+        
+        message.resignFirstResponder()
+        message.text = ""
+        
+//        let tipsyDB = FMDatabase(path: databasePath as String)
+//        let date = NSDate().timeIntervalSince1970
+//        let humanLocalDate = NSDate(timeIntervalSince1970: date)
+//        
+//        if tipsyDB.open() {
+//            let insertSQL = "INSERT INTO CHECKINS (message, latitude, longitude, date) VALUES ('\(message.text)', '\(locValue.latitude)', '\(locValue.longitude)', '\(date)')"
+//            
+//            let result = tipsyDB.executeUpdate(insertSQL, withArgumentsInArray: nil)
+//            
+//            if !result {
+//                println("Failed to checkin")
+//                println("Error: \(tipsyDB.lastErrorMessage())")
+//            }
+//            else {
+//                println("Checkin successful!")
+//                message.text = ""
+//                println("date \(date)")
+//                println("human date \(humanLocalDate)")
+//                println("latitude \(locValue.latitude) longitude \(locValue.longitude)")
+//                println("Everything's fine: \(tipsyDB.databasePath())")
+//            }
+//        }
+//        else {
+//            println("Error: \(tipsyDB.lastErrorMessage())")
+//        }
     }
 }

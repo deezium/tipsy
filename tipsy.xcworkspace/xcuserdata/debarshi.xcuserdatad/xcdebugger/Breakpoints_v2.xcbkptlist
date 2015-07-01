@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tipsy/CheckInViewController.swift"
-            timestampString = "457396423.8772"
+            timestampString = "457394874.33188"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "checkinButtonPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "tipsy/CheckInViewController.swift"
-            timestampString = "457394874.33188"
+            filePath = "tipsy/LocationViewController.swift"
+            timestampString = "457484064.556298"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "checkinButtonPressed(_:)"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "queryForAllPostsNearLocation(_:withNearbyDistance:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -14,7 +14,7 @@ import CoreLocation
 class ProfileViewController: UIViewController {
     
     var databasePath = NSString()
-    
+    let user = PFUser.currentUser()
     
     
     override func viewDidAppear(animated: Bool) {
@@ -27,6 +27,8 @@ class ProfileViewController: UIViewController {
         
         databasePath = docsDir.stringByAppendingPathComponent("tipsy.db")
         
+        println(user)
+        
         let tipsyDB = FMDatabase(path: databasePath as String)
         
         if tipsyDB.open() {
@@ -36,11 +38,11 @@ class ProfileViewController: UIViewController {
             
             
             
-            while results?.next() == true {
-                println(results?.stringForColumn("latitude"))
-                println(results?.stringForColumn("longitude"))
-                println(results?.stringForColumn("message"))
-            }
+//            while results?.next() == true {
+//                println(results?.stringForColumn("latitude"))
+//                println(results?.stringForColumn("longitude"))
+//                println(results?.stringForColumn("message"))
+//            }
             tipsyDB.close()
         }
         else {
