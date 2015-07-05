@@ -12,7 +12,7 @@ import MapKit
 import CoreLocation
 import DateTools
 
-class LocationViewController: UIViewController, CLLocationManagerDelegate {
+class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -25,6 +25,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
        // println(user)
         
      //   self.locationManager.requestAlwaysAuthorization()
+        self.mapView.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         
         if (CLLocationManager.locationServicesEnabled()) {
@@ -90,16 +91,22 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                         for object in objects {
                             let user = object.objectForKey("creatingUser") as! PFUser
                             let title = user.username! as String
-                            let subtitle = object.objectForKey("message") as! String
                             let point = object.objectForKey("location") as? PFGeoPoint
                             let createdAt = object.createdAt
                             let timeAgo = createdAt!.shortTimeAgoSinceNow()
+                            let st = object.objectForKey("message") as! String
+                            let subtitle = "\(st), time since post: \(timeAgo)"
                             let coordinate = CLLocationCoordinate2D(latitude: point!.latitude, longitude: point!.longitude)
                             println("time ago \(timeAgo)")
+                            var checkinPin = MKPointAnnotation()
+                            checkinPin.coordinate = coordinate
+                            checkinPin.title = title
+                            checkinPin.subtitle = subtitle
                             
                             
                             let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
-                            self.mapView.addAnnotation(annotation)
+                            self.mapView.removeAnnotation(checkinPin)
+                            self.mapView.addAnnotation(checkinPin)
                             //checkins.addObject(object)
                             
                         }
@@ -125,6 +132,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
 
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
+        if (annotation is MKUserLocation) {
+            return nil
+        }
         
         let reuseId = "pin"
         
@@ -134,27 +144,17 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
             pinView!.canShowCallout = true
             pinView!.animatesDrop = true
             pinView!.pinColor = .Purple
-            pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
+            var label = UILabel(frame: CGRectMake(0,0,21,21))
+            label.text = "3h"
+//            pinView!.rightCalloutAccessoryView = label
+            
+  //          pinView!.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
         }
         else {
             pinView!.annotation = annotation
         }
         return pinView
     }
-    
-//    func mapView(mapView: MKMapView!, viewForAnnotation annotation: CheckinAnnotation!) -> MKAnnotationView! {
-//        let reuseId = "pin"
-//        
-//        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
-//        
-//        if pinView == nil {
-//            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-//            println(reuseId)
-//            pinView!.canShowCallout = true
-//            pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.InfoLight) as! UIButton
-//        }
-//        return pinView
-//    }
     
     func addCheckinPins() {
         
