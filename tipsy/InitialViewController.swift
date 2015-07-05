@@ -21,6 +21,7 @@ class InitialViewController: UIViewController {
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {(user: PFUser?, error: NSError?) -> Void in
             if let user = user {
+                
                 if user.isNew {
                     println("Successful sign up!")
                     self.performSegueWithIdentifier("loggedInSegue", sender: nil)

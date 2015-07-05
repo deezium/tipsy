@@ -6,6 +6,12 @@
 // project.
 
 
+// DateTools
+#define COCOAPODS_POD_AVAILABLE_DateTools
+#define COCOAPODS_VERSION_MAJOR_DateTools 1
+#define COCOAPODS_VERSION_MINOR_DateTools 6
+#define COCOAPODS_VERSION_PATCH_DateTools 1
+
 // SQLite.swift
 #define COCOAPODS_POD_AVAILABLE_SQLite_swift
 // This library does not follow semantic-versioning,

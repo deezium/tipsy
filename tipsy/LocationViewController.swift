@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MapKit
 import CoreLocation
+import DateTools
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -21,7 +22,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(user)
+       // println(user)
         
      //   self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
@@ -50,6 +51,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         println("currentLocation \(self.currentLocation)")
         locationManager.stopUpdatingLocation()
         self.queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 1)
+//        self.addCheckinPins()
 //        
 //        var locationLat = currentLocation.coordinate.latitude
 //        var locationLong = currentLocation.coordinate.longitude
@@ -66,7 +68,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-    func queryForAllPostsNearLocation(currentLocation: CLLocation, withNearbyDistance nearbyDistance: CLLocationAccuracy) {
+    func queryForAllPostsNearLocation(currentLocation: CLLocation, withNearbyDistance nearbyDistance: CLLocationAccuracy) -> NSMutableArray {
         
         println("fuck my balls did this work \(currentLocation)")
         var locValue:CLLocationCoordinate2D = currentLocation.coordinate
@@ -78,18 +80,32 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
         query.whereKey("location", nearGeoPoint: point, withinKilometers: 1)
         query.includeKey("creatingUser")
         query.limit = 20
+        var checkins: NSMutableArray = []
         
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
                 if error == nil {
                     println("Yeee query succeeded")
-                    var checkins: NSMutableArray = []
                     if let objects = objects as? [PFObject] {
                         for object in objects {
-                            checkins.addObject(object)
+                            let user = object.objectForKey("creatingUser") as! PFUser
+                            let title = user.username! as String
+                            let subtitle = object.objectForKey("message") as! String
+                            let point = object.objectForKey("location") as? PFGeoPoint
+                            let createdAt = object.createdAt
+                            let timeAgo = createdAt!.shortTimeAgoSinceNow()
+                            let coordinate = CLLocationCoordinate2D(latitude: point!.latitude, longitude: point!.longitude)
+                            println("time ago \(timeAgo)")
+                            
+                            
+                            let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
+                            self.mapView.addAnnotation(annotation)
+                            //checkins.addObject(object)
+                            
                         }
+                        println("Checkins added \(checkins)")
                     }
-                    println(checkins)
+                 
                  //   self.mapView.addAnnotations(checkins as [AnyObject])
                 
                 }
@@ -98,6 +114,56 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate {
                 }
             
             }
+        println("These my checkins yo \(checkins)")
+        return checkins
+    }
+    
+    // TO DO: MODIFY TO ACTUALLY USE DATA FROM SERVER
+    // RUN QUERY TO GET PFOBJECTS BACK
+    // BUILD ARRAY OF DICTS (OR DICT OF DICTS?) TO HOLD ALL NECESSARY VALUES
+    // READ FROM ARRAY TO PUT ALL RELEVANT PARAMETERS ON THE ANNOTATION
+
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+            pinView!.pinColor = .Purple
+            pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        return pinView
+    }
+    
+//    func mapView(mapView: MKMapView!, viewForAnnotation annotation: CheckinAnnotation!) -> MKAnnotationView! {
+//        let reuseId = "pin"
+//        
+//        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+//        
+//        if pinView == nil {
+//            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//            println(reuseId)
+//            pinView!.canShowCallout = true
+//            pinView!.rightCalloutAccessoryView = UIButton.buttonWithType(.InfoLight) as! UIButton
+//        }
+//        return pinView
+//    }
+    
+    func addCheckinPins() {
+        
+        let x = self.queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 1)
+        //println(x)
+        let coordinate = currentLocation.coordinate
+        let title = "Debarshi Chaudhuri"
+        let subtitle = "My House"
+        let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
+        mapView.addAnnotation(annotation)
     }
 }

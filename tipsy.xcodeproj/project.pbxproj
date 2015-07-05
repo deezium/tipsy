@@ -47,6 +47,7 @@
 		3339CE5A1B43D352001C222C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE581B43D352001C222C /* Parse.framework */; };
 		3339CE5E1B43D389001C222C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */; };
 		3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */; };
+		3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */; };
 		336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344951B3283F800DF3D90 /* AppDelegate.swift */; };
 		336344981B3283F800DF3D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344971B3283F800DF3D90 /* ViewController.swift */; };
 		3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336344991B3283F800DF3D90 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		3339CE581B43D352001C222C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinAnnotation.swift; path = ../CheckinAnnotation.swift; sourceTree = "<group>"; };
+		3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinAnnotationView.swift; sourceTree = "<group>"; };
 		336344901B3283F800DF3D90 /* tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336344941B3283F800DF3D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336344951B3283F800DF3D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				3339CE171B425172001C222C /* CheckInViewController.swift */,
 				3339CE191B4357C2001C222C /* ProfileViewController.swift */,
 				3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */,
+				3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */,
 				3339CDF11B423EB2001C222C /* Checkin.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
@@ -464,6 +467,7 @@
 				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
+				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
 				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,
 				3339CE151B424EE6001C222C /* FMDatabaseAdditions.m in Sources */,
 				3339CE441B43B084001C222C /* InitialViewController.swift in Sources */,
