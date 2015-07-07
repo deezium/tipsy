@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0EB6F515DD0D220EC8E91B1A /* Pods_tipsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		332476DD1B4B5CA300CF0881 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476DC1B4B5CA300CF0881 /* FeedViewController.swift */; };
+		332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476DE1B4C7D8D00CF0881 /* TabBarController.swift */; };
+		332476E11B4C846600CF0881 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476E01B4C846600CF0881 /* MeViewController.swift */; };
 		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
 		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
 		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
@@ -70,6 +73,9 @@
 
 /* Begin PBXFileReference section */
 		329318A9E52DEB351C66B293 /* Pods-tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.debug.xcconfig"; sourceTree = "<group>"; };
+		332476DC1B4B5CA300CF0881 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		332476DE1B4C7D8D00CF0881 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		332476E01B4C846600CF0881 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
@@ -214,6 +220,8 @@
 				3339CDD61B422186001C222C /* Map-25.png */,
 				3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
+				332476E01B4C846600CF0881 /* MeViewController.swift */,
+				332476DE1B4C7D8D00CF0881 /* TabBarController.swift */,
 				3339CDF51B424B7D001C222C /* ModelManager.swift */,
 				336344971B3283F800DF3D90 /* ViewController.swift */,
 				336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */,
@@ -222,10 +230,11 @@
 				3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */,
 				3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */,
 				3339CDF11B423EB2001C222C /* Checkin.swift */,
-				336344991B3283F800DF3D90 /* Main.storyboard */,
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
 				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
+				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
+				336344991B3283F800DF3D90 /* Main.storyboard */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
 				336344931B3283F800DF3D90 /* Supporting Files */,
@@ -349,6 +358,7 @@
 				TargetAttributes = {
 					3363448F1B3283F800DF3D90 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 77EJE43K3R;
 					};
 					336344A41B3283F800DF3D90 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -457,6 +467,7 @@
 				3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */,
 				3339CDF61B424B7D001C222C /* ModelManager.swift in Sources */,
 				3339CE161B424EE6001C222C /* FMDatabasePool.m in Sources */,
+				332476DD1B4B5CA300CF0881 /* FeedViewController.swift in Sources */,
 				336344981B3283F800DF3D90 /* ViewController.swift in Sources */,
 				3339CE121B424EE6001C222C /* FMDatabase.m in Sources */,
 				3339CE131B424EE6001C222C /* FMResultSet.m in Sources */,
@@ -465,7 +476,9 @@
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
 				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
+				332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
+				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
 				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
 				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,
@@ -601,6 +614,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/debarshi/Documents/FacebookSDK,
@@ -609,6 +623,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = tipsy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -630,6 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/debarshi/Documents/FacebookSDK,
@@ -638,6 +654,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = tipsy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",

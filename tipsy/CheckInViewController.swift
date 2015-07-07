@@ -70,7 +70,7 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
         let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
-        self.mapView.setRegion(region, animated: true)
+        self.mapView.setRegion(region, animated: false)
         var currentLocation = CLLocation()
         
         var locationLat = currentLocation.coordinate.latitude

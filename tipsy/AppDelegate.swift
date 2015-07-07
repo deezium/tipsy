@@ -12,17 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+   // var storyboard: UIStoryboard?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
       //  PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (PFUser.currentUser() != nil) {
-            println("sup")
-//            self.window?.rootViewController?.performSegueWithIdentifier("loggedInSegue", sender: nil)
+            let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
+            
+            tabBarController.selectedIndex = 0
+            
+            self.window?.rootViewController? = tabBarController
         }
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -30,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func initialViewControllerDidLogin(controller: InitialViewController) {
+    
     }
     
     
