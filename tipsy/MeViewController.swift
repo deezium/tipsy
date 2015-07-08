@@ -13,7 +13,6 @@ import DateTools
 
 class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var latestCheckin: MKMapView!
     @IBOutlet weak var profileName: UILabel!
@@ -34,16 +33,11 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         self.drawLatestCheckin()
         
-        
-        
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
     }
         
     func queryForAllPostsByUser(user: PFUser) -> [PFObject] {
-        
-        //        println("fuck my balls did this work \(currentLocation)")
-        //var locValue:CLLocationCoordinate2D = currentLocation.coordinate
         
         var query = PFQuery(className: "CheckIn")
         
@@ -78,7 +72,6 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             self.latestCheckin.removeAnnotation(checkinPin)
             self.latestCheckin.addAnnotation(checkinPin)
-            
             
             
         }
@@ -119,8 +112,6 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kcellIdentifier) as! UITableViewCell
-        //let album = self.albums[indexPath.row]
-        
         
         var objects = queryForAllPostsByUser(user!)
         var count = objects.count
@@ -146,10 +137,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
                     
                 }
             })
-            // cell.detailTextLabel?.text = object.username
-            // cell.textLabel?.text = object.message
         }
-        
         
         return cell
     }

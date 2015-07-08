@@ -10,12 +10,33 @@ import Foundation
 import UIKit
 import CoreLocation
 import MapKit
+import MobileCoreServices
 
-class CheckInViewController: UIViewController, CLLocationManagerDelegate {
+class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var message: UITextField!
     
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var imageView: UIImageView?
+    
+    
+    @IBAction func didTapCamera(sender: AnyObject) {
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.mediaTypes = [kUTTypeImage as NSString]
+            imagePicker.allowsEditing = false
+            self.presentViewController(imagePicker, animated: true, completion: nil)
+            
+        }
+        
+
+    }
+    
     
     let locationManager = CLLocationManager()
     
@@ -63,6 +84,16 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
 //        }
     }
     
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        println(image)
+        imageView!.image = image
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
         
@@ -88,6 +119,10 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        message.endEditing(true)
+    }
+    
     @IBAction func checkinButtonPressed(sender: AnyObject) {
         var locValue:CLLocationCoordinate2D = self.locationManager.location.coordinate
     
@@ -100,6 +135,13 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
         checkInObject.setObject(currentPoint, forKey: "location")
         checkInObject.setObject(user!, forKey: "creatingUser")
         
+        if let image = imageView!.image as UIImage? {
+            let image = imageView!.image
+            let imageData = UIImageJPEGRepresentation(image, 1)
+            let imageParseFile: PFFile = PFFile(data: imageData)
+            checkInObject.setObject(imageParseFile, forKey: "image")
+        }
+        
         let readOnlyACL = PFACL()
         readOnlyACL.setPublicReadAccess(true)
         readOnlyACL.setPublicWriteAccess(false)
@@ -109,6 +151,9 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
             (success, error) -> Void in
             if success == true {
                 println("Success")
+                let alert = UIAlertController(title: "Success", message: "Your message has been posted successfully!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
             else {
                 println("Fail")
@@ -117,6 +162,7 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate {
         
         message.resignFirstResponder()
         message.text = ""
+        imageView!.image = nil
         
 //        let tipsyDB = FMDatabase(path: databasePath as String)
 //        let date = NSDate().timeIntervalSince1970

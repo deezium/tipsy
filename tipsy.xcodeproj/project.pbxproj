@@ -12,6 +12,7 @@
 		332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476DE1B4C7D8D00CF0881 /* TabBarController.swift */; };
 		332476E11B4C846600CF0881 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476E01B4C846600CF0881 /* MeViewController.swift */; };
 		332476E31B4CE46100CF0881 /* Gender Neutral User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */; };
+		332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */; };
 		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
 		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
 		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
@@ -78,6 +79,7 @@
 		332476DE1B4C7D8D00CF0881 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		332476E01B4C846600CF0881 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gender Neutral User-100.png"; sourceTree = "<group>"; };
+		332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera-100.png"; sourceTree = "<group>"; };
 		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */,
 				3339CDD81B4222DE001C222C /* RSS-25.png */,
 				3339CDDC1B42253A001C222C /* Edit-25.png */,
+				332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */,
 				3339CDD61B422186001C222C /* Map-25.png */,
 				3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
@@ -402,6 +405,7 @@
 				336344A01B3283F800DF3D90 /* LaunchScreen.xib in Resources */,
 				3363449D1B3283F800DF3D90 /* Images.xcassets in Resources */,
 				3339CDD71B422186001C222C /* Map-25.png in Resources */,
+				332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
