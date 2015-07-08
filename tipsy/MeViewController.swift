@@ -11,14 +11,14 @@ import UIKit
 import MapKit
 import DateTools
 
-class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
     
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var latestCheckin: MKMapView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var profileTable: UITableView!
-    
+    @IBOutlet weak var checkinLabel: UILabel!
     
     let kcellIdentifier: String = "ProfileCell"
     let user = PFUser.currentUser()
@@ -30,11 +30,16 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         self.profileTable!.delegate = self
         self.profileTable!.dataSource = self
+        self.latestCheckin.delegate = self
+        
+        self.drawLatestCheckin()
+        
+        
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
     }
-    
+        
     func queryForAllPostsByUser(user: PFUser) -> [PFObject] {
         
         //        println("fuck my balls did this work \(currentLocation)")
@@ -54,6 +59,55 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         return objects
         
+    }
+    
+    func drawLatestCheckin() {
+        var objects = queryForAllPostsByUser(user!)
+        
+        if let objects = objects as? [PFObject] {
+            let object = objects[0]
+            let point = object.objectForKey("location") as? PFGeoPoint
+            let coordinate = CLLocationCoordinate2D(latitude: point!.latitude, longitude: point!.longitude)
+            
+            let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            
+            self.latestCheckin.setRegion(region, animated: true)
+            
+            var checkinPin = MKPointAnnotation()
+            checkinPin.coordinate = coordinate
+            
+            self.latestCheckin.removeAnnotation(checkinPin)
+            self.latestCheckin.addAnnotation(checkinPin)
+            
+            
+            
+        }
+    }
+    
+    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+        
+        if (annotation is MKUserLocation) {
+            return nil
+        }
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+            pinView!.pinColor = .Purple
+            var label = UILabel(frame: CGRectMake(0,0,21,21))
+            label.text = "3h"
+            //            pinView!.rightCalloutAccessoryView = label
+            
+            //          pinView!.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        return pinView
     }
     
     

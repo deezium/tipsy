@@ -164,8 +164,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4K-FB-22q">
-                                <rect key="frame" x="16" y="173" width="150" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Gender Neutral User-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="brc-8n-H9P">
+                                <rect key="frame" x="16" y="20" width="150" height="150"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4K-FB-22q">
+                                <rect key="frame" x="16" y="188" width="150" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -197,17 +200,21 @@
                                 </prototypes>
                             </tableView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="N7M-XT-AaU">
-                                <rect key="frame" x="201" y="20" width="383" height="174"/>
+                                <rect key="frame" x="201" y="20" width="150" height="150"/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brc-8n-H9P">
-                                <rect key="frame" x="16" y="20" width="150" height="150"/>
-                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latest Checkin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLd-WB-Vio">
+                                <rect key="frame" x="201" y="187" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration" label=""/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="Gender Neutral User-25.png" id="LCh-YB-RjK"/>
                     <connections>
+                        <outlet property="checkinLabel" destination="JLd-WB-Vio" id="Ehn-hL-EpZ"/>
                         <outlet property="latestCheckin" destination="N7M-XT-AaU" id="5S5-fp-1dm"/>
                         <outlet property="profileImage" destination="brc-8n-H9P" id="rqE-8d-bO4"/>
                         <outlet property="profileName" destination="U4K-FB-22q" id="wNC-kY-I3J"/>
@@ -278,6 +285,7 @@
     </scenes>
     <resources>
         <image name="Edit-25.png" width="25" height="25"/>
+        <image name="Gender Neutral User-100.png" width="100" height="100"/>
         <image name="Gender Neutral User-25.png" width="25" height="25"/>
         <image name="Map-25.png" width="25" height="25"/>
         <image name="RSS-25.png" width="25" height="25"/>

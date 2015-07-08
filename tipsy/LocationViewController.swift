@@ -104,7 +104,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
                             checkinPin.subtitle = subtitle
                             
                             
-                            let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
+                           // let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
                             self.mapView.removeAnnotation(checkinPin)
                             self.mapView.addAnnotation(checkinPin)
                             //checkins.addObject(object)
