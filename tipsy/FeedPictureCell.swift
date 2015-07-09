@@ -1,5 +1,5 @@
 //
-//  FeedTextCell.swift
+//  FeedPictureCell.swift
 //  tipsy
 //
 //  Created by Debarshi Chaudhuri on 7/8/15.
@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 
-class FeedTextCell: UITableViewCell {
+class FeedPictureCell: UITableViewCell {
     
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var message: UILabel!
     @IBOutlet weak var timestamp: UILabel!
+    @IBOutlet weak var postImage: UIImageView!
     
     
 }
