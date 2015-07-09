@@ -13,6 +13,8 @@
 		332476E11B4C846600CF0881 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476E01B4C846600CF0881 /* MeViewController.swift */; };
 		332476E31B4CE46100CF0881 /* Gender Neutral User-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */; };
 		332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */; };
+		332476E71B4DFF4300CF0881 /* PictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476E61B4DFF4300CF0881 /* PictureCell.swift */; };
+		332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476E81B4E0A4600CF0881 /* FeedTextCell.swift */; };
 		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
 		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
 		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
@@ -80,6 +82,8 @@
 		332476E01B4C846600CF0881 /* MeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Gender Neutral User-100.png"; sourceTree = "<group>"; };
 		332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera-100.png"; sourceTree = "<group>"; };
+		332476E61B4DFF4300CF0881 /* PictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCell.swift; sourceTree = "<group>"; };
+		332476E81B4E0A4600CF0881 /* FeedTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTextCell.swift; sourceTree = "<group>"; };
 		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
@@ -241,6 +245,8 @@
 				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				332476E61B4DFF4300CF0881 /* PictureCell.swift */,
+				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
 				336344931B3283F800DF3D90 /* Supporting Files */,
@@ -481,10 +487,12 @@
 				3339CE131B424EE6001C222C /* FMResultSet.m in Sources */,
 				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
+				332476E71B4DFF4300CF0881 /* PictureCell.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
 				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
 				332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */,
+				332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
 				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,

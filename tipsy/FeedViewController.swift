@@ -17,7 +17,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var currentLocation = CLLocation()
     let user = PFUser.currentUser()
     let searchRadiusKilometers = CLLocationAccuracy()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,8 +91,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kcellIdentifier) as! UITableViewCell
         //let album = self.albums[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as! UITableViewCell
         
         
         var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)
@@ -106,19 +107,44 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             println(object)
             
-            dispatch_async(dispatch_get_main_queue(), {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    let user = object.objectForKey("creatingUser") as! PFUser
-                    let createdAt = object.createdAt
-                    let timeAgo = createdAt!.shortTimeAgoSinceNow()
-                    let message = object.objectForKey("message") as! String
+            if (object.objectForKey("image") != nil) {
+                let cell = tableView.dequeueReusableCellWithIdentifier("PictureCell") as! PictureCell
                     
-                    cellToUpdate.textLabel?.text = user.username! as String
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                        let user = object.objectForKey("creatingUser") as! PFUser
+                        let createdAt = object.createdAt
+                        let timeAgo = createdAt!.shortTimeAgoSinceNow()
+                        let message = object.objectForKey("message") as! String
+                        
+                        cellToUpdate.textLabel?.text = user.username! as String
+                        
+                        cellToUpdate.detailTextLabel?.text = "\(message), \(timeAgo)"
+                        
+                    }
+                })
 
-                    cellToUpdate.detailTextLabel?.text = "\(message), \(timeAgo)"
-                    
-                }
-            })
+            }
+            
+            else {
+                let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("FeedCell") as! UITableViewCell
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+                        let user = object.objectForKey("creatingUser") as! PFUser
+                        let createdAt = object.createdAt
+                        let timeAgo = createdAt!.shortTimeAgoSinceNow()
+                        let message = object.objectForKey("message") as! String
+                        
+                        cellToUpdate.textLabel?.text = user.username! as String
+                        
+                        cellToUpdate.detailTextLabel?.text = "\(message), \(timeAgo)"
+                        
+                    }
+                })
+
+            }
+            
            // cell.detailTextLabel?.text = object.username
            // cell.textLabel?.text = object.message
         }
