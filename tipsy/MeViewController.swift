@@ -111,36 +111,90 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kcellIdentifier) as! UITableViewCell
-        
         var objects = queryForAllPostsByUser(user!)
-        var count = objects.count
+        let object = objects[indexPath.row]
         
-        if (count == 0) {
-            println("no objects found")
+        if (object.objectForKey("image") != nil) {
+            return profilePictureCellAtIndexPath(tableView, withObject: object)
         }
         else {
-            let object = objects[indexPath.row]
-            
-            println(object)
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-                    let user = object.objectForKey("creatingUser") as! PFUser
-                    let createdAt = object.createdAt
-                    let timeAgo = createdAt!.shortTimeAgoSinceNow()
-                    let message = object.objectForKey("message") as! String
-                    
-                    cellToUpdate.textLabel?.text = user.username! as String
-                    
-                    cellToUpdate.detailTextLabel?.text = "\(message), \(timeAgo)"
-                    
-                }
-            })
+            return profileTextCellAtIndexPath(tableView, withObject: object)
         }
+    }
+    
+    func profileTextCellAtIndexPath(tableView: UITableView, withObject object: PFObject) -> FeedTextCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProfileTextCell") as! FeedTextCell
         
+        let user = object.objectForKey("creatingUser") as! PFUser
+        let createdAt = object.createdAt
+        let timeAgo = createdAt!.shortTimeAgoSinceNow()
+        let message = object.objectForKey("message") as! String
+        let username = user.username! as String
+        
+        cell.username.text = username
+        cell.timestamp.text = timeAgo
+        cell.message.text = message
         return cell
     }
+    
+    func profilePictureCellAtIndexPath(tableView: UITableView, withObject object: PFObject) -> FeedPictureCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProfilePictureCell") as! FeedPictureCell
+        
+        let user = object.objectForKey("creatingUser") as! PFUser
+        let createdAt = object.createdAt
+        let timeAgo = createdAt!.shortTimeAgoSinceNow()
+        let message = object.objectForKey("message") as! String
+        let username = user.username! as String
+        
+        
+        if let postImage = object.objectForKey("image") as? PFFile {
+            let imageData = postImage.getData()
+            let image = UIImage(data: imageData!)
+            cell.postImage.image = image
+            
+        }
+        
+        cell.username.text = username
+        cell.timestamp.text = timeAgo
+        cell.message.text = message
+        //cell.postImage.image = image
+        return cell
+        
+        
+    }
+
+    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kcellIdentifier) as! UITableViewCell
+//        
+//        var objects = queryForAllPostsByUser(user!)
+//        var count = objects.count
+//        
+//        if (count == 0) {
+//            println("no objects found")
+//        }
+//        else {
+//            let object = objects[indexPath.row]
+//            
+//            println(object)
+//            
+//            dispatch_async(dispatch_get_main_queue(), {
+//                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
+//                    let user = object.objectForKey("creatingUser") as! PFUser
+//                    let createdAt = object.createdAt
+//                    let timeAgo = createdAt!.shortTimeAgoSinceNow()
+//                    let message = object.objectForKey("message") as! String
+//                    
+//                    cellToUpdate.textLabel?.text = user.username! as String
+//                    
+//                    cellToUpdate.detailTextLabel?.text = "\(message), \(timeAgo)"
+//                    
+//                }
+//            })
+//        }
+//        
+//        return cell
+//    }
 
     
 }
