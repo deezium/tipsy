@@ -21,6 +21,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureTableView()
         
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -119,6 +120,11 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
+    func configureTableView() {
+        feedTableView.rowHeight = UITableViewAutomaticDimension
+        feedTableView.estimatedRowHeight = 160.0
+    }
+    
     func feedPictureCellAtIndexPath(tableView: UITableView, withObject object: PFObject) -> FeedPictureCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FeedPictureCell") as! FeedPictureCell
         
@@ -133,7 +139,6 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let imageData = postImage.getData()
             let image = UIImage(data: imageData!)
             cell.postImage.image = image
-            
         }
         
         cell.username.text = username
