@@ -111,7 +111,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let createdAt = object.createdAt
         let timeAgo = createdAt!.shortTimeAgoSinceNow()
         let message = object.objectForKey("message") as! String
-        let username = user.username! as String
+        let username = user.objectForKey("fullname") as? String
         
         cell.username.text = username
         cell.timestamp.text = timeAgo
@@ -126,7 +126,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let createdAt = object.createdAt
         let timeAgo = createdAt!.shortTimeAgoSinceNow()
         let message = object.objectForKey("message") as! String
-        let username = user.username! as String
+        let username = user.objectForKey("fullname") as? String
         
         
         if let postImage = object.objectForKey("image") as? PFFile {

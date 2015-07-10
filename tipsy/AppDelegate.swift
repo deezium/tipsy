@@ -19,7 +19,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
       //  PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
-
+        
+//        if (PFUser.currentUser() != nil) {
+//            println(PFUser.currentUser()?.objectForKey("username"))
+//        }
+        
+        if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("fullname") == nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
+                println("has access token")
+                let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+                graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("OOPS")
+                    }
+                    else {
+                        println(result["name"])
+                        PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
+            
+        }
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (PFUser.currentUser() != nil) {

@@ -90,7 +90,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
                     if let objects = objects as? [PFObject] {
                         for object in objects {
                             let user = object.objectForKey("creatingUser") as! PFUser
-                            let title = user.username! as String
+                            let title = user.objectForKey("fullname") as! String
                             let point = object.objectForKey("location") as? PFGeoPoint
                             let createdAt = object.createdAt
                             let timeAgo = createdAt!.shortTimeAgoSinceNow()

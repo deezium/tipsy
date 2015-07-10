@@ -25,7 +25,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.profileName.text = user!.username!
+        self.profileName.text = user!.objectForKey("fullname") as? String
         
         self.profileTable!.delegate = self
         self.profileTable!.dataSource = self
@@ -129,7 +129,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let createdAt = object.createdAt
         let timeAgo = createdAt!.shortTimeAgoSinceNow()
         let message = object.objectForKey("message") as! String
-        let username = user.username! as String
+        let username = user.objectForKey("fullname") as? String
         
         cell.username.text = username
         cell.timestamp.text = timeAgo
@@ -144,7 +144,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         let createdAt = object.createdAt
         let timeAgo = createdAt!.shortTimeAgoSinceNow()
         let message = object.objectForKey("message") as! String
-        let username = user.username! as String
+        let username = user.objectForKey("fullname") as? String
         
         
         if let postImage = object.objectForKey("image") as? PFFile {
