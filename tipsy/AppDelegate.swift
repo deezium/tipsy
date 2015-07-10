@@ -42,6 +42,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
+        if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("profileImage") == nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
+                println("has access token")
+                let pictureRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large&redirect=false", parameters: nil)
+                pictureRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("OOPS")
+                    }
+                    else {
+                        println(result["data"]!["url"])
+                        let pictureString = result["data"]!["url"] as! String
+                        let pictureURL = NSURL(string: pictureString)
+                        let pictureData = NSData(contentsOfURL: pictureURL!)
+                        println(pictureData)
+                        var pictureFile = PFFile(data: pictureData!)
+                        PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
+            
+        }
+
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         if (PFUser.currentUser() != nil) {

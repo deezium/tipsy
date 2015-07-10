@@ -28,6 +28,14 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         self.profileName.text = user!.objectForKey("fullname") as? String
         
+        if let profileImage = user!.objectForKey("profileImage") as? PFFile {
+            let imageData = profileImage.getData()
+            let image = UIImage(data: imageData!)
+            self.profileImage.image = image
+            
+        }
+
+        
         self.profileTable!.delegate = self
         self.profileTable!.dataSource = self
         self.latestCheckin.delegate = self
