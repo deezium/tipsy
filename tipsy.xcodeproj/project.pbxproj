@@ -15,6 +15,8 @@
 		332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */; };
 		332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476E81B4E0A4600CF0881 /* FeedTextCell.swift */; };
 		332476EB1B4E1B4700CF0881 /* FeedPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */; };
+		332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EC1B4FDB1E00CF0881 /* login_with_fb.png */; };
+		332476EF1B4FDC8500CF0881 /* login_with_fb_208x51.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */; };
 		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
 		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
 		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
@@ -84,6 +86,8 @@
 		332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera-100.png"; sourceTree = "<group>"; };
 		332476E81B4E0A4600CF0881 /* FeedTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTextCell.swift; sourceTree = "<group>"; };
 		332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPictureCell.swift; sourceTree = "<group>"; };
+		332476EC1B4FDB1E00CF0881 /* login_with_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_with_fb.png; path = ../login_with_fb.png; sourceTree = "<group>"; };
+		332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_with_fb_208x51.png; sourceTree = "<group>"; };
 		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				3339CE101B424EE6001C222C /* FMDatabasePool.h */,
 				3339CE111B424EE6001C222C /* FMDatabasePool.m */,
 				3339CDF31B4244D1001C222C /* Util.swift */,
+				332476EC1B4FDB1E00CF0881 /* login_with_fb.png */,
+				332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */,
 				3339CDD41B422165001C222C /* Map-50.png */,
 				332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */,
 				3339CDD81B4222DE001C222C /* RSS-25.png */,
@@ -403,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3339CDDD1B42253A001C222C /* Edit-25.png in Resources */,
+				332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */,
 				3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */,
 				332476E31B4CE46100CF0881 /* Gender Neutral User-100.png in Resources */,
 				3339CDDB1B4223CA001C222C /* Gender Neutral User-25.png in Resources */,
@@ -410,6 +417,7 @@
 				3339CDD51B422165001C222C /* Map-50.png in Resources */,
 				336344A01B3283F800DF3D90 /* LaunchScreen.xib in Resources */,
 				3363449D1B3283F800DF3D90 /* Images.xcassets in Resources */,
+				332476EF1B4FDC8500CF0881 /* login_with_fb_208x51.png in Resources */,
 				3339CDD71B422186001C222C /* Map-25.png in Resources */,
 				332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */,
 			);

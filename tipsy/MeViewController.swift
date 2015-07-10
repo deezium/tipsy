@@ -24,6 +24,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureTableView()
         
         self.profileName.text = user!.objectForKey("fullname") as? String
         
@@ -103,6 +104,11 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         return pinView
     }
     
+    func configureTableView() {
+        profileTable.rowHeight = UITableViewAutomaticDimension
+        profileTable.estimatedRowHeight = 160.0
+    }
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var objects = queryForAllPostsByUser(user!)
