@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 import DateTools
 
-class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate {
+class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, QueryControllerProtocol {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var latestCheckin: MKMapView!
@@ -22,9 +22,25 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     let kcellIdentifier: String = "ProfileCell"
     let user = PFUser.currentUser()
     
+    var query = QueryController()
+    var queryObjects = [PFObject]()
+    
+    func didReceiveQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.queryObjects = objects
+            self.profileTable!.reloadData()
+            self.latestCheckin!.reloadInputViews()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+
+        query.delegate = self
         self.configureTableView()
+        query.queryPosts("creatingUser")
         
         self.profileName.text = user!.objectForKey("fullname") as? String
         
@@ -42,7 +58,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         self.drawLatestCheckin()
         
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+//        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
     }
         
@@ -65,6 +81,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func drawLatestCheckin() {
+        
         var objects = queryForAllPostsByUser(user!)
         
         if let objects = objects as? [PFObject] {
@@ -119,21 +136,33 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var objects = queryForAllPostsByUser(user!)
-        println(objects.count)
-        return objects.count
+//        var objects = queryForAllPostsByUser(user!)
+//        println(objects.count)
+//        return objects.count
+        println(queryObjects.count)
+        return queryObjects.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var objects = queryForAllPostsByUser(user!)
-        let object = objects[indexPath.row]
+//        var objects = queryForAllPostsByUser(user!)
+//        let object = objects[indexPath.row]
+//        
+//        if (object.objectForKey("image") != nil) {
+//            return profilePictureCellAtIndexPath(tableView, withObject: object)
+//        }
+//        else {
+//            return profileTextCellAtIndexPath(tableView, withObject: object)
+//        }
         
-        if (object.objectForKey("image") != nil) {
-            return profilePictureCellAtIndexPath(tableView, withObject: object)
+        let queryObject = queryObjects[indexPath.row]
+        
+        if (queryObject.objectForKey("image") != nil) {
+            return profilePictureCellAtIndexPath(tableView, withObject: queryObject)
         }
         else {
-            return profileTextCellAtIndexPath(tableView, withObject: object)
+            return profileTextCellAtIndexPath(tableView, withObject: queryObject)
         }
+
     }
     
     func profileTextCellAtIndexPath(tableView: UITableView, withObject object: PFObject) -> FeedTextCell {
@@ -176,39 +205,5 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         
     }
-
-    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier(kcellIdentifier) as! UITableViewCell
-//        
-//        var objects = queryForAllPostsByUser(user!)
-//        var count = objects.count
-//        
-//        if (count == 0) {
-//            println("no objects found")
-//        }
-//        else {
-//            let object = objects[indexPath.row]
-//            
-//            println(object)
-//            
-//            dispatch_async(dispatch_get_main_queue(), {
-//                if let cellToUpdate = tableView.cellForRowAtIndexPath(indexPath) {
-//                    let user = object.objectForKey("creatingUser") as! PFUser
-//                    let createdAt = object.createdAt
-//                    let timeAgo = createdAt!.shortTimeAgoSinceNow()
-//                    let message = object.objectForKey("message") as! String
-//                    
-//                    cellToUpdate.textLabel?.text = user.username! as String
-//                    
-//                    cellToUpdate.detailTextLabel?.text = "\(message), \(timeAgo)"
-//                    
-//                }
-//            })
-//        }
-//        
-//        return cell
-//    }
-
     
 }

@@ -392,7 +392,7 @@
                                                     <color key="textColor" red="0.56862745100000001" green="0.46666666670000001" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WS4-E2-hcy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WS4-E2-hcy">
                                                     <rect key="frame" x="180" y="77" width="240" height="128"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="128" id="Cn1-pR-A6i"/>

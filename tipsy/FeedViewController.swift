@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, QueryControllerProtocol {
     
     @IBOutlet weak var feedTableView: UITableView!
     let kcellIdentifier: String = "FeedCell"
@@ -19,9 +19,22 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let searchRadiusKilometers = CLLocationAccuracy()
     let feedTextCellIdentifier: String = "FeedTextCell"
     
+    var query = QueryController()
+    var queryObjects = [PFObject]()
+    
+    func didReceiveQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.queryObjects = objects
+            self.feedTableView!.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        query.delegate = self
         self.configureTableView()
+        query.queryPosts("")
         
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -78,8 +91,8 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var checkins: NSMutableArray = []
         
         var objects = query.findObjects() as! [PFObject]
-        
-        println(objects)
+ 
+ //       println(objects)
         
         return objects
         
@@ -87,21 +100,33 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)
-        println(objects.count)
-        return objects.count
+//        var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)
+//        println(objects.count)
+//        return objects.count
+        
+        println(queryObjects.count)
+        return queryObjects.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)
-        let object = objects[indexPath.row]
+//        var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)
+//        let object = objects[indexPath.row]
+//        
+//        if (object.objectForKey("image") != nil) {
+//            return feedPictureCellAtIndexPath(tableView, withObject: object)
+//        }
+//        else {
+//            return feedTextCellAtIndexPath(tableView, withObject: object)
+//        }
         
-        if (object.objectForKey("image") != nil) {
-            return feedPictureCellAtIndexPath(tableView, withObject: object)
+        let queryObject = queryObjects[indexPath.row]
+        
+        if (queryObject.objectForKey("image") != nil) {
+            return feedPictureCellAtIndexPath(tableView, withObject: queryObject)
         }
         else {
-            return feedTextCellAtIndexPath(tableView, withObject: object)
+            return feedTextCellAtIndexPath(tableView, withObject: queryObject)
         }
     }
 

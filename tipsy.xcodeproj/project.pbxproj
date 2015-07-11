@@ -17,6 +17,7 @@
 		332476EB1B4E1B4700CF0881 /* FeedPictureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */; };
 		332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EC1B4FDB1E00CF0881 /* login_with_fb.png */; };
 		332476EF1B4FDC8500CF0881 /* login_with_fb_208x51.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */; };
+		332476F11B51811100CF0881 /* QueryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476F01B51811100CF0881 /* QueryController.swift */; };
 		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
 		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
 		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
@@ -88,6 +89,7 @@
 		332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPictureCell.swift; sourceTree = "<group>"; };
 		332476EC1B4FDB1E00CF0881 /* login_with_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_with_fb.png; path = ../login_with_fb.png; sourceTree = "<group>"; };
 		332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_with_fb_208x51.png; sourceTree = "<group>"; };
+		332476F01B51811100CF0881 /* QueryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryController.swift; sourceTree = "<group>"; };
 		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
 				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
 				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
+				332476F01B51811100CF0881 /* QueryController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
 				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
@@ -495,6 +498,7 @@
 				3339CE131B424EE6001C222C /* FMResultSet.m in Sources */,
 				332476EB1B4E1B4700CF0881 /* FeedPictureCell.swift in Sources */,
 				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
+				332476F11B51811100CF0881 /* QueryController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
