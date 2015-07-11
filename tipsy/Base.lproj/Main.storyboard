@@ -81,6 +81,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="an4-3g-JBi">
                                 <rect key="frame" x="0.0" y="332" width="600" height="161"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="338" id="DrT-AY-DOb"/>
                                     <constraint firstAttribute="height" constant="180" id="hGZ-1g-V5N"/>
                                     <constraint firstAttribute="width" constant="600" id="rkb-Zi-gtt"/>
                                 </constraints>
@@ -482,6 +483,7 @@
                             <constraint firstItem="brc-8n-H9P" firstAttribute="centerX" secondItem="U4K-FB-22q" secondAttribute="centerX" id="P5r-pb-1o1"/>
                             <constraint firstItem="U4K-FB-22q" firstAttribute="width" secondItem="JLd-WB-Vio" secondAttribute="width" id="XaL-RP-ezJ"/>
                             <constraint firstItem="JLd-WB-Vio" firstAttribute="leading" secondItem="U4K-FB-22q" secondAttribute="trailing" constant="48" id="byk-Ts-L8U"/>
+                            <constraint firstAttribute="bottom" secondItem="bch-RP-CnH" secondAttribute="bottom" constant="20" id="eqh-4z-tlr"/>
                             <constraint firstAttribute="trailing" secondItem="bch-RP-CnH" secondAttribute="trailing" constant="-20" id="fgP-Iq-aT8"/>
                             <constraint firstAttribute="centerX" secondItem="bch-RP-CnH" secondAttribute="centerX" id="lXr-OT-A1e"/>
                             <constraint firstAttribute="trailing" secondItem="JLd-WB-Vio" secondAttribute="trailing" constant="10" id="oNt-RZ-2VP"/>
