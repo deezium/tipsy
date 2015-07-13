@@ -46,6 +46,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.locationManager.startUpdatingLocation()
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: checkinMadeNotificationKey, object: nil)        
 
         
         self.feedTableView!.delegate = self
@@ -53,6 +54,10 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
 
+    }
+    
+    func refreshPosts() {
+        query.queryPosts("")
     }
     
     

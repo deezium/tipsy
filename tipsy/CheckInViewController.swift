@@ -12,6 +12,8 @@ import CoreLocation
 import MapKit
 import MobileCoreServices
 
+let checkinMadeNotificationKey = "checkinMadeNotificationKey"
+
 class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var message: UITextField!
@@ -133,6 +135,8 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
                 println("Fail")
             }
         }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(checkinMadeNotificationKey, object: self)
         
         message.resignFirstResponder()
         message.text = ""

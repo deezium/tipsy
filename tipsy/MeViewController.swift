@@ -55,13 +55,20 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.profileTable!.delegate = self
         self.profileTable!.dataSource = self
         self.latestCheckin.delegate = self
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: checkinMadeNotificationKey, object: nil)
+
         
         self.drawLatestCheckin()
         
 //        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
     }
-        
+    
+    func refreshPosts() {
+        query.queryPosts("creatingUser")
+    }
+    
     func queryForAllPostsByUser(user: PFUser) -> [PFObject] {
         
         var query = PFQuery(className: "CheckIn")

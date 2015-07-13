@@ -37,7 +37,15 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
             mapView.showsUserLocation = true
         }
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: checkinMadeNotificationKey, object: nil)
+
+        
     }
+    
+    func refreshPosts() {
+        self.queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 1)
+    }
+
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
@@ -52,13 +60,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         println("currentLocation \(self.currentLocation)")
         locationManager.stopUpdatingLocation()
         self.queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 1)
-//        self.addCheckinPins()
-//        
-//        var locationLat = currentLocation.coordinate.latitude
-//        var locationLong = currentLocation.coordinate.longitude
-//        
-//        println("currentLocation = \(locationLat) \(locationLong)")
-        
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
