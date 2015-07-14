@@ -70,7 +70,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         
     }
     
-    func queryForAllPostsNearLocation(currentLocation: CLLocation, withNearbyDistance nearbyDistance: CLLocationAccuracy) -> NSMutableArray {
+    func queryForAllPostsNearLocation(currentLocation: CLLocation, withNearbyDistance nearbyDistance: CLLocationAccuracy) {
         
         println("fuck my balls did this work \(currentLocation)")
         var locValue:CLLocationCoordinate2D = currentLocation.coordinate
@@ -98,20 +98,14 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
                             let st = object.objectForKey("message") as! String
                             let subtitle = "\(st), time since post: \(timeAgo)"
                             let coordinate = CLLocationCoordinate2D(latitude: point!.latitude, longitude: point!.longitude)
-                            println("time ago \(timeAgo)")
-                            var checkinPin = MKPointAnnotation()
-                            checkinPin.coordinate = coordinate
-                            checkinPin.title = title
-                            checkinPin.subtitle = subtitle
                             
+                            let image = user.objectForKey("profileImage") as! PFFile
+                            let imageData = image.getData()
+                            let posterImage = UIImage(data: imageData!)
                             
-                           // let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
-                            self.mapView.removeAnnotation(checkinPin)
-                            self.mapView.addAnnotation(checkinPin)
-                            //checkins.addObject(object)
+                            self.addCheckinPin(coordinate, title: title, subtitle: subtitle, posterImage: posterImage!)
                             
                         }
-                        println("Checkins added \(checkins)")
                     }
                  
                  //   self.mapView.addAnnotations(checkins as [AnyObject])
@@ -122,49 +116,62 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
                 }
             
             }
-        println("These my checkins yo \(checkins)")
-        return checkins
     }
     
-    // TO DO: MODIFY TO ACTUALLY USE DATA FROM SERVER
-    // RUN QUERY TO GET PFOBJECTS BACK
-    // BUILD ARRAY OF DICTS (OR DICT OF DICTS?) TO HOLD ALL NECESSARY VALUES
-    // READ FROM ARRAY TO PUT ALL RELEVANT PARAMETERS ON THE ANNOTATION
-
     func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
         
         if (annotation is MKUserLocation) {
             return nil
         }
         
-        let reuseId = "pin"
+        let checkinView = CheckinAnnotationView(annotation: annotation, reuseIdentifier: "checkin")
+        checkinView.canShowCallout = true
+        println(checkinView.image)
+        return checkinView
+//
+//        let annotationView = AttractionAnnotationView(annotation: annotation, reuseIdentifier: "Attraction")
+//        annotationView.canShowCallout = true
+//        return annotationView
         
-        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            pinView!.animatesDrop = true
-            pinView!.pinColor = .Purple
-            var label = UILabel(frame: CGRectMake(0,0,21,21))
-            label.text = "3h"
-//            pinView!.rightCalloutAccessoryView = label
-            
-  //          pinView!.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
-        }
-        else {
-            pinView!.annotation = annotation
-        }
-        return pinView
+        
+//        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+//        pinView!.canShowCallout = true
+//        return pinView
+
+//        let reuseId = "pin"
+//        
+//        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+//        if pinView == nil {
+//            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//            pinView!.canShowCallout = true
+//            pinView!.animatesDrop = true
+//            pinView!.pinColor = .Green
+//            var label = UILabel(frame: CGRectMake(0,0,21,21))
+//            label.text = "3h"
+////            pinView!.rightCalloutAccessoryView = label
+//            
+//  //          pinView!.leftCalloutAccessoryView = UIButton.buttonWithType(.DetailDisclosure) as! UIButton
+//        }
+//        else {
+//            pinView!.annotation = annotation
+//        }
+//        return pinView
     }
     
-    func addCheckinPins() {
+    func addCheckinPin(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, posterImage: UIImage) {
+//        checkinPin.coordinate = coordinate
+//        checkinPin.title = title
+//        checkinPin.subtitle = subtitle
         
-        let x = self.queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 1)
-        //println(x)
-        let coordinate = currentLocation.coordinate
-        let title = "Debarshi Chaudhuri"
-        let subtitle = "My House"
-        let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle)
-        mapView.addAnnotation(annotation)
+        let typeRawValue = 0
+        let type = CheckinType(rawValue: typeRawValue)!
+        let annotation = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle, type: type)
+        self.mapView.addAnnotation(annotation)
+
+//        let checkinPin = CheckinAnnotation(coordinate: coordinate, title: title, subtitle: subtitle, posterImage: posterImage)
+//        
+//        self.mapView.addAnnotation(checkinPin)
+        
     }
+    
 }

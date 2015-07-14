@@ -10,14 +10,23 @@ import Foundation
 import UIKit
 import MapKit
 
+enum CheckinType: Int {
+    case CheckinDefault = 0
+    case CheckinTwitter
+}
+
 class CheckinAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var title: String
     var subtitle: String
+    //var image: UIImage
+    var type: CheckinType
     
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String) {
+    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: CheckinType) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
+      //  self.image = image
+        self.type = type
     }
 }

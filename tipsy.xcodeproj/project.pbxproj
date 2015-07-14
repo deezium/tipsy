@@ -66,6 +66,20 @@
 		336344AC1B3283F800DF3D90 /* tipsyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344AB1B3283F800DF3D90 /* tipsyTests.swift */; };
 		336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */; };
 		336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344C01B3B271200DF3D90 /* FacebookController.swift */; };
+		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
+		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
+		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
+		33F385EB1B5494CD0008AFF7 /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E31B5494CD0008AFF7 /* food.png */; };
+		33F385EC1B5494CD0008AFF7 /* food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E41B5494CD0008AFF7 /* food@2x.png */; };
+		33F385ED1B5494CD0008AFF7 /* ride.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E51B5494CD0008AFF7 /* ride.png */; };
+		33F385EE1B5494CD0008AFF7 /* ride@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E61B5494CD0008AFF7 /* ride@2x.png */; };
+		33F385EF1B5494CD0008AFF7 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E71B5494CD0008AFF7 /* star.png */; };
+		33F385F01B5494CD0008AFF7 /* star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E81B5494CD0008AFF7 /* star@2x.png */; };
+		33F385F31B5495300008AFF7 /* AttractionAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F385F11B5495300008AFF7 /* AttractionAnnotationView.swift */; };
+		33F385F41B5495300008AFF7 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F385F21B5495300008AFF7 /* AttractionAnnotation.swift */; };
+		33F385F61B549BE60008AFF7 /* DClinkedin@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385F51B549BE60008AFF7 /* DClinkedin@2x.jpg */; };
+		33F385FD1B549C500008AFF7 /* DClinkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385FB1B549C500008AFF7 /* DClinkedin.png */; };
+		33F385FE1B549C500008AFF7 /* DClinkedin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +163,20 @@
 		336344BB1B32893900DF3D90 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		336344C01B3B271200DF3D90 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
+		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
+		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
+		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
+		33F385E31B5494CD0008AFF7 /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		33F385E41B5494CD0008AFF7 /* food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "food@2x.png"; sourceTree = "<group>"; };
+		33F385E51B5494CD0008AFF7 /* ride.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ride.png; sourceTree = "<group>"; };
+		33F385E61B5494CD0008AFF7 /* ride@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ride@2x.png"; sourceTree = "<group>"; };
+		33F385E71B5494CD0008AFF7 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		33F385E81B5494CD0008AFF7 /* star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star@2x.png"; sourceTree = "<group>"; };
+		33F385F11B5495300008AFF7 /* AttractionAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotationView.swift; sourceTree = "<group>"; };
+		33F385F21B5495300008AFF7 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
+		33F385F51B549BE60008AFF7 /* DClinkedin@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "DClinkedin@2x.jpg"; sourceTree = "<group>"; };
+		33F385FB1B549C500008AFF7 /* DClinkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DClinkedin.png; sourceTree = "<group>"; };
+		33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DClinkedin@2x.png"; sourceTree = "<group>"; };
 		C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,6 +244,9 @@
 		336344921B3283F800DF3D90 /* tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				33F385F11B5495300008AFF7 /* AttractionAnnotationView.swift */,
+				33F385F21B5495300008AFF7 /* AttractionAnnotation.swift */,
+				33F385E01B5494CD0008AFF7 /* Images */,
 				3339CE071B424EE6001C222C /* FMDB.h */,
 				3339CE081B424EE6001C222C /* FMDatabase.h */,
 				3339CE091B424EE6001C222C /* FMDatabase.m */,
@@ -231,10 +262,13 @@
 				332476EC1B4FDB1E00CF0881 /* login_with_fb.png */,
 				332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */,
 				3339CDD41B422165001C222C /* Map-50.png */,
+				33F385F51B549BE60008AFF7 /* DClinkedin@2x.jpg */,
 				332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */,
 				3339CDD81B4222DE001C222C /* RSS-25.png */,
 				3339CDDC1B42253A001C222C /* Edit-25.png */,
 				332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */,
+				33F385FB1B549C500008AFF7 /* DClinkedin.png */,
+				33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */,
 				3339CDD61B422186001C222C /* Map-25.png */,
 				3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
@@ -252,6 +286,7 @@
 				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
 				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
 				332476F01B51811100CF0881 /* QueryController.swift */,
+				33F385CF1B548E770008AFF7 /* DClinkedin.jpg */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
 				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
@@ -287,6 +322,22 @@
 				336344AA1B3283F800DF3D90 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33F385E01B5494CD0008AFF7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				33F385E11B5494CD0008AFF7 /* firstaid.png */,
+				33F385E21B5494CD0008AFF7 /* firstaid@2x.png */,
+				33F385E31B5494CD0008AFF7 /* food.png */,
+				33F385E41B5494CD0008AFF7 /* food@2x.png */,
+				33F385E51B5494CD0008AFF7 /* ride.png */,
+				33F385E61B5494CD0008AFF7 /* ride@2x.png */,
+				33F385E71B5494CD0008AFF7 /* star.png */,
+				33F385E81B5494CD0008AFF7 /* star@2x.png */,
+			);
+			name = Images;
+			path = "annotation-images";
 			sourceTree = "<group>";
 		};
 		61752CEC4A8536A6ECE6FD63 /* Pods */ = {
@@ -411,18 +462,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F385EC1B5494CD0008AFF7 /* food@2x.png in Resources */,
+				33F385EF1B5494CD0008AFF7 /* star.png in Resources */,
 				3339CDDD1B42253A001C222C /* Edit-25.png in Resources */,
 				332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */,
 				3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */,
+				33F385EB1B5494CD0008AFF7 /* food.png in Resources */,
 				332476E31B4CE46100CF0881 /* Gender Neutral User-100.png in Resources */,
 				3339CDDB1B4223CA001C222C /* Gender Neutral User-25.png in Resources */,
+				33F385EE1B5494CD0008AFF7 /* ride@2x.png in Resources */,
+				33F385F01B5494CD0008AFF7 /* star@2x.png in Resources */,
+				33F385FD1B549C500008AFF7 /* DClinkedin.png in Resources */,
+				33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */,
+				33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */,
 				3339CDD91B4222DE001C222C /* RSS-25.png in Resources */,
 				3339CDD51B422165001C222C /* Map-50.png in Resources */,
+				33F385ED1B5494CD0008AFF7 /* ride.png in Resources */,
 				336344A01B3283F800DF3D90 /* LaunchScreen.xib in Resources */,
 				3363449D1B3283F800DF3D90 /* Images.xcassets in Resources */,
+				33F385F61B549BE60008AFF7 /* DClinkedin@2x.jpg in Resources */,
+				33F385FE1B549C500008AFF7 /* DClinkedin@2x.png in Resources */,
 				332476EF1B4FDC8500CF0881 /* login_with_fb_208x51.png in Resources */,
 				3339CDD71B422186001C222C /* Map-25.png in Resources */,
 				332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */,
+				33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +552,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */,
+				33F385F41B5495300008AFF7 /* AttractionAnnotation.swift in Sources */,
 				3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */,
 				3339CDF61B424B7D001C222C /* ModelManager.swift in Sources */,
 				3339CE161B424EE6001C222C /* FMDatabasePool.m in Sources */,
@@ -497,6 +561,7 @@
 				3339CE121B424EE6001C222C /* FMDatabase.m in Sources */,
 				3339CE131B424EE6001C222C /* FMResultSet.m in Sources */,
 				332476EB1B4E1B4700CF0881 /* FeedPictureCell.swift in Sources */,
+				33F385F31B5495300008AFF7 /* AttractionAnnotationView.swift in Sources */,
 				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
 				332476F11B51811100CF0881 /* QueryController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
