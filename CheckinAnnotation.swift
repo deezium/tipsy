@@ -21,12 +21,14 @@ class CheckinAnnotation: NSObject, MKAnnotation {
     var subtitle: String
     //var image: UIImage
     var type: CheckinType
+    var posterImage: UIImage
     
-    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: CheckinType) {
+    init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: CheckinType, posterImage: UIImage) {
         self.coordinate = coordinate
         self.title = title
         self.subtitle = subtitle
       //  self.image = image
         self.type = type
+        self.posterImage = posterImage
     }
 }

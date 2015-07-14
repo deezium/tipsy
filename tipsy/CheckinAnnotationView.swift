@@ -22,13 +22,16 @@ class CheckinAnnotationView: MKAnnotationView {
     override init(annotation: MKAnnotation, reuseIdentifier: String) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         let checkinAnnotation = self.annotation as! CheckinAnnotation
-//        let image = UIImage(named: "DClinkedin")
-        switch (checkinAnnotation.type) {
-        case .CheckinTwitter:
-            image = UIImage(named: "DClinkedin")
-        default:
-            image = UIImage(named: "Edit-25")
-        }
+//        image = UIImage(named: "Edit-25")
+//        if checkinAnnotation.type == .CheckinTwitter {
+//            image = UIImage(named: "Edit-25")
+//        }
+//        switch (checkinAnnotation.type) {
+//        case .CheckinTwitter:
+//            image = UIImage(named: "DClinkedin")
+//        default:
+//            image = UIImage(named: "Edit-25")
+//        }
         
     }
 }
