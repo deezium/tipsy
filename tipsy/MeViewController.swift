@@ -50,7 +50,6 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             self.profileImage.image = image
             
         }
-
         
         self.profileTable!.delegate = self
         self.profileTable!.dataSource = self
@@ -68,6 +67,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func refreshPosts() {
         query.queryPosts("creatingUser")
     }
+    
     
     func queryForAllPostsByUser(user: PFUser) -> [PFObject] {
         

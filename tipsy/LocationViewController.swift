@@ -55,9 +55,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
             mapView.showsUserLocation = true
         }
         
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: checkinMadeNotificationKey, object: nil)
-
         
     }
     
@@ -100,8 +98,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
             let checkinView = CheckinAnnotationView(annotation: annotation, reuseIdentifier: "checkin")
             let newAnnotation = annotation as! CheckinAnnotation
             println(newAnnotation.posterImage)
-            checkinView.canShowCallout = true
-            //checkinView.image = newAnnotation.posterImage
+            
+            checkinView.canShowCallout = true // toggle default checkin annotation
+
             checkinView.calloutOffset = CGPointMake(0, -10)
             
             let imageView = UIImageView(frame: CGRectMake(-10, -10, 20, 20))
@@ -110,8 +109,6 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
             
             checkinView.addSubview(imageView)
             
-//            checkinView.image.height = 20
-//            checkinView.image.width = 20
             return checkinView
 
         }
@@ -119,6 +116,31 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         return nil
     }
     
+    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+        if let mapPin = view as? CheckinAnnotationView {
+            updatePinPosition(mapPin)
+        }
+    }
+    
+    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+        if let mapPin = view as? CheckinAnnotationView {
+            if mapPin.preventDeselection {
+                mapView.selectAnnotation(view.annotation, animated: false)
+            }
+        }
+    }
+    
+    func updatePinPosition(pin:CheckinAnnotationView) {
+        let defaultShift:CGFloat = 50
+        let pinPosition = CGPointMake(pin.frame.midX, pin.frame.maxY)
+        
+        let y = pinPosition.y - defaultShift
+        
+        let controlPoint = CGPointMake(pinPosition.x, y)
+        let controlPointCoordinate = mapView.convertPoint(controlPoint, toCoordinateFromView: mapView)
+        
+        mapView.setCenterCoordinate(controlPointCoordinate, animated: true)
+    }
     
     func addQueryControllerCheckinPins(objects: [PFObject]) {
         for object in objects {
