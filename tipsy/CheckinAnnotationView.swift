@@ -15,7 +15,7 @@ class CheckinAnnotationView: MKAnnotationView {
         return "mapPin"
     }
     
-    private var calloutView:MapPinCallout?
+    private var calloutView:CheckinCallout?
     private var hitOutside:Bool = true
     
     var preventDeselection:Bool {
@@ -47,7 +47,7 @@ class CheckinAnnotationView: MKAnnotationView {
         self.superview?.bringSubviewToFront(self)
         
         if (calloutView == nil) {
-            calloutView = MapPinCallout(frame: CGRectMake(-100, -210, 200, 200))
+            calloutView = CheckinCallout(frame: CGRectMake(-100, -220, 200, 200))
         }
         
         if (self.selected && !calloutViewAdded) {

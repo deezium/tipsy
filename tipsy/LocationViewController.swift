@@ -99,11 +99,11 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
             let newAnnotation = annotation as! CheckinAnnotation
             println(newAnnotation.posterImage)
             
-            checkinView.canShowCallout = true // toggle default checkin annotation
+            //checkinView.canShowCallout = true // toggle default checkin annotation
 
             checkinView.calloutOffset = CGPointMake(0, -10)
             
-            let imageView = UIImageView(frame: CGRectMake(-10, -10, 20, 20))
+            let imageView = UIImageView(frame: CGRectMake(-15, -15, 30, 30))
             
             imageView.image = newAnnotation.posterImage
             
