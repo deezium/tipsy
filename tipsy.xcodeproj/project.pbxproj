@@ -81,6 +81,7 @@
 		33F385FD1B549C500008AFF7 /* DClinkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385FB1B549C500008AFF7 /* DClinkedin.png */; };
 		33F385FE1B549C500008AFF7 /* DClinkedin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */; };
 		33F386041B5630700008AFF7 /* CheckinCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F386031B5630700008AFF7 /* CheckinCallout.swift */; };
+		33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F386E71B5851830008AFF7 /* TwitterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,7 @@
 		33F385FB1B549C500008AFF7 /* DClinkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DClinkedin.png; sourceTree = "<group>"; };
 		33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DClinkedin@2x.png"; sourceTree = "<group>"; };
 		33F386031B5630700008AFF7 /* CheckinCallout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinCallout.swift; sourceTree = "<group>"; };
+		33F386E71B5851830008AFF7 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
 		C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,6 +294,7 @@
 				33F385CF1B548E770008AFF7 /* DClinkedin.jpg */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				33F386E71B5851830008AFF7 /* TwitterViewController.swift */,
 				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
 				332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
@@ -574,6 +577,7 @@
 				332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */,
 				332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
+				33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */,
 				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
 				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
