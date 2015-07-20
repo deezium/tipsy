@@ -14,7 +14,6 @@ class TwitterViewController: UIViewController {
     
     var swifter : Swifter
     
-    
     required init(coder aDecoder: NSCoder) {
         self.swifter = Swifter(consumerKey: "4t8tQ5YahzQtQv51QzVFQcCIM", consumerSecret: "nVwsRazhqHvZP2WNmJ0n6jlhGms3UwC46qM42fTav0UxSvU8Rd", appOnly: true)
         super.init(coder: aDecoder)
@@ -39,6 +38,4 @@ class TwitterViewController: UIViewController {
         })
        
     }
-    
-//    let swifter = Swifter(consumerKey: "4t8tQ5YahzQtQv51QzVFQcCIM", consumerSecret: "nVwsRazhqHvZP2WNmJ0n6jlhGms3UwC46qM42fTav0UxSvU8Rd", appOnly: true)
 }

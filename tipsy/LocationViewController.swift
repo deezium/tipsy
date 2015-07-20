@@ -11,8 +11,17 @@ import UIKit
 import MapKit
 import CoreLocation
 import DateTools
+import SwifteriOS
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, QueryControllerProtocol {
+    
+    var swifter : Swifter
+    
+    required init(coder aDecoder: NSCoder) {
+        self.swifter = Swifter(consumerKey: "4t8tQ5YahzQtQv51QzVFQcCIM", consumerSecret: "nVwsRazhqHvZP2WNmJ0n6jlhGms3UwC46qM42fTav0UxSvU8Rd", appOnly: true)
+        super.init(coder: aDecoder)
+    }
+
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -29,11 +38,30 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
             println("objects received")
             self.addQueryControllerCheckinPins(self.queryObjects)
             self.mapView.reloadInputViews()
-//            self.feedTableView!.reloadData()
- //           UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
 
+    @IBAction func didTapGetTwitterData(sender: AnyObject) {
+        
+        let currentLocation = self.currentLocation
+        let lat = currentLocation.coordinate.latitude
+        let long = currentLocation.coordinate.longitude
+        let searchRadius = "1mi"
+        
+        let geoSearchTerm = "\(lat),\(long),\(searchRadius)"
+        
+        println(geoSearchTerm)
+        
+        swifter.getSearchTweetsWithQuery("", geocode: geoSearchTerm, lang: "en", locale: nil, resultType: nil, count: 20, until: nil, sinceID: nil, maxID: nil, includeEntities: false, callback: nil, success: {
+            (statuses, searchMetadata) -> Void in
+            println(statuses)
+            }, failure: { (error) -> Void in
+                println("Failed to get tweets")
+        })
+
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +84,13 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: checkinMadeNotificationKey, object: nil)
+        
+        swifter.authorizeAppOnlyWithSuccess({ (accessToken, response) -> Void in
+            println("yee")
+            }, failure: { (error) -> Void in
+                println("Error Authenticating: \(error.localizedDescription)")
+        })
+        
         
     }
     
