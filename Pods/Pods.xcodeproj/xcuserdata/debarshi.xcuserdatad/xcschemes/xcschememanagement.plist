@@ -8,49 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-tipsy-SQLite.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-tipsy-SwiftAddressBook.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-tipsy.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11137F221889C473EB93F427</key>
+		<key>4AFD3FF96DABD143B6C7B830</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5124D83540258BEF65635863</key>
+		<key>5F1C5352F75BBD3254A04E6F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6B65C91993F640FB0E58DC88</key>
+		<key>B0C4DB94A19F0DD185DC0732</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BD404164FBFE7954BC01FD15</key>
+		<key>E067E092F942FC2D10212F2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

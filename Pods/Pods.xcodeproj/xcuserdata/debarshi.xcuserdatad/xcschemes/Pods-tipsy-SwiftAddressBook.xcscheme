@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5124D83540258BEF65635863"
+               BlueprintIdentifier = "B0C4DB94A19F0DD185DC0732"
                BuildableName = "SwiftAddressBook.framework"
                BlueprintName = "Pods-tipsy-SwiftAddressBook"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -41,27 +41,27 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         })
     }
 
-    @IBAction func didTapGetTwitterData(sender: AnyObject) {
-        
-        let currentLocation = self.currentLocation
-        let lat = currentLocation.coordinate.latitude
-        let long = currentLocation.coordinate.longitude
-        let searchRadius = "1mi"
-        
-        let geoSearchTerm = "\(lat),\(long),\(searchRadius)"
-        
-        println(geoSearchTerm)
-        
-        swifter.getSearchTweetsWithQuery("", geocode: geoSearchTerm, lang: "en", locale: nil, resultType: nil, count: 20, until: nil, sinceID: nil, maxID: nil, includeEntities: false, callback: nil, success: {
-            (statuses, searchMetadata) -> Void in
-            println(statuses)
-            }, failure: { (error) -> Void in
-                println("Failed to get tweets")
-        })
-
-        
-        
-    }
+//    @IBAction func didTapGetTwitterData(sender: AnyObject) {
+//        
+//        let currentLocation = self.currentLocation
+//        let lat = currentLocation.coordinate.latitude
+//        let long = currentLocation.coordinate.longitude
+//        let searchRadius = "1mi"
+//        
+//        let geoSearchTerm = "\(lat),\(long),\(searchRadius)"
+//        
+//        println(geoSearchTerm)
+//        
+//        swifter.getSearchTweetsWithQuery("", geocode: geoSearchTerm, lang: "en", locale: nil, resultType: nil, count: 20, until: nil, sinceID: nil, maxID: nil, includeEntities: false, callback: nil, success: {
+//            (statuses, searchMetadata) -> Void in
+//            println(statuses)
+//            }, failure: { (error) -> Void in
+//                println("Failed to get tweets")
+//        })
+//
+//        
+//        
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

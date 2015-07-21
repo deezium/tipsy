@@ -7,501 +7,474 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03C46CB9881F0CA1AB77B363 /* Pods-tipsy-DateTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B665660609B216768F387D9 /* Pods-tipsy-DateTools-dummy.m */; };
-		130254FC01785FF60BD80F10 /* SwiftAddressBookWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7BF9E101B967DC6D64394F6 /* SwiftAddressBookWrapper.swift */; };
-		1ACDA9024EF2E8966F423F3E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D43F31056CF11BDAB412C55 /* Foundation.framework */; };
-		1CDD923234CD5C9ABF575592 /* SwiftAddressBookDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89553405400A87C382EB4A26 /* SwiftAddressBookDataStructures.swift */; };
-		1E944FB454AEA45411C75C25 /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = F8DD8C859EE1909215A5BE01 /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		25AA0763D34FA5A7C48ABC11 /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 620C5297BA0AAC75A6451F0D /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		286F3F3686A370D9D5B1B804 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB436928D7DCDCC15A7BCBB /* Schema.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		31688283E5B57AE0C5B093B1 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B408FAB7DB86CD657286D7 /* fts3_tokenizer.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		365DDCD978D25BF7AC197F09 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08BD0695C8B6C9264699057 /* Database.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		38981666345BC9D3A074178E /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 54AA28785E064AD5BE162F49 /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3A0D27732347EEB3CC79A89C /* SwiftAddressBookSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF88FB38B598ACF01504976 /* SwiftAddressBookSource.swift */; };
-		3D184F5A2A417EBE5B1B5A74 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCC94D4E2997CD873066C4D /* Functions.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3E36549CA6D8C3595C5AAF0E /* Pods-tipsy-DateTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C068E55B06F5D9F5D9E8156 /* Pods-tipsy-DateTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		51F6EFBF4BC5EA60CB746F66 /* Pods-tipsy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E3281FE7009BEECFE4D6E20 /* Pods-tipsy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5704D523510C9A3439CF4026 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D43F31056CF11BDAB412C55 /* Foundation.framework */; };
-		5B0E872886CC3C9C91D3DF53 /* NSDate+DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A6E153152BED837389F633 /* NSDate+DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CFE89CDB1035CBC73B9072C /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743BA3879599014BC60D26F4 /* Value.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5FEAC7E785CC87BF1C20D571 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 55E4D028BE5998C1AB04BCCC /* DateTools.bundle */; };
-		68173A1D8857915A3BF2B6EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D43F31056CF11BDAB412C55 /* Foundation.framework */; };
-		6DDA11FAF18BF7614D5C2713 /* Pods-tipsy-SwiftAddressBook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E0CB40C487E34749B4B44F3 /* Pods-tipsy-SwiftAddressBook-dummy.m */; };
-		7236ED060B393BD2CB6FE90B /* RTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC5703130809C8B7F70151E /* RTree.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		75E5D6E4ADFB4D284C2263F8 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16896B6B2AF494CE7EF73745 /* Query.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		7F2D935ED40D90A485538CA9 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E17D1AF3AD2E4B54B95DBF /* DTTimePeriod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		814C235E6F7BBAADB14AB604 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4607D3266865EF9CD7DE29D0 /* AddressBook.framework */; };
-		8D498374C42859D87196423C /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F58C411A8C2FE6644566CD4 /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8EEF5918F3906E94E3CDF83A /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AEBA480EAAB5B0DC0A75A9 /* Expression.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		AB85AA1A6E9C55B8828D5B39 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CBFD7E76571DDA3A758CEBA /* AddressBookUI.framework */; };
-		ABF031858C2EBB5009E39344 /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D0E46DA43631F4E9D5B1079 /* DTTimePeriodGroup.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		ABFA78E87652E8B127859837 /* SwiftAddressBookPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB99834C3A87EDEA7761902C /* SwiftAddressBookPerson.swift */; };
-		AEF82BE9E86A23390509BF5D /* DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = 9202275D677B442D0EB6010D /* DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B7C8DEF286FC2F32C1B5BAC8 /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = F7ED16FFD06CC4A4FB48530B /* DTTimePeriodChain.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		BA32B52E2D18CC96CE78009D /* DTTimePeriodCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1050B943BC47782E51C8B079 /* DTTimePeriodCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C203FDD40C49CC94AE8A2659 /* Pods-tipsy-SQLite.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7D8B2C7B0AED49D62C35ED /* Pods-tipsy-SQLite.swift-dummy.m */; };
-		C3997663959F563363277580 /* FTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8672D40320A6EAA3CC2DEB52 /* FTS.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		C53E207F260654668DBFCC8F /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BFB6708EBF8FF00F269BB /* DTError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		CC4A9235E1F8E86194C4E5C7 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C62C34357878B32A963764B4 /* NSDate+DateTools.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		CEB0798BA4759ABC599FD2F0 /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AA1BE482570027B8519CC8 /* Statement.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		D20DF5555725C5AAF8711972 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D43F31056CF11BDAB412C55 /* Foundation.framework */; };
-		D3388B85F896DAF385330397 /* Pods-tipsy-SwiftAddressBook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E93AF0B7B8B2D3021507A89 /* Pods-tipsy-SwiftAddressBook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D418C418A773F0B67AD71DCC /* DTError.h in Headers */ = {isa = PBXBuildFile; fileRef = 82688FCC76DBB8D6E66F0973 /* DTError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D62449C92419F9CDC9340909 /* SwiftAddressBookGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4705FDE33629774D43B0952 /* SwiftAddressBookGroup.swift */; };
-		D7DCC88395E01AA6FF3B0AA0 /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DBF724A03873C00AD488525 /* DTTimePeriodCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		DA1E535FAA58CCAF85B0F150 /* SwiftAddressBookRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1144BEB28D6DF18F31753160 /* SwiftAddressBookRecord.swift */; };
-		DA6421E2623ECDB645C40FB1 /* SwiftAddressBookHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C238CF7BBEB97A17EA3EAD /* SwiftAddressBookHelperMethods.swift */; };
-		DEC3A2595089CB1E5AA012C0 /* Pods-tipsy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BE9D50D012DF612BBAA670F /* Pods-tipsy-dummy.m */; };
-		E8FB77CA6887EE66A86EEAF7 /* DTTimePeriodChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DC7115D06742E8A703BA329 /* DTTimePeriodChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F3BA791BE03FE41C7F7C98FF /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = 1ED4BCA404039B5CF8BC6DD4 /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		FCCC0CDD0CED39C80A73D013 /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = 53204A5F55355814A22F362D /* SQLite-Bridging.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		015DA92DC52EB5709CBCAC26 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F871F4AA3202295ED85FF217 /* AddressBookUI.framework */; };
+		0266EECB288A0C30746D513A /* SQLite-Bridging.m in Sources */ = {isa = PBXBuildFile; fileRef = CA79B059304143667654593B /* SQLite-Bridging.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		05CB9E4C37146E66DF1498F5 /* fts3_tokenizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 51F69419864BA6FD3A55661E /* fts3_tokenizer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		0DB59727C771432DD77F21E6 /* SwiftAddressBookSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A76A295D6FA89E100F9063 /* SwiftAddressBookSource.swift */; };
+		11530F2CA2904DE0ACDDADFF /* DTTimePeriodCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = AC623B74FC62EEEEEA07327A /* DTTimePeriodCollection.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		12B40C784656E08F0A151A09 /* DTTimePeriodGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 788E29B0B1893EBBC7B7D74B /* DTTimePeriodGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D5533A0F17C149735E4497D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DADF11D90BC7F5865DE2109 /* Foundation.framework */; };
+		1F46F195EDA93468CCB5A688 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3993A14CF5D81838B97424 /* Schema.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		258B539C7B7A083649E4F1D6 /* FTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF81B1C918280D61377DA88 /* FTS.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		278ABBE4FD2BB484D14D7E18 /* Pods-tipsy-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A9766C5129B88BEC6A7C1784 /* Pods-tipsy-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30C01265C049A94299EE235B /* DTTimePeriod.h in Headers */ = {isa = PBXBuildFile; fileRef = BCEEF59A26308950BD799C3B /* DTTimePeriod.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		30ED5D3F5338B8D226E5C9D1 /* SQLite-Bridging.h in Headers */ = {isa = PBXBuildFile; fileRef = 822E71A0382926F53E5E20DA /* SQLite-Bridging.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		317AA3117C913040CF84DDF0 /* DateTools.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6DBA82689C0AF3A857FD09CC /* DateTools.bundle */; };
+		32864EE5C68DCE15FF460EC5 /* Pods-tipsy-SwiftAddressBook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AF3A8E72BD18EB53D695E82 /* Pods-tipsy-SwiftAddressBook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35637BA5F2A77ACBDA73E72C /* Statement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5931E1C3E069D6C28A5D2AB0 /* Statement.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		42404AF5D79BFA3960CB78CA /* DTTimePeriodChain.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C558D849C46B3BDF01DC087 /* DTTimePeriodChain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4933DD53C853AA44C7196F29 /* SwiftAddressBookWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E596520CA861B8552D12308 /* SwiftAddressBookWrapper.swift */; };
+		5DBA6DCA22078100FE7C3662 /* SwiftAddressBookHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994627971DA233FFC35DAEE /* SwiftAddressBookHelperMethods.swift */; };
+		5E31C5C3538585649FBEE791 /* Expression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552EFE4215EF9A08199D56BD /* Expression.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6513C5C727C6FB7C4CD74E91 /* DTTimePeriodChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 71F8E7DD735333099EDFA9B4 /* DTTimePeriodChain.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		66C252ECBF6090D0C618230D /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD2EBE80C65B06590A8CF64E /* AddressBook.framework */; };
+		685760A00E565427ECBC41FD /* DTTimePeriodGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 263D366F88F3899D721F9A26 /* DTTimePeriodGroup.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		701F1C8895DE7B3012452C45 /* DTTimePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D0E4E64FAF061191F5FD48 /* DTTimePeriod.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		7626FF03277D44E77FF3DEAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DADF11D90BC7F5865DE2109 /* Foundation.framework */; };
+		7695391571862BC6CEC518C8 /* SwiftAddressBookDataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B25A13B347EC8F9D93B10B4 /* SwiftAddressBookDataStructures.swift */; };
+		7A029B7660936B98A6B3CB60 /* NSDate+DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = F624802CB537C007A65958B1 /* NSDate+DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B924A7CEFE0BFA6DE6CEC58 /* DTTimePeriodCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 17989689E6C65F10F7BF7BBD /* DTTimePeriodCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7CA51886DE6B4A5B52C2F4E8 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8987C1432F75FAB53A80796 /* Database.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		830900073746B9B52D80307D /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04904729105F534D402A9C8 /* Value.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		84CDE87FFD5AF7F04A747783 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E4FF0B35D094E0C2A42F704 /* NSDate+DateTools.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		8500CE30567826696A01A02F /* SQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = B6F5187D7316CB3187D89D61 /* SQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		916B4476E309E874B58A7E5E /* DTError.h in Headers */ = {isa = PBXBuildFile; fileRef = 08DA05D9C7A71F248FE1F4C6 /* DTError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AA949A867E14FA7D84FFFEA2 /* DTConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 01609A5E093D97AEAD8514AA /* DTConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B70A8BB58A3BBCE8C91198AB /* Pods-tipsy-DateTools-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 291AA87774227608718DDB30 /* Pods-tipsy-DateTools-dummy.m */; };
+		C1667D73E07DFCAED61359F0 /* SwiftAddressBookPerson.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42BA62381CB00BDC8F50B7B /* SwiftAddressBookPerson.swift */; };
+		C9E9CCCD6B2D3AC09669F483 /* Pods-tipsy-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A130F9AE7FA3231AB1F06DD /* Pods-tipsy-dummy.m */; };
+		CAA98A8F56642F465362A20D /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC24AFF48916128BC1F3D73 /* Query.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		CDDBD4FECB97805C7C2DB10C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DADF11D90BC7F5865DE2109 /* Foundation.framework */; };
+		CF3A24F9B4B10F88EBEFC9C0 /* SwiftAddressBookRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1769172BB19AE121768E2964 /* SwiftAddressBookRecord.swift */; };
+		D04C6710895AE5787056D4E0 /* DTError.m in Sources */ = {isa = PBXBuildFile; fileRef = 429EF6A5D215FA0F86C706C7 /* DTError.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D27440FF605738306CDF625E /* RTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26287BBF250A983FEEB505FF /* RTree.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		D9AED855274D5A9472C1AEEE /* SwiftAddressBookGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608346153DBFFBBCD68BEBB8 /* SwiftAddressBookGroup.swift */; };
+		DE471DD945CBEC2573765177 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DADF11D90BC7F5865DE2109 /* Foundation.framework */; };
+		E1325627CD67396BAA566009 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15CA178C7A0E73FEC1B8E0F6 /* Functions.swift */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		E15F155AF252710C07C4B768 /* Pods-tipsy-DateTools-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 05C493C4B36A1813850CE2A1 /* Pods-tipsy-DateTools-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E410FE2A4809CC733B54C900 /* Pods-tipsy-SQLite.swift-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA9EA8FB8598D0620448FA80 /* Pods-tipsy-SQLite.swift-dummy.m */; };
+		E44DD1A72C0DA0064011D19C /* DateTools.h in Headers */ = {isa = PBXBuildFile; fileRef = C0065F1418695B4C2DA428EA /* DateTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E86C8A3F741ED09CD3C456D4 /* Pods-tipsy-SwiftAddressBook-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7217878F5D7A3B75EFB4FA5C /* Pods-tipsy-SwiftAddressBook-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8F9247E6440640ECF57A469B /* PBXContainerItemProxy */ = {
+		259E5337747FE00D8DCE12E2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E24E13892CEDFED4AC7D178F /* Project object */;
+			containerPortal = 63F79BEC3389233102A9347E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5124D83540258BEF65635863;
+			remoteGlobalIDString = B0C4DB94A19F0DD185DC0732;
 			remoteInfo = "Pods-tipsy-SwiftAddressBook";
 		};
-		9BC8B7BC47B8E203045D3252 /* PBXContainerItemProxy */ = {
+		F498CD7611D9DF1BB49DEBD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E24E13892CEDFED4AC7D178F /* Project object */;
+			containerPortal = 63F79BEC3389233102A9347E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BD404164FBFE7954BC01FD15;
-			remoteInfo = "Pods-tipsy-SQLite.swift";
-		};
-		DCDC019098F9F21D879DCE05 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E24E13892CEDFED4AC7D178F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6B65C91993F640FB0E58DC88;
+			remoteGlobalIDString = 5F1C5352F75BBD3254A04E6F;
 			remoteInfo = "Pods-tipsy-DateTools";
+		};
+		FD8AC1FDF47BD428FAA170D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63F79BEC3389233102A9347E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4AFD3FF96DABD143B6C7B830;
+			remoteInfo = "Pods-tipsy-SQLite.swift";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0C068E55B06F5D9F5D9E8156 /* Pods-tipsy-DateTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-DateTools-umbrella.h"; sourceTree = "<group>"; };
-		0CCFB6C979722587FCD94276 /* Pods-tipsy-SQLite.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-SQLite.swift.modulemap"; sourceTree = "<group>"; };
-		0D0E46DA43631F4E9D5B1079 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodGroup.m; path = DateTools/DTTimePeriodGroup.m; sourceTree = "<group>"; };
-		1050B943BC47782E51C8B079 /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodCollection.h; path = DateTools/DTTimePeriodCollection.h; sourceTree = "<group>"; };
-		1144BEB28D6DF18F31753160 /* SwiftAddressBookRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookRecord.swift; path = Pod/Classes/SwiftAddressBookRecord.swift; sourceTree = "<group>"; };
-		1359DD06346801EED3174CF7 /* Pods-tipsy-SQLite.swift-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SQLite.swift-Private.xcconfig"; sourceTree = "<group>"; };
-		16896B6B2AF494CE7EF73745 /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = SQLite/Query.swift; sourceTree = "<group>"; };
-		1B665660609B216768F387D9 /* Pods-tipsy-DateTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-DateTools-dummy.m"; sourceTree = "<group>"; };
-		1ED4BCA404039B5CF8BC6DD4 /* SQLite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLite.h; path = SQLite/SQLite.h; sourceTree = "<group>"; };
-		1F3BF582CD054399281474EA /* Pods-tipsy-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tipsy-resources.sh"; sourceTree = "<group>"; };
-		2186CC2D6D935D9B46194FDA /* Pods-tipsy-DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-DateTools.xcconfig"; sourceTree = "<group>"; };
-		222DFD28362A7D8CE15CC677 /* Pods-tipsy-SwiftAddressBook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-SwiftAddressBook.modulemap"; sourceTree = "<group>"; };
-		2379DC12EC6B5FD56CC23A3F /* Pods-tipsy-SQLite.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SQLite.swift-prefix.pch"; sourceTree = "<group>"; };
-		23AF39239A44AF47662EFDE9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AB0651CDC57A47EA0C09265 /* Pods-tipsy-SwiftAddressBook.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SwiftAddressBook.xcconfig"; sourceTree = "<group>"; };
-		2C90955212B9DA5D9095E32F /* Pods-tipsy-DateTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-DateTools-prefix.pch"; sourceTree = "<group>"; };
-		2CBFD7E76571DDA3A758CEBA /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AddressBookUI.framework; sourceTree = DEVELOPER_DIR; };
-		2FBCAC69F78B5BEBECF7D0A8 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		35AEBA480EAAB5B0DC0A75A9 /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = SQLite/Expression.swift; sourceTree = "<group>"; };
-		36ACB93430440EADA2AD8252 /* Pods-tipsy-SwiftAddressBook-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SwiftAddressBook-prefix.pch"; sourceTree = "<group>"; };
-		3DC7115D06742E8A703BA329 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodChain.h; path = DateTools/DTTimePeriodChain.h; sourceTree = "<group>"; };
-		40AA1BE482570027B8519CC8 /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = SQLite/Statement.swift; sourceTree = "<group>"; };
-		4607D3266865EF9CD7DE29D0 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
-		4DBF724A03873C00AD488525 /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
-		4E0CB40C487E34749B4B44F3 /* Pods-tipsy-SwiftAddressBook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-SwiftAddressBook-dummy.m"; sourceTree = "<group>"; };
-		4E3281FE7009BEECFE4D6E20 /* Pods-tipsy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-umbrella.h"; sourceTree = "<group>"; };
-		4E5854E65011238B4B861E82 /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		51A98F87983C90D66BCDD505 /* Pods-tipsy-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-environment.h"; sourceTree = "<group>"; };
-		53204A5F55355814A22F362D /* SQLite-Bridging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SQLite-Bridging.m"; path = "SQLite/SQLite-Bridging.m"; sourceTree = "<group>"; };
-		54AA28785E064AD5BE162F49 /* DTConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTConstants.h; path = DateTools/DTConstants.h; sourceTree = "<group>"; };
-		55E4D028BE5998C1AB04BCCC /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools.bundle; sourceTree = "<group>"; };
-		597611BD4A5633C258F5CA12 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5BE9D50D012DF612BBAA670F /* Pods-tipsy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-dummy.m"; sourceTree = "<group>"; };
-		620C5297BA0AAC75A6451F0D /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodGroup.h; path = DateTools/DTTimePeriodGroup.h; sourceTree = "<group>"; };
-		6301B43561C3B0B9E6FC1032 /* Pods-tipsy-DateTools-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-DateTools-Private.xcconfig"; sourceTree = "<group>"; };
-		65089D18980D2D7C93EDAF1D /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SwiftAddressBook-Private.xcconfig"; sourceTree = "<group>"; };
-		65B408FAB7DB86CD657286D7 /* fts3_tokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fts3_tokenizer.h; path = SQLite/fts3_tokenizer.h; sourceTree = "<group>"; };
-		68282D5C1F40C7ED1148D2CA /* Pods-tipsy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy.modulemap"; sourceTree = "<group>"; };
-		6D43F31056CF11BDAB412C55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6E93AF0B7B8B2D3021507A89 /* Pods-tipsy-SwiftAddressBook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SwiftAddressBook-umbrella.h"; sourceTree = "<group>"; };
-		6E99A2F3040C45ECEF9B9D2E /* Pods-tipsy-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tipsy-frameworks.sh"; sourceTree = "<group>"; };
-		743BA3879599014BC60D26F4 /* Value.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Value.swift; path = SQLite/Value.swift; sourceTree = "<group>"; };
-		7DB436928D7DCDCC15A7BCBB /* Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Schema.swift; path = SQLite/Schema.swift; sourceTree = "<group>"; };
-		82688FCC76DBB8D6E66F0973 /* DTError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTError.h; path = DateTools/DTError.h; sourceTree = "<group>"; };
-		83A6E153152BED837389F633 /* NSDate+DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+DateTools.h"; path = "DateTools/NSDate+DateTools.h"; sourceTree = "<group>"; };
-		8672D40320A6EAA3CC2DEB52 /* FTS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS.swift; path = SQLite/FTS.swift; sourceTree = "<group>"; };
-		89553405400A87C382EB4A26 /* SwiftAddressBookDataStructures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookDataStructures.swift; path = Pod/Classes/SwiftAddressBookDataStructures.swift; sourceTree = "<group>"; };
-		9202275D677B442D0EB6010D /* DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DateTools.h; path = DateTools/DateTools.h; sourceTree = "<group>"; };
-		95C238CF7BBEB97A17EA3EAD /* SwiftAddressBookHelperMethods.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookHelperMethods.swift; path = Pod/Classes/SwiftAddressBookHelperMethods.swift; sourceTree = "<group>"; };
-		9BBC3636414A9E8EE92BDC81 /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CC5703130809C8B7F70151E /* RTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RTree.swift; path = SQLite/RTree.swift; sourceTree = "<group>"; };
-		9F58C411A8C2FE6644566CD4 /* SQLite-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SQLite-Bridging.h"; path = "SQLite/SQLite-Bridging.h"; sourceTree = "<group>"; };
-		A0531602D53C620DF4C88734 /* Pods-tipsy-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-tipsy-acknowledgements.plist"; sourceTree = "<group>"; };
-		A08BD0695C8B6C9264699057 /* Database.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Database.swift; path = SQLite/Database.swift; sourceTree = "<group>"; };
-		A4705FDE33629774D43B0952 /* SwiftAddressBookGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookGroup.swift; path = Pod/Classes/SwiftAddressBookGroup.swift; sourceTree = "<group>"; };
-		A82EEAA84F3CF2E31661C455 /* Pods-tipsy-SQLite.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SQLite.swift.xcconfig"; sourceTree = "<group>"; };
-		AC43BDDDFCEA122A54B3F037 /* SwiftAddressBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftAddressBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B255F67AF619E3C80136FED1 /* Pods-tipsy-DateTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-DateTools.modulemap"; sourceTree = "<group>"; };
-		B9078D34CD7B75DA125CB29A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF854D252AF2924C666101BC /* Pods-tipsy-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-tipsy-acknowledgements.markdown"; sourceTree = "<group>"; };
-		C62C34357878B32A963764B4 /* NSDate+DateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+DateTools.m"; path = "DateTools/NSDate+DateTools.m"; sourceTree = "<group>"; };
-		C64BFE01D6F274FEBD9FFA2C /* Pods-tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy.debug.xcconfig"; sourceTree = "<group>"; };
-		C7BF9E101B967DC6D64394F6 /* SwiftAddressBookWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookWrapper.swift; path = Pod/Classes/SwiftAddressBookWrapper.swift; sourceTree = "<group>"; };
-		C8E17D1AF3AD2E4B54B95DBF /* DTTimePeriod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriod.m; path = DateTools/DTTimePeriod.m; sourceTree = "<group>"; };
-		CFE89A0A066FA4A953F6D4B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB99834C3A87EDEA7761902C /* SwiftAddressBookPerson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookPerson.swift; path = Pod/Classes/SwiftAddressBookPerson.swift; sourceTree = "<group>"; };
-		DC8BFB6708EBF8FF00F269BB /* DTError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTError.m; path = DateTools/DTError.m; sourceTree = "<group>"; };
-		DEF88FB38B598ACF01504976 /* SwiftAddressBookSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookSource.swift; path = Pod/Classes/SwiftAddressBookSource.swift; sourceTree = "<group>"; };
-		EBCC94D4E2997CD873066C4D /* Functions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = SQLite/Functions.swift; sourceTree = "<group>"; };
-		F26219D6D2E6329811D02D82 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
-		F7ED16FFD06CC4A4FB48530B /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
-		F8DD8C859EE1909215A5BE01 /* DTTimePeriod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriod.h; path = DateTools/DTTimePeriod.h; sourceTree = "<group>"; };
-		FA5DA8A4ACCB1D1D7F6B2470 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB7D8B2C7B0AED49D62C35ED /* Pods-tipsy-SQLite.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-SQLite.swift-dummy.m"; sourceTree = "<group>"; };
+		01609A5E093D97AEAD8514AA /* DTConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTConstants.h; path = DateTools/DTConstants.h; sourceTree = "<group>"; };
+		05C493C4B36A1813850CE2A1 /* Pods-tipsy-DateTools-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-DateTools-umbrella.h"; sourceTree = "<group>"; };
+		06B12AF978153FB648422B07 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08DA05D9C7A71F248FE1F4C6 /* DTError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTError.h; path = DateTools/DTError.h; sourceTree = "<group>"; };
+		0A09632A1E19888BBF4A3949 /* Pods-tipsy-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-tipsy-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0D3993A14CF5D81838B97424 /* Schema.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Schema.swift; path = SQLite/Schema.swift; sourceTree = "<group>"; };
+		0F16AA5FF0F8EEA9312D171B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15CA178C7A0E73FEC1B8E0F6 /* Functions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = SQLite/Functions.swift; sourceTree = "<group>"; };
+		173155A0B40499A7E2DE200B /* Pods-tipsy.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy.modulemap"; sourceTree = "<group>"; };
+		1769172BB19AE121768E2964 /* SwiftAddressBookRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookRecord.swift; path = Pod/Classes/SwiftAddressBookRecord.swift; sourceTree = "<group>"; };
+		17989689E6C65F10F7BF7BBD /* DTTimePeriodCollection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodCollection.h; path = DateTools/DTTimePeriodCollection.h; sourceTree = "<group>"; };
+		1E4FF0B35D094E0C2A42F704 /* NSDate+DateTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+DateTools.m"; path = "DateTools/NSDate+DateTools.m"; sourceTree = "<group>"; };
+		26287BBF250A983FEEB505FF /* RTree.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RTree.swift; path = SQLite/RTree.swift; sourceTree = "<group>"; };
+		263D366F88F3899D721F9A26 /* DTTimePeriodGroup.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodGroup.m; path = DateTools/DTTimePeriodGroup.m; sourceTree = "<group>"; };
+		291AA87774227608718DDB30 /* Pods-tipsy-DateTools-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-DateTools-dummy.m"; sourceTree = "<group>"; };
+		2B5F9900C45874F6B5456D41 /* Pods-tipsy-SQLite.swift-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SQLite.swift-Private.xcconfig"; sourceTree = "<group>"; };
+		2C5AB1C75D9A2587BB283E02 /* Pods-tipsy-DateTools-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-DateTools-Private.xcconfig"; sourceTree = "<group>"; };
+		360D931E2092FE8B962A7B61 /* Pods-tipsy-DateTools.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-DateTools.xcconfig"; sourceTree = "<group>"; };
+		3A130F9AE7FA3231AB1F06DD /* Pods-tipsy-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-dummy.m"; sourceTree = "<group>"; };
+		40A76A295D6FA89E100F9063 /* SwiftAddressBookSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookSource.swift; path = Pod/Classes/SwiftAddressBookSource.swift; sourceTree = "<group>"; };
+		429EF6A5D215FA0F86C706C7 /* DTError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTError.m; path = DateTools/DTError.m; sourceTree = "<group>"; };
+		4703495806A84864F5EC7E9C /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
+		5069CD74707D0F74A1D96992 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51F69419864BA6FD3A55661E /* fts3_tokenizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = fts3_tokenizer.h; path = SQLite/fts3_tokenizer.h; sourceTree = "<group>"; };
+		552EFE4215EF9A08199D56BD /* Expression.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Expression.swift; path = SQLite/Expression.swift; sourceTree = "<group>"; };
+		58247426DC1FB8D6FB772A2E /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5931E1C3E069D6C28A5D2AB0 /* Statement.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Statement.swift; path = SQLite/Statement.swift; sourceTree = "<group>"; };
+		5994627971DA233FFC35DAEE /* SwiftAddressBookHelperMethods.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookHelperMethods.swift; path = Pod/Classes/SwiftAddressBookHelperMethods.swift; sourceTree = "<group>"; };
+		5C558D849C46B3BDF01DC087 /* DTTimePeriodChain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodChain.h; path = DateTools/DTTimePeriodChain.h; sourceTree = "<group>"; };
+		608346153DBFFBBCD68BEBB8 /* SwiftAddressBookGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookGroup.swift; path = Pod/Classes/SwiftAddressBookGroup.swift; sourceTree = "<group>"; };
+		672EFDA483819A8F371E23D3 /* GoogleMaps.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		6DADF11D90BC7F5865DE2109 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		6DBA82689C0AF3A857FD09CC /* DateTools.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = DateTools.bundle; path = DateTools/DateTools.bundle; sourceTree = "<group>"; };
+		71F8E7DD735333099EDFA9B4 /* DTTimePeriodChain.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodChain.m; path = DateTools/DTTimePeriodChain.m; sourceTree = "<group>"; };
+		7217878F5D7A3B75EFB4FA5C /* Pods-tipsy-SwiftAddressBook-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-SwiftAddressBook-dummy.m"; sourceTree = "<group>"; };
+		788E29B0B1893EBBC7B7D74B /* DTTimePeriodGroup.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriodGroup.h; path = DateTools/DTTimePeriodGroup.h; sourceTree = "<group>"; };
+		7A8825AC70BC5471B795988C /* Pods-tipsy-SQLite.swift.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SQLite.swift.xcconfig"; sourceTree = "<group>"; };
+		7AF3A8E72BD18EB53D695E82 /* Pods-tipsy-SwiftAddressBook-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SwiftAddressBook-umbrella.h"; sourceTree = "<group>"; };
+		7E596520CA861B8552D12308 /* SwiftAddressBookWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookWrapper.swift; path = Pod/Classes/SwiftAddressBookWrapper.swift; sourceTree = "<group>"; };
+		822E71A0382926F53E5E20DA /* SQLite-Bridging.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SQLite-Bridging.h"; path = "SQLite/SQLite-Bridging.h"; sourceTree = "<group>"; };
+		84D60EAA2B5B1F791B41723A /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE4D8EAF856F2CB33F363D8 /* Pods-tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy.debug.xcconfig"; sourceTree = "<group>"; };
+		8C6E558D99E184792D4FD7AB /* Pods-tipsy-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-environment.h"; sourceTree = "<group>"; };
+		8CCB4994B5952256DB791B7B /* Pods-tipsy-SwiftAddressBook-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SwiftAddressBook-prefix.pch"; sourceTree = "<group>"; };
+		8E653B1AFA08D4533DC5DE72 /* Pods-tipsy-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tipsy-resources.sh"; sourceTree = "<group>"; };
+		90513B3BA95167E6291BB4E0 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
+		9B25A13B347EC8F9D93B10B4 /* SwiftAddressBookDataStructures.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookDataStructures.swift; path = Pod/Classes/SwiftAddressBookDataStructures.swift; sourceTree = "<group>"; };
+		9DF81B1C918280D61377DA88 /* FTS.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FTS.swift; path = SQLite/FTS.swift; sourceTree = "<group>"; };
+		9E7A64355EAACE6565716B6F /* Pods-tipsy-SQLite.swift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-SQLite.swift-prefix.pch"; sourceTree = "<group>"; };
+		A160391E58D08CAB91DAEAD7 /* DateTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DateTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3FA62833FA5CE57895E3AD7 /* Pods-tipsy-SwiftAddressBook.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SwiftAddressBook.xcconfig"; sourceTree = "<group>"; };
+		A42BA62381CB00BDC8F50B7B /* SwiftAddressBookPerson.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftAddressBookPerson.swift; path = Pod/Classes/SwiftAddressBookPerson.swift; sourceTree = "<group>"; };
+		A90E7B6B1DA82EBC1665D9AD /* Pods-tipsy-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-tipsy-acknowledgements.plist"; sourceTree = "<group>"; };
+		A9766C5129B88BEC6A7C1784 /* Pods-tipsy-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-umbrella.h"; sourceTree = "<group>"; };
+		AA9EA8FB8598D0620448FA80 /* Pods-tipsy-SQLite.swift-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-tipsy-SQLite.swift-dummy.m"; sourceTree = "<group>"; };
+		AC623B74FC62EEEEEA07327A /* DTTimePeriodCollection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriodCollection.m; path = DateTools/DTTimePeriodCollection.m; sourceTree = "<group>"; };
+		B4B6A4F3CC1E5E59D77D5486 /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B6F5187D7316CB3187D89D61 /* SQLite.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SQLite.h; path = SQLite/SQLite.h; sourceTree = "<group>"; };
+		B8987C1432F75FAB53A80796 /* Database.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Database.swift; path = SQLite/Database.swift; sourceTree = "<group>"; };
+		BBF574B3A3080435153BBA82 /* Pods-tipsy-DateTools-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-tipsy-DateTools-prefix.pch"; sourceTree = "<group>"; };
+		BCEEF59A26308950BD799C3B /* DTTimePeriod.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DTTimePeriod.h; path = DateTools/DTTimePeriod.h; sourceTree = "<group>"; };
+		BD2EBE80C65B06590A8CF64E /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AddressBook.framework; sourceTree = DEVELOPER_DIR; };
+		C0065F1418695B4C2DA428EA /* DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DateTools.h; path = DateTools/DateTools.h; sourceTree = "<group>"; };
+		C04DCDF335E27732D07BA954 /* Pods-tipsy-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-tipsy-frameworks.sh"; sourceTree = "<group>"; };
+		C36EBB7E97ECE55C26FB8E09 /* Pods-tipsy-SQLite.swift.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-SQLite.swift.modulemap"; sourceTree = "<group>"; };
+		CA79B059304143667654593B /* SQLite-Bridging.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SQLite-Bridging.m"; path = "SQLite/SQLite-Bridging.m"; sourceTree = "<group>"; };
+		CE652E584555A609748756B9 /* Pods-tipsy-DateTools.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-DateTools.modulemap"; sourceTree = "<group>"; };
+		D04904729105F534D402A9C8 /* Value.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Value.swift; path = SQLite/Value.swift; sourceTree = "<group>"; };
+		D6D0E4E64FAF061191F5FD48 /* DTTimePeriod.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DTTimePeriod.m; path = DateTools/DTTimePeriod.m; sourceTree = "<group>"; };
+		DB3793F49DBCE9451EB7F61F /* Pods-tipsy-SwiftAddressBook.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-tipsy-SwiftAddressBook.modulemap"; sourceTree = "<group>"; };
+		EF2C8E87B3DEB3567D79EB80 /* SwiftAddressBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftAddressBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F624802CB537C007A65958B1 /* NSDate+DateTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+DateTools.h"; path = "DateTools/NSDate+DateTools.h"; sourceTree = "<group>"; };
+		F871F4AA3202295ED85FF217 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/AddressBookUI.framework; sourceTree = DEVELOPER_DIR; };
+		F8DBEBC5ED26A81EBC75EF62 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC24AFF48916128BC1F3D73 /* Query.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Query.swift; path = SQLite/Query.swift; sourceTree = "<group>"; };
+		FB64EFE373B008B7D9DEB2B7 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-tipsy-SwiftAddressBook-Private.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1242BF1A3DD1BCAA81608F12 /* Frameworks */ = {
+		525ED44DA3E2C8B976D02F46 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D20DF5555725C5AAF8711972 /* Foundation.framework in Frameworks */,
+				1D5533A0F17C149735E4497D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9E47FDC5F61A8E85B8734E53 /* Frameworks */ = {
+		C2C4290B1F4D228DD7E7F4E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				814C235E6F7BBAADB14AB604 /* AddressBook.framework in Frameworks */,
-				AB85AA1A6E9C55B8828D5B39 /* AddressBookUI.framework in Frameworks */,
-				68173A1D8857915A3BF2B6EB /* Foundation.framework in Frameworks */,
+				66C252ECBF6090D0C618230D /* AddressBook.framework in Frameworks */,
+				015DA92DC52EB5709CBCAC26 /* AddressBookUI.framework in Frameworks */,
+				CDDBD4FECB97805C7C2DB10C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A1071B5D2B5A29F668D1DA3C /* Frameworks */ = {
+		C7AC25E44B528EE3A80E3452 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5704D523510C9A3439CF4026 /* Foundation.framework in Frameworks */,
+				DE471DD945CBEC2573765177 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1FEAB31A2519DE930D5D6CC /* Frameworks */ = {
+		FA72A6582172245383703797 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ACDA9024EF2E8966F423F3E /* Foundation.framework in Frameworks */,
+				7626FF03277D44E77FF3DEAF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		08132FA68725BA17482B5EC5 /* Frameworks */ = {
+		0EE4E3BDDBD45DFB1DEECF8B /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				59D3F14C719878B58BAA2558 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		12921E071020E07B9F678EA4 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				CFE89A0A066FA4A953F6D4B0 /* Info.plist */,
-				B255F67AF619E3C80136FED1 /* Pods-tipsy-DateTools.modulemap */,
-				2186CC2D6D935D9B46194FDA /* Pods-tipsy-DateTools.xcconfig */,
-				6301B43561C3B0B9E6FC1032 /* Pods-tipsy-DateTools-Private.xcconfig */,
-				1B665660609B216768F387D9 /* Pods-tipsy-DateTools-dummy.m */,
-				2C90955212B9DA5D9095E32F /* Pods-tipsy-DateTools-prefix.pch */,
-				0C068E55B06F5D9F5D9E8156 /* Pods-tipsy-DateTools-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-tipsy-DateTools";
-			sourceTree = "<group>";
-		};
-		16F8510DD83E02F56130189F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				23AF39239A44AF47662EFDE9 /* Info.plist */,
-				222DFD28362A7D8CE15CC677 /* Pods-tipsy-SwiftAddressBook.modulemap */,
-				2AB0651CDC57A47EA0C09265 /* Pods-tipsy-SwiftAddressBook.xcconfig */,
-				65089D18980D2D7C93EDAF1D /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */,
-				4E0CB40C487E34749B4B44F3 /* Pods-tipsy-SwiftAddressBook-dummy.m */,
-				36ACB93430440EADA2AD8252 /* Pods-tipsy-SwiftAddressBook-prefix.pch */,
-				6E93AF0B7B8B2D3021507A89 /* Pods-tipsy-SwiftAddressBook-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/Pods-tipsy-SwiftAddressBook";
-			sourceTree = "<group>";
-		};
-		1A27F3EA8CFDBD0F9B752E1D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4E5854E65011238B4B861E82 /* DateTools.framework */,
-				9BBC3636414A9E8EE92BDC81 /* Pods_tipsy.framework */,
-				597611BD4A5633C258F5CA12 /* SQLite.framework */,
-				AC43BDDDFCEA122A54B3F037 /* SwiftAddressBook.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		2778A86FF8DB352E7FBAEAF1 /* SwiftAddressBook */ = {
-			isa = PBXGroup;
-			children = (
-				89553405400A87C382EB4A26 /* SwiftAddressBookDataStructures.swift */,
-				A4705FDE33629774D43B0952 /* SwiftAddressBookGroup.swift */,
-				95C238CF7BBEB97A17EA3EAD /* SwiftAddressBookHelperMethods.swift */,
-				DB99834C3A87EDEA7761902C /* SwiftAddressBookPerson.swift */,
-				1144BEB28D6DF18F31753160 /* SwiftAddressBookRecord.swift */,
-				DEF88FB38B598ACF01504976 /* SwiftAddressBookSource.swift */,
-				C7BF9E101B967DC6D64394F6 /* SwiftAddressBookWrapper.swift */,
-				16F8510DD83E02F56130189F /* Support Files */,
-			);
-			path = SwiftAddressBook;
-			sourceTree = "<group>";
-		};
-		3B23B3285794F6432CD4B716 /* SQLite.swift */ = {
-			isa = PBXGroup;
-			children = (
-				80535160AF72F8A260815C43 /* Core */,
-				8F8F9283A17C84309326BDBC /* Support Files */,
-			);
-			path = SQLite.swift;
-			sourceTree = "<group>";
-		};
-		59D3F14C719878B58BAA2558 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				4607D3266865EF9CD7DE29D0 /* AddressBook.framework */,
-				2CBFD7E76571DDA3A758CEBA /* AddressBookUI.framework */,
-				6D43F31056CF11BDAB412C55 /* Foundation.framework */,
+				BD2EBE80C65B06590A8CF64E /* AddressBook.framework */,
+				F871F4AA3202295ED85FF217 /* AddressBookUI.framework */,
+				6DADF11D90BC7F5865DE2109 /* Foundation.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		65BEC1C80D836BC723EEAAC1 /* Pods-tipsy */ = {
+		0F53AF77CABCB1DA51FE6DC3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B9078D34CD7B75DA125CB29A /* Info.plist */,
-				68282D5C1F40C7ED1148D2CA /* Pods-tipsy.modulemap */,
-				BF854D252AF2924C666101BC /* Pods-tipsy-acknowledgements.markdown */,
-				A0531602D53C620DF4C88734 /* Pods-tipsy-acknowledgements.plist */,
-				5BE9D50D012DF612BBAA670F /* Pods-tipsy-dummy.m */,
-				51A98F87983C90D66BCDD505 /* Pods-tipsy-environment.h */,
-				6E99A2F3040C45ECEF9B9D2E /* Pods-tipsy-frameworks.sh */,
-				1F3BF582CD054399281474EA /* Pods-tipsy-resources.sh */,
-				4E3281FE7009BEECFE4D6E20 /* Pods-tipsy-umbrella.h */,
-				C64BFE01D6F274FEBD9FFA2C /* Pods-tipsy.debug.xcconfig */,
-				F26219D6D2E6329811D02D82 /* Pods-tipsy.release.xcconfig */,
+				0EE4E3BDDBD45DFB1DEECF8B /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1029634EA6C838B9CE0EE017 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B8987C1432F75FAB53A80796 /* Database.swift */,
+				552EFE4215EF9A08199D56BD /* Expression.swift */,
+				9DF81B1C918280D61377DA88 /* FTS.swift */,
+				15CA178C7A0E73FEC1B8E0F6 /* Functions.swift */,
+				FAC24AFF48916128BC1F3D73 /* Query.swift */,
+				26287BBF250A983FEEB505FF /* RTree.swift */,
+				B6F5187D7316CB3187D89D61 /* SQLite.h */,
+				822E71A0382926F53E5E20DA /* SQLite-Bridging.h */,
+				CA79B059304143667654593B /* SQLite-Bridging.m */,
+				0D3993A14CF5D81838B97424 /* Schema.swift */,
+				5931E1C3E069D6C28A5D2AB0 /* Statement.swift */,
+				D04904729105F534D402A9C8 /* Value.swift */,
+				51F69419864BA6FD3A55661E /* fts3_tokenizer.h */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		10B52CB1B7F80ECA795D1CDE /* Pods-tipsy */ = {
+			isa = PBXGroup;
+			children = (
+				5069CD74707D0F74A1D96992 /* Info.plist */,
+				173155A0B40499A7E2DE200B /* Pods-tipsy.modulemap */,
+				0A09632A1E19888BBF4A3949 /* Pods-tipsy-acknowledgements.markdown */,
+				A90E7B6B1DA82EBC1665D9AD /* Pods-tipsy-acknowledgements.plist */,
+				3A130F9AE7FA3231AB1F06DD /* Pods-tipsy-dummy.m */,
+				8C6E558D99E184792D4FD7AB /* Pods-tipsy-environment.h */,
+				C04DCDF335E27732D07BA954 /* Pods-tipsy-frameworks.sh */,
+				8E653B1AFA08D4533DC5DE72 /* Pods-tipsy-resources.sh */,
+				A9766C5129B88BEC6A7C1784 /* Pods-tipsy-umbrella.h */,
+				8AE4D8EAF856F2CB33F363D8 /* Pods-tipsy.debug.xcconfig */,
+				4703495806A84864F5EC7E9C /* Pods-tipsy.release.xcconfig */,
 			);
 			name = "Pods-tipsy";
 			path = "Target Support Files/Pods-tipsy";
 			sourceTree = "<group>";
 		};
-		7140002189A1AB1E9A4A18DF /* Pods */ = {
+		19A7FF6F15700B86554F3112 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9DE2B53BAA3CB297BFD10662 /* DateTools */,
-				3B23B3285794F6432CD4B716 /* SQLite.swift */,
-				2778A86FF8DB352E7FBAEAF1 /* SwiftAddressBook */,
+				A160391E58D08CAB91DAEAD7 /* DateTools.framework */,
+				58247426DC1FB8D6FB772A2E /* Pods_tipsy.framework */,
+				84D60EAA2B5B1F791B41723A /* SQLite.framework */,
+				EF2C8E87B3DEB3567D79EB80 /* SwiftAddressBook.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		19EA55EB33D0092CE0551FA4 /* SwiftAddressBook */ = {
+			isa = PBXGroup;
+			children = (
+				9B25A13B347EC8F9D93B10B4 /* SwiftAddressBookDataStructures.swift */,
+				608346153DBFFBBCD68BEBB8 /* SwiftAddressBookGroup.swift */,
+				5994627971DA233FFC35DAEE /* SwiftAddressBookHelperMethods.swift */,
+				A42BA62381CB00BDC8F50B7B /* SwiftAddressBookPerson.swift */,
+				1769172BB19AE121768E2964 /* SwiftAddressBookRecord.swift */,
+				40A76A295D6FA89E100F9063 /* SwiftAddressBookSource.swift */,
+				7E596520CA861B8552D12308 /* SwiftAddressBookWrapper.swift */,
+				3D31E18C2B95B733F035D238 /* Support Files */,
+			);
+			path = SwiftAddressBook;
+			sourceTree = "<group>";
+		};
+		215CFC6CF4C5E3E20253C4F2 /* SQLite.swift */ = {
+			isa = PBXGroup;
+			children = (
+				1029634EA6C838B9CE0EE017 /* Core */,
+				63B29E25B390EBE87814E0E4 /* Support Files */,
+			);
+			path = SQLite.swift;
+			sourceTree = "<group>";
+		};
+		31D2BD86290A0AFD40DF8B20 /* GoogleMaps */ = {
+			isa = PBXGroup;
+			children = (
+				EC8C315A74044AF80D257684 /* Frameworks */,
+				4CE415E205921A7EAD775311 /* Resources */,
+			);
+			path = GoogleMaps;
+			sourceTree = "<group>";
+		};
+		3D31E18C2B95B733F035D238 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0F16AA5FF0F8EEA9312D171B /* Info.plist */,
+				DB3793F49DBCE9451EB7F61F /* Pods-tipsy-SwiftAddressBook.modulemap */,
+				A3FA62833FA5CE57895E3AD7 /* Pods-tipsy-SwiftAddressBook.xcconfig */,
+				FB64EFE373B008B7D9DEB2B7 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */,
+				7217878F5D7A3B75EFB4FA5C /* Pods-tipsy-SwiftAddressBook-dummy.m */,
+				8CCB4994B5952256DB791B7B /* Pods-tipsy-SwiftAddressBook-prefix.pch */,
+				7AF3A8E72BD18EB53D695E82 /* Pods-tipsy-SwiftAddressBook-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-tipsy-SwiftAddressBook";
+			sourceTree = "<group>";
+		};
+		3DD587EDC0C28A2B178E0D0A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7ED323E183EB5ED5B11A2EF5 /* DateTools */,
+				31D2BD86290A0AFD40DF8B20 /* GoogleMaps */,
+				215CFC6CF4C5E3E20253C4F2 /* SQLite.swift */,
+				19EA55EB33D0092CE0551FA4 /* SwiftAddressBook */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		80535160AF72F8A260815C43 /* Core */ = {
+		3EADB950E0FBB595ED983E87 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A08BD0695C8B6C9264699057 /* Database.swift */,
-				35AEBA480EAAB5B0DC0A75A9 /* Expression.swift */,
-				8672D40320A6EAA3CC2DEB52 /* FTS.swift */,
-				EBCC94D4E2997CD873066C4D /* Functions.swift */,
-				16896B6B2AF494CE7EF73745 /* Query.swift */,
-				9CC5703130809C8B7F70151E /* RTree.swift */,
-				1ED4BCA404039B5CF8BC6DD4 /* SQLite.h */,
-				9F58C411A8C2FE6644566CD4 /* SQLite-Bridging.h */,
-				53204A5F55355814A22F362D /* SQLite-Bridging.m */,
-				7DB436928D7DCDCC15A7BCBB /* Schema.swift */,
-				40AA1BE482570027B8519CC8 /* Statement.swift */,
-				743BA3879599014BC60D26F4 /* Value.swift */,
-				65B408FAB7DB86CD657286D7 /* fts3_tokenizer.h */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		8F221062B763EAE0968AAE29 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				55E4D028BE5998C1AB04BCCC /* DateTools.bundle */,
+				6DBA82689C0AF3A857FD09CC /* DateTools.bundle */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		8F8F9283A17C84309326BDBC /* Support Files */ = {
+		4CE415E205921A7EAD775311 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FA5DA8A4ACCB1D1D7F6B2470 /* Info.plist */,
-				0CCFB6C979722587FCD94276 /* Pods-tipsy-SQLite.swift.modulemap */,
-				A82EEAA84F3CF2E31661C455 /* Pods-tipsy-SQLite.swift.xcconfig */,
-				1359DD06346801EED3174CF7 /* Pods-tipsy-SQLite.swift-Private.xcconfig */,
-				FB7D8B2C7B0AED49D62C35ED /* Pods-tipsy-SQLite.swift-dummy.m */,
-				2379DC12EC6B5FD56CC23A3F /* Pods-tipsy-SQLite.swift-prefix.pch */,
+				672EFDA483819A8F371E23D3 /* GoogleMaps.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		63B29E25B390EBE87814E0E4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				06B12AF978153FB648422B07 /* Info.plist */,
+				C36EBB7E97ECE55C26FB8E09 /* Pods-tipsy-SQLite.swift.modulemap */,
+				7A8825AC70BC5471B795988C /* Pods-tipsy-SQLite.swift.xcconfig */,
+				2B5F9900C45874F6B5456D41 /* Pods-tipsy-SQLite.swift-Private.xcconfig */,
+				AA9EA8FB8598D0620448FA80 /* Pods-tipsy-SQLite.swift-dummy.m */,
+				9E7A64355EAACE6565716B6F /* Pods-tipsy-SQLite.swift-prefix.pch */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/Pods-tipsy-SQLite.swift";
 			sourceTree = "<group>";
 		};
-		9DE2B53BAA3CB297BFD10662 /* DateTools */ = {
+		7ED323E183EB5ED5B11A2EF5 /* DateTools */ = {
 			isa = PBXGroup;
 			children = (
-				54AA28785E064AD5BE162F49 /* DTConstants.h */,
-				82688FCC76DBB8D6E66F0973 /* DTError.h */,
-				DC8BFB6708EBF8FF00F269BB /* DTError.m */,
-				F8DD8C859EE1909215A5BE01 /* DTTimePeriod.h */,
-				C8E17D1AF3AD2E4B54B95DBF /* DTTimePeriod.m */,
-				3DC7115D06742E8A703BA329 /* DTTimePeriodChain.h */,
-				F7ED16FFD06CC4A4FB48530B /* DTTimePeriodChain.m */,
-				1050B943BC47782E51C8B079 /* DTTimePeriodCollection.h */,
-				4DBF724A03873C00AD488525 /* DTTimePeriodCollection.m */,
-				620C5297BA0AAC75A6451F0D /* DTTimePeriodGroup.h */,
-				0D0E46DA43631F4E9D5B1079 /* DTTimePeriodGroup.m */,
-				9202275D677B442D0EB6010D /* DateTools.h */,
-				83A6E153152BED837389F633 /* NSDate+DateTools.h */,
-				C62C34357878B32A963764B4 /* NSDate+DateTools.m */,
-				8F221062B763EAE0968AAE29 /* Resources */,
-				12921E071020E07B9F678EA4 /* Support Files */,
+				01609A5E093D97AEAD8514AA /* DTConstants.h */,
+				08DA05D9C7A71F248FE1F4C6 /* DTError.h */,
+				429EF6A5D215FA0F86C706C7 /* DTError.m */,
+				BCEEF59A26308950BD799C3B /* DTTimePeriod.h */,
+				D6D0E4E64FAF061191F5FD48 /* DTTimePeriod.m */,
+				5C558D849C46B3BDF01DC087 /* DTTimePeriodChain.h */,
+				71F8E7DD735333099EDFA9B4 /* DTTimePeriodChain.m */,
+				17989689E6C65F10F7BF7BBD /* DTTimePeriodCollection.h */,
+				AC623B74FC62EEEEEA07327A /* DTTimePeriodCollection.m */,
+				788E29B0B1893EBBC7B7D74B /* DTTimePeriodGroup.h */,
+				263D366F88F3899D721F9A26 /* DTTimePeriodGroup.m */,
+				C0065F1418695B4C2DA428EA /* DateTools.h */,
+				F624802CB537C007A65958B1 /* NSDate+DateTools.h */,
+				1E4FF0B35D094E0C2A42F704 /* NSDate+DateTools.m */,
+				3EADB950E0FBB595ED983E87 /* Resources */,
+				B7C61790E334B3533CCB8201 /* Support Files */,
 			);
 			path = DateTools;
 			sourceTree = "<group>";
 		};
-		AA2B88150C9FEC7E8709A694 = {
+		B7C61790E334B3533CCB8201 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				2FBCAC69F78B5BEBECF7D0A8 /* Podfile */,
-				08132FA68725BA17482B5EC5 /* Frameworks */,
-				7140002189A1AB1E9A4A18DF /* Pods */,
-				1A27F3EA8CFDBD0F9B752E1D /* Products */,
-				EFE6AEF5BED950DF9110E3EA /* Targets Support Files */,
+				F8DBEBC5ED26A81EBC75EF62 /* Info.plist */,
+				CE652E584555A609748756B9 /* Pods-tipsy-DateTools.modulemap */,
+				360D931E2092FE8B962A7B61 /* Pods-tipsy-DateTools.xcconfig */,
+				2C5AB1C75D9A2587BB283E02 /* Pods-tipsy-DateTools-Private.xcconfig */,
+				291AA87774227608718DDB30 /* Pods-tipsy-DateTools-dummy.m */,
+				BBF574B3A3080435153BBA82 /* Pods-tipsy-DateTools-prefix.pch */,
+				05C493C4B36A1813850CE2A1 /* Pods-tipsy-DateTools-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-tipsy-DateTools";
+			sourceTree = "<group>";
+		};
+		CB18015B1AE9D793E436DAB6 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				10B52CB1B7F80ECA795D1CDE /* Pods-tipsy */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		DDADBE5442ED628F860EA16A = {
+			isa = PBXGroup;
+			children = (
+				B4B6A4F3CC1E5E59D77D5486 /* Podfile */,
+				0F53AF77CABCB1DA51FE6DC3 /* Frameworks */,
+				3DD587EDC0C28A2B178E0D0A /* Pods */,
+				19A7FF6F15700B86554F3112 /* Products */,
+				CB18015B1AE9D793E436DAB6 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		EFE6AEF5BED950DF9110E3EA /* Targets Support Files */ = {
+		EC8C315A74044AF80D257684 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				65BEC1C80D836BC723EEAAC1 /* Pods-tipsy */,
+				90513B3BA95167E6291BB4E0 /* GoogleMaps.framework */,
 			);
-			name = "Targets Support Files";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		27DF6F4B457AA557D6B5A0E9 /* Headers */ = {
+		29BA3D4E2D672145E325DAA6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D498374C42859D87196423C /* SQLite-Bridging.h in Headers */,
-				F3BA791BE03FE41C7F7C98FF /* SQLite.h in Headers */,
-				31688283E5B57AE0C5B093B1 /* fts3_tokenizer.h in Headers */,
+				AA949A867E14FA7D84FFFEA2 /* DTConstants.h in Headers */,
+				916B4476E309E874B58A7E5E /* DTError.h in Headers */,
+				30C01265C049A94299EE235B /* DTTimePeriod.h in Headers */,
+				42404AF5D79BFA3960CB78CA /* DTTimePeriodChain.h in Headers */,
+				7B924A7CEFE0BFA6DE6CEC58 /* DTTimePeriodCollection.h in Headers */,
+				12B40C784656E08F0A151A09 /* DTTimePeriodGroup.h in Headers */,
+				E44DD1A72C0DA0064011D19C /* DateTools.h in Headers */,
+				7A029B7660936B98A6B3CB60 /* NSDate+DateTools.h in Headers */,
+				E15F155AF252710C07C4B768 /* Pods-tipsy-DateTools-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6BD510A141765589C418B915 /* Headers */ = {
+		7252C90D504932F8E6EFA5DC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51F6EFBF4BC5EA60CB746F66 /* Pods-tipsy-umbrella.h in Headers */,
+				278ABBE4FD2BB484D14D7E18 /* Pods-tipsy-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8FBBEE285F2E1D254D6CB1E0 /* Headers */ = {
+		7BD73CF449D8A753A9FAAC74 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3388B85F896DAF385330397 /* Pods-tipsy-SwiftAddressBook-umbrella.h in Headers */,
+				30ED5D3F5338B8D226E5C9D1 /* SQLite-Bridging.h in Headers */,
+				8500CE30567826696A01A02F /* SQLite.h in Headers */,
+				05CB9E4C37146E66DF1498F5 /* fts3_tokenizer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D347C6237B02EA31156E89A8 /* Headers */ = {
+		AE7902BC7D26EA2E1F268BF6 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38981666345BC9D3A074178E /* DTConstants.h in Headers */,
-				D418C418A773F0B67AD71DCC /* DTError.h in Headers */,
-				1E944FB454AEA45411C75C25 /* DTTimePeriod.h in Headers */,
-				E8FB77CA6887EE66A86EEAF7 /* DTTimePeriodChain.h in Headers */,
-				BA32B52E2D18CC96CE78009D /* DTTimePeriodCollection.h in Headers */,
-				25AA0763D34FA5A7C48ABC11 /* DTTimePeriodGroup.h in Headers */,
-				AEF82BE9E86A23390509BF5D /* DateTools.h in Headers */,
-				5B0E872886CC3C9C91D3DF53 /* NSDate+DateTools.h in Headers */,
-				3E36549CA6D8C3595C5AAF0E /* Pods-tipsy-DateTools-umbrella.h in Headers */,
+				32864EE5C68DCE15FF460EC5 /* Pods-tipsy-SwiftAddressBook-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		11137F221889C473EB93F427 /* Pods-tipsy */ = {
+		4AFD3FF96DABD143B6C7B830 /* Pods-tipsy-SQLite.swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 88961822D21386577448555C /* Build configuration list for PBXNativeTarget "Pods-tipsy" */;
+			buildConfigurationList = FB135B314B4C042D580FE217 /* Build configuration list for PBXNativeTarget "Pods-tipsy-SQLite.swift" */;
 			buildPhases = (
-				9C201816498117D23FD08061 /* Sources */,
-				1242BF1A3DD1BCAA81608F12 /* Frameworks */,
-				6BD510A141765589C418B915 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7CD05681EBED18A7E5757724 /* PBXTargetDependency */,
-				6E3F2FC642A8E0E0B953756B /* PBXTargetDependency */,
-				09668A648E2626569D0DBF64 /* PBXTargetDependency */,
-			);
-			name = "Pods-tipsy";
-			productName = "Pods-tipsy";
-			productReference = 9BBC3636414A9E8EE92BDC81 /* Pods_tipsy.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		5124D83540258BEF65635863 /* Pods-tipsy-SwiftAddressBook */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5C9EA6BAF0E1DB6439FE37FC /* Build configuration list for PBXNativeTarget "Pods-tipsy-SwiftAddressBook" */;
-			buildPhases = (
-				A49D84511165668C5D59C8F1 /* Sources */,
-				9E47FDC5F61A8E85B8734E53 /* Frameworks */,
-				8FBBEE285F2E1D254D6CB1E0 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-tipsy-SwiftAddressBook";
-			productName = "Pods-tipsy-SwiftAddressBook";
-			productReference = AC43BDDDFCEA122A54B3F037 /* SwiftAddressBook.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		6B65C91993F640FB0E58DC88 /* Pods-tipsy-DateTools */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B6E520E89D1BB6961D111909 /* Build configuration list for PBXNativeTarget "Pods-tipsy-DateTools" */;
-			buildPhases = (
-				93389B3FE8D00363C4F28E00 /* Sources */,
-				A1071B5D2B5A29F668D1DA3C /* Frameworks */,
-				D347C6237B02EA31156E89A8 /* Headers */,
-				E71270D58E7F9DC00F6127B1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-tipsy-DateTools";
-			productName = "Pods-tipsy-DateTools";
-			productReference = 4E5854E65011238B4B861E82 /* DateTools.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		BD404164FBFE7954BC01FD15 /* Pods-tipsy-SQLite.swift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 617F0573C6CAE713AF16524F /* Build configuration list for PBXNativeTarget "Pods-tipsy-SQLite.swift" */;
-			buildPhases = (
-				64F6504306BFF03EF3813D8D /* Sources */,
-				F1FEAB31A2519DE930D5D6CC /* Frameworks */,
-				27DF6F4B457AA557D6B5A0E9 /* Headers */,
+				D218638D0CE15CEA14035EAC /* Sources */,
+				C7AC25E44B528EE3A80E3452 /* Frameworks */,
+				7BD73CF449D8A753A9FAAC74 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -509,129 +482,441 @@
 			);
 			name = "Pods-tipsy-SQLite.swift";
 			productName = "Pods-tipsy-SQLite.swift";
-			productReference = 597611BD4A5633C258F5CA12 /* SQLite.framework */;
+			productReference = 84D60EAA2B5B1F791B41723A /* SQLite.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5F1C5352F75BBD3254A04E6F /* Pods-tipsy-DateTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE43F4FBCA78DB5BF9E929B7 /* Build configuration list for PBXNativeTarget "Pods-tipsy-DateTools" */;
+			buildPhases = (
+				D773297F845E9BCD138A22BB /* Sources */,
+				525ED44DA3E2C8B976D02F46 /* Frameworks */,
+				29BA3D4E2D672145E325DAA6 /* Headers */,
+				B26844C42C55B8C5088A14D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-tipsy-DateTools";
+			productName = "Pods-tipsy-DateTools";
+			productReference = A160391E58D08CAB91DAEAD7 /* DateTools.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0C4DB94A19F0DD185DC0732 /* Pods-tipsy-SwiftAddressBook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 88FD468748F9FC7D9566D2AF /* Build configuration list for PBXNativeTarget "Pods-tipsy-SwiftAddressBook" */;
+			buildPhases = (
+				50A5228AD103F7B8A0548707 /* Sources */,
+				C2C4290B1F4D228DD7E7F4E6 /* Frameworks */,
+				AE7902BC7D26EA2E1F268BF6 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-tipsy-SwiftAddressBook";
+			productName = "Pods-tipsy-SwiftAddressBook";
+			productReference = EF2C8E87B3DEB3567D79EB80 /* SwiftAddressBook.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E067E092F942FC2D10212F2B /* Pods-tipsy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B14A179DD010DD4E45555797 /* Build configuration list for PBXNativeTarget "Pods-tipsy" */;
+			buildPhases = (
+				51C7DDBED526761BBB90F93F /* Sources */,
+				FA72A6582172245383703797 /* Frameworks */,
+				7252C90D504932F8E6EFA5DC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				49B7BDB371B6E7831E400192 /* PBXTargetDependency */,
+				F9D96CCAA0760064BA79B84A /* PBXTargetDependency */,
+				0742DDD6F38B361CF77E68C3 /* PBXTargetDependency */,
+			);
+			name = "Pods-tipsy";
+			productName = "Pods-tipsy";
+			productReference = 58247426DC1FB8D6FB772A2E /* Pods_tipsy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E24E13892CEDFED4AC7D178F /* Project object */ = {
+		63F79BEC3389233102A9347E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0640;
 			};
-			buildConfigurationList = 02055338284352AFA93A1C17 /* Build configuration list for PBXProject "Pods" */;
+			buildConfigurationList = 939F41BF4338F38DC1090425 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = AA2B88150C9FEC7E8709A694;
-			productRefGroup = 1A27F3EA8CFDBD0F9B752E1D /* Products */;
+			mainGroup = DDADBE5442ED628F860EA16A;
+			productRefGroup = 19A7FF6F15700B86554F3112 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				11137F221889C473EB93F427 /* Pods-tipsy */,
-				6B65C91993F640FB0E58DC88 /* Pods-tipsy-DateTools */,
-				BD404164FBFE7954BC01FD15 /* Pods-tipsy-SQLite.swift */,
-				5124D83540258BEF65635863 /* Pods-tipsy-SwiftAddressBook */,
+				E067E092F942FC2D10212F2B /* Pods-tipsy */,
+				5F1C5352F75BBD3254A04E6F /* Pods-tipsy-DateTools */,
+				4AFD3FF96DABD143B6C7B830 /* Pods-tipsy-SQLite.swift */,
+				B0C4DB94A19F0DD185DC0732 /* Pods-tipsy-SwiftAddressBook */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E71270D58E7F9DC00F6127B1 /* Resources */ = {
+		B26844C42C55B8C5088A14D2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FEAC7E785CC87BF1C20D571 /* DateTools.bundle in Resources */,
+				317AA3117C913040CF84DDF0 /* DateTools.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		64F6504306BFF03EF3813D8D /* Sources */ = {
+		50A5228AD103F7B8A0548707 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				365DDCD978D25BF7AC197F09 /* Database.swift in Sources */,
-				8EEF5918F3906E94E3CDF83A /* Expression.swift in Sources */,
-				C3997663959F563363277580 /* FTS.swift in Sources */,
-				3D184F5A2A417EBE5B1B5A74 /* Functions.swift in Sources */,
-				C203FDD40C49CC94AE8A2659 /* Pods-tipsy-SQLite.swift-dummy.m in Sources */,
-				75E5D6E4ADFB4D284C2263F8 /* Query.swift in Sources */,
-				7236ED060B393BD2CB6FE90B /* RTree.swift in Sources */,
-				FCCC0CDD0CED39C80A73D013 /* SQLite-Bridging.m in Sources */,
-				286F3F3686A370D9D5B1B804 /* Schema.swift in Sources */,
-				CEB0798BA4759ABC599FD2F0 /* Statement.swift in Sources */,
-				5CFE89CDB1035CBC73B9072C /* Value.swift in Sources */,
+				E86C8A3F741ED09CD3C456D4 /* Pods-tipsy-SwiftAddressBook-dummy.m in Sources */,
+				7695391571862BC6CEC518C8 /* SwiftAddressBookDataStructures.swift in Sources */,
+				D9AED855274D5A9472C1AEEE /* SwiftAddressBookGroup.swift in Sources */,
+				5DBA6DCA22078100FE7C3662 /* SwiftAddressBookHelperMethods.swift in Sources */,
+				C1667D73E07DFCAED61359F0 /* SwiftAddressBookPerson.swift in Sources */,
+				CF3A24F9B4B10F88EBEFC9C0 /* SwiftAddressBookRecord.swift in Sources */,
+				0DB59727C771432DD77F21E6 /* SwiftAddressBookSource.swift in Sources */,
+				4933DD53C853AA44C7196F29 /* SwiftAddressBookWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		93389B3FE8D00363C4F28E00 /* Sources */ = {
+		51C7DDBED526761BBB90F93F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C53E207F260654668DBFCC8F /* DTError.m in Sources */,
-				7F2D935ED40D90A485538CA9 /* DTTimePeriod.m in Sources */,
-				B7C8DEF286FC2F32C1B5BAC8 /* DTTimePeriodChain.m in Sources */,
-				D7DCC88395E01AA6FF3B0AA0 /* DTTimePeriodCollection.m in Sources */,
-				ABF031858C2EBB5009E39344 /* DTTimePeriodGroup.m in Sources */,
-				CC4A9235E1F8E86194C4E5C7 /* NSDate+DateTools.m in Sources */,
-				03C46CB9881F0CA1AB77B363 /* Pods-tipsy-DateTools-dummy.m in Sources */,
+				C9E9CCCD6B2D3AC09669F483 /* Pods-tipsy-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9C201816498117D23FD08061 /* Sources */ = {
+		D218638D0CE15CEA14035EAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEC3A2595089CB1E5AA012C0 /* Pods-tipsy-dummy.m in Sources */,
+				7CA51886DE6B4A5B52C2F4E8 /* Database.swift in Sources */,
+				5E31C5C3538585649FBEE791 /* Expression.swift in Sources */,
+				258B539C7B7A083649E4F1D6 /* FTS.swift in Sources */,
+				E1325627CD67396BAA566009 /* Functions.swift in Sources */,
+				E410FE2A4809CC733B54C900 /* Pods-tipsy-SQLite.swift-dummy.m in Sources */,
+				CAA98A8F56642F465362A20D /* Query.swift in Sources */,
+				D27440FF605738306CDF625E /* RTree.swift in Sources */,
+				0266EECB288A0C30746D513A /* SQLite-Bridging.m in Sources */,
+				1F46F195EDA93468CCB5A688 /* Schema.swift in Sources */,
+				35637BA5F2A77ACBDA73E72C /* Statement.swift in Sources */,
+				830900073746B9B52D80307D /* Value.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A49D84511165668C5D59C8F1 /* Sources */ = {
+		D773297F845E9BCD138A22BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DDA11FAF18BF7614D5C2713 /* Pods-tipsy-SwiftAddressBook-dummy.m in Sources */,
-				1CDD923234CD5C9ABF575592 /* SwiftAddressBookDataStructures.swift in Sources */,
-				D62449C92419F9CDC9340909 /* SwiftAddressBookGroup.swift in Sources */,
-				DA6421E2623ECDB645C40FB1 /* SwiftAddressBookHelperMethods.swift in Sources */,
-				ABFA78E87652E8B127859837 /* SwiftAddressBookPerson.swift in Sources */,
-				DA1E535FAA58CCAF85B0F150 /* SwiftAddressBookRecord.swift in Sources */,
-				3A0D27732347EEB3CC79A89C /* SwiftAddressBookSource.swift in Sources */,
-				130254FC01785FF60BD80F10 /* SwiftAddressBookWrapper.swift in Sources */,
+				D04C6710895AE5787056D4E0 /* DTError.m in Sources */,
+				701F1C8895DE7B3012452C45 /* DTTimePeriod.m in Sources */,
+				6513C5C727C6FB7C4CD74E91 /* DTTimePeriodChain.m in Sources */,
+				11530F2CA2904DE0ACDDADFF /* DTTimePeriodCollection.m in Sources */,
+				685760A00E565427ECBC41FD /* DTTimePeriodGroup.m in Sources */,
+				84CDE87FFD5AF7F04A747783 /* NSDate+DateTools.m in Sources */,
+				B70A8BB58A3BBCE8C91198AB /* Pods-tipsy-DateTools-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		09668A648E2626569D0DBF64 /* PBXTargetDependency */ = {
+		0742DDD6F38B361CF77E68C3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-tipsy-SwiftAddressBook";
-			target = 5124D83540258BEF65635863 /* Pods-tipsy-SwiftAddressBook */;
-			targetProxy = 8F9247E6440640ECF57A469B /* PBXContainerItemProxy */;
+			target = B0C4DB94A19F0DD185DC0732 /* Pods-tipsy-SwiftAddressBook */;
+			targetProxy = 259E5337747FE00D8DCE12E2 /* PBXContainerItemProxy */;
 		};
-		6E3F2FC642A8E0E0B953756B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-tipsy-SQLite.swift";
-			target = BD404164FBFE7954BC01FD15 /* Pods-tipsy-SQLite.swift */;
-			targetProxy = 9BC8B7BC47B8E203045D3252 /* PBXContainerItemProxy */;
-		};
-		7CD05681EBED18A7E5757724 /* PBXTargetDependency */ = {
+		49B7BDB371B6E7831E400192 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-tipsy-DateTools";
-			target = 6B65C91993F640FB0E58DC88 /* Pods-tipsy-DateTools */;
-			targetProxy = DCDC019098F9F21D879DCE05 /* PBXContainerItemProxy */;
+			target = 5F1C5352F75BBD3254A04E6F /* Pods-tipsy-DateTools */;
+			targetProxy = F498CD7611D9DF1BB49DEBD3 /* PBXContainerItemProxy */;
+		};
+		F9D96CCAA0760064BA79B84A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-tipsy-SQLite.swift";
+			target = 4AFD3FF96DABD143B6C7B830 /* Pods-tipsy-SQLite.swift */;
+			targetProxy = FD8AC1FDF47BD428FAA170D8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		057180CB87C2981FCDF7869E /* Debug */ = {
+		28B0C3F8E2FA35D1E536FCC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C5AB1C75D9A2587BB283E02 /* Pods-tipsy-DateTools-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-DateTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = DateTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		616F28721704DC89C3C1AFD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB64EFE373B008B7D9DEB2B7 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwiftAddressBook;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EF822027BBEB6A0C1ACB43A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4703495806A84864F5EC7E9C /* Pods-tipsy.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy/Pods-tipsy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_tipsy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B174C019E06F894177D363F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C5AB1C75D9A2587BB283E02 /* Pods-tipsy-DateTools-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-DateTools/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = DateTools;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		958CB3C4B3B72B63F78C89D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A1628DE758CC4D7D171A1421 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B5F9900C45874F6B5456D41 /* Pods-tipsy-SQLite.swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SQLite;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A55AF4B4D88A6686A606E72E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AE4D8EAF856F2CB33F363D8 /* Pods-tipsy.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy/Pods-tipsy.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_tipsy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B1CEA0A2F551375DC15CFBB8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB64EFE373B008B7D9DEB2B7 /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwiftAddressBook;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D180C5DFD428142D014659A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B5F9900C45874F6B5456D41 /* Pods-tipsy-SQLite.swift-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SQLite;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DF824CE225E1DA16D3983256 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -663,319 +948,62 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				ONLY_ACTIVE_ARCH = YES;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		260D103C55FEF4997D09C959 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C64BFE01D6F274FEBD9FFA2C /* Pods-tipsy.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy/Pods-tipsy.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_tipsy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		35334A25A6905DDE0FD968DC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65089D18980D2D7C93EDAF1D /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftAddressBook;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		3CE34DA5DEE161ABB3898937 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1359DD06346801EED3174CF7 /* Pods-tipsy-SQLite.swift-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SQLite;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		95CE3CDBC13F0DC68AC36B1C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F26219D6D2E6329811D02D82 /* Pods-tipsy.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy/Pods-tipsy.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = Pods_tipsy;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E3A439F27F446BAD891D724F /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6301B43561C3B0B9E6FC1032 /* Pods-tipsy-DateTools-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-DateTools/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = DateTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		E5C8C2E2990A25FF140001FF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 65089D18980D2D7C93EDAF1D /* Pods-tipsy-SwiftAddressBook-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SwiftAddressBook/Pods-tipsy-SwiftAddressBook.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftAddressBook;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		EF87D196CD6EB782CAAD0409 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6301B43561C3B0B9E6FC1032 /* Pods-tipsy-DateTools-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-DateTools/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-DateTools/Pods-tipsy-DateTools.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = DateTools;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F42936C369BE9EB52738C3DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		FA00D3B5985A182B906AEA30 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1359DD06346801EED3174CF7 /* Pods-tipsy-SQLite.swift-Private.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Pods-tipsy-SQLite.swift/Pods-tipsy-SQLite.swift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SQLite;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		02055338284352AFA93A1C17 /* Build configuration list for PBXProject "Pods" */ = {
+		88FD468748F9FC7D9566D2AF /* Build configuration list for PBXNativeTarget "Pods-tipsy-SwiftAddressBook" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				057180CB87C2981FCDF7869E /* Debug */,
-				F42936C369BE9EB52738C3DD /* Release */,
+				616F28721704DC89C3C1AFD7 /* Debug */,
+				B1CEA0A2F551375DC15CFBB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5C9EA6BAF0E1DB6439FE37FC /* Build configuration list for PBXNativeTarget "Pods-tipsy-SwiftAddressBook" */ = {
+		939F41BF4338F38DC1090425 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5C8C2E2990A25FF140001FF /* Debug */,
-				35334A25A6905DDE0FD968DC /* Release */,
+				DF824CE225E1DA16D3983256 /* Debug */,
+				958CB3C4B3B72B63F78C89D5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		617F0573C6CAE713AF16524F /* Build configuration list for PBXNativeTarget "Pods-tipsy-SQLite.swift" */ = {
+		B14A179DD010DD4E45555797 /* Build configuration list for PBXNativeTarget "Pods-tipsy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				3CE34DA5DEE161ABB3898937 /* Debug */,
-				FA00D3B5985A182B906AEA30 /* Release */,
+				A55AF4B4D88A6686A606E72E /* Debug */,
+				7EF822027BBEB6A0C1ACB43A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88961822D21386577448555C /* Build configuration list for PBXNativeTarget "Pods-tipsy" */ = {
+		CE43F4FBCA78DB5BF9E929B7 /* Build configuration list for PBXNativeTarget "Pods-tipsy-DateTools" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				260D103C55FEF4997D09C959 /* Debug */,
-				95CE3CDBC13F0DC68AC36B1C /* Release */,
+				28B0C3F8E2FA35D1E536FCC5 /* Debug */,
+				8B174C019E06F894177D363F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6E520E89D1BB6961D111909 /* Build configuration list for PBXNativeTarget "Pods-tipsy-DateTools" */ = {
+		FB135B314B4C042D580FE217 /* Build configuration list for PBXNativeTarget "Pods-tipsy-SQLite.swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				EF87D196CD6EB782CAAD0409 /* Debug */,
-				E3A439F27F446BAD891D724F /* Release */,
+				D180C5DFD428142D014659A5 /* Debug */,
+				A1628DE758CC4D7D171A1421 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E24E13892CEDFED4AC7D178F /* Project object */;
+	rootObject = 63F79BEC3389233102A9347E /* Project object */;
 }

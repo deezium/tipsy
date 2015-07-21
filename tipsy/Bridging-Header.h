@@ -16,5 +16,6 @@
 #import <Bolts/Bolts.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 #endif
