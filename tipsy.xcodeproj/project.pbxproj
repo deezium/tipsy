@@ -79,6 +79,8 @@
 		338EAA941B5D782500E63FC7 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */; };
 		338EAA991B5D88C300E63FC7 /* PlanCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */; };
 		338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */; };
+		338EAAA71B5E229200E63FC7 /* PlanFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */; };
+		338EAAA91B5E295500E63FC7 /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -239,6 +241,8 @@
 		338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationViewController.swift; sourceTree = "<group>"; };
 		338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExtensions.swift; sourceTree = "<group>"; };
+		338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanFeedCell.swift; sourceTree = "<group>"; };
+		338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -373,16 +377,18 @@
 				3339CDF11B423EB2001C222C /* Checkin.swift */,
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
 				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
-				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
 				332476F01B51811100CF0881 /* QueryController.swift */,
 				33F385CF1B548E770008AFF7 /* DClinkedin.jpg */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
+				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
 				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
 				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
 				338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */,
 				33F386E71B5851830008AFF7 /* TwitterViewController.swift */,
 				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
+				338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */,
 				332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
@@ -718,12 +724,14 @@
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				338EAA791B5D6D6A00E63FC7 /* GoogleDataProvider.swift in Sources */,
+				338EAAA91B5E295500E63FC7 /* PlanTableViewController.swift in Sources */,
 				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
 				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
 				332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */,
 				332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
 				33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */,
+				338EAAA71B5E229200E63FC7 /* PlanFeedCell.swift in Sources */,
 				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
 				338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */,

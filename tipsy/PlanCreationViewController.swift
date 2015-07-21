@@ -16,6 +16,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
     var searchResultData = [GMSAutocompletePrediction]()
+    var selectedPlaceId = String()
 
     @IBOutlet weak var startTime: UIDatePicker!
     
@@ -26,6 +27,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     @IBOutlet weak var searchResults: UITableView!
     
     @IBAction func didTapPostButton(sender: AnyObject) {
+        
         let currentTime = NSDate()
         let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
         if startTime.date.isEarlierThan(currentTime) {
@@ -33,16 +35,67 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
-        if endTime.date.isEarlierThan(startTime.date) {
+        else if endTime.date.isEarlierThan(startTime.date) {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
-        if futureBoundTime!.isEarlierThan(startTime.date) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+        //       else if futureBoundTime!.isEarlierThan(startTime.date) {
+        //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+        //            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+        //            self.presentViewController(alert, animated: true, completion: nil)
+        //        }
+        
+        else {
+            let planObject = PFObject(className: "Plan")
+            planObject.setObject(startTime.date, forKey: "startTime")
+            planObject.setObject(endTime.date, forKey: "endTime")
+            planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
+            planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
+            
+            
+            let readOnlyACL = PFACL()
+            readOnlyACL.setPublicReadAccess(true)
+            readOnlyACL.setPublicWriteAccess(false)
+            planObject.ACL = readOnlyACL
+            
+            planObject.saveInBackgroundWithBlock {
+                (success, error) -> Void in
+                if success == true {
+                    println("Success")
+                    let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                else {
+                    println("Fail")
+                }
+            }
+        }
+        
+    }
+    
+    func timeValidation() -> Bool {
+        let currentTime = NSDate()
+        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
+        if startTime.date.isEarlierThan(currentTime) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
+            return false
         }
+        if endTime.date.isEarlierThan(startTime.date) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            return false
+        }
+//        if futureBoundTime!.isEarlierThan(startTime.date) {
+//            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        }
+        return true
     }
     
     override func viewDidLoad() {
@@ -72,6 +125,15 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResultData.count
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let place = self.searchResultData[indexPath.row]
+        let placeText = place.attributedFullText.string
+        println("row selected")
+        self.searchBar.text = placeText
+        self.selectedPlaceId = place.placeID
+        self.searchResults.hidden = true
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
