@@ -26,7 +26,23 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     @IBOutlet weak var searchResults: UITableView!
     
     @IBAction func didTapPostButton(sender: AnyObject) {
-        println("posted")
+        let currentTime = NSDate()
+        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
+        if startTime.date.isEarlierThan(currentTime) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        if endTime.date.isEarlierThan(startTime.date) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        if futureBoundTime!.isEarlierThan(startTime.date) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
@@ -36,6 +52,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
         self.searchResults.hidden = true
         self.searchResults.delegate = self
         self.searchResults.dataSource = self
+        
         
         if (CLLocationManager.locationServicesEnabled()) {
             self.locationManager.delegate = self
@@ -62,6 +79,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
         let place = self.searchResultData[indexPath.row]
         
         cell.textLabel!.text = place.attributedFullText.string
+        //cell.backgroundColor = UIColor.redColor()
         
         return cell
     }

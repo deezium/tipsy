@@ -78,6 +78,7 @@
 		338EAA901B5D700500E63FC7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338EAA8F1B5D700500E63FC7 /* OpenGLES.framework */; };
 		338EAA941B5D782500E63FC7 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */; };
 		338EAA991B5D88C300E63FC7 /* PlanCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */; };
+		338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -237,6 +238,7 @@
 		338EAA8F1B5D700500E63FC7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationViewController.swift; sourceTree = "<group>"; };
+		338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExtensions.swift; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				33F385CF1B548E770008AFF7 /* DClinkedin.jpg */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
 				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
 				338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */,
 				33F386E71B5851830008AFF7 /* TwitterViewController.swift */,
@@ -723,6 +726,7 @@
 				33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */,
 				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
+				338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */,
 				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
 				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,
 				338EAA941B5D782500E63FC7 /* GoogleMapsViewController.swift in Sources */,
