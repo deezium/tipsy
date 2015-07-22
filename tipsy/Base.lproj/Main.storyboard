@@ -630,7 +630,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-7m-EYW">
-                                                    <rect key="frame" x="8" y="8" width="69" height="67"/>
+                                                    <rect key="frame" x="8" y="8" width="69" height="66.5"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="end" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-s7-LDo">
                                                     <rect key="frame" x="174" y="43" width="121" height="21"/>
@@ -747,7 +747,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" misplaced="YES" restorationIdentifier="EndTime" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="qUS-Rr-o3c">
-                                <rect key="frame" x="0.0" y="414" width="600" height="68"/>
+                                <rect key="frame" x="0.0" y="381" width="600" height="83"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="f6O-aL-zXl"/>
                                 </constraints>
@@ -756,7 +756,7 @@
                                 </date>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" misplaced="YES" restorationIdentifier="StartTime" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="TFc-Ci-KDJ">
-                                <rect key="frame" x="0.0" y="333" width="600" height="68"/>
+                                <rect key="frame" x="0.0" y="321" width="600" height="161"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="dwh-fy-nFn"/>
                                 </constraints>
@@ -764,16 +764,38 @@
                                     <!--2015-07-21 01:54:46 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moz-Uw-fz2">
+                                <rect key="frame" x="36" y="490" width="51" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Update">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapUpdateButton:" destination="ire-on-Dx3" eventType="touchUpInside" id="3m0-KD-Tpd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRp-CP-ih8">
+                                <rect key="frame" x="455" y="490" width="58" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapDeleteButton:" destination="ire-on-Dx3" eventType="touchUpInside" id="iu1-jC-b2b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="T5a-Wm-FdK" firstAttribute="top" secondItem="qUS-Rr-o3c" secondAttribute="bottom" constant="38" id="0NV-lX-UQf"/>
                             <constraint firstAttribute="trailing" secondItem="eCq-it-cxV" secondAttribute="trailing" id="1lW-gD-5yd"/>
                             <constraint firstItem="eCq-it-cxV" firstAttribute="top" secondItem="P4w-58-QsC" secondAttribute="bottom" constant="20" id="3Hk-y2-5UR"/>
+                            <constraint firstItem="moz-Uw-fz2" firstAttribute="top" secondItem="dRp-CP-ih8" secondAttribute="top" id="B9K-97-1gr"/>
                             <constraint firstAttribute="centerX" secondItem="TFc-Ci-KDJ" secondAttribute="centerX" id="O53-gg-9t6"/>
                             <constraint firstItem="eZK-XW-FK0" firstAttribute="leading" secondItem="N1O-WU-tKc" secondAttribute="leading" constant="-10" id="QL8-cO-S3R"/>
                             <constraint firstAttribute="centerX" secondItem="eZK-XW-FK0" secondAttribute="centerX" id="Ru8-vA-E15"/>
                             <constraint firstItem="eCq-it-cxV" firstAttribute="leading" secondItem="N1O-WU-tKc" secondAttribute="leading" id="YVV-Xd-Vda"/>
+                            <constraint firstItem="dRp-CP-ih8" firstAttribute="top" secondItem="T5a-Wm-FdK" secondAttribute="top" id="haq-2D-GNW"/>
                             <constraint firstAttribute="centerX" secondItem="qUS-Rr-o3c" secondAttribute="centerX" id="kvO-mh-zGQ"/>
                             <constraint firstItem="qUS-Rr-o3c" firstAttribute="top" secondItem="TFc-Ci-KDJ" secondAttribute="bottom" constant="17" id="lCF-lr-z18"/>
                             <constraint firstItem="eZK-XW-FK0" firstAttribute="top" secondItem="eCq-it-cxV" secondAttribute="bottom" id="mc0-L7-Hy0"/>
@@ -785,11 +807,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Plan" image="Edit-25.png" id="QIY-ga-sUz"/>
                     <connections>
+                        <outlet property="deleteButton" destination="dRp-CP-ih8" id="O43-Av-sAw"/>
                         <outlet property="endTime" destination="qUS-Rr-o3c" id="vRF-xA-NyN"/>
+                        <outlet property="postButton" destination="T5a-Wm-FdK" id="fVa-nr-0AU"/>
                         <outlet property="searchBar" destination="eCq-it-cxV" id="wbU-fh-wQP"/>
                         <outlet property="searchDisplayController" destination="06U-6b-NXS" id="hsT-Av-jX0"/>
                         <outlet property="searchResults" destination="eZK-XW-FK0" id="XW5-La-E7K"/>
                         <outlet property="startTime" destination="TFc-Ci-KDJ" id="X8O-X3-1u9"/>
+                        <outlet property="updateButton" destination="moz-Uw-fz2" id="gnf-Nx-n5g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ql-Hw-huh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -857,40 +882,65 @@
                                     <action selector="didChangeSegment:" destination="oRv-B1-WtN" eventType="valueChanged" id="zQT-Pf-6Qb"/>
                                 </connections>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tXw-m8-Fzo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="67" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tXw-m8-Fzo">
                                 <rect key="frame" x="0.0" y="218" width="600" height="333"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="8D4-Ub-vbQ"/>
+                                    <constraint firstAttribute="height" constant="333" id="k36-wX-32r"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanProfileCell" rowHeight="67" id="dbx-XX-6Yi" customClass="PlanProfileCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbx-XX-6Yi" id="sZi-Nq-iOj">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF1-pC-9qA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vF1-pC-9qA">
                                                     <rect key="frame" x="18" y="8" width="61" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="61" id="VpR-Ch-IIW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFX-Rt-OEb">
-                                                    <rect key="frame" x="292" y="10" width="109" height="21"/>
+                                                    <rect key="frame" x="121" y="7" width="109" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="fLB-Te-u46"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="end" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRr-Er-MAu">
-                                                    <rect key="frame" x="292" y="39" width="109" height="21"/>
+                                                    <rect key="frame" x="121" y="36" width="109" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="109" id="WYA-Fw-jWK"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-eQ-YSw">
+                                                    <rect key="frame" x="341" y="16" width="30" height="30"/>
+                                                    <state key="normal" title="Edit">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="ire-on-Dx3" kind="show" identifier="ShowDetail" id="BxT-j6-Oxy"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JFX-Rt-OEb" secondAttribute="trailing" constant="191" id="10G-NY-aQk"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="5sF-eQ-YSw" secondAttribute="trailing" constant="50" id="Dck-ud-Fpq"/>
+                                                <constraint firstItem="5sF-eQ-YSw" firstAttribute="leading" secondItem="JFX-Rt-OEb" secondAttribute="trailing" constant="111" id="Zam-K7-Wxq"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vRr-Er-MAu" secondAttribute="trailing" constant="191" id="jMp-ys-hvm"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="editButton" destination="5sF-eQ-YSw" id="ZQW-56-Sao"/>
                                             <outlet property="endTime" destination="vRr-Er-MAu" id="9f8-qX-uLd"/>
                                             <outlet property="location" destination="vF1-pC-9qA" id="1wj-Fa-HRw"/>
                                             <outlet property="startTime" destination="JFX-Rt-OEb" id="7mF-6e-14z"/>
@@ -902,9 +952,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="axK-s3-zrr" firstAttribute="top" secondItem="l4c-tv-F11" secondAttribute="top" constant="20" id="4Ac-Ux-Bg5"/>
+                            <constraint firstItem="tXw-m8-Fzo" firstAttribute="leading" secondItem="l4c-tv-F11" secondAttribute="leading" constant="-20" id="4lV-Ux-lNM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TE6-KT-kWI" secondAttribute="trailing" constant="30" id="HYF-iG-nOz"/>
+                            <constraint firstItem="tXw-m8-Fzo" firstAttribute="top" secondItem="Fdg-G8-muh" secondAttribute="bottom" constant="23" id="M3z-EB-CfK"/>
                             <constraint firstAttribute="trailing" secondItem="tXw-m8-Fzo" secondAttribute="trailing" constant="-10" id="QKn-fu-XAQ"/>
                             <constraint firstItem="tXw-m8-Fzo" firstAttribute="leading" secondItem="l4c-tv-F11" secondAttribute="leading" constant="-10" id="RfW-tz-Nr1"/>
+                            <constraint firstAttribute="trailing" secondItem="tXw-m8-Fzo" secondAttribute="trailing" constant="-20" id="YjO-UE-YzS"/>
+                            <constraint firstAttribute="centerX" secondItem="tXw-m8-Fzo" secondAttribute="centerX" id="gvI-sQ-D9x"/>
                             <constraint firstItem="Fdg-G8-muh" firstAttribute="top" secondItem="axK-s3-zrr" secondAttribute="bottom" constant="17" id="iKO-8z-cnJ"/>
                             <constraint firstAttribute="centerX" secondItem="Fdg-G8-muh" secondAttribute="centerX" constant="-0.5" id="jah-S1-htP"/>
                             <constraint firstAttribute="centerX" secondItem="tXw-m8-Fzo" secondAttribute="centerX" id="knK-Ai-AYD"/>
@@ -929,7 +983,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzq-rb-6aD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1448" y="1160"/>
+            <point key="canvasLocation" x="-1506" y="1265"/>
         </scene>
         <!--Map-->
         <scene sceneID="VsI-Y6-kF8">
@@ -975,4 +1029,7 @@
         <image name="RSS-25.png" width="25" height="25"/>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="BxT-j6-Oxy"/>
+    </inferredMetricsTieBreakers>
 </document>

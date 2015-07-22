@@ -37,6 +37,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     var queryObjects = [PFObject]()
     var pastPlans = [PFObject]()
     var upcomingPlans = [PFObject]()
+    var selectedPlans = [PFObject]()
     
  
     func didReceiveQueryResults(objects: [PFObject]) {
@@ -46,6 +47,24 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             self.planTableView!.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowDetail" {
+            let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
+            
+            if let selectedEditButton = sender as? UIButton {
+                let index = selectedEditButton.tag
+                let selectedPlan = queryObjects[index]
+                
+                // There's probably a better way to do this
+                
+                selectedPlans.append(selectedPlan)
+                planCreationViewController.plans = selectedPlans
+                println(planCreationViewController.plans)
+            }
+            
+        }
     }
     
     func createPlanArrays(objects: [PFObject]) {
@@ -121,7 +140,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         cell.startTime.text = startTimeString
         cell.endTime.text = endTimeString
         cell.location.text = place
-
+        cell.editButton.tag = indexPath.row
         
         return cell
     }

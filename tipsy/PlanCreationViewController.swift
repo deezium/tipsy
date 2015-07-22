@@ -17,6 +17,8 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     var currentLocation = CLLocation()
     var searchResultData = [GMSAutocompletePrediction]()
     var selectedPlaceId = String()
+    var plans = [PFObject]()
+    
 
     @IBOutlet weak var startTime: UIDatePicker!
     
@@ -25,6 +27,10 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchResults: UITableView!
+    
+    @IBOutlet weak var updateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var postButton: UIButton!
     
     @IBAction func didTapPostButton(sender: AnyObject) {
         
@@ -54,10 +60,10 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             
             
-            let readOnlyACL = PFACL()
-            readOnlyACL.setPublicReadAccess(true)
-            readOnlyACL.setPublicWriteAccess(false)
-            planObject.ACL = readOnlyACL
+            let ACL = PFACL()
+            ACL.setPublicReadAccess(true)
+            ACL.setPublicWriteAccess(true)
+            planObject.ACL = ACL
             
             planObject.saveInBackgroundWithBlock {
                 (success, error) -> Void in
@@ -72,8 +78,58 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                 }
             }
         }
-        
     }
+    
+    
+    @IBAction func didTapUpdateButton(sender: AnyObject) {
+        let currentTime = NSDate()
+        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
+        if startTime.date.isEarlierThan(currentTime) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else if endTime.date.isEarlierThan(startTime.date) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+            //       else if futureBoundTime!.isEarlierThan(startTime.date) {
+            //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+            //            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            //            self.presentViewController(alert, animated: true, completion: nil)
+            //        }
+            
+        else {
+            
+            let objectId = plans.first?.objectId as String!
+            println(objectId)
+            let planObject = PFObject(withoutDataWithClassName: "Plan", objectId: objectId)
+            planObject.setObject(startTime.date, forKey: "startTime")
+            planObject.setObject(endTime.date, forKey: "endTime")
+            planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
+            planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
+            
+            
+            planObject.saveInBackgroundWithBlock {
+                (success, error) -> Void in
+                if success == true {
+                    println("Success")
+                    let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                else {
+                    println("Fail")
+                }
+            }
+        }
+
+    }
+    
+    @IBAction func didTapDeleteButton(sender: AnyObject) {
+    }
+    
     
     func timeValidation() -> Bool {
         let currentTime = NSDate()
@@ -113,6 +169,18 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             self.locationManager.startUpdatingLocation()
             self.currentLocation = locationManager.location
             println(currentLocation)
+        }
+        
+        if plans.count != 0 {
+            println("hay plans")
+            let plan = plans.first
+            let planStartTime = plan?.objectForKey("startTime") as! NSDate
+            let planEndTime = plan?.objectForKey("endTime") as! NSDate
+            let planPlaceId = plan?.objectForKey("googlePlaceId") as! String
+            startTime.date = planStartTime
+            endTime.date = planEndTime
+            searchBar.text = planPlaceId
+            
         }
     }
     

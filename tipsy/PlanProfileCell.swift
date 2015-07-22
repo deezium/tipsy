@@ -16,4 +16,8 @@ class PlanProfileCell: UITableViewCell {
     @IBOutlet weak var startTime: UILabel!
     
     @IBOutlet weak var endTime: UILabel!
+    
+    
+    @IBOutlet weak var editButton: UIButton!
+    
 }

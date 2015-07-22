@@ -118,10 +118,10 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
             checkInObject.setObject(imageParseFile, forKey: "image")
         }
         
-        let readOnlyACL = PFACL()
-        readOnlyACL.setPublicReadAccess(true)
-        readOnlyACL.setPublicWriteAccess(false)
-        checkInObject.ACL = readOnlyACL
+        let ACL = PFACL()
+        ACL.setPublicReadAccess(true)
+        ACL.setPublicWriteAccess(true)
+        checkInObject.ACL = ACL
         
         checkInObject.saveInBackgroundWithBlock {
             (success, error) -> Void in
