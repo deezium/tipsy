@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        Fabric.with([Crashlytics()])
         GMSServices.provideAPIKey(googleMapsApiKey)
         
         Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
@@ -77,6 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
             
             tabBarController.selectedIndex = 0
+            
+            let welcomeViewController = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewController") as! UIViewController
+            
+//            self.window?.rootViewController = welcomeViewController
             
             self.window?.rootViewController? = tabBarController
         }

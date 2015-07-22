@@ -83,6 +83,7 @@
 		338EAAA91B5E295500E63FC7 /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */; };
 		338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */; };
 		338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */; };
+		338EAAB91B5FAE3D00E63FC7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -247,6 +248,7 @@
 		338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
 		338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileViewController.swift; sourceTree = "<group>"; };
 		338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileCell.swift; sourceTree = "<group>"; };
+		338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -351,11 +353,12 @@
 				332476F01B51811100CF0881 /* QueryController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
-				338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */,
-				338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */,
-				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
-				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
+				338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */,
 				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
+				338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */,
+				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
+				338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */,
+				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
 				338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */,
 				338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
@@ -540,6 +543,7 @@
 				66F758DD3E9127F83B2146EE /* Embed Pods Frameworks */,
 				82CD7307E3AECA9322D0FE4D /* Copy Pods Resources */,
 				338EAA731B58A18E00E63FC7 /* CopyFiles */,
+				338EAAB41B5FA77B00E63FC7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -686,6 +690,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		338EAAB41B5FA77B00E63FC7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" 7574fdc0b390df4e959d855eff6dd404967dd85d 32ac714201e235b8a24e5848387b1f76b4c3d36170997d03c56d20b39d62032e";
+		};
 		52F994BDA820F1885187AD29 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -751,6 +768,7 @@
 				33F385F31B5495300008AFF7 /* AttractionAnnotationView.swift in Sources */,
 				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
 				338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */,
+				338EAAB91B5FAE3D00E63FC7 /* WelcomeViewController.swift in Sources */,
 				332476F11B51811100CF0881 /* QueryController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,

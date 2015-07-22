@@ -10,6 +10,8 @@ import Foundation
 import CoreLocation
 import GoogleMaps
 
+let planMadeNotificationKey = "planMadeNotificationKey"
+
 class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     var placesClient: GMSPlacesClient = GMSPlacesClient()
@@ -35,8 +37,13 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     @IBAction func didTapPostButton(sender: AnyObject) {
         
         let currentTime = NSDate()
-        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
-        if startTime.date.isEarlierThan(currentTime) {
+        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 72, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
+        if searchBar.text == "" {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make a plan without a location!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else if startTime.date.isEarlierThan(currentTime) {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -47,7 +54,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             self.presentViewController(alert, animated: true, completion: nil)
         }
         //       else if futureBoundTime!.isEarlierThan(startTime.date) {
-        //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+        //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 72 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
         //            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
         //            self.presentViewController(alert, animated: true, completion: nil)
         //        }
@@ -77,13 +84,25 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     println("Fail")
                 }
             }
+
+            NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+            self.dismissViewControllerAnimated(true, completion: nil)
+
         }
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func didTapCancelButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     @IBAction func didTapUpdateButton(sender: AnyObject) {
         let currentTime = NSDate()
-        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
+        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 72, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
         if startTime.date.isEarlierThan(currentTime) {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
@@ -95,7 +114,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             self.presentViewController(alert, animated: true, completion: nil)
         }
             //       else if futureBoundTime!.isEarlierThan(startTime.date) {
-            //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
+            //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 72 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
             //            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             //            self.presentViewController(alert, animated: true, completion: nil)
             //        }
@@ -123,6 +142,10 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     println("Fail")
                 }
             }
+            
+            NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+            self.dismissViewControllerAnimated(true, completion: nil)
+
         }
 
     }
@@ -136,6 +159,9 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             {
                 Void in
                 plan?.deleteInBackground()
+                NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+                self.dismissViewControllerAnimated(true, completion: nil)
+
             }
         )
         
@@ -185,6 +211,13 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             self.currentLocation = locationManager.location
             println(currentLocation)
         }
+    }
+
+    //PROPERLY HIDE BUTTONS
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        println("dese plans \(plans)")
         
         if plans.count != 0 {
             println("hay plans")
@@ -195,8 +228,17 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             startTime.date = planStartTime
             endTime.date = planEndTime
             searchBar.text = planPlaceId
+            postButton.hidden = true
+            updateButton.hidden = false
+            deleteButton.hidden = false
+        }
+        else {
+            updateButton.hidden = true
+            deleteButton.hidden = true
+            postButton.hidden = false
             
         }
+
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {

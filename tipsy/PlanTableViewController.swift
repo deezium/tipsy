@@ -62,7 +62,15 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.planTableView!.delegate = self
         self.planTableView!.dataSource = self
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
+
+        
     }
+    
+    func refreshPosts() {
+        query.queryPlans("")
+    }
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)

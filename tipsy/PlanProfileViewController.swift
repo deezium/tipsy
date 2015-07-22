@@ -51,6 +51,16 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         if segue.identifier == "ShowDetail" {
             let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
             
+            
+//            if let selectedRow = sender as? UITableViewCell {
+//                let index = selectedRow[indexPath.row]
+//                let selectedPlan = upcomingPlans[index]
+//                selectedPlans.append(selectedPlan)
+//                planCreationViewController.plans = selectedPlans
+//                println(planCreationViewController.plans)
+//            }
+//            
+            
             if let selectedEditButton = sender as? UIButton {
                 let index = selectedEditButton.tag
                 let selectedPlan = upcomingPlans[index]
@@ -59,12 +69,31 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 
                 selectedPlans.append(selectedPlan)
                 planCreationViewController.plans = selectedPlans
-                println(planCreationViewController.plans)
+                println("pcvc plans\(planCreationViewController.plans)")
             }
             
         }
     }
     
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "ShowEdit" {
+//            var planCreationViewController = segue.destinationViewController as! PlanCreationViewController
+//            planCreationViewController.plans = selectedPlans
+//        }
+//    }
+//
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let planCreationViewController = PlanCreationViewController()
+//        
+//    
+//        let selectedPlan = pastPlans[indexPath.row]
+//        selectedPlans.append(selectedPlan)
+//        planCreationViewController.plans = selectedPlans
+//        println(planCreationViewController.plans)
+//        
+//        planCreationViewController.performSegueWithIdentifier("ShowEdit", sender: self)
+//    }
+//    
     func createPlanArrays(objects: [PFObject]) {
         for object in objects {
             
@@ -98,6 +127,13 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         self.planTableView!.delegate = self
         self.planTableView!.dataSource = self
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
+
+        
+    }
+    
+    func refreshPosts() {
+        query.queryProfilePlans("creatingUser")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,7 +148,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        var queryObject = queryObjects[indexPath.row]
+        var queryObject: PFObject
         
         if segmentedControl.selectedSegmentIndex == 0 {
             queryObject = upcomingPlans[indexPath.row]
@@ -139,7 +175,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         cell.endTime.text = endTimeString
         cell.location.text = place
         cell.editButton.tag = indexPath.row
-        println("tag \(cell.editButton.tag)")
         
         return cell
     }
