@@ -7,6 +7,8 @@ target 'tipsy' do
 	pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'
 	pod 'DateTools'
 	pod 'GoogleMaps' 
+	pod 'Fabric'
+	pod 'Crashlytics'
 
 end
 

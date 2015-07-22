@@ -774,7 +774,7 @@
                                     <action selector="didTapUpdateButton:" destination="ire-on-Dx3" eventType="touchUpInside" id="3m0-KD-Tpd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRp-CP-ih8">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRp-CP-ih8">
                                 <rect key="frame" x="455" y="490" width="58" height="30"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <state key="normal" title="Delete">
@@ -801,6 +801,7 @@
                             <constraint firstItem="eZK-XW-FK0" firstAttribute="top" secondItem="eCq-it-cxV" secondAttribute="bottom" id="mc0-L7-Hy0"/>
                             <constraint firstAttribute="centerX" secondItem="T5a-Wm-FdK" secondAttribute="centerX" constant="5" id="o6r-3h-ukZ"/>
                             <constraint firstItem="EE7-Pb-Sfn" firstAttribute="top" secondItem="T5a-Wm-FdK" secondAttribute="bottom" constant="31" id="tyL-oV-9Ae"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dRp-CP-ih8" secondAttribute="trailing" constant="71" id="w5a-IW-Lws"/>
                             <constraint firstAttribute="trailing" secondItem="eZK-XW-FK0" secondAttribute="trailing" constant="-10" id="ymu-wu-oWX"/>
                             <constraint firstAttribute="centerX" secondItem="eCq-it-cxV" secondAttribute="centerX" id="zmg-wU-VX1"/>
                         </constraints>

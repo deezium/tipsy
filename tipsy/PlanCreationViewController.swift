@@ -128,6 +128,21 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     }
     
     @IBAction func didTapDeleteButton(sender: AnyObject) {
+        
+        let plan = plans.first
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this plan?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler:
+            {
+                Void in
+                plan?.deleteInBackground()
+            }
+        )
+        
+        alert.addAction(cancelAction)
+        alert.addAction(confirmAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+        
     }
     
     

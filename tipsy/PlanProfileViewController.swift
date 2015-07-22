@@ -16,9 +16,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     @IBOutlet weak var planTableView: UITableView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-//PROBABLY NEED TO RELOAD TABLE VIEW HERE ON SEGMENT SWITCH
-    
+        
     @IBAction func didChangeSegment(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
@@ -55,7 +53,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
             if let selectedEditButton = sender as? UIButton {
                 let index = selectedEditButton.tag
-                let selectedPlan = queryObjects[index]
+                let selectedPlan = upcomingPlans[index]
                 
                 // There's probably a better way to do this
                 
@@ -141,6 +139,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         cell.endTime.text = endTimeString
         cell.location.text = place
         cell.editButton.tag = indexPath.row
+        println("tag \(cell.editButton.tag)")
         
         return cell
     }
