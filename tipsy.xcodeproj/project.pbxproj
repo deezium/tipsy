@@ -81,6 +81,8 @@
 		338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */; };
 		338EAAA71B5E229200E63FC7 /* PlanFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */; };
 		338EAAA91B5E295500E63FC7 /* PlanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */; };
+		338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */; };
+		338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -243,6 +245,8 @@
 		338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedExtensions.swift; sourceTree = "<group>"; };
 		338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanFeedCell.swift; sourceTree = "<group>"; };
 		338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanTableViewController.swift; sourceTree = "<group>"; };
+		338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileViewController.swift; sourceTree = "<group>"; };
+		338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileCell.swift; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -334,62 +338,26 @@
 		336344921B3283F800DF3D90 /* tipsy */ = {
 			isa = PBXGroup;
 			children = (
+				338EAAAC1B5EC20300E63FC7 /* FMDB */,
+				338EAAAB1B5EC1EF00E63FC7 /* Images */,
+				338EAAAA1B5EC1D200E63FC7 /* v1Files */,
 				338EAA641B58A11400E63FC7 /* Swifter.xcodeproj */,
-				33F385F11B5495300008AFF7 /* AttractionAnnotationView.swift */,
-				33F385F21B5495300008AFF7 /* AttractionAnnotation.swift */,
 				33F385E01B5494CD0008AFF7 /* Images */,
-				3339CE071B424EE6001C222C /* FMDB.h */,
-				3339CE081B424EE6001C222C /* FMDatabase.h */,
-				3339CE091B424EE6001C222C /* FMDatabase.m */,
-				3339CE0A1B424EE6001C222C /* FMResultSet.h */,
-				3339CE0B1B424EE6001C222C /* FMResultSet.m */,
-				3339CE0C1B424EE6001C222C /* FMDatabaseQueue.h */,
-				3339CE0D1B424EE6001C222C /* FMDatabaseQueue.m */,
-				3339CE0E1B424EE6001C222C /* FMDatabaseAdditions.h */,
-				3339CE0F1B424EE6001C222C /* FMDatabaseAdditions.m */,
-				3339CE101B424EE6001C222C /* FMDatabasePool.h */,
-				3339CE111B424EE6001C222C /* FMDatabasePool.m */,
 				3339CDF31B4244D1001C222C /* Util.swift */,
-				332476EC1B4FDB1E00CF0881 /* login_with_fb.png */,
-				332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */,
-				3339CDD41B422165001C222C /* Map-50.png */,
-				33F385F51B549BE60008AFF7 /* DClinkedin@2x.jpg */,
-				332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */,
-				3339CDD81B4222DE001C222C /* RSS-25.png */,
-				3339CDDC1B42253A001C222C /* Edit-25.png */,
-				332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */,
-				33F385FB1B549C500008AFF7 /* DClinkedin.png */,
-				33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */,
-				3339CDD61B422186001C222C /* Map-25.png */,
-				3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */,
 				338EAA781B5D6D6A00E63FC7 /* GoogleDataProvider.swift */,
-				33F386031B5630700008AFF7 /* CheckinCallout.swift */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
-				332476E01B4C846600CF0881 /* MeViewController.swift */,
 				332476DE1B4C7D8D00CF0881 /* TabBarController.swift */,
-				3339CDF51B424B7D001C222C /* ModelManager.swift */,
-				336344971B3283F800DF3D90 /* ViewController.swift */,
-				336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */,
-				3339CE171B425172001C222C /* CheckInViewController.swift */,
-				3339CE191B4357C2001C222C /* ProfileViewController.swift */,
-				3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */,
-				3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */,
-				3339CDF11B423EB2001C222C /* Checkin.swift */,
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
-				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
 				332476F01B51811100CF0881 /* QueryController.swift */,
-				33F385CF1B548E770008AFF7 /* DClinkedin.jpg */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */,
+				338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */,
 				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
-				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
 				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
 				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
 				338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */,
-				33F386E71B5851830008AFF7 /* TwitterViewController.swift */,
-				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
 				338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */,
-				332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
 				336344931B3283F800DF3D90 /* Supporting Files */,
@@ -432,6 +400,68 @@
 				338EAA721B58A11400E63FC7 /* SwifterDemoMac.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		338EAAAA1B5EC1D200E63FC7 /* v1Files */ = {
+			isa = PBXGroup;
+			children = (
+				33F385F11B5495300008AFF7 /* AttractionAnnotationView.swift */,
+				33F385F21B5495300008AFF7 /* AttractionAnnotation.swift */,
+				3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */,
+				3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */,
+				3339CE191B4357C2001C222C /* ProfileViewController.swift */,
+				332476E01B4C846600CF0881 /* MeViewController.swift */,
+				3339CE171B425172001C222C /* CheckInViewController.swift */,
+				336344971B3283F800DF3D90 /* ViewController.swift */,
+				3339CDF11B423EB2001C222C /* Checkin.swift */,
+				3339CDF51B424B7D001C222C /* ModelManager.swift */,
+				336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */,
+				33F386E71B5851830008AFF7 /* TwitterViewController.swift */,
+				332476E81B4E0A4600CF0881 /* FeedTextCell.swift */,
+				332476DC1B4B5CA300CF0881 /* FeedViewController.swift */,
+				332476EA1B4E1B4700CF0881 /* FeedPictureCell.swift */,
+				3339CDD21B3B832D001C222C /* LocationViewController.swift */,
+				33F386031B5630700008AFF7 /* CheckinCallout.swift */,
+			);
+			name = v1Files;
+			sourceTree = "<group>";
+		};
+		338EAAAB1B5EC1EF00E63FC7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				33F385CF1B548E770008AFF7 /* DClinkedin.jpg */,
+				332476EC1B4FDB1E00CF0881 /* login_with_fb.png */,
+				332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */,
+				3339CDD41B422165001C222C /* Map-50.png */,
+				33F385F51B549BE60008AFF7 /* DClinkedin@2x.jpg */,
+				332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */,
+				3339CDD81B4222DE001C222C /* RSS-25.png */,
+				3339CDDC1B42253A001C222C /* Edit-25.png */,
+				332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */,
+				33F385FB1B549C500008AFF7 /* DClinkedin.png */,
+				33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */,
+				3339CDD61B422186001C222C /* Map-25.png */,
+				3339CDDA1B4223CA001C222C /* Gender Neutral User-25.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		338EAAAC1B5EC20300E63FC7 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				3339CE071B424EE6001C222C /* FMDB.h */,
+				3339CE081B424EE6001C222C /* FMDatabase.h */,
+				3339CE091B424EE6001C222C /* FMDatabase.m */,
+				3339CE0A1B424EE6001C222C /* FMResultSet.h */,
+				3339CE0B1B424EE6001C222C /* FMResultSet.m */,
+				3339CE0C1B424EE6001C222C /* FMDatabaseQueue.h */,
+				3339CE0D1B424EE6001C222C /* FMDatabaseQueue.m */,
+				3339CE0E1B424EE6001C222C /* FMDatabaseAdditions.h */,
+				3339CE0F1B424EE6001C222C /* FMDatabaseAdditions.m */,
+				3339CE101B424EE6001C222C /* FMDatabasePool.h */,
+				3339CE111B424EE6001C222C /* FMDatabasePool.m */,
+			);
+			name = FMDB;
 			sourceTree = "<group>";
 		};
 		33F385E01B5494CD0008AFF7 /* Images */ = {
@@ -720,6 +750,7 @@
 				332476EB1B4E1B4700CF0881 /* FeedPictureCell.swift in Sources */,
 				33F385F31B5495300008AFF7 /* AttractionAnnotationView.swift in Sources */,
 				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
+				338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */,
 				332476F11B51811100CF0881 /* QueryController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
@@ -736,6 +767,7 @@
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
 				338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */,
 				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
+				338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */,
 				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,
 				338EAA941B5D782500E63FC7 /* GoogleMapsViewController.swift in Sources */,
 				33F386041B5630700008AFF7 /* CheckinCallout.swift in Sources */,

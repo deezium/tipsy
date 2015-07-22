@@ -56,7 +56,7 @@ class QueryController {
         
         query.whereKey("endTime", greaterThanOrEqualTo: currentDate)
         query.includeKey("creatingUser")
-        query.orderByDescending("createdAt")
+        query.orderByDescending("startTime")
         query.limit = 20
         
         var objects = query.findObjects() as! [PFObject]
@@ -64,9 +64,30 @@ class QueryController {
         
         println(objects)
         
-        //        if let objects = objects {
-        //        }
         
-        //        return objects
     }
+    
+    func queryProfilePlans(filter: String) {
+        
+        println("fuck")
+        var query = PFQuery(className: "Plan")
+        
+        if (filter != "") {
+            query.whereKey(filter, equalTo: user)
+        }
+        
+        let currentDate = NSDate()
+        
+        query.includeKey("creatingUser")
+        query.orderByDescending("startTime")
+        query.limit = 20
+        
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveQueryResults(objects)
+        
+        println(objects)
+        
+        
+    }
+
 }

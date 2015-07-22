@@ -11,9 +11,26 @@ import UIKit
 
 class PlanTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
  
+    @IBOutlet weak var timeFilter: UIDatePicker!
     @IBOutlet weak var planTableView: UITableView!
     var query = QueryController()
     var queryObjects = [PFObject]()
+    var filteredObjects = [PFObject]()
+    var filtered: Bool = false
+    
+    @IBAction func didTapRemoveFilters(sender: AnyObject) {
+        filtered = false
+        self.planTableView.reloadData()
+    }
+    
+    @IBAction func didTapFilter(sender: AnyObject) {
+        filtered = true
+        filteredObjects = [PFObject]()
+        self.filterQueryResults(queryObjects)
+        self.planTableView.reloadData()
+    }
+    
+    
 
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
@@ -21,6 +38,20 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.planTableView!.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
+    }
+    
+    func filterQueryResults(objects: [PFObject]) {
+        for object in objects {
+            let startTime = object.objectForKey("startTime") as? NSDate
+            let endTime = object.objectForKey("endTime") as? NSDate
+            let filterTime = timeFilter.date
+            
+            if (startTime!.isEarlierThanOrEqualTo(filterTime)) {
+                if (endTime!.isLaterThanOrEqualTo(filterTime)) {
+                    filteredObjects.append(object)
+                }
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -39,12 +70,26 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         //        return objects.count
         
         println(queryObjects.count)
-        return queryObjects.count
+        
+        if filtered == false {
+            return queryObjects.count
+        }
+        else {
+            return filteredObjects.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let queryObject = queryObjects[indexPath.row]
+        var queryObject: PFObject
+        
+        if filtered == false {
+            queryObject = queryObjects[indexPath.row]
+        }
+        else {
+            queryObject = filteredObjects[indexPath.row]
+        }
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("PlanTableCell") as! PlanFeedCell
         
         let user = queryObject.objectForKey("creatingUser") as! PFUser
