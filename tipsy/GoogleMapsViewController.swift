@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 import CoreLocation
-import DateTools
-import SwifteriOS
 
 
 class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {

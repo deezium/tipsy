@@ -11,16 +11,16 @@ import UIKit
 import MapKit
 import CoreLocation
 import DateTools
-import SwifteriOS
+//import SwifteriOS
 
 class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, QueryControllerProtocol {
     
-    var swifter : Swifter
-    
-    required init(coder aDecoder: NSCoder) {
-        self.swifter = Swifter(consumerKey: "4t8tQ5YahzQtQv51QzVFQcCIM", consumerSecret: "nVwsRazhqHvZP2WNmJ0n6jlhGms3UwC46qM42fTav0UxSvU8Rd", appOnly: true)
-        super.init(coder: aDecoder)
-    }
+//    var swifter : Swifter
+//    
+//    required init(coder aDecoder: NSCoder) {
+//        self.swifter = Swifter(consumerKey: "4t8tQ5YahzQtQv51QzVFQcCIM", consumerSecret: "nVwsRazhqHvZP2WNmJ0n6jlhGms3UwC46qM42fTav0UxSvU8Rd", appOnly: true)
+//        super.init(coder: aDecoder)
+//    }
 
     
     @IBOutlet weak var mapView: MKMapView!
@@ -84,13 +84,13 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         }
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: checkinMadeNotificationKey, object: nil)
-        
-        swifter.authorizeAppOnlyWithSuccess({ (accessToken, response) -> Void in
-            println("yee")
-            }, failure: { (error) -> Void in
-                println("Error Authenticating: \(error.localizedDescription)")
-        })
-        
+//        
+//        swifter.authorizeAppOnlyWithSuccess({ (accessToken, response) -> Void in
+//            println("yee")
+//            }, failure: { (error) -> Void in
+//                println("Error Authenticating: \(error.localizedDescription)")
+//        })
+//        
         
     }
     
