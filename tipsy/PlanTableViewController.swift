@@ -17,6 +17,25 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var queryObjects = [PFObject]()
     var filteredObjects = [PFObject]()
     var filtered: Bool = false
+    var pastPlans = [PFObject]()
+    var pastPlansOriginal = [PFObject]()
+    var upcomingPlans = [PFObject]()
+
+    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    
+    @IBAction func didChangeSegment(sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            println("upcoming")
+        case 1:
+            println("past")
+        default:
+            break;
+        }
+        self.planTableView.reloadData()
+    }
     
     @IBAction func didTapRemoveFilters(sender: AnyObject) {
         filtered = false
@@ -29,12 +48,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.filterQueryResults(queryObjects)
         self.planTableView.reloadData()
     }
-    
-    
 
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
+            self.createPlanArrays(objects)
             self.planTableView!.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
@@ -53,6 +71,28 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
+    
+    func createPlanArrays(objects: [PFObject]) {
+        
+        upcomingPlans = [PFObject]()
+        pastPlansOriginal = [PFObject]()
+        
+        for object in objects {
+            
+            let endTime = object.objectForKey("endTime") as? NSDate
+            let currentTime = NSDate()
+            
+            if currentTime.isEarlierThan(endTime) {
+                upcomingPlans.append(object)
+            }
+            else {
+                pastPlansOriginal.append(object)
+            }
+        }
+        pastPlans = pastPlansOriginal.reverse()
+        println("upcomingPlans \(upcomingPlans)")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,25 +118,43 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         //        return objects.count
         
         println(queryObjects.count)
-        
-        if filtered == false {
-            return queryObjects.count
+        if segmentedControl.selectedSegmentIndex == 0 {
+            return upcomingPlans.count
         }
         else {
-            return filteredObjects.count
+            return pastPlans.count
         }
+
+        
+        
+//        if filtered == false {
+//            return queryObjects.count
+//        }
+//        else {
+//            return filteredObjects.count
+//        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var queryObject: PFObject
         
-        if filtered == false {
-            queryObject = queryObjects[indexPath.row]
+        if segmentedControl.selectedSegmentIndex == 0 {
+            queryObject = upcomingPlans[indexPath.row]
+        //    cell.editButton.hidden = false
         }
         else {
-            queryObject = filteredObjects[indexPath.row]
+            queryObject = pastPlans[indexPath.row]
+          //  cell.editButton.hidden = true
         }
+        
+        
+//        if filtered == false {
+//            queryObject = queryObjects[indexPath.row]
+//        }
+//        else {
+//            queryObject = filteredObjects[indexPath.row]
+//        }
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PlanTableCell") as! PlanFeedCell
         

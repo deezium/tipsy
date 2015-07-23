@@ -54,10 +54,10 @@ class QueryController {
         
         let currentDate = NSDate()
         
-        query.whereKey("endTime", greaterThanOrEqualTo: currentDate)
+//        query.whereKey("endTime", greaterThanOrEqualTo: currentDate)
         query.includeKey("creatingUser")
         query.orderByAscending("startTime")
-        query.limit = 20
+        query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
