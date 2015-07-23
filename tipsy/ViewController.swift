@@ -7,38 +7,38 @@
 //
 
 import UIKit
-import SwiftAddressBook
+//import SwiftAddressBook
 import AddressBook
 
 class ViewController: UIViewController {
 
-    //var swiftAddressBook : SwiftAddressBook!
-    let status : ABAuthorizationStatus = SwiftAddressBook.authorizationStatus()
-    
-    @IBAction func locationButtonPressed(sender: AnyObject) {
-        let locationViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LocationViewController") as! LocationViewController
-        self.navigationController!.pushViewController(locationViewController, animated: true)
-
-    }
-    
-    @IBAction func buttonPressed(sender: AnyObject) {
-        swiftAddressBook?.requestAccessWithCompletion({ (success, error) -> Void in
-            if success{
-                println("Yay!")
-            }
-            else {
-                println("Boo, error")
-            }
-        })
-        if self.isAuthorized(){
-            let friendsListViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendsListViewController") as! FriendsListViewController
-            self.navigationController!.pushViewController(friendsListViewController, animated: true)
-        }
-    }
-    
-    func isAuthorized() -> Bool {
-        return status == ABAuthorizationStatus.Authorized
-    }
+////    //var swiftAddressBook : SwiftAddressBook!
+////    let status : ABAuthorizationStatus = SwiftAddressBook.authorizationStatus()
+////    
+////    @IBAction func locationButtonPressed(sender: AnyObject) {
+////        let locationViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LocationViewController") as! LocationViewController
+////        self.navigationController!.pushViewController(locationViewController, animated: true)
+////
+////    }
+////    
+////    @IBAction func buttonPressed(sender: AnyObject) {
+////        swiftAddressBook?.requestAccessWithCompletion({ (success, error) -> Void in
+////            if success{
+////                println("Yay!")
+////            }
+////            else {
+////                println("Boo, error")
+////            }
+////        })
+////        if self.isAuthorized(){
+////            let friendsListViewController = self.storyboard!.instantiateViewControllerWithIdentifier("FriendsListViewController") as! FriendsListViewController
+////            self.navigationController!.pushViewController(friendsListViewController, animated: true)
+////        }
+////    }
+////    
+//    func isAuthorized() -> Bool {
+//        return status == ABAuthorizationStatus.Authorized
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
