@@ -171,6 +171,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         let user = queryObject.objectForKey("creatingUser") as! PFUser
         let username = user.objectForKey("fullname") as? String
+        let message = queryObject.objectForKey("message") as? String
         let startTime = queryObject.objectForKey("startTime") as? NSDate
         let endTime = queryObject.objectForKey("endTime") as? NSDate
         let placeName = queryObject.objectForKey("googlePlaceName") as? String
@@ -198,6 +199,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         cell.location.text = placeLabel
         cell.addressLabel.text = shortAddress
         cell.editButton.tag = indexPath.row
+
+        if let message = message {
+            cell.message.text = message
+        }
         
         return cell
     }

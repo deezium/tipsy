@@ -21,4 +21,5 @@ class PlanProfileCell: UITableViewCell {
     
     @IBOutlet weak var addressLabel: UILabel!
     
+    @IBOutlet weak var message: UILabel!
 }

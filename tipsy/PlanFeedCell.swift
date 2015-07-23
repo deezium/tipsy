@@ -19,4 +19,5 @@ class PlanFeedCell: UITableViewCell {
     
     @IBOutlet weak var addressLabel: UILabel!
     
+    @IBOutlet weak var message: UILabel!
 }

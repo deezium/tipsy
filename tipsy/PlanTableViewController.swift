@@ -101,7 +101,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("PlanTableCell") as! PlanFeedCell
         
         let user = queryObject.objectForKey("creatingUser") as! PFUser
-        let username = user.objectForKey("fullname") as? String
+        let fullname = user.objectForKey("fullname") as? String
+        let message = queryObject.objectForKey("message") as? String
         let startTime = queryObject.objectForKey("startTime") as? NSDate
         let endTime = queryObject.objectForKey("endTime") as? NSDate
         let placeName = queryObject.objectForKey("googlePlaceName") as? String
@@ -136,12 +137,17 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
 
+        let firstname = fullname?.componentsSeparatedByString(" ")[0]
         
-        cell.name.text = username
+        cell.name.text = firstname
         cell.startTime.text = startTimeString
         cell.endTime.text = endTimeString
         cell.location.text = placeLabel
         cell.addressLabel.text = shortAddress
+        
+        if let message = message {
+            cell.message.text = message
+        }
         
         return cell
     }

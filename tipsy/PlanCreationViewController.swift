@@ -23,6 +23,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
     
+    @IBOutlet weak var messageField: UITextField!
 
     @IBOutlet weak var startTime: UIDatePicker!
     
@@ -63,6 +64,8 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
         //        }
         
         else {
+            
+            
             let planObject = PFObject(className: "Plan")
             planObject.setObject(startTime.date, forKey: "startTime")
             planObject.setObject(endTime.date, forKey: "endTime")
@@ -70,7 +73,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-            
+            planObject.setObject(messageField.text, forKey: "message")
             
             let ACL = PFACL()
             ACL.setPublicReadAccess(true)
@@ -85,6 +88,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                     self.searchBar.text = ""
+                    self.messageField.text = ""
                     self.startTime.date = NSDate()
                     self.endTime.date = NSDate()
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
@@ -140,6 +144,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
+            planObject.setObject(messageField.text, forKey: "message")
             
             
             planObject.saveInBackgroundWithBlock {
@@ -245,6 +250,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             selectedPlaceId = plan?.objectForKey("googlePlaceId") as! String
             selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
             selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
+            messageField.text = plan?.objectForKey("message") as? String
             startTime.date = planStartTime
             endTime.date = planEndTime
             searchBar.text = selectedPlaceName
@@ -259,7 +265,6 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             postButton.hidden = false
             cancelButton.hidden = true
         }
-
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
