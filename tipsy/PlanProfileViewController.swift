@@ -36,8 +36,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     var pastPlans = [PFObject]()
     var pastPlansOriginal = [PFObject]()
     var upcomingPlans = [PFObject]()
-    var selectedPlans = [PFObject]()
-    
  
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
@@ -52,6 +50,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         if segue.identifier == "ShowDetail" {
             let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
             
+            var selectedPlans = [PFObject]()
+
             
 //            if let selectedRow = sender as? UITableViewCell {
 //                let index = selectedRow[indexPath.row]
@@ -63,6 +63,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
 //            
             
             if let selectedEditButton = sender as? UIButton {
+            
                 let index = selectedEditButton.tag
                 let selectedPlan = upcomingPlans[index]
                 
@@ -96,6 +97,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
 //    }
 //    
     func createPlanArrays(objects: [PFObject]) {
+        
+        upcomingPlans = [PFObject]()
+        pastPlansOriginal = [PFObject]()
+        
         for object in objects {
             
             let endTime = object.objectForKey("endTime") as? NSDate
@@ -109,6 +114,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             }
         }
         pastPlans = pastPlansOriginal.reverse()
+        println("upcomingPlans \(upcomingPlans)")
     }
     
     override func viewDidLoad() {

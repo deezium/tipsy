@@ -87,6 +87,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     self.searchBar.text = ""
                     self.startTime.date = NSDate()
                     self.endTime.date = NSDate()
+                    NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 }
                 else {
                     let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -95,7 +96,6 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                 }
             }
 
-            NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
             
 
         }
@@ -154,6 +154,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                         }
 ))
                     self.presentViewController(alert, animated: true, completion: nil)
+                    NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 
 //                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
@@ -162,7 +163,6 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                 }
             }
             
-            NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
 
         }
 
