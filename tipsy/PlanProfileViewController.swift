@@ -34,6 +34,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     var query = QueryController()
     var queryObjects = [PFObject]()
     var pastPlans = [PFObject]()
+    var pastPlansOriginal = [PFObject]()
     var upcomingPlans = [PFObject]()
     var selectedPlans = [PFObject]()
     
@@ -104,9 +105,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 upcomingPlans.append(object)
             }
             else {
-                pastPlans.append(object)
+                pastPlansOriginal.append(object)
             }
         }
+        pastPlans = pastPlansOriginal.reverse()
     }
     
     override func viewDidLoad() {

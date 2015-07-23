@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tipsy/PlanProfileViewController.swift"
-            timestampString = "459286786.412692"
+            timestampString = "459322600.020478"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "createPlanArrays(_:)"
             landmarkType = "5">
          </BreakpointContent>
