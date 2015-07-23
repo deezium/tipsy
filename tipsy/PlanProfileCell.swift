@@ -19,5 +19,6 @@ class PlanProfileCell: UITableViewCell {
     
     @IBOutlet weak var editButton: UIButton!
     
+    @IBOutlet weak var addressLabel: UILabel!
     
 }

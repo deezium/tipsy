@@ -104,7 +104,20 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let username = user.objectForKey("fullname") as? String
         let startTime = queryObject.objectForKey("startTime") as? NSDate
         let endTime = queryObject.objectForKey("endTime") as? NSDate
-        let place = queryObject.objectForKey("googlePlaceId") as? String
+        let placeName = queryObject.objectForKey("googlePlaceName") as? String
+        let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
+        let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+        var placeLabel: String?
+        var addressLabel: String?
+        
+        if let placeName = placeName {
+            placeLabel = placeName
+        }
+
+        if let shortAddress = shortAddress {
+            addressLabel = shortAddress
+        }
+
         
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM d, hh:mm a"
@@ -127,7 +140,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.name.text = username
         cell.startTime.text = startTimeString
         cell.endTime.text = endTimeString
-        cell.location.text = place
+        cell.location.text = placeLabel
+        cell.addressLabel.text = shortAddress
         
         return cell
     }

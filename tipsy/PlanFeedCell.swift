@@ -16,4 +16,7 @@ class PlanFeedCell: UITableViewCell {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var endTime: UILabel!
+    
+    @IBOutlet weak var addressLabel: UILabel!
+    
 }

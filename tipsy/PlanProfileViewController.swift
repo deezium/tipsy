@@ -149,22 +149,36 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
         var queryObject: PFObject
+        let cell = tableView.dequeueReusableCellWithIdentifier("PlanProfileCell") as! PlanProfileCell
         
         if segmentedControl.selectedSegmentIndex == 0 {
             queryObject = upcomingPlans[indexPath.row]
+            cell.editButton.hidden = false
         }
         else {
             queryObject = pastPlans[indexPath.row]
+            cell.editButton.hidden = true
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlanProfileCell") as! PlanProfileCell
         
         let user = queryObject.objectForKey("creatingUser") as! PFUser
         let username = user.objectForKey("fullname") as? String
         let startTime = queryObject.objectForKey("startTime") as? NSDate
         let endTime = queryObject.objectForKey("endTime") as? NSDate
-        let place = queryObject.objectForKey("googlePlaceId") as? String
+        let placeName = queryObject.objectForKey("googlePlaceName") as? String
+        let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
+        let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+        var placeLabel: String?
+        var addressLabel: String?
         
+        if let placeName = placeName {
+            placeLabel = placeName
+        }
+        
+        if let shortAddress = shortAddress {
+            addressLabel = shortAddress
+        }
+
         var dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM d, hh:mm a"
         
@@ -173,7 +187,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
 
         cell.startTime.text = startTimeString
         cell.endTime.text = endTimeString
-        cell.location.text = place
+        cell.location.text = placeLabel
+        cell.addressLabel.text = shortAddress
         cell.editButton.tag = indexPath.row
         
         return cell

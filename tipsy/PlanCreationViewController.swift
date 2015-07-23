@@ -19,6 +19,8 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     var currentLocation = CLLocation()
     var searchResultData = [GMSAutocompletePrediction]()
     var selectedPlaceId = String()
+    var selectedPlaceName = String()
+    var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
     
 
@@ -33,6 +35,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     
     @IBAction func didTapPostButton(sender: AnyObject) {
         
@@ -65,6 +68,8 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(endTime.date, forKey: "endTime")
             planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
+            planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
+            planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
             
             
             let ACL = PFACL()
@@ -79,14 +84,19 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
+                    self.searchBar.text = ""
+                    self.startTime.date = NSDate()
+                    self.endTime.date = NSDate()
                 }
                 else {
-                    println("Fail")
+                    let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
                 }
             }
 
             NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
-            self.dismissViewControllerAnimated(true, completion: nil)
+            
 
         }
     }
@@ -128,6 +138,8 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(endTime.date, forKey: "endTime")
             planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
+            planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
+            planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
             
             
             planObject.saveInBackgroundWithBlock {
@@ -135,16 +147,22 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                 if success == true {
                     println("Success")
                     let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
+                        Void in
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        }
+))
                     self.presentViewController(alert, animated: true, completion: nil)
+                
+//                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else {
-                    println("Fail")
+                    println("Update fail")
                 }
             }
             
             NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
-            self.dismissViewControllerAnimated(true, completion: nil)
 
         }
 
@@ -224,19 +242,22 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             let plan = plans.first
             let planStartTime = plan?.objectForKey("startTime") as! NSDate
             let planEndTime = plan?.objectForKey("endTime") as! NSDate
-            let planPlaceId = plan?.objectForKey("googlePlaceId") as! String
+            selectedPlaceId = plan?.objectForKey("googlePlaceId") as! String
+            selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
+            selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
             startTime.date = planStartTime
             endTime.date = planEndTime
-            searchBar.text = planPlaceId
+            searchBar.text = selectedPlaceName
             postButton.hidden = true
             updateButton.hidden = false
             deleteButton.hidden = false
+            cancelButton.hidden = false
         }
         else {
             updateButton.hidden = true
             deleteButton.hidden = true
             postButton.hidden = false
-            
+            cancelButton.hidden = true
         }
 
     }
@@ -259,6 +280,21 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
         self.searchBar.text = placeText
         self.selectedPlaceId = place.placeID
         self.searchResults.hidden = true
+        
+        let placeId = "ChIJv2V798IJlR4Rq66ydZpHmt0"
+        
+        placesClient.lookUpPlaceID(selectedPlaceId, callback: {(place, error) -> Void in
+            if error != nil {
+                println("lookup place id query error")
+                return
+            }
+            
+            if place != nil {
+                self.selectedPlaceName = place!.name
+                self.selectedPlaceFormattedAddress = place!.formattedAddress
+            }
+            
+        })
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
