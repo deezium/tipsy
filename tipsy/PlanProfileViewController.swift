@@ -184,10 +184,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         if segmentedControl.selectedSegmentIndex == 0 {
             queryObject = upcomingPlans[indexPath.row]
             cell.editButton.hidden = false
+            cell.checkboxImage.hidden = true
         }
         else {
             queryObject = pastPlans[indexPath.row]
             cell.editButton.hidden = true
+            cell.checkboxImage.hidden = false
         }
         
         

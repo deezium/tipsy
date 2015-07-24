@@ -53,8 +53,6 @@
 	<string>To show your friends where you're hanging out always.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To show your friends where you're hanging out while you're in the app.</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

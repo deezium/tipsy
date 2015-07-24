@@ -61,6 +61,9 @@
 		335C80E41B60F8FA00702414 /* PlanCreationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */; };
 		335C80EB1B62063F00702414 /* PlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80EA1B62063F00702414 /* PlanDetailViewController.swift */; };
 		335C80ED1B62339E00702414 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80EC1B62339E00702414 /* CommentCell.swift */; };
+		335C80EF1B624DB700702414 /* Checked Checkbox 2-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 335C80EE1B624DB700702414 /* Checked Checkbox 2-100.png */; };
+		335C80F11B62550D00702414 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335C80F01B62550D00702414 /* Media.xcassets */; };
+		335C80F31B62566F00702414 /* tipsyLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */; };
 		336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344951B3283F800DF3D90 /* AppDelegate.swift */; };
 		336344981B3283F800DF3D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344971B3283F800DF3D90 /* ViewController.swift */; };
 		3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336344991B3283F800DF3D90 /* Main.storyboard */; };
@@ -188,6 +191,9 @@
 		335C80E51B61706200702414 /* tipsySandyTest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = tipsySandyTest.mobileprovision; path = ../../../../Downloads/tipsySandyTest.mobileprovision; sourceTree = "<group>"; };
 		335C80EA1B62063F00702414 /* PlanDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailViewController.swift; sourceTree = "<group>"; };
 		335C80EC1B62339E00702414 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		335C80EE1B624DB700702414 /* Checked Checkbox 2-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Checked Checkbox 2-100.png"; path = "../../../../Downloads/Checked Checkbox 2-100.png"; sourceTree = "<group>"; };
+		335C80F01B62550D00702414 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tipsyLaunchScreen.xib; sourceTree = "<group>"; };
 		336344901B3283F800DF3D90 /* tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336344941B3283F800DF3D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336344951B3283F800DF3D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -344,6 +350,8 @@
 		336344931B3283F800DF3D90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				335C80F01B62550D00702414 /* Media.xcassets */,
+				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
 				335C80E51B61706200702414 /* tipsySandyTest.mobileprovision */,
 				336344941B3283F800DF3D90 /* Info.plist */,
 				336344BB1B32893900DF3D90 /* Bridging-Header.h */,
@@ -401,6 +409,7 @@
 				3339CDD41B422165001C222C /* Map-50.png */,
 				33F385F51B549BE60008AFF7 /* DClinkedin@2x.jpg */,
 				332476E21B4CE46100CF0881 /* Gender Neutral User-100.png */,
+				335C80EE1B624DB700702414 /* Checked Checkbox 2-100.png */,
 				3339CDD81B4222DE001C222C /* RSS-25.png */,
 				3339CDDC1B42253A001C222C /* Edit-25.png */,
 				332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */,
@@ -580,14 +589,17 @@
 			files = (
 				33F385EC1B5494CD0008AFF7 /* food@2x.png in Resources */,
 				33F385EF1B5494CD0008AFF7 /* star.png in Resources */,
+				335C80F11B62550D00702414 /* Media.xcassets in Resources */,
 				3339CDDD1B42253A001C222C /* Edit-25.png in Resources */,
 				332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */,
 				3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */,
 				33F385EB1B5494CD0008AFF7 /* food.png in Resources */,
 				332476E31B4CE46100CF0881 /* Gender Neutral User-100.png in Resources */,
+				335C80EF1B624DB700702414 /* Checked Checkbox 2-100.png in Resources */,
 				3339CDDB1B4223CA001C222C /* Gender Neutral User-25.png in Resources */,
 				33F385EE1B5494CD0008AFF7 /* ride@2x.png in Resources */,
 				33F385F01B5494CD0008AFF7 /* star@2x.png in Resources */,
+				335C80F31B62566F00702414 /* tipsyLaunchScreen.xib in Resources */,
 				33F385FD1B549C500008AFF7 /* DClinkedin.png in Resources */,
 				33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */,
 				33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */,
@@ -851,6 +863,7 @@
 			baseConfigurationReference = 329318A9E52DEB351C66B293 /* Pods-tipsy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -881,6 +894,7 @@
 			baseConfigurationReference = EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (

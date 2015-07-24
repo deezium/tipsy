@@ -1088,7 +1088,7 @@ Comment on other people's plans and text them to meet up!</string>
                                     <action selector="didChangeSegment:" destination="oRv-B1-WtN" eventType="valueChanged" id="zQT-Pf-6Qb"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-KT-kWI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TE6-KT-kWI">
                                 <rect key="frame" x="158" y="64" width="150" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="hPg-9b-5p3"/>
@@ -1200,6 +1200,13 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Checked Checkbox 2-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="kYr-3n-Bo7">
+                                                    <rect key="frame" x="19" y="20" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="7Uo-1u-fdX"/>
+                                                        <constraint firstAttribute="width" constant="70" id="gj7-6j-qCf"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="JFX-Rt-OEb" secondAttribute="trailing" constant="191" id="10G-NY-aQk"/>
@@ -1223,6 +1230,8 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstItem="vF1-pC-9qA" firstAttribute="centerY" secondItem="JFX-Rt-OEb" secondAttribute="centerY" id="jUq-o6-4u3"/>
                                                 <constraint firstItem="vF1-pC-9qA" firstAttribute="top" secondItem="sZi-Nq-iOj" secondAttribute="topMargin" constant="10" id="qDd-Vm-o5i"/>
                                                 <constraint firstItem="Fe2-Ul-UTe" firstAttribute="trailing" secondItem="JFX-Rt-OEb" secondAttribute="trailing" constant="70" id="qoZ-vp-KWF"/>
+                                                <constraint firstItem="kYr-3n-Bo7" firstAttribute="leading" secondItem="sZi-Nq-iOj" secondAttribute="leadingMargin" constant="11" id="up9-dL-YVK"/>
+                                                <constraint firstItem="kYr-3n-Bo7" firstAttribute="top" secondItem="sZi-Nq-iOj" secondAttribute="topMargin" constant="12" id="vQY-ZI-g6d"/>
                                                 <constraint firstAttribute="bottom" secondItem="5Ke-ff-efF" secondAttribute="bottom" constant="5" id="xjM-j0-Pux"/>
                                             </constraints>
                                             <variation key="default">
@@ -1238,6 +1247,7 @@ Comment on other people's plans and text them to meet up!</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="vdk-Nz-0aV" id="f2L-lQ-0NR"/>
+                                            <outlet property="checkboxImage" destination="kYr-3n-Bo7" id="lLD-tf-XC4"/>
                                             <outlet property="editButton" destination="5Ke-ff-efF" id="LYM-Hb-xc5"/>
                                             <outlet property="endTime" destination="vRr-Er-MAu" id="9f8-qX-uLd"/>
                                             <outlet property="location" destination="vF1-pC-9qA" id="1wj-Fa-HRw"/>
@@ -1266,7 +1276,7 @@ Comment on other people's plans and text them to meet up!</string>
                             <constraint firstAttribute="trailing" secondItem="tXw-m8-Fzo" secondAttribute="trailing" constant="-10" id="QKn-fu-XAQ"/>
                             <constraint firstItem="tXw-m8-Fzo" firstAttribute="leading" secondItem="l4c-tv-F11" secondAttribute="leading" constant="-10" id="RfW-tz-Nr1"/>
                             <constraint firstAttribute="trailing" secondItem="tXw-m8-Fzo" secondAttribute="trailing" constant="-20" id="YjO-UE-YzS"/>
-                            <constraint firstItem="TE6-KT-kWI" firstAttribute="leading" secondItem="axK-s3-zrr" secondAttribute="trailing" constant="10" id="ZwJ-JW-xas"/>
+                            <constraint firstItem="TE6-KT-kWI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="axK-s3-zrr" secondAttribute="trailing" constant="5" id="ZwJ-JW-xas"/>
                             <constraint firstAttribute="centerX" secondItem="Fdg-G8-muh" secondAttribute="centerX" id="Zx0-QY-wSK"/>
                             <constraint firstAttribute="centerX" secondItem="tXw-m8-Fzo" secondAttribute="centerX" id="gvI-sQ-D9x"/>
                             <constraint firstItem="axK-s3-zrr" firstAttribute="leading" secondItem="l4c-tv-F11" secondAttribute="leading" constant="10" id="h03-qX-AGt"/>
@@ -1657,6 +1667,7 @@ Comment on other people's plans and text them to meet up!</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Checked Checkbox 2-100.png" width="100" height="100"/>
         <image name="Compact Camera-100.png" width="100" height="100"/>
         <image name="Edit-25.png" width="25" height="25"/>
         <image name="Gender Neutral User-100.png" width="100" height="100"/>
