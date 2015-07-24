@@ -58,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerForRemoteNotificationTypes(types)
         }
         
+        application.applicationIconBadgeNumber = 0
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         

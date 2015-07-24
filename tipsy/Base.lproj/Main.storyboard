@@ -1562,7 +1562,7 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5YK-eT-8Z7"/>
         <segue reference="urZ-Y9-YSI"/>
+        <segue reference="cnr-oU-dOg"/>
     </inferredMetricsTieBreakers>
 </document>
