@@ -12,10 +12,12 @@ import CoreLocation
 
 class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
     
+
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var commentTable: UITableView!
     @IBOutlet weak var commentEntry: UITextField!
     var planObjects = [PFObject]()
