@@ -89,5 +89,20 @@ class QueryController {
         
         
     }
+    
+    func queryComments(plan: PFObject) {
+        var query = PFQuery(className: "Comment")
+        
+        println("querying for plan \(plan)")
+        
+        query.includeKey("commentingUser")
+        query.includeKey("commentedPlan")
+        query.whereKey("commentedPlan", equalTo: plan)
+        
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveQueryResults(objects)
+        
+        println(objects)
+    }
 
 }

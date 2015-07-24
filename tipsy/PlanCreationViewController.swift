@@ -20,6 +20,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     var searchResultData = [GMSAutocompletePrediction]()
     var selectedPlaceId = String()
     var selectedPlaceName = String()
+    var selectedPlaceGeoPoint = PFGeoPoint()
     var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
     
@@ -74,6 +75,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
             planObject.setObject(messageField.text, forKey: "message")
+            planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
             
             let ACL = PFACL()
             ACL.setPublicReadAccess(true)
@@ -145,6 +147,9 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
             planObject.setObject(messageField.text, forKey: "message")
+            planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
+
+    
             
             
             planObject.saveInBackgroundWithBlock {
@@ -320,6 +325,12 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             if place != nil {
                 self.selectedPlaceName = place!.name
                 self.selectedPlaceFormattedAddress = place!.formattedAddress
+                
+                let selectedPlaceCoordinate = place!.coordinate
+                let longitude = selectedPlaceCoordinate.longitude
+                let latitude = selectedPlaceCoordinate.latitude
+                
+                self.selectedPlaceGeoPoint = PFGeoPoint(latitude: selectedPlaceCoordinate.latitude, longitude: selectedPlaceCoordinate.longitude)
             }
             
         })

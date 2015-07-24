@@ -75,7 +75,27 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             }
             
         }
+        
+        if segue.identifier == "ShowPlanDetailViewFromProfile" {
+            var selectedPlans = [PFObject]()
+            
+            let planDetailViewController = segue.destinationViewController as! PlanDetailViewController
+            
+            let index = self.planTableView.indexPathForSelectedRow()!
+            var queryObject: PFObject
+            if segmentedControl.selectedSegmentIndex == 0 {
+                queryObject = upcomingPlans[index.row]
+            }
+            else {
+                queryObject = pastPlans[index.row]
+            }
+            selectedPlans.append(queryObject)
+            println("selected plan \(selectedPlans)")
+            planDetailViewController.planObjects = selectedPlans
+        }
+
     }
+    
     
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        if segue.identifier == "ShowEdit" {
@@ -143,6 +163,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     func refreshPosts() {
         query.queryProfilePlans("creatingUser")
     }
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

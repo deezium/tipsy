@@ -12,7 +12,7 @@ import CoreLocation
 
 let commentMadeNotificationKey = "commentMadeNotificationKey"
 
-class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
+class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
     
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -26,13 +26,33 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
     
     var planObjects = [PFObject]()
     
+    var query = QueryController()
+    var queryObjects = [PFObject]()
+
+    
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
     
+    func didReceiveQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.queryObjects = objects
+            self.commentTable!.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.commentTable.delegate = self
+        self.commentTable.dataSource = self
+        
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
+        
+        
+        
         
         if (CLLocationManager.locationServicesEnabled()) {
             self.locationManager.delegate = self
@@ -45,7 +65,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
         
         func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
             if let location = locations.first as? CLLocation {
-                mapView.camera=GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+//                mapView.camera=GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
                 self.locationManager.stopUpdatingLocation()
             }
         }
@@ -77,6 +97,64 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
             self.profileImage.image = image
             
         }
+
+        
+        let planGeoPoint = plan!.objectForKey("googlePlaceCoordinate") as? PFGeoPoint
+        
+        if let planGeoPoint = planGeoPoint {
+            let latitude = planGeoPoint.latitude
+            let longitude = planGeoPoint.longitude
+            
+            let planCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            
+            mapView.camera=GMSCameraPosition(target: planCoordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            var marker = GMSMarker(position: planCoordinate)
+            marker.map = self.mapView
+
+        }
+        
+        query.delegate = self
+        query.queryComments(plan!)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshComments", name: commentMadeNotificationKey, object: nil)
+
+
+        
+    }
+    
+    func refreshComments() {
+        let plan = planObjects.first
+        query.queryComments(plan!)
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println(queryObjects.count)
+        return queryObjects.count
+    }
+ 
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
+        let commentObject = queryObjects[indexPath.row]
+        
+        let user = commentObject.objectForKey("commentingUser") as! PFUser
+        let fullname = user.objectForKey("fullname") as? String
+        let firstname = fullname?.componentsSeparatedByString(" ")[0]
+        let timeAgo = commentObject.createdAt!.shortTimeAgoSinceNow()
+        let commentBody = commentObject.objectForKey("body") as? String
+        
+        if let postImage = user.objectForKey("profileImage") as? PFFile {
+            let imageData = postImage.getData()
+            let image = UIImage(data: imageData!)
+            cell.profileImage.image = image
+            
+        }
+        
+        cell.nameLabel.text = firstname
+        cell.messageLabel.text = commentBody
+        cell.timeLabel.text = timeAgo
+
+        
+        return cell
 
     }
     

@@ -60,6 +60,7 @@
 		3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */; };
 		335C80E41B60F8FA00702414 /* PlanCreationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */; };
 		335C80EB1B62063F00702414 /* PlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80EA1B62063F00702414 /* PlanDetailViewController.swift */; };
+		335C80ED1B62339E00702414 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80EC1B62339E00702414 /* CommentCell.swift */; };
 		336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344951B3283F800DF3D90 /* AppDelegate.swift */; };
 		336344981B3283F800DF3D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344971B3283F800DF3D90 /* ViewController.swift */; };
 		3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336344991B3283F800DF3D90 /* Main.storyboard */; };
@@ -186,6 +187,7 @@
 		335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationTextField.swift; sourceTree = "<group>"; };
 		335C80E51B61706200702414 /* tipsySandyTest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = tipsySandyTest.mobileprovision; path = ../../../../Downloads/tipsySandyTest.mobileprovision; sourceTree = "<group>"; };
 		335C80EA1B62063F00702414 /* PlanDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailViewController.swift; sourceTree = "<group>"; };
+		335C80EC1B62339E00702414 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		336344901B3283F800DF3D90 /* tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336344941B3283F800DF3D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336344951B3283F800DF3D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				335C80EA1B62063F00702414 /* PlanDetailViewController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				335C80EC1B62339E00702414 /* CommentCell.swift */,
 				335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */,
 				338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */,
 				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
@@ -692,6 +695,7 @@
 				338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */,
 				338EAAB91B5FAE3D00E63FC7 /* WelcomeViewController.swift in Sources */,
 				335C80EB1B62063F00702414 /* PlanDetailViewController.swift in Sources */,
+				335C80ED1B62339E00702414 /* CommentCell.swift in Sources */,
 				332476F11B51811100CF0881 /* QueryController.swift in Sources */,
 				336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */,
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
