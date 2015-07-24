@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import CoreLocation
 
+let commentMadeNotificationKey = "commentMadeNotificationKey"
+
 class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
     
 
@@ -18,8 +20,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var timeLabel: UILabel!
     
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var commentTable: UITableView!
     @IBOutlet weak var commentEntry: UITextField!
+    
+    @IBOutlet weak var commentTable: UITableView!
+    
     var planObjects = [PFObject]()
     
     @IBOutlet weak var mapView: GMSMapView!
@@ -34,14 +38,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
-      //      mapView.myLocationEnabled = true
-        //    mapView.settings.myLocationButton = true
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
         }
         
         
         func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
             if let location = locations.first as? CLLocation {
-          //      mapView.camera=GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+                mapView.camera=GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
                 self.locationManager.stopUpdatingLocation()
             }
         }
@@ -76,8 +80,45 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
+
     
-    @IBAction func didTapBackButton(sender: AnyObject) {
+    @IBAction func didTapCloseButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+
+    @IBAction func didTapPostButton(sender: AnyObject) {
+        
+        let commentObject = PFObject(className: "Comment")
+        commentObject.setObject(commentEntry.text, forKey: "body")
+        commentObject.setObject(PFUser.currentUser()!, forKey: "commentingUser")
+        commentObject.setObject(planObjects.first!, forKey: "commentedPlan")
+        
+        
+        let ACL = PFACL()
+        ACL.setPublicReadAccess(true)
+        ACL.setPublicWriteAccess(true)
+        commentObject.ACL = ACL
+        
+        commentObject.saveInBackgroundWithBlock {
+            (success, error) -> Void in
+            if success == true {
+                println("Success")
+                let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                self.commentEntry.text = ""
+                NSNotificationCenter.defaultCenter().postNotificationName(commentMadeNotificationKey, object: self)
+            }
+            else {
+                let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your comment.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+
     }
 }

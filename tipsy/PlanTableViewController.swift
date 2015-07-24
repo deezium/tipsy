@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PlanTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
+class PlanTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
  
     @IBOutlet weak var timeFilter: UIDatePicker!
     @IBOutlet weak var planTableView: UITableView!
@@ -20,6 +20,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var pastPlans = [PFObject]()
     var pastPlansOriginal = [PFObject]()
     var upcomingPlans = [PFObject]()
+    let locationManager = CLLocationManager()
 
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -102,9 +103,37 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.planTableView!.delegate = self
         self.planTableView!.dataSource = self
         
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+//        if (CLLocationManager.locationServicesEnabled()) {
+//            self.locationManager.delegate = self
+//            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            self.locationManager.startUpdatingLocation()
+//        }
+
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
 
         
+    }
+    
+    func locationManager(manager: CLLocationManager!,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if let location = locations.first as? CLLocation {
+            println("your current location is \(location)")
+            locationManager.stopUpdatingLocation()
+        }
     }
     
     func refreshPosts() {

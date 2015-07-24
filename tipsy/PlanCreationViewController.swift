@@ -220,21 +220,44 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        locationManager.requestWhenInUseAuthorization()
         searchBar.delegate = self
         self.searchResults.hidden = true
         self.searchResults.delegate = self
         self.searchResults.dataSource = self
         
         
-        if (CLLocationManager.locationServicesEnabled()) {
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+        if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            self.locationManager.startUpdatingLocation()
+            self.currentLocation = locationManager.location
+            println(currentLocation)
+        }
+
+        
+//        if (CLLocationManager.locationServicesEnabled()) {
+//            self.locationManager.delegate = self
+//            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//            self.locationManager.startUpdatingLocation()
+//            self.currentLocation = locationManager.location
+//            println(currentLocation)
+//        }
+    }
+    
+    func locationManager(manager: CLLocationManager!,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.currentLocation = locationManager.location
             println(currentLocation)
         }
     }
+
 
     //PROPERLY HIDE BUTTONS
     
