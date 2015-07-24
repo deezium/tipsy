@@ -92,7 +92,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     self.searchBar.text = ""
                     self.messageField.text = ""
                     self.startTime.date = NSDate()
-                    self.endTime.date = NSDate()
+                    self.endTime.date = NSDate().dateByAddingHours(1)
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 }
                 else {
@@ -229,7 +229,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
         self.searchResults.hidden = true
         self.searchResults.delegate = self
         self.searchResults.dataSource = self
-        
+        self.endTime.date = NSDate().dateByAddingHours(1)
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
