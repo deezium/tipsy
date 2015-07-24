@@ -732,10 +732,11 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRI-lt-esJ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRI-lt-esJ">
                                                     <rect key="frame" x="117" y="10" width="415" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="480" id="pqw-0t-it6"/>
+                                                        <constraint firstAttribute="width" constant="415" id="vUQ-lc-Z8X"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -743,6 +744,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="pqw-0t-it6"/>
+                                                            <exclude reference="vUQ-lc-Z8X"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -772,6 +774,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstItem="G0n-MA-b0E" firstAttribute="centerY" secondItem="Qba-80-eCT" secondAttribute="centerY" id="S1m-Me-o5t"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="leading" secondItem="Qba-80-eCT" secondAttribute="leading" id="TgY-NR-N3l"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="leading" secondItem="Hod-7m-EYW" secondAttribute="trailing" constant="10" id="Vwq-QQ-2OO"/>
+                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="-32" id="aYJ-XZ-wq7"/>
                                                 <constraint firstItem="G0n-MA-b0E" firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="70" id="cSD-TE-jVw"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="top" secondItem="mRI-lt-esJ" secondAttribute="bottom" constant="5" id="cyo-Na-VDK"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="top" secondItem="Hod-7m-EYW" secondAttribute="bottom" constant="8" id="eQB-xe-Rcp"/>
@@ -791,6 +794,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <exclude reference="JDu-1T-V7B"/>
                                                     <exclude reference="LGK-2o-wCn"/>
                                                     <exclude reference="S1m-Me-o5t"/>
+                                                    <exclude reference="cSD-TE-jVw"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -1175,11 +1179,12 @@ Comment on other people's plans and text them to meet up!</string>
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-Ul-UTe">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fe2-Ul-UTe">
                                                     <rect key="frame" x="117" y="10" width="415" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="61" id="CzX-jv-Mi4"/>
                                                         <constraint firstAttribute="width" constant="200" id="LuN-ai-fPb"/>
+                                                        <constraint firstAttribute="width" constant="415" id="qKJ-DV-RUw"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1188,6 +1193,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                         <mask key="constraints">
                                                             <exclude reference="CzX-jv-Mi4"/>
                                                             <exclude reference="LuN-ai-fPb"/>
+                                                            <exclude reference="qKJ-DV-RUw"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -1228,6 +1234,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstItem="vdk-Nz-0aV" firstAttribute="top" secondItem="vF1-pC-9qA" secondAttribute="bottom" constant="5" id="gPo-9s-MGb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="vRr-Er-MAu" secondAttribute="trailing" constant="191" id="jMp-ys-hvm"/>
                                                 <constraint firstItem="vF1-pC-9qA" firstAttribute="centerY" secondItem="JFX-Rt-OEb" secondAttribute="centerY" id="jUq-o6-4u3"/>
+                                                <constraint firstItem="Fe2-Ul-UTe" firstAttribute="trailing" secondItem="JFX-Rt-OEb" secondAttribute="trailing" constant="32" id="kvp-fe-Lry"/>
                                                 <constraint firstItem="vF1-pC-9qA" firstAttribute="top" secondItem="sZi-Nq-iOj" secondAttribute="topMargin" constant="10" id="qDd-Vm-o5i"/>
                                                 <constraint firstItem="Fe2-Ul-UTe" firstAttribute="trailing" secondItem="JFX-Rt-OEb" secondAttribute="trailing" constant="70" id="qoZ-vp-KWF"/>
                                                 <constraint firstItem="kYr-3n-Bo7" firstAttribute="leading" secondItem="sZi-Nq-iOj" secondAttribute="leadingMargin" constant="11" id="up9-dL-YVK"/>
@@ -1236,6 +1243,7 @@ Comment on other people's plans and text them to meet up!</string>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="qoZ-vp-KWF"/>
                                                     <exclude reference="qDd-Vm-o5i"/>
                                                     <exclude reference="10G-NY-aQk"/>
                                                     <exclude reference="ffH-pN-cl1"/>
@@ -1677,7 +1685,7 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cnr-oU-dOg"/>
+        <segue reference="5YK-eT-8Z7"/>
         <segue reference="urZ-Y9-YSI"/>
     </inferredMetricsTieBreakers>
 </document>
