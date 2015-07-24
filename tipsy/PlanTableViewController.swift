@@ -135,6 +135,28 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 //        }
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowPlanDetailView" {
+            var selectedPlans = [PFObject]()
+            
+            let planDetailViewController = segue.destinationViewController as! PlanDetailViewController
+            
+            let index = self.planTableView.indexPathForSelectedRow()!
+            var queryObject: PFObject
+            if segmentedControl.selectedSegmentIndex == 0 {
+                queryObject = upcomingPlans[index.row]
+            }
+            else {
+                queryObject = pastPlans[index.row]
+            }
+            selectedPlans.append(queryObject)
+            println("selected plan \(selectedPlans)")
+            planDetailViewController.planObjects = selectedPlans
+        }
+        
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var queryObject: PFObject

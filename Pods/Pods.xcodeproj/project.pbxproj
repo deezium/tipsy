@@ -734,6 +734,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2F60DB5F5AA74413532A8D4E /* Pods-tipsy.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -901,6 +902,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7A99EDDBE8AF881717F86D3 /* Pods-tipsy.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
