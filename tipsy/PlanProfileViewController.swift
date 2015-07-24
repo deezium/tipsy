@@ -134,7 +134,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             }
         }
         pastPlans = pastPlansOriginal.reverse()
-        println("upcomingPlans \(upcomingPlans)")
+        println("profileUpcomingPlans \(upcomingPlans)")
     }
     
     override func viewDidLoad() {

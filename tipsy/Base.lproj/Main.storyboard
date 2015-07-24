@@ -722,6 +722,9 @@ Comment on other people's plans and text them to meet up!</string>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu5-Lr-2wY">
                                                     <rect key="frame" x="117" y="80" width="62" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="wbw-vk-gg6"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1200,6 +1203,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdk-Nz-0aV">
                                                     <rect key="frame" x="117" y="69" width="62" height="21"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="130" id="arC-3c-wqe"/>
                                                         <constraint firstAttribute="height" constant="21" id="pGX-Jk-Iet"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
@@ -1315,132 +1319,6 @@ Comment on other people's plans and text them to meet up!</string>
             <point key="canvasLocation" x="-1448" y="1282"/>
         </scene>
         <!--Plan Detail View Controller-->
-        <scene sceneID="pVM-MR-Haj">
-            <objects>
-                <viewController id="eUi-ct-wZi" customClass="PlanDetailViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="n7y-fB-koJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="FrT-Ik-Zc8"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ijl-5u-ytU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AB-V0-uZA">
-                                <rect key="frame" x="163" y="58" width="43" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Gender Neutral User-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="xOq-rP-w8O">
-                                <rect key="frame" x="16" y="63" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Awg-ec-7vE"/>
-                                    <constraint firstAttribute="width" constant="80" id="Tqf-ld-dxD"/>
-                                    <constraint firstAttribute="height" constant="80" id="YNN-cP-tLh"/>
-                                    <constraint firstAttribute="height" constant="70" id="bX7-86-S7P"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Awg-ec-7vE"/>
-                                        <exclude reference="bX7-86-S7P"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="C3d-Za-dZH">
-                                <rect key="frame" x="-8" y="285" width="616" height="192"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="R8F-CF-qa3"/>
-                                    <constraint firstAttribute="width" constant="600" id="mMd-c1-pxG"/>
-                                </constraints>
-                            </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Post a comment" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XSh-el-mz9">
-                                <rect key="frame" x="0.0" y="534" width="600" height="66"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="oxy-g1-Wtm"/>
-                                    <constraint firstAttribute="height" constant="66" id="svT-Yo-IIY"/>
-                                </constraints>
-                                <color key="textColor" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ohz-hX-BF1">
-                                <rect key="frame" x="164" y="87" width="89" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8S-5l-3Y4">
-                                <rect key="frame" x="163" y="116" width="34" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxA-R4-NNg">
-                                <rect key="frame" x="16" y="20" width="40" height="30"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
-                                <state key="normal" title="Close">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTapBackButton:" destination="eUi-ct-wZi" eventType="touchUpInside" id="7Nt-5H-N1F"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kfT-Sc-xpB" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="163" width="600" height="119"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="XSh-el-mz9" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leading" constant="-1" id="4Hn-LE-JHP"/>
-                            <constraint firstItem="3AB-V0-uZA" firstAttribute="centerX" secondItem="ohz-hX-BF1" secondAttribute="centerX" constant="-10" id="51a-Mw-1O1"/>
-                            <constraint firstAttribute="trailing" secondItem="kfT-Sc-xpB" secondAttribute="trailing" id="Ai1-bB-NFm"/>
-                            <constraint firstItem="mxA-R4-NNg" firstAttribute="top" secondItem="n7y-fB-koJ" secondAttribute="bottom" constant="5" id="JKf-MT-B9C"/>
-                            <constraint firstItem="mxA-R4-NNg" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leadingMargin" id="Jxe-Lt-X7l"/>
-                            <constraint firstItem="XSh-el-mz9" firstAttribute="top" secondItem="C3d-Za-dZH" secondAttribute="bottom" constant="5" id="Kgb-XL-qmY"/>
-                            <constraint firstItem="xOq-rP-w8O" firstAttribute="top" secondItem="mxA-R4-NNg" secondAttribute="bottom" constant="1" id="PP8-jX-Q8Z"/>
-                            <constraint firstItem="U8S-5l-3Y4" firstAttribute="top" secondItem="ohz-hX-BF1" secondAttribute="bottom" constant="10" id="TDH-bO-760"/>
-                            <constraint firstItem="mxA-R4-NNg" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leading" constant="10" id="VOq-Su-FfZ"/>
-                            <constraint firstItem="xOq-rP-w8O" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leadingMargin" id="WEG-TD-A6l"/>
-                            <constraint firstItem="3AB-V0-uZA" firstAttribute="top" secondItem="xOq-rP-w8O" secondAttribute="top" id="YF4-KF-NkU"/>
-                            <constraint firstItem="xOq-rP-w8O" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leadingMargin" constant="5" id="aea-OL-Unn"/>
-                            <constraint firstItem="C3d-Za-dZH" firstAttribute="top" secondItem="kfT-Sc-xpB" secondAttribute="bottom" id="bei-hW-lkf"/>
-                            <constraint firstItem="C3d-Za-dZH" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leading" constant="-20" id="bkl-iL-N1i"/>
-                            <constraint firstItem="3AB-V0-uZA" firstAttribute="leading" secondItem="ohz-hX-BF1" secondAttribute="leading" id="lCs-5R-co3"/>
-                            <constraint firstItem="xOq-rP-w8O" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leading" constant="10" id="lE2-y9-s7z"/>
-                            <constraint firstItem="FrT-Ik-Zc8" firstAttribute="top" secondItem="XSh-el-mz9" secondAttribute="bottom" id="lLL-I1-2Ez"/>
-                            <constraint firstItem="ohz-hX-BF1" firstAttribute="leading" secondItem="U8S-5l-3Y4" secondAttribute="leading" id="so4-7w-crj"/>
-                            <constraint firstAttribute="trailing" secondItem="C3d-Za-dZH" secondAttribute="trailing" constant="-20" id="v2m-v5-dFK"/>
-                            <constraint firstItem="3AB-V0-uZA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xOq-rP-w8O" secondAttribute="trailing" constant="5" id="w4G-ef-o5C"/>
-                            <constraint firstItem="ohz-hX-BF1" firstAttribute="top" secondItem="3AB-V0-uZA" secondAttribute="bottom" constant="10" id="xiS-Td-K5o"/>
-                            <constraint firstItem="kfT-Sc-xpB" firstAttribute="leading" secondItem="Ijl-5u-ytU" secondAttribute="leading" id="y0R-hp-ttl"/>
-                        </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Jxe-Lt-X7l"/>
-                                <exclude reference="WEG-TD-A6l"/>
-                                <exclude reference="aea-OL-Unn"/>
-                                <exclude reference="51a-Mw-1O1"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="commentEntry" destination="XSh-el-mz9" id="iKg-HZ-Cgw"/>
-                        <outlet property="commentTable" destination="C3d-Za-dZH" id="ER9-5X-6xI"/>
-                        <outlet property="locationLabel" destination="ohz-hX-BF1" id="Ik6-0G-EOj"/>
-                        <outlet property="mapView" destination="kfT-Sc-xpB" id="fp9-Kr-zCn"/>
-                        <outlet property="nameLabel" destination="3AB-V0-uZA" id="4XJ-Sq-9nL"/>
-                        <outlet property="profileImage" destination="xOq-rP-w8O" id="JPM-1w-SZ2"/>
-                        <outlet property="timeLabel" destination="U8S-5l-3Y4" id="nao-SQ-Ofc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jM8-fv-xb2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-590" y="1629"/>
-        </scene>
-        <!--Plan Detail View Controller-->
         <scene sceneID="Fvq-bf-kpd">
             <objects>
                 <viewController storyboardIdentifier="PlanDetailViewController" id="lra-bo-m7v" customClass="PlanDetailViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1459,7 +1337,6 @@ Comment on other people's plans and text them to meet up!</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapBackButton:" destination="eUi-ct-wZi" eventType="touchUpInside" id="ONs-aN-Scw"/>
                                     <action selector="didTapCloseButton:" destination="lra-bo-m7v" eventType="touchUpInside" id="74i-D8-feo"/>
                                 </connections>
                             </button>
@@ -1598,7 +1475,7 @@ Comment on other people's plans and text them to meet up!</string>
                             <constraint firstItem="qqp-8X-dUR" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="5" id="4BV-Ma-k5v"/>
                             <constraint firstItem="WWM-Uj-e9n" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="10" id="5mE-dc-QjE"/>
                             <constraint firstAttribute="bottom" secondItem="aCN-zo-Qs0" secondAttribute="bottom" id="7Uk-34-wzb"/>
-                            <constraint firstItem="i22-BW-qzk" firstAttribute="top" secondItem="aCN-zo-Qs0" secondAttribute="bottom" constant="10" id="Ebz-xx-iIQ"/>
+                            <constraint firstItem="i22-BW-qzk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="aCN-zo-Qs0" secondAttribute="bottom" constant="33" id="Ebz-xx-iIQ"/>
                             <constraint firstItem="I4M-aD-dN2" firstAttribute="leading" secondItem="Eme-xB-T9g" secondAttribute="leading" id="Ic5-DE-qpV"/>
                             <constraint firstItem="aCN-zo-Qs0" firstAttribute="top" secondItem="d0L-Gi-EgY" secondAttribute="top" id="J7E-b5-YW4"/>
                             <constraint firstItem="d0L-Gi-EgY" firstAttribute="leading" secondItem="aCN-zo-Qs0" secondAttribute="trailing" id="JHC-6l-CrS"/>
