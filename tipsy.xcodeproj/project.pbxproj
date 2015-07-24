@@ -64,6 +64,7 @@
 		335C80EF1B624DB700702414 /* Checked Checkbox 2-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 335C80EE1B624DB700702414 /* Checked Checkbox 2-100.png */; };
 		335C80F11B62550D00702414 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335C80F01B62550D00702414 /* Media.xcassets */; };
 		335C80F31B62566F00702414 /* tipsyLaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */; };
+		335C80F51B626DEF00702414 /* ParsePushAppDevelopmentProfile (1).mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 335C80F41B626DEF00702414 /* ParsePushAppDevelopmentProfile (1).mobileprovision */; };
 		336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344951B3283F800DF3D90 /* AppDelegate.swift */; };
 		336344981B3283F800DF3D90 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344971B3283F800DF3D90 /* ViewController.swift */; };
 		3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 336344991B3283F800DF3D90 /* Main.storyboard */; };
@@ -188,12 +189,12 @@
 		3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinAnnotation.swift; path = ../CheckinAnnotation.swift; sourceTree = "<group>"; };
 		3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinAnnotationView.swift; sourceTree = "<group>"; };
 		335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationTextField.swift; sourceTree = "<group>"; };
-		335C80E51B61706200702414 /* tipsySandyTest.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = tipsySandyTest.mobileprovision; path = ../../../../Downloads/tipsySandyTest.mobileprovision; sourceTree = "<group>"; };
 		335C80EA1B62063F00702414 /* PlanDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailViewController.swift; sourceTree = "<group>"; };
 		335C80EC1B62339E00702414 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		335C80EE1B624DB700702414 /* Checked Checkbox 2-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Checked Checkbox 2-100.png"; path = "../../../../Downloads/Checked Checkbox 2-100.png"; sourceTree = "<group>"; };
 		335C80F01B62550D00702414 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = tipsyLaunchScreen.xib; sourceTree = "<group>"; };
+		335C80F41B626DEF00702414 /* ParsePushAppDevelopmentProfile (1).mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = "ParsePushAppDevelopmentProfile (1).mobileprovision"; path = "../../../../Downloads/ParsePushAppDevelopmentProfile (1).mobileprovision"; sourceTree = "<group>"; };
 		336344901B3283F800DF3D90 /* tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		336344941B3283F800DF3D90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		336344951B3283F800DF3D90 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -352,7 +353,7 @@
 			children = (
 				335C80F01B62550D00702414 /* Media.xcassets */,
 				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
-				335C80E51B61706200702414 /* tipsySandyTest.mobileprovision */,
+				335C80F41B626DEF00702414 /* ParsePushAppDevelopmentProfile (1).mobileprovision */,
 				336344941B3283F800DF3D90 /* Info.plist */,
 				336344BB1B32893900DF3D90 /* Bridging-Header.h */,
 			);
@@ -606,6 +607,7 @@
 				3339CDD91B4222DE001C222C /* RSS-25.png in Resources */,
 				3339CDD51B422165001C222C /* Map-50.png in Resources */,
 				33F385ED1B5494CD0008AFF7 /* ride.png in Resources */,
+				335C80F51B626DEF00702414 /* ParsePushAppDevelopmentProfile (1).mobileprovision in Resources */,
 				336344A01B3283F800DF3D90 /* LaunchScreen.xib in Resources */,
 				3363449D1B3283F800DF3D90 /* Images.xcassets in Resources */,
 				33F385F61B549BE60008AFF7 /* DClinkedin@2x.jpg in Resources */,
