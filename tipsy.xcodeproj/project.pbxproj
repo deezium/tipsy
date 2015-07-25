@@ -89,7 +89,6 @@
 		338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */; };
 		338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */; };
 		338EAAB91B5FAE3D00E63FC7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */; };
-		33EAEC251B62CCB9009B3367 /* ParsePushAppDevelopmentProfile.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = 33EAEC241B62CCB9009B3367 /* ParsePushAppDevelopmentProfile.mobileprovision */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -253,7 +252,7 @@
 		338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileViewController.swift; sourceTree = "<group>"; };
 		338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileCell.swift; sourceTree = "<group>"; };
 		338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		33EAEC241B62CCB9009B3367 /* ParsePushAppDevelopmentProfile.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = ParsePushAppDevelopmentProfile.mobileprovision; sourceTree = "<group>"; };
+		33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest4.mobileprovision; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -379,7 +378,7 @@
 		336344931B3283F800DF3D90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				33EAEC241B62CCB9009B3367 /* ParsePushAppDevelopmentProfile.mobileprovision */,
+				33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */,
 				335C80F01B62550D00702414 /* Media.xcassets */,
 				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
 				336344941B3283F800DF3D90 /* Info.plist */,
@@ -681,7 +680,6 @@
 				33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */,
 				33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */,
 				3339CDD91B4222DE001C222C /* RSS-25.png in Resources */,
-				33EAEC251B62CCB9009B3367 /* ParsePushAppDevelopmentProfile.mobileprovision in Resources */,
 				3339CDD51B422165001C222C /* Map-50.png in Resources */,
 				33F385ED1B5494CD0008AFF7 /* ride.png in Resources */,
 				336344A01B3283F800DF3D90 /* LaunchScreen.xib in Resources */,
@@ -944,6 +942,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/debarshi/Documents/FacebookSDK,
@@ -963,7 +962,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "976d2562-2617-4211-b122-24627c85a299";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Debug;
@@ -976,6 +975,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/debarshi/Documents/FacebookSDK,
@@ -995,7 +995,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "976d2562-2617-4211-b122-24627c85a299";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Release;
