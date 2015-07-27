@@ -97,6 +97,7 @@ class QueryController {
         
         query.includeKey("commentingUser")
         query.includeKey("commentedPlan")
+        query.orderByAscending("createdAt")
         query.whereKey("commentedPlan", equalTo: plan)
         
         var objects = query.findObjects() as! [PFObject]

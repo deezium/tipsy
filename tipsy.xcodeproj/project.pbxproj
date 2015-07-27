@@ -253,6 +253,10 @@
 		338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileCell.swift; sourceTree = "<group>"; };
 		338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest4.mobileprovision; sourceTree = "<group>"; };
+		33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest6.mobileprovision; sourceTree = "<group>"; };
+		33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest7.mobileprovision; sourceTree = "<group>"; };
+		33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest8.mobileprovision; sourceTree = "<group>"; };
+		33EAEC2D1B66F38E009B3367 /* AlphaTest9.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest9.mobileprovision; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -378,7 +382,11 @@
 		336344931B3283F800DF3D90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				33EAEC2D1B66F38E009B3367 /* AlphaTest9.mobileprovision */,
 				33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */,
+				33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */,
+				33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */,
+				33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */,
 				335C80F01B62550D00702414 /* Media.xcassets */,
 				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
 				336344941B3283F800DF3D90 /* Info.plist */,
@@ -962,7 +970,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "976d2562-2617-4211-b122-24627c85a299";
+				PROVISIONING_PROFILE = "b56ba080-7cb5-4cff-99e8-830f56b5d22c";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Debug;
@@ -995,7 +1003,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "976d2562-2617-4211-b122-24627c85a299";
+				PROVISIONING_PROFILE = "b56ba080-7cb5-4cff-99e8-830f56b5d22c";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Release;
