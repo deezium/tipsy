@@ -62,6 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        
+        
         if (PFUser.currentUser() != nil) {
             let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
             
@@ -74,7 +76,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController? = tabBarController
         }
         
+        if (PFUser.currentUser() != nil) {
+
+            if (!NSUserDefaults.standardUserDefaults().boolForKey("registeredForGlobalPushNotifications")) {
+                let currentInstallation = PFInstallation.currentInstallation()
+                currentInstallation["user"] = PFUser.currentUser()
+                currentInstallation.addUniqueObject("global", forKey: "channels")
+                currentInstallation.saveInBackground()
+                println("registered installation for pushes")
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "registeredForGlobalPushNotifications")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+
+        }
+
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
         
     }
     

@@ -102,8 +102,6 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                 }
             }
 
-            
-
         }
     }
     
