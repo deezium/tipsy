@@ -85,7 +85,13 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             planObject.saveInBackgroundWithBlock {
                 (success, error) -> Void in
                 if success == true {
-                    println("Success")
+                    println("Success \(planObject.objectId)")
+                    
+                    let currentInstallation = PFInstallation.currentInstallation()
+                    currentInstallation.addUniqueObject(planObject.objectId!, forKey: "channels")
+                    currentInstallation.saveInBackground()
+                    println("registered installation for pushes")
+
                     let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
@@ -101,6 +107,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
             }
+        
 
         }
     }

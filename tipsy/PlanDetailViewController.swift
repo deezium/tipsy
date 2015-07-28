@@ -29,8 +29,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     var query = QueryController()
     var queryObjects = [PFObject]()
 
-    var refreshControl = UIRefreshControl()
-    
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
     
@@ -52,10 +50,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         
-        self.refreshControl.tintColor = UIColor.whiteColor()
-        self.refreshControl.backgroundColor = UIColor(red:15/255, green: 65/255, blue: 79/255, alpha: 1)
-        self.refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: UIControlEvents.ValueChanged)
-        self.commentTable.addSubview(refreshControl)
         
         
         
@@ -130,7 +124,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     func refreshComments() {
         let plan = planObjects.first
         query.queryComments(plan!)
-        self.refreshControl.endRefreshing()
 
     }
     
@@ -192,6 +185,11 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             (success, error) -> Void in
             if success == true {
                 println("Success")
+                let currentInstallation = PFInstallation.currentInstallation()
+                currentInstallation.addUniqueObject(self.planObjects.first!.objectId!, forKey: "channels")
+                currentInstallation.saveInBackground()
+                println("registered installation for pushes")
+
                 let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)

@@ -257,6 +257,7 @@
 		33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest7.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest8.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2D1B66F38E009B3367 /* AlphaTest9.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest9.mobileprovision; sourceTree = "<group>"; };
+		33EAEC2E1B684C36009B3367 /* AlphaTest10.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest10.mobileprovision; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -387,6 +388,7 @@
 				33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */,
 				33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */,
 				33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */,
+				33EAEC2E1B684C36009B3367 /* AlphaTest10.mobileprovision */,
 				335C80F01B62550D00702414 /* Media.xcassets */,
 				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
 				336344941B3283F800DF3D90 /* Info.plist */,
