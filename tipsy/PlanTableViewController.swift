@@ -20,8 +20,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var pastPlans = [PFObject]()
     var pastPlansOriginal = [PFObject]()
     var upcomingPlans = [PFObject]()
+    var upcomingPlansOriginal = [PFObject]()
     let locationManager = CLLocationManager()
-
+    var refreshControl = UIRefreshControl()
+    
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -75,7 +77,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func createPlanArrays(objects: [PFObject]) {
         
-        upcomingPlans = [PFObject]()
+        upcomingPlansOriginal = [PFObject]()
         pastPlansOriginal = [PFObject]()
         
         for object in objects {
@@ -84,13 +86,14 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             let currentTime = NSDate()
             
             if currentTime.isEarlierThan(endTime) {
-                upcomingPlans.append(object)
+                upcomingPlansOriginal.append(object)
             }
             else {
                 pastPlansOriginal.append(object)
             }
         }
-        pastPlans = pastPlansOriginal.reverse()
+        upcomingPlans = upcomingPlansOriginal.reverse()
+        pastPlans = pastPlansOriginal
         println("upcomingPlans \(upcomingPlans)")
     }
     
@@ -103,6 +106,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.planTableView!.delegate = self
         self.planTableView!.dataSource = self
+        
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.refreshControl.backgroundColor = UIColor(red:15/255, green: 65/255, blue: 79/255, alpha: 1)
+        self.refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: UIControlEvents.ValueChanged)
+        self.planTableView.addSubview(refreshControl)
         
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -183,6 +191,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func refreshPosts() {
         query.queryPlans("")
+        self.refreshControl.endRefreshing()
     }
     
     

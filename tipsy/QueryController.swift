@@ -56,7 +56,7 @@ class QueryController {
         
 //        query.whereKey("endTime", greaterThanOrEqualTo: currentDate)
         query.includeKey("creatingUser")
-        query.orderByAscending("startTime")
+        query.orderByDescending("startTime")
         query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]

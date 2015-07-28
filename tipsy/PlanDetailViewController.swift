@@ -29,6 +29,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     var query = QueryController()
     var queryObjects = [PFObject]()
 
+    var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
@@ -51,6 +52,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         
+        self.refreshControl.tintColor = UIColor.whiteColor()
+        self.refreshControl.backgroundColor = UIColor(red:15/255, green: 65/255, blue: 79/255, alpha: 1)
+        self.refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: UIControlEvents.ValueChanged)
+        self.commentTable.addSubview(refreshControl)
         
         
         
@@ -125,6 +130,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     func refreshComments() {
         let plan = planObjects.first
         query.queryComments(plan!)
+        self.refreshControl.endRefreshing()
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
