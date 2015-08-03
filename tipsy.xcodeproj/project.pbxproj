@@ -89,6 +89,7 @@
 		338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */; };
 		338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */; };
 		338EAAB91B5FAE3D00E63FC7 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */; };
+		3394DA4D1B6FF5D20065F2FD /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -252,6 +253,7 @@
 		338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileViewController.swift; sourceTree = "<group>"; };
 		338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileCell.swift; sourceTree = "<group>"; };
 		338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest4.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest6.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest7.mobileprovision; sourceTree = "<group>"; };
@@ -362,12 +364,13 @@
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
 				332476F01B51811100CF0881 /* QueryController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
-				335C80EA1B62063F00702414 /* PlanDetailViewController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */,
 				335C80EC1B62339E00702414 /* CommentCell.swift */,
 				335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */,
 				338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */,
 				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
+				335C80EA1B62063F00702414 /* PlanDetailViewController.swift */,
 				338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */,
 				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
 				338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */,
@@ -794,6 +797,7 @@
 				3339CE181B425172001C222C /* CheckInViewController.swift in Sources */,
 				338EAAB01B5EC69500E63FC7 /* PlanProfileCell.swift in Sources */,
 				338EAAB91B5FAE3D00E63FC7 /* WelcomeViewController.swift in Sources */,
+				3394DA4D1B6FF5D20065F2FD /* EditProfileViewController.swift in Sources */,
 				335C80EB1B62063F00702414 /* PlanDetailViewController.swift in Sources */,
 				335C80ED1B62339E00702414 /* CommentCell.swift in Sources */,
 				332476F11B51811100CF0881 /* QueryController.swift in Sources */,

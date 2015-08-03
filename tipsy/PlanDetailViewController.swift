@@ -168,6 +168,29 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
     
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowEditFromPlan" {
+            var selectedPlans = [PFObject]()
+            
+            let editProfileViewController = segue.destinationViewController as! EditProfileViewController
+            
+//            let index = self.planTableView.indexPathForSelectedRow()!
+//            var queryObject: PFObject
+//            if segmentedControl.selectedSegmentIndex == 0 {
+//                queryObject = upcomingPlans[index.row]
+//            }
+//            else {
+//                queryObject = pastPlans[index.row]
+//            }
+//            selectedPlans.append(queryObject)
+//            println("selected plan \(selectedPlans)")
+//            planDetailViewController.planObjects = selectedPlans
+        }
+        
+    }
+
+    
     @IBAction func didTapPostButton(sender: AnyObject) {
         
         let commentObject = PFObject(className: "Comment")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ir4-2W-Xcd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D45-ZX-3iv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -134,7 +134,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A3I-eF-A67" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2972" y="84"/>
+            <point key="canvasLocation" x="-3052" y="74"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xUl-xy-NEe">
@@ -153,16 +153,33 @@ Comment on other people's plans and text them to meet up!</string>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
-                        <segue destination="vFn-9h-QqO" kind="relationship" relationship="viewControllers" id="LtC-8h-buO"/>
-                        <segue destination="ire-on-Dx3" kind="relationship" relationship="viewControllers" id="atv-Jc-Zlu"/>
-                        <segue destination="oRv-B1-WtN" kind="relationship" relationship="viewControllers" id="cWB-kN-zeH"/>
+                        <segue destination="CdG-Z1-J45" kind="relationship" relationship="viewControllers" id="RRo-gm-MjH"/>
+                        <segue destination="gIf-aX-bON" kind="relationship" relationship="viewControllers" id="EXd-J8-40k"/>
+                        <segue destination="7rz-t6-mqc" kind="relationship" relationship="viewControllers" id="3BD-ao-2J4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lkn-Ap-hy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2278" y="79"/>
+            <point key="canvasLocation" x="-2366" y="81"/>
         </scene>
-        <!--Feed-->
+        <!--Item-->
+        <scene sceneID="QeU-vR-BjW">
+            <objects>
+                <navigationController id="CdG-Z1-J45" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="kIe-K5-cYQ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jMK-86-Got">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vFn-9h-QqO" kind="relationship" relationship="rootViewController" id="Whh-I6-Arl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ydo-AI-k6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1475" y="1126"/>
+        </scene>
+        <!--Calendar-->
         <scene sceneID="uGG-fU-HHa">
             <objects>
                 <viewController storyboardIdentifier="PlanTableViewController" id="vFn-9h-QqO" customClass="PlanTableViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,7 +191,7 @@ Comment on other people's plans and text them to meet up!</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tr7-Ut-So7">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tr7-Ut-So7">
                                 <rect key="frame" x="224" y="30" width="153" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gWI-H0-gmc"/>
@@ -338,7 +355,21 @@ Comment on other people's plans and text them to meet up!</string>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="Tr7-Ut-So7" secondAttribute="bottom" constant="10" id="tei-mf-g6o"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" image="RSS-25.png" id="aCe-Ek-tfz"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="RSS-25.png" id="aCe-Ek-tfz"/>
+                    <navigationItem key="navigationItem" title="Calendar" id="3hk-hv-CTG">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="CEs-gd-ADW">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kMg-Lx-mUE">
+                                <rect key="frame" x="504" y="7" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Plan">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ire-on-Dx3" kind="show" identifier="ShowPlanCreationView" id="VIb-lG-h26"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="planTableView" destination="puL-aa-VKn" id="GC9-UC-5mQ"/>
                         <outlet property="segmentedControl" destination="Tr7-Ut-So7" id="IGS-pa-9ZM"/>
@@ -346,9 +377,26 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57X-93-bfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1448" y="2074"/>
+            <point key="canvasLocation" x="-664" y="1126"/>
         </scene>
-        <!--Plan-->
+        <!--Item-->
+        <scene sceneID="buY-VR-VTt">
+            <objects>
+                <navigationController id="7rz-t6-mqc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="0ZB-ZS-vXH"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GVW-qc-P34">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ire-on-Dx3" kind="relationship" relationship="rootViewController" id="W60-R5-Ybs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrK-8b-0L7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1475" y="-687"/>
+        </scene>
+        <!--Share a Plan-->
         <scene sceneID="2sh-zl-aLu">
             <objects>
                 <viewController storyboardIdentifier="PlanCreationViewController" id="ire-on-Dx3" customClass="PlanCreationViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -391,7 +439,7 @@ Comment on other people's plans and text them to meet up!</string>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" misplaced="YES" restorationIdentifier="EndTime" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="30" translatesAutoresizingMaskIntoConstraints="NO" id="qUS-Rr-o3c">
-                                <rect key="frame" x="0.0" y="337" width="600" height="162"/>
+                                <rect key="frame" x="0.0" y="337" width="600" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="f6O-aL-zXl"/>
                                 </constraints>
@@ -543,6 +591,7 @@ Comment on other people's plans and text them to meet up!</string>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Plan" image="Edit-25.png" id="QIY-ga-sUz"/>
+                    <navigationItem key="navigationItem" title="Share a Plan" id="Kik-Ji-16Z"/>
                     <connections>
                         <outlet property="cancelButton" destination="9cS-tG-aSd" id="jgW-XI-Jx5"/>
                         <outlet property="deleteButton" destination="dRp-CP-ih8" id="O43-Av-sAw"/>
@@ -574,9 +623,26 @@ Comment on other people's plans and text them to meet up!</string>
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1448" y="441"/>
+            <point key="canvasLocation" x="-664" y="-687"/>
         </scene>
-        <!--Me-->
+        <!--Item-->
+        <scene sceneID="zp6-rF-MWr">
+            <objects>
+                <navigationController id="gIf-aX-bON" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="dS6-0o-bbC"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="byT-hD-D6B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oRv-B1-WtN" kind="relationship" relationship="rootViewController" id="E9u-ti-heE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ieF-Js-z7M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1475" y="194"/>
+        </scene>
+        <!--tipsy-->
         <scene sceneID="i6H-eV-GvN">
             <objects>
                 <viewController storyboardIdentifier="PlanProfileViewController" id="oRv-B1-WtN" customClass="PlanProfileViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -819,6 +885,20 @@ Comment on other people's plans and text them to meet up!</string>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="Gender Neutral User-25.png" id="reO-8C-tzH"/>
+                    <navigationItem key="navigationItem" title="tipsy" id="NaK-pP-8O7">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="E8j-Oo-ZCa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PPz-VO-MHY">
+                                <rect key="frame" x="451" y="7" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ZeH-Dc-3xZ" kind="show" identifier="ShowEditProfile" id="TPE-b0-js5"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="planTableView" destination="tXw-m8-Fzo" id="vgT-LS-E0S"/>
                         <outlet property="profileImage" destination="axK-s3-zrr" id="6z2-rR-Fgo"/>
@@ -828,9 +908,9 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzq-rb-6aD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1448" y="1282"/>
+            <point key="canvasLocation" x="-664" y="194"/>
         </scene>
-        <!--Plan Detail View Controller-->
+        <!--Plan Details-->
         <scene sceneID="Fvq-bf-kpd">
             <objects>
                 <viewController storyboardIdentifier="PlanDetailViewController" id="lra-bo-m7v" customClass="PlanDetailViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1014,6 +1094,20 @@ Comment on other people's plans and text them to meet up!</string>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Plan Details" id="u2J-IU-ffs">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Kiy-ms-cb4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ilP-lJ-hpE">
+                                <rect key="frame" x="451" y="7" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ire-on-Dx3" kind="show" identifier="ShowEditFromDetail" id="Tyd-4d-APj"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentEntry" destination="aCN-zo-Qs0" id="Okr-7c-rhO"/>
                         <outlet property="commentTable" destination="i22-BW-qzk" id="QyE-eI-AYi"/>
@@ -1026,7 +1120,26 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFM-go-7Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-590" y="2300"/>
+            <point key="canvasLocation" x="50" y="1126"/>
+        </scene>
+        <!--Edit Profile-->
+        <scene sceneID="GpA-P8-AP6">
+            <objects>
+                <viewController storyboardIdentifier="EditProfileViewController" id="ZeH-Dc-3xZ" customClass="EditProfileViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hsg-KF-6ie"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ri2-mj-YBW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FvI-9I-9IQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="l4F-D1-wTr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LnV-5i-nTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="50" y="194"/>
         </scene>
         <!--Map-->
         <scene sceneID="VsI-Y6-kF8">
@@ -1060,7 +1173,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qR8-se-a6l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1448" y="-223"/>
+            <point key="canvasLocation" x="2418" y="-539"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GQf-rz-hKc">
@@ -1085,7 +1198,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qx-2s-bre" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-85" y="-112"/>
+            <point key="canvasLocation" x="2063" y="588"/>
         </scene>
         <!--Share a Plan!-->
         <scene sceneID="wxp-pW-Gfo">
@@ -1112,7 +1225,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="52h-Ng-YVT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1341" y="-120"/>
+            <point key="canvasLocation" x="3489" y="580"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="BYS-YO-fxq">
@@ -1146,7 +1259,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLl-Fj-MeV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="577"/>
+            <point key="canvasLocation" x="3351" y="1277"/>
         </scene>
         <!--Details-->
         <scene sceneID="Ypn-4V-6g2">
@@ -1190,7 +1303,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbJ-Cl-Gz3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1888" y="572"/>
+            <point key="canvasLocation" x="4036" y="1272"/>
         </scene>
         <!--Plan-->
         <scene sceneID="iON-te-DPH">
@@ -1207,7 +1320,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aOv-6I-3Sd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="605" y="-126"/>
+            <point key="canvasLocation" x="2753" y="574"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="ZjW-wL-VXu">
@@ -1224,7 +1337,7 @@ Comment on other people's plans and text them to meet up!</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6b-C2-VTS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="577"/>
+            <point key="canvasLocation" x="2661" y="1277"/>
         </scene>
     </scenes>
     <resources>
@@ -1237,8 +1350,8 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="atv-Jc-Zlu"/>
-        <segue reference="cnr-oU-dOg"/>
-        <segue reference="SUF-ZV-OuB"/>
+        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="Tyd-4d-APj"/>
+        <segue reference="qn0-AH-Q8Y"/>
     </inferredMetricsTieBreakers>
 </document>

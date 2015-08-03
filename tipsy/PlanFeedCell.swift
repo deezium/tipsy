@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreGraphics
 
 class PlanFeedCell: UITableViewCell {
     
@@ -20,4 +21,6 @@ class PlanFeedCell: UITableViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     
     @IBOutlet weak var message: UILabel!
+    
+    
 }

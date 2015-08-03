@@ -296,6 +296,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         if let postImage = user.objectForKey("profileImage") as? PFFile {
             let imageData = postImage.getData()
             let image = UIImage(data: imageData!)
+            let testImage = UIImage(named: "Map-50.png") as UIImage!
             cell.profileImage.image = image
             
         }
