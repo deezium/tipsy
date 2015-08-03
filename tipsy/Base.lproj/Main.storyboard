@@ -355,7 +355,7 @@ Comment on other people's plans and text them to meet up!</string>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="Tr7-Ut-So7" secondAttribute="bottom" constant="10" id="tei-mf-g6o"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" image="RSS-25.png" id="aCe-Ek-tfz"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Today.png" id="aCe-Ek-tfz"/>
                     <navigationItem key="navigationItem" title="Calendar" id="3hk-hv-CTG">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="CEs-gd-ADW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kMg-Lx-mUE">
@@ -590,7 +590,7 @@ Comment on other people's plans and text them to meet up!</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Plan" image="Edit-25.png" id="QIY-ga-sUz"/>
+                    <tabBarItem key="tabBarItem" title="Plan" image="Pen.png" id="QIY-ga-sUz"/>
                     <navigationItem key="navigationItem" title="Share a Plan" id="Kik-Ji-16Z"/>
                     <connections>
                         <outlet property="cancelButton" destination="9cS-tG-aSd" id="jgW-XI-Jx5"/>
@@ -848,7 +848,7 @@ Comment on other people's plans and text them to meet up!</string>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Gender Neutral User-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="axK-s3-zrr">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="axK-s3-zrr">
                                 <rect key="frame" x="16" y="11" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="5gH-Wb-JsO"/>
@@ -884,7 +884,7 @@ Comment on other people's plans and text them to meet up!</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Me" image="Gender Neutral User-25.png" id="reO-8C-tzH"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="GenderNeutralUser.png" id="reO-8C-tzH"/>
                     <navigationItem key="navigationItem" title="tipsy" id="NaK-pP-8O7">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="E8j-Oo-ZCa">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PPz-VO-MHY">
@@ -1342,16 +1342,17 @@ Comment on other people's plans and text them to meet up!</string>
     </scenes>
     <resources>
         <image name="Checked Checkbox 2-100.png" width="100" height="100"/>
-        <image name="Edit-25.png" width="25" height="25"/>
         <image name="Gender Neutral User-100.png" width="100" height="100"/>
-        <image name="Gender Neutral User-25.png" width="25" height="25"/>
+        <image name="GenderNeutralUser-100.png" width="100" height="100"/>
+        <image name="GenderNeutralUser.png" width="25" height="25"/>
         <image name="Map-25.png" width="25" height="25"/>
-        <image name="RSS-25.png" width="25" height="25"/>
+        <image name="Pen.png" width="25" height="25"/>
+        <image name="Today.png" width="25" height="25"/>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="VIb-lG-h26"/>
         <segue reference="5YK-eT-8Z7"/>
-        <segue reference="Tyd-4d-APj"/>
         <segue reference="qn0-AH-Q8Y"/>
     </inferredMetricsTieBreakers>
 </document>
