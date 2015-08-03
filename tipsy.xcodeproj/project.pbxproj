@@ -252,6 +252,8 @@
 		338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileViewController.swift; sourceTree = "<group>"; };
 		338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanProfileCell.swift; sourceTree = "<group>"; };
 		338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3394DA411B6ED5B10065F2FD /* AlphaTest12.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest12.mobileprovision; sourceTree = "<group>"; };
+		3394DA461B6EF6140065F2FD /* AlphaTest13.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest13.mobileprovision; sourceTree = "<group>"; };
 		33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest4.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest6.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest7.mobileprovision; sourceTree = "<group>"; };
@@ -391,6 +393,8 @@
 				33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */,
 				33EAEC2E1B684C36009B3367 /* AlphaTest10.mobileprovision */,
 				33EAEC2F1B6972DC009B3367 /* AlphaTest11.mobileprovision */,
+				3394DA411B6ED5B10065F2FD /* AlphaTest12.mobileprovision */,
+				3394DA461B6EF6140065F2FD /* AlphaTest13.mobileprovision */,
 				335C80F01B62550D00702414 /* Media.xcassets */,
 				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
 				336344941B3283F800DF3D90 /* Info.plist */,
@@ -974,7 +978,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d446aac8-88bd-445f-b8c9-705b6b2f009d";
+				PROVISIONING_PROFILE = "9e0e8d9b-c3f9-491c-ad12-305546bf4ef9";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Debug;
@@ -1007,7 +1011,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d446aac8-88bd-445f-b8c9-705b6b2f009d";
+				PROVISIONING_PROFILE = "9e0e8d9b-c3f9-491c-ad12-305546bf4ef9";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Release;
