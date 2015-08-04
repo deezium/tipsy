@@ -170,6 +170,12 @@ Comment on other people's plans and text them to meet up!</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jMK-86-Got">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="vFn-9h-QqO" kind="relationship" relationship="rootViewController" id="Whh-I6-Arl"/>
@@ -188,7 +194,7 @@ Comment on other people's plans and text them to meet up!</string>
                         <viewControllerLayoutGuide type="bottom" id="kut-pQ-wxs"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2oi-4j-mJF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tr7-Ut-So7">
@@ -358,10 +364,11 @@ Comment on other people's plans and text them to meet up!</string>
                     <tabBarItem key="tabBarItem" title="Calendar" image="Today.png" id="aCe-Ek-tfz"/>
                     <navigationItem key="navigationItem" title="Calendar" id="3hk-hv-CTG">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="CEs-gd-ADW">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kMg-Lx-mUE">
-                                <rect key="frame" x="504" y="7" width="50" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kMg-Lx-mUE">
+                                <rect key="frame" x="534" y="-16" width="25" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Plan">
+                                <state key="normal" image="Pen-white.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -387,6 +394,12 @@ Comment on other people's plans and text them to meet up!</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GVW-qc-P34">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="ire-on-Dx3" kind="relationship" relationship="rootViewController" id="W60-R5-Ybs"/>
@@ -633,6 +646,12 @@ Comment on other people's plans and text them to meet up!</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="byT-hD-D6B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="oRv-B1-WtN" kind="relationship" relationship="rootViewController" id="E9u-ti-heE"/>
@@ -642,7 +661,7 @@ Comment on other people's plans and text them to meet up!</string>
             </objects>
             <point key="canvasLocation" x="-1475" y="194"/>
         </scene>
-        <!--tipsy-->
+        <!--Profile-->
         <scene sceneID="i6H-eV-GvN">
             <objects>
                 <viewController storyboardIdentifier="PlanProfileViewController" id="oRv-B1-WtN" customClass="PlanProfileViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
@@ -885,12 +904,13 @@ Comment on other people's plans and text them to meet up!</string>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Me" image="GenderNeutralUser.png" id="reO-8C-tzH"/>
-                    <navigationItem key="navigationItem" title="tipsy" id="NaK-pP-8O7">
+                    <navigationItem key="navigationItem" title="Profile" id="NaK-pP-8O7">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="E8j-Oo-ZCa">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PPz-VO-MHY">
-                                <rect key="frame" x="451" y="7" width="50" height="30"/>
+                                <rect key="frame" x="554" y="7" width="50" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -919,7 +939,7 @@ Comment on other people's plans and text them to meet up!</string>
                         <viewControllerLayoutGuide type="bottom" id="V7r-Tu-Xtp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jVh-BT-f7G">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqp-8X-dUR">
@@ -1346,13 +1366,14 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="GenderNeutralUser-100.png" width="100" height="100"/>
         <image name="GenderNeutralUser.png" width="25" height="25"/>
         <image name="Map-25.png" width="25" height="25"/>
+        <image name="Pen-white.png" width="25" height="25"/>
         <image name="Pen.png" width="25" height="25"/>
         <image name="Today.png" width="25" height="25"/>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VIb-lG-h26"/>
-        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="cnr-oU-dOg"/>
+        <segue reference="urZ-Y9-YSI"/>
         <segue reference="qn0-AH-Q8Y"/>
     </inferredMetricsTieBreakers>
 </document>

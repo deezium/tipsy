@@ -17,6 +17,9 @@
 		332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EC1B4FDB1E00CF0881 /* login_with_fb.png */; };
 		332476EF1B4FDC8500CF0881 /* login_with_fb_208x51.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */; };
 		332476F11B51811100CF0881 /* QueryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476F01B51811100CF0881 /* QueryController.swift */; };
+		33327D441B7046F300DED92D /* Pen-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 33327D411B7046F300DED92D /* Pen-white.png */; };
+		33327D451B7046F300DED92D /* Pen-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33327D421B7046F300DED92D /* Pen-white@2x.png */; };
+		33327D461B7046F300DED92D /* Pen-white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33327D431B7046F300DED92D /* Pen-white@3x.png */; };
 		3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CDD21B3B832D001C222C /* LocationViewController.swift */; };
 		3339CDD51B422165001C222C /* Map-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD41B422165001C222C /* Map-50.png */; };
 		3339CDD71B422186001C222C /* Map-25.png in Resources */ = {isa = PBXBuildFile; fileRef = 3339CDD61B422186001C222C /* Map-25.png */; };
@@ -176,6 +179,9 @@
 		332476EC1B4FDB1E00CF0881 /* login_with_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_with_fb.png; path = ../login_with_fb.png; sourceTree = "<group>"; };
 		332476EE1B4FDC8500CF0881 /* login_with_fb_208x51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_with_fb_208x51.png; sourceTree = "<group>"; };
 		332476F01B51811100CF0881 /* QueryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryController.swift; sourceTree = "<group>"; };
+		33327D411B7046F300DED92D /* Pen-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pen-white.png"; path = "images/Pen-white.png"; sourceTree = "<group>"; };
+		33327D421B7046F300DED92D /* Pen-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pen-white@2x.png"; path = "images/Pen-white@2x.png"; sourceTree = "<group>"; };
+		33327D431B7046F300DED92D /* Pen-white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Pen-white@3x.png"; path = "images/Pen-white@3x.png"; sourceTree = "<group>"; };
 		3339CDD21B3B832D001C222C /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
@@ -472,6 +478,9 @@
 				33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */,
 				3339CDD61B422186001C222C /* Map-25.png */,
 				3394DA4F1B702B6E0065F2FD /* GenderNeutralUser-100.png */,
+				33327D411B7046F300DED92D /* Pen-white.png */,
+				33327D421B7046F300DED92D /* Pen-white@2x.png */,
+				33327D431B7046F300DED92D /* Pen-white@3x.png */,
 				3394DA4E1B7027770065F2FD /* Tab Bar */,
 			);
 			name = Images;
@@ -708,10 +717,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				33F385EC1B5494CD0008AFF7 /* food@2x.png in Resources */,
+				33327D441B7046F300DED92D /* Pen-white.png in Resources */,
 				33F385EF1B5494CD0008AFF7 /* star.png in Resources */,
 				335C80F11B62550D00702414 /* Media.xcassets in Resources */,
 				332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */,
 				3394DA5B1B702B9D0065F2FD /* Today@2x.png in Resources */,
+				33327D461B7046F300DED92D /* Pen-white@3x.png in Resources */,
 				3394DA5C1B702B9D0065F2FD /* Today@3x.png in Resources */,
 				3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */,
 				33F385EB1B5494CD0008AFF7 /* food.png in Resources */,
@@ -740,6 +751,7 @@
 				3339CDD71B422186001C222C /* Map-25.png in Resources */,
 				3394DA501B702B6E0065F2FD /* GenderNeutralUser-100.png in Resources */,
 				332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */,
+				33327D451B7046F300DED92D /* Pen-white@2x.png in Resources */,
 				33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
