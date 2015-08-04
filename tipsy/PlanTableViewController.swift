@@ -273,6 +273,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
         var placeLabel: String?
         
+        
         if let placeName = placeName {
             placeLabel = placeName
         }
@@ -286,7 +287,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         println(startTime)
         println(endTime)
+
         
+        let fullTimeString = "\(startTimeString) to \(endTimeString)"
+
         
         if let postImage = user.objectForKey("profileImage") as? PFFile {
             let imageData = postImage.getData()
@@ -299,8 +303,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let firstname = fullname?.componentsSeparatedByString(" ")[0]
         
         cell.name.text = firstname
-        cell.startTime.text = startTimeString
-        cell.endTime.text = endTimeString
+//        cell.startTime.text = startTimeString
+//        cell.endTime.text = endTimeString
+        cell.fullTime.text = fullTimeString
         cell.location.text = placeLabel
         
         if let message = message {

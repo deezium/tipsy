@@ -26,4 +26,6 @@ class PlanProfileCell: UITableViewCell {
     
     @IBOutlet weak var checkboxImage: UIImageView!
     
+    
+    
 }

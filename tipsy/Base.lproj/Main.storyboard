@@ -226,12 +226,6 @@ Comment on other people's plans and text them to meet up!</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b9Z-Wk-vVj" id="zIh-tE-jSa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0n-MA-b0E">
-                                                    <rect key="frame" x="400" y="47" width="100" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-7m-EYW">
                                                     <rect key="frame" x="33" y="10" width="70" height="70"/>
                                                     <constraints>
@@ -240,17 +234,11 @@ Comment on other people's plans and text them to meet up!</string>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-aw-uPo">
-                                                    <rect key="frame" x="117" y="51" width="200" height="21"/>
+                                                    <rect key="frame" x="117" y="34" width="200" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="KTq-2t-w4i"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="end" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-s7-LDo">
-                                                    <rect key="frame" x="400" y="76" width="121" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -384,30 +372,29 @@ Comment on other people's plans and text them to meet up!</string>
                                                         </mask>
                                                     </variation>
                                                 </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5h-g3-L2U">
+                                                    <rect key="frame" x="117" y="59" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3Fz-1i-wAB" firstAttribute="top" secondItem="Qba-80-eCT" secondAttribute="bottom" constant="5" id="1Sx-25-zxm"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="leading" secondItem="Wn5-s7-LDo" secondAttribute="leading" id="2Vh-Hh-hnr"/>
                                                 <constraint firstAttribute="trailing" secondItem="3Fz-1i-wAB" secondAttribute="trailing" constant="30" id="7gc-DI-OL0"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="leading" secondItem="Hod-7m-EYW" secondAttribute="trailing" constant="10" id="7xu-fR-LMy"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="Hod-7m-EYW" secondAttribute="bottom" constant="15" id="C5G-2N-0B0"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="top" constant="10" id="CJc-bI-ovY"/>
                                                 <constraint firstItem="Hod-7m-EYW" firstAttribute="leading" secondItem="zIh-tE-jSa" secondAttribute="leading" constant="30" id="Cuf-p2-d2B"/>
                                                 <constraint firstItem="Hod-7m-EYW" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="top" constant="10" id="EiG-7q-DcT"/>
+                                                <constraint firstItem="p5h-g3-L2U" firstAttribute="top" secondItem="uTY-aw-uPo" secondAttribute="bottom" constant="5" id="EvE-I3-L3Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="Qba-80-eCT" secondAttribute="bottom" constant="5" id="Heq-8B-4Jf"/>
-                                                <constraint firstItem="3Fz-1i-wAB" firstAttribute="top" secondItem="Wn5-s7-LDo" secondAttribute="bottom" constant="5" id="HsZ-y8-jJv"/>
-                                                <constraint firstAttribute="trailing" secondItem="G0n-MA-b0E" secondAttribute="trailing" constant="30" id="J5R-Yi-ccc"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="174" id="JDu-1T-V7B"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="centerY" secondItem="uTY-aw-uPo" secondAttribute="centerY" id="JPY-C4-WZr"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="-80" id="LGK-2o-wCn"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="top" constant="5" id="Lie-EZ-jBH"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="topMargin" constant="10" id="Qn9-CQ-HJo"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="centerY" secondItem="Qba-80-eCT" secondAttribute="centerY" id="S1m-Me-o5t"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="leading" secondItem="Qba-80-eCT" secondAttribute="leading" id="TgY-NR-N3l"/>
                                                 <constraint firstAttribute="bottom" secondItem="3Fz-1i-wAB" secondAttribute="bottom" id="To4-f4-XDY"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="leading" secondItem="Hod-7m-EYW" secondAttribute="trailing" constant="10" id="Vwq-QQ-2OO"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="-32" id="aYJ-XZ-wq7"/>
-                                                <constraint firstItem="G0n-MA-b0E" firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="70" id="cSD-TE-jVw"/>
+                                                <constraint firstItem="uTY-aw-uPo" firstAttribute="leading" secondItem="p5h-g3-L2U" secondAttribute="leading" id="bWe-VZ-JuN"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="top" secondItem="mRI-lt-esJ" secondAttribute="bottom" constant="5" id="cyo-Na-VDK"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="top" secondItem="Hod-7m-EYW" secondAttribute="bottom" constant="8" id="eQB-xe-Rcp"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="top" secondItem="Qba-80-eCT" secondAttribute="bottom" constant="5" id="fug-T8-eur"/>
@@ -415,7 +402,6 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="30" id="nW2-aR-WhA"/>
                                                 <constraint firstItem="3Fz-1i-wAB" firstAttribute="leading" secondItem="zIh-tE-jSa" secondAttribute="leading" constant="30" id="nqK-kg-HJE"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="top" secondItem="Hod-7m-EYW" secondAttribute="bottom" constant="5" id="qkB-js-izB"/>
-                                                <constraint firstItem="Wn5-s7-LDo" firstAttribute="top" secondItem="G0n-MA-b0E" secondAttribute="bottom" constant="5" id="uk0-VU-DxS"/>
                                                 <constraint firstItem="Hod-7m-EYW" firstAttribute="centerX" secondItem="Qba-80-eCT" secondAttribute="centerX" id="wlu-fZ-atI"/>
                                             </constraints>
                                             <variation key="default">
@@ -425,25 +411,18 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <exclude reference="Lie-EZ-jBH"/>
                                                     <exclude reference="Vwq-QQ-2OO"/>
                                                     <exclude reference="eQB-xe-Rcp"/>
-                                                    <exclude reference="HsZ-y8-jJv"/>
                                                     <exclude reference="Qn9-CQ-HJo"/>
                                                     <exclude reference="fug-T8-eur"/>
                                                     <exclude reference="TgY-NR-N3l"/>
-                                                    <exclude reference="JDu-1T-V7B"/>
-                                                    <exclude reference="LGK-2o-wCn"/>
-                                                    <exclude reference="S1m-Me-o5t"/>
-                                                    <exclude reference="aYJ-XZ-wq7"/>
-                                                    <exclude reference="cSD-TE-jVw"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="endTime" destination="Wn5-s7-LDo" id="JN0-dR-BNy"/>
+                                            <outlet property="fullTime" destination="p5h-g3-L2U" id="fxd-bK-rx7"/>
                                             <outlet property="location" destination="uTY-aw-uPo" id="fsx-9p-ytZ"/>
                                             <outlet property="message" destination="mRI-lt-esJ" id="gLG-jD-t7X"/>
                                             <outlet property="name" destination="Qba-80-eCT" id="lmd-lI-dFc"/>
                                             <outlet property="profileImage" destination="Hod-7m-EYW" id="MjX-u1-7U6"/>
-                                            <outlet property="startTime" destination="G0n-MA-b0E" id="dAN-FL-VVF"/>
                                             <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailView" id="5YK-eT-8Z7"/>
                                         </connections>
                                     </tableViewCell>
