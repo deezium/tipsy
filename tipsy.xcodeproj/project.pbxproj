@@ -126,6 +126,11 @@
 		33F386041B5630700008AFF7 /* CheckinCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F386031B5630700008AFF7 /* CheckinCallout.swift */; };
 		33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F386E71B5851830008AFF7 /* TwitterViewController.swift */; };
 		33F7792C1B70BA5500CA7807 /* CalendarHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */; };
+		33F779341B7132FB00CA7807 /* Public-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F779321B7132FB00CA7807 /* Public-50.png */; };
+		33F779351B7132FB00CA7807 /* Public.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F779331B7132FB00CA7807 /* Public.png */; };
+		33F779371B7133BD00CA7807 /* Forward-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F779361B7133BD00CA7807 /* Forward-50.png */; };
+		33F779391B713BAB00CA7807 /* Geo-fence-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F779381B713BAB00CA7807 /* Geo-fence-50.png */; };
+		33F7793B1B713BF400CA7807 /* LocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F7793A1B713BF400CA7807 /* LocationSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -317,6 +322,11 @@
 		33F386031B5630700008AFF7 /* CheckinCallout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinCallout.swift; sourceTree = "<group>"; };
 		33F386E71B5851830008AFF7 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
 		33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCell.swift; sourceTree = "<group>"; };
+		33F779321B7132FB00CA7807 /* Public-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Public-50.png"; path = "images/Public-50.png"; sourceTree = "<group>"; };
+		33F779331B7132FB00CA7807 /* Public.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Public.png; path = images/Public.png; sourceTree = "<group>"; };
+		33F779361B7133BD00CA7807 /* Forward-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Forward-50.png"; path = "images/Forward-50.png"; sourceTree = "<group>"; };
+		33F779381B713BAB00CA7807 /* Geo-fence-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Geo-fence-50.png"; path = "images/Geo-fence-50.png"; sourceTree = "<group>"; };
+		33F7793A1B713BF400CA7807 /* LocationSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchViewController.swift; sourceTree = "<group>"; };
 		C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -421,6 +431,7 @@
 				332476F01B51811100CF0881 /* QueryController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				33F7793A1B713BF400CA7807 /* LocationSearchViewController.swift */,
 				33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */,
 				3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */,
 				335C80EC1B62339E00702414 /* CommentCell.swift */,
@@ -518,6 +529,7 @@
 				33327D411B7046F300DED92D /* Pen-white.png */,
 				33327D421B7046F300DED92D /* Pen-white@2x.png */,
 				33327D431B7046F300DED92D /* Pen-white@3x.png */,
+				33F779311B7132EB00CA7807 /* Plan Creation */,
 				33327D4B1B707FED00DED92D /* Calendar Cell */,
 				3394DA4E1B7027770065F2FD /* Tab Bar */,
 			);
@@ -583,6 +595,17 @@
 			);
 			name = Images;
 			path = "annotation-images";
+			sourceTree = "<group>";
+		};
+		33F779311B7132EB00CA7807 /* Plan Creation */ = {
+			isa = PBXGroup;
+			children = (
+				33F779381B713BAB00CA7807 /* Geo-fence-50.png */,
+				33F779361B7133BD00CA7807 /* Forward-50.png */,
+				33F779321B7132FB00CA7807 /* Public-50.png */,
+				33F779331B7132FB00CA7807 /* Public.png */,
+			);
+			name = "Plan Creation";
 			sourceTree = "<group>";
 		};
 		61752CEC4A8536A6ECE6FD63 /* Pods */ = {
@@ -766,10 +789,13 @@
 				3394DA5C1B702B9D0065F2FD /* Today@3x.png in Resources */,
 				3363449B1B3283F800DF3D90 /* Main.storyboard in Resources */,
 				33327D551B7080E200DED92D /* Like.png in Resources */,
+				33F779351B7132FB00CA7807 /* Public.png in Resources */,
 				33F385EB1B5494CD0008AFF7 /* food.png in Resources */,
 				335C80EF1B624DB700702414 /* Checked Checkbox 2-100.png in Resources */,
+				33F779341B7132FB00CA7807 /* Public-50.png in Resources */,
 				3394DA611B702BA50065F2FD /* GenderNeutralUser@2x.png in Resources */,
 				33F385EE1B5494CD0008AFF7 /* ride@2x.png in Resources */,
+				33F779391B713BAB00CA7807 /* Geo-fence-50.png in Resources */,
 				33327D561B7080E200DED92D /* Like@2x.png in Resources */,
 				33F385F01B5494CD0008AFF7 /* star@2x.png in Resources */,
 				335C80F31B62566F00702414 /* tipsyLaunchScreen.xib in Resources */,
@@ -780,6 +806,7 @@
 				33327D5B1B70901D00DED92D /* AddUser.png in Resources */,
 				3339CDD91B4222DE001C222C /* RSS-25.png in Resources */,
 				3394DA551B702B940065F2FD /* Pen@2x.png in Resources */,
+				33F779371B7133BD00CA7807 /* Forward-50.png in Resources */,
 				3339CDD51B422165001C222C /* Map-50.png in Resources */,
 				33F385ED1B5494CD0008AFF7 /* ride.png in Resources */,
 				33327D5D1B70901D00DED92D /* AddUser@3x.png in Resources */,
@@ -911,6 +938,7 @@
 				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
 				338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */,
+				33F7793B1B713BF400CA7807 /* LocationSearchViewController.swift in Sources */,
 				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
 				338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */,
 				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,

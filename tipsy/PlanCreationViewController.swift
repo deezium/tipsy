@@ -12,17 +12,17 @@ import GoogleMaps
 
 let planMadeNotificationKey = "planMadeNotificationKey"
 
-class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
+class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
-    var placesClient: GMSPlacesClient = GMSPlacesClient()
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
-    var searchResultData = [GMSAutocompletePrediction]()
+
     var selectedPlaceId = String()
     var selectedPlaceName = String()
     var selectedPlaceGeoPoint = PFGeoPoint()
     var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
+    @IBOutlet weak var planCreationTable: UITableView!
     
     @IBOutlet weak var messageField: UITextField!
 
@@ -31,42 +31,22 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     @IBOutlet weak var endTime: UIDatePicker!
     
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var searchResults: UITableView!
-    
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     @IBAction func didTapPostButton(sender: AnyObject) {
         
         let currentTime = NSDate()
         let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 72, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
-        if searchBar.text == "" {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make a plan without a location!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        else if startTime.date.isEarlierThan(currentTime) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        else if endTime.date.isEarlierThan(startTime.date) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        //       else if futureBoundTime!.isEarlierThan(startTime.date) {
-        //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 72 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
-        //            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-        //            self.presentViewController(alert, animated: true, completion: nil)
-        //        }
+//        if searchBar.text == "" {
+//            let alert = UIAlertController(title: "Sorry!", message: "You can't make a plan without a location!", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        }
+//        else {
+//            
         
-        else {
-            
-            
             let planObject = PFObject(className: "Plan")
             planObject.setObject(startTime.date, forKey: "startTime")
             planObject.setObject(endTime.date, forKey: "endTime")
@@ -95,10 +75,9 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
                     let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
-                    self.searchBar.text = ""
                     self.messageField.text = ""
-                    self.startTime.date = NSDate()
-                    self.endTime.date = NSDate().dateByAddingHours(1)
+           //         self.startTime.date = NSDate()
+          //          self.endTime.date = NSDate().dateByAddingHours(1)
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 }
                 else {
@@ -109,77 +88,57 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             }
         
 
-        }
+//        }
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
     
-    @IBAction func didTapCancelButton(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
     
     @IBAction func didTapUpdateButton(sender: AnyObject) {
         let currentTime = NSDate()
         let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 72, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
-        if startTime.date.isEarlierThan(currentTime) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        else if endTime.date.isEarlierThan(startTime.date) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-            //       else if futureBoundTime!.isEarlierThan(startTime.date) {
-            //            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 72 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
-            //            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            //            self.presentViewController(alert, animated: true, completion: nil)
-            //        }
-            
-        else {
-            
-            let objectId = plans.first?.objectId as String!
-            println(objectId)
-            let planObject = PFObject(withoutDataWithClassName: "Plan", objectId: objectId)
-            planObject.setObject(startTime.date, forKey: "startTime")
-            planObject.setObject(endTime.date, forKey: "endTime")
-            planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
-            planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
-            planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
-            planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-            planObject.setObject(messageField.text, forKey: "message")
-            planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
 
-    
             
-            
-            planObject.saveInBackgroundWithBlock {
-                (success, error) -> Void in
-                if success == true {
-                    println("Success")
-                    let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-                        Void in
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                        
-                        }
-))
-                    self.presentViewController(alert, animated: true, completion: nil)
-                    NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+        
+        let objectId = plans.first?.objectId as String!
+        println(objectId)
+        let planObject = PFObject(withoutDataWithClassName: "Plan", objectId: objectId)
+        planObject.setObject(startTime.date, forKey: "startTime")
+        planObject.setObject(endTime.date, forKey: "endTime")
+        planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
+        planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
+        planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
+        planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
+        planObject.setObject(messageField.text, forKey: "message")
+        planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
+
+
+        
+        
+        planObject.saveInBackgroundWithBlock {
+            (success, error) -> Void in
+            if success == true {
+                println("Success")
+                let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
+                    Void in
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                    }))
                 
+                self.presentViewController(alert, animated: true, completion: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+            
 //                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-                else {
-                    println("Update fail")
-                }
             }
+            else {
+                println("Update fail")
+            }
+        }
             
 
-        }
 
     }
     
@@ -230,11 +189,7 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchBar.delegate = self
-        self.searchResults.hidden = true
-        self.searchResults.delegate = self
-        self.searchResults.dataSource = self
-        self.endTime.date = NSDate().dateByAddingHours(1)
+//        self.endTime.date = NSDate().dateByAddingHours(1)
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
@@ -284,19 +239,17 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
             selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
             selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
             messageField.text = plan?.objectForKey("message") as? String
-            startTime.date = planStartTime
-            endTime.date = planEndTime
-            searchBar.text = selectedPlaceName
+      //      startTime.date = planStartTime
+       //     endTime.date = planEndTime
+      //      searchBar.text = selectedPlaceName
             postButton.hidden = true
             updateButton.hidden = false
             deleteButton.hidden = false
-            cancelButton.hidden = false
         }
         else {
             updateButton.hidden = true
             deleteButton.hidden = true
             postButton.hidden = false
-            cancelButton.hidden = true
         }
     }
     
@@ -307,84 +260,16 @@ class PlanCreationViewController: UIViewController, UISearchBarDelegate, CLLocat
         }
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResultData.count
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let place = self.searchResultData[indexPath.row]
-        let placeText = place.attributedFullText.string
-        println("row selected")
-        self.searchBar.text = placeText
-        self.selectedPlaceId = place.placeID
-        self.searchResults.hidden = true
-        
-        let placeId = "ChIJv2V798IJlR4Rq66ydZpHmt0"
-        
-        placesClient.lookUpPlaceID(selectedPlaceId, callback: {(place, error) -> Void in
-            if error != nil {
-                println("lookup place id query error")
-                return
-            }
-            
-            if place != nil {
-                self.selectedPlaceName = place!.name
-                self.selectedPlaceFormattedAddress = place!.formattedAddress
-                
-                let selectedPlaceCoordinate = place!.coordinate
-                let longitude = selectedPlaceCoordinate.longitude
-                let latitude = selectedPlaceCoordinate.latitude
-                
-                self.selectedPlaceGeoPoint = PFGeoPoint(latitude: selectedPlaceCoordinate.latitude, longitude: selectedPlaceCoordinate.longitude)
-            }
-            
-        })
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlaceAutocompleteCell") as! UITableViewCell
-        let place = self.searchResultData[indexPath.row]
-        
-        cell.textLabel!.text = place.attributedFullText.string
-        //cell.backgroundColor = UIColor.redColor()
+        let cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationTextCell") as! UITableViewCell
         
         return cell
     }
-    
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            //self.places = []
-            println("aint nothin here")
-            searchResults.hidden = true
-            self.searchResultData = [GMSAutocompletePrediction]()
-            self.searchResults.reloadData()
-        }
-        else {
-            searchResults.hidden = false
-            println("searching for \(searchText)")
-            let locValue = currentLocation.coordinate
-            println("location at \(locValue.latitude), \(locValue.longitude)")
-            let northEast = CLLocationCoordinate2DMake(locValue.latitude + 1, locValue.longitude + 1)
-            let southWest = CLLocationCoordinate2DMake(locValue.latitude - 1, locValue.longitude - 1)
-            let bounds = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
-            let filter = GMSAutocompleteFilter()
-            filter.type = GMSPlacesAutocompleteTypeFilter.NoFilter
-            
-            placesClient.autocompleteQuery(searchText, bounds: bounds, filter: filter, callback: {
-                (results, error) -> Void in
-                if error != nil {
-                    println("Hay error \(error)")
-                    return
-                }
-                else {
-                    self.searchResultData = [GMSAutocompletePrediction]()
-                    for result in results as! [GMSAutocompletePrediction] {
-                        self.searchResultData.append(result)
-                        println(result)
-                    }
-                    self.searchResults.reloadData()
-                }
-            })
-        }
+
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
     }
+    
+    
+    
 }
