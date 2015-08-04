@@ -272,14 +272,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
         let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
         var placeLabel: String?
-        var addressLabel: String?
         
         if let placeName = placeName {
             placeLabel = placeName
-        }
-
-        if let shortAddress = shortAddress {
-            addressLabel = shortAddress
         }
 
         
@@ -307,7 +302,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         cell.startTime.text = startTimeString
         cell.endTime.text = endTimeString
         cell.location.text = placeLabel
-        cell.addressLabel.text = shortAddress
         
         if let message = message {
             cell.message.text = message
