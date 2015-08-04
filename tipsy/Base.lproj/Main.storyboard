@@ -241,6 +241,11 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="KTq-2t-w4i"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRI-lt-esJ">
                                                     <rect key="frame" x="117" y="10" width="415" height="21"/>
@@ -389,6 +394,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstItem="Hod-7m-EYW" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="top" constant="10" id="EiG-7q-DcT"/>
                                                 <constraint firstItem="p5h-g3-L2U" firstAttribute="top" secondItem="uTY-aw-uPo" secondAttribute="bottom" constant="5" id="EvE-I3-L3Z"/>
                                                 <constraint firstAttribute="bottom" secondItem="Qba-80-eCT" secondAttribute="bottom" constant="5" id="Heq-8B-4Jf"/>
+                                                <constraint firstAttribute="trailing" secondItem="uTY-aw-uPo" secondAttribute="trailing" constant="30" id="J9G-d7-riK"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="top" constant="5" id="Lie-EZ-jBH"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="topMargin" constant="10" id="Qn9-CQ-HJo"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="leading" secondItem="Qba-80-eCT" secondAttribute="leading" id="TgY-NR-N3l"/>
@@ -424,6 +430,39 @@ Comment on other people's plans and text them to meet up!</string>
                                             <outlet property="name" destination="Qba-80-eCT" id="lmd-lI-dFc"/>
                                             <outlet property="profileImage" destination="Hod-7m-EYW" id="MjX-u1-7U6"/>
                                             <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailView" id="5YK-eT-8Z7"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CalendarHeaderCell" rowHeight="50" id="pkW-pd-hXZ" customClass="CalendarHeaderCell" customModule="tipsy" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pkW-pd-hXZ" id="JdJ-qL-D3C">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="headerLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZq-Gw-oow">
+                                                    <rect key="frame" x="23" y="8" width="324" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="wZq-Gw-oow" secondAttribute="centerY" id="0k9-YG-AeG"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="wZq-Gw-oow" secondAttribute="bottom" constant="10" id="FsF-TT-vui"/>
+                                                <constraint firstItem="wZq-Gw-oow" firstAttribute="leading" secondItem="JdJ-qL-D3C" secondAttribute="leadingMargin" constant="10" id="Ym8-TN-qzc"/>
+                                                <constraint firstItem="wZq-Gw-oow" firstAttribute="top" secondItem="JdJ-qL-D3C" secondAttribute="topMargin" constant="10" id="aWK-bI-VRN"/>
+                                                <constraint firstItem="wZq-Gw-oow" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JdJ-qL-D3C" secondAttribute="top" constant="5" id="b41-Bo-f7f"/>
+                                                <constraint firstAttribute="centerY" secondItem="wZq-Gw-oow" secondAttribute="centerY" id="gOg-Wk-Rhr"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="0k9-YG-AeG"/>
+                                                    <exclude reference="FsF-TT-vui"/>
+                                                    <exclude reference="aWK-bI-VRN"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="headerLabel" destination="wZq-Gw-oow" id="eh5-SM-FvM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

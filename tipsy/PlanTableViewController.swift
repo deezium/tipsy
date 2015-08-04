@@ -299,19 +299,27 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         return planTableHeaderArray.count
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("CalendarHeaderCell") as! CalendarHeaderCell
+
         let dateString = planTableHeaderArray[section]
         
         let df = NSDateFormatter()
         df.dateFormat = "MM/dd/yyyy"
         let date = df.dateFromString(dateString)!
-
+        
         df.dateFormat = "EEEE"
         
         let dayOfWeekString = df.stringFromDate(date)
         
-        return dayOfWeekString + ", " + dateString
+        headerCell.headerLabel.text =  dayOfWeekString + ", " + dateString
+        
+    
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -364,7 +372,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM d, hh:mm a"
+        dateFormatter.dateFormat = "hh:mm a"
         
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)

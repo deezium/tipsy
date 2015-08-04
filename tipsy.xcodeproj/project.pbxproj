@@ -125,6 +125,7 @@
 		33F385FE1B549C500008AFF7 /* DClinkedin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */; };
 		33F386041B5630700008AFF7 /* CheckinCallout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F386031B5630700008AFF7 /* CheckinCallout.swift */; };
 		33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F386E71B5851830008AFF7 /* TwitterViewController.swift */; };
+		33F7792C1B70BA5500CA7807 /* CalendarHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -315,6 +316,7 @@
 		33F385FC1B549C500008AFF7 /* DClinkedin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DClinkedin@2x.png"; sourceTree = "<group>"; };
 		33F386031B5630700008AFF7 /* CheckinCallout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinCallout.swift; sourceTree = "<group>"; };
 		33F386E71B5851830008AFF7 /* TwitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterViewController.swift; sourceTree = "<group>"; };
+		33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderCell.swift; sourceTree = "<group>"; };
 		C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tipsy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE608E87B177E85FD1EFE7C0 /* Pods-tipsy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.release.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -419,6 +421,7 @@
 				332476F01B51811100CF0881 /* QueryController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */,
 				3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */,
 				335C80EC1B62339E00702414 /* CommentCell.swift */,
 				335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */,
@@ -911,6 +914,7 @@
 				3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */,
 				338EAAAE1B5EC51100E63FC7 /* PlanProfileViewController.swift in Sources */,
 				3339CDF21B423EB2001C222C /* Checkin.swift in Sources */,
+				33F7792C1B70BA5500CA7807 /* CalendarHeaderCell.swift in Sources */,
 				338EAA941B5D782500E63FC7 /* GoogleMapsViewController.swift in Sources */,
 				33F386041B5630700008AFF7 /* CheckinCallout.swift in Sources */,
 				3339CE151B424EE6001C222C /* FMDatabaseAdditions.m in Sources */,
