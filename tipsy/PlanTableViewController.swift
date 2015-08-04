@@ -24,6 +24,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     let locationManager = CLLocationManager()
     var refreshControl = UIRefreshControl()
     
+    var planTableHeaderArray = [String]()
+    
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -34,9 +36,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             println("upcoming")
         case 1:
             println("past")
+
         default:
             break;
         }
+        self.createTableSections()
         self.planTableView.reloadData()
     }
     
@@ -56,7 +60,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
             self.createPlanArrays(objects)
+            self.createTableSections()
             self.planTableView!.reloadData()
+            
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -79,6 +85,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         upcomingPlansOriginal = [PFObject]()
         pastPlansOriginal = [PFObject]()
+        pastPlans = [PFObject]()
         
         for object in objects {
             
@@ -95,6 +102,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         upcomingPlans = upcomingPlansOriginal.reverse()
         pastPlans = pastPlansOriginal
         println("upcomingPlans \(upcomingPlans)")
+        println("pastPlansCount \(pastPlans.count)")
     }
     
     
@@ -124,6 +132,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
+        
 
         
     }
@@ -195,28 +204,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        var objects = queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 10)
-        //        println(objects.count)
-        //        return objects.count
-        
-        println(queryObjects.count)
-        if segmentedControl.selectedSegmentIndex == 0 {
-            return upcomingPlans.count
-        }
-        else {
-            return pastPlans.count
-        }
-
-        
-        
-//        if filtered == false {
-//            return queryObjects.count
-//        }
-//        else {
-//            return filteredObjects.count
-//        }
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -240,26 +227,123 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
+    func createTableSections() {
+        
+        planTableHeaderArray = [String]()
+        
+        var plansForSection = [PFObject]()
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            plansForSection = upcomingPlans
+        }
+        else {
+            plansForSection = pastPlans
+        }
+        
+        let sections = NSSet(array: planTableHeaderArray)
+        
+        println("plansForSection \(plansForSection)")
+        
+        for object in plansForSection {
+            let objectDate = object.objectForKey("startTime") as! NSDate
+            
+            let df = NSDateFormatter()
+            df.dateFormat = "MM/dd/yyyy"
+            
+            let dateString = df.stringFromDate(objectDate)
+            
+            println("sections \(sections)")
+            
+            
+            
+            if !contains(planTableHeaderArray, dateString) {
+                planTableHeaderArray.append(dateString)
+            }
+        }
+        println("planTableHeaderArrayCount \(planTableHeaderArray.count)")
+
+    }
+    
+    func getSectionItems(section: Int) -> [PFObject] {
+        var sectionItems = [PFObject]()
+
+        var plansForSection = [PFObject]()
+
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            plansForSection = upcomingPlans
+        }
+        else {
+            plansForSection = pastPlans
+        }
+        
+        for object in plansForSection {
+            let objectDate = object.objectForKey("startTime") as! NSDate
+            
+            let df = NSDateFormatter()
+            df.dateFormat = "MM/dd/yyyy"
+            
+            let dateString = df.stringFromDate(objectDate)
+            
+            if dateString == planTableHeaderArray[section] as NSString {
+                sectionItems.append(object)
+            }
+            
+        }
+        
+        return sectionItems
+
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return planTableHeaderArray.count
+    }
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        let dateString = planTableHeaderArray[section]
+        
+        let df = NSDateFormatter()
+        df.dateFormat = "MM/dd/yyyy"
+        let date = df.dateFromString(dateString)!
+
+        df.dateFormat = "EEEE"
+        
+        let dayOfWeekString = df.stringFromDate(date)
+        
+        return dayOfWeekString + ", " + dateString
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        
+//        println(queryObjects.count)
+//        if segmentedControl.selectedSegmentIndex == 0 {
+//            return upcomingPlans.count
+//        }
+//        else {
+//            return pastPlans.count
+//        }
+//        
+        
+        return self.getSectionItems(section).count
+        
+    }
+
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var queryObject: PFObject
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            queryObject = upcomingPlans[indexPath.row]
-        //    cell.editButton.hidden = false
-        }
-        else {
-            queryObject = pastPlans[indexPath.row]
-          //  cell.editButton.hidden = true
-        }
-        
-        
-//        if filtered == false {
-//            queryObject = queryObjects[indexPath.row]
+//        if segmentedControl.selectedSegmentIndex == 0 {
+//            queryObject = upcomingPlans[indexPath.row]
 //        }
 //        else {
-//            queryObject = filteredObjects[indexPath.row]
+//            queryObject = pastPlans[indexPath.row]
 //        }
+        
+        let sectionItems = self.getSectionItems(indexPath.section)
+        
+        queryObject = sectionItems[indexPath.row]
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PlanTableCell") as! PlanFeedCell
         
