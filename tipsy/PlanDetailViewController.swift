@@ -15,6 +15,7 @@ let commentMadeNotificationKey = "commentMadeNotificationKey"
 class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
     
 
+    @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -57,8 +58,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
-            mapView.myLocationEnabled = true
-            mapView.settings.myLocationButton = true
+//            mapView.myLocationEnabled = true
+//            mapView.settings.myLocationButton = true
         }
         
         
@@ -85,8 +86,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)
 
-        
-        nameLabel.text = "\(firstname) will be at..."
+        messageLabel.text = plan!.objectForKey("message") as! String
+        nameLabel.text = firstname
         locationLabel.text = placeName
         timeLabel.text = "\(startTimeString) to \(endTimeString)"
         
@@ -106,9 +107,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             let planCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             
-            mapView.camera=GMSCameraPosition(target: planCoordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            var marker = GMSMarker(position: planCoordinate)
-            marker.map = self.mapView
+//            mapView.camera=GMSCameraPosition(target: planCoordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+ //           var marker = GMSMarker(position: planCoordinate)
+  //          marker.map = self.mapView
 
         }
         
@@ -129,32 +130,70 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(queryObjects.count)
-        return queryObjects.count
+        return queryObjects.count + 4
     }
  
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
-        let commentObject = queryObjects[indexPath.row]
         
-        let user = commentObject.objectForKey("commentingUser") as! PFUser
-        let fullname = user.objectForKey("fullname") as? String
-        let firstname = fullname?.componentsSeparatedByString(" ")[0]
-        let timeAgo = commentObject.createdAt!.shortTimeAgoSinceNow()
-        let commentBody = commentObject.objectForKey("body") as? String
+        var finalCell: UITableViewCell?
         
-        if let postImage = user.objectForKey("profileImage") as? PFFile {
-            let imageData = postImage.getData()
-            let image = UIImage(data: imageData!)
-            cell.profileImage.image = image
+        if indexPath.row == 0 {
+            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
+            let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
+            let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+            
+            cell?.addressLabel.text = placeAddress
+
+            
+            finalCell = cell
+        }
+        
+        else if indexPath.row == 1 {
+            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailInteractionCell") as? PlanDetailInteractionCell
+            finalCell = cell
+
+        }
+        
+        else if indexPath.row == 2 {
+            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as? UITableViewCell
+            finalCell = cell
             
         }
         
-        cell.nameLabel.text = firstname
-        cell.messageLabel.text = commentBody
-        cell.timeLabel.text = timeAgo
+        else if indexPath.row == 3 {
+            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailHeaderCell") as? UITableViewCell
+            finalCell = cell
+            
+        }
+        
+        else {
+            var cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
+            let commentObject = queryObjects[indexPath.row-4]
+            
+            let user = commentObject.objectForKey("commentingUser") as! PFUser
+            let fullname = user.objectForKey("fullname") as? String
+            let firstname = fullname?.componentsSeparatedByString(" ")[0]
+            let timeAgo = commentObject.createdAt!.shortTimeAgoSinceNow()
+            let commentBody = commentObject.objectForKey("body") as? String
+            
+            if let postImage = user.objectForKey("profileImage") as? PFFile {
+                let imageData = postImage.getData()
+                let image = UIImage(data: imageData!)
+                cell.profileImage.image = image
+                
+            }
+            
+            cell.nameLabel.text = firstname
+            cell.messageLabel.text = commentBody
+            cell.timeLabel.text = timeAgo
+            
+            finalCell = cell
+            
+        }
+        
 
         
-        return cell
+        return finalCell!
 
     }
     

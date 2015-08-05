@@ -68,6 +68,9 @@
 		3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */; };
 		3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */; };
 		334D1A751B71A41C00E5D025 /* PlanCreationTableDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */; };
+		334D1A7C1B71EFD900E5D025 /* PlanDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */; };
+		334D1A7E1B71F04700E5D025 /* PlanDetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */; };
+		334D1A801B71F1C300E5D025 /* PlanDetailInteractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7F1B71F1C300E5D025 /* PlanDetailInteractionCell.swift */; };
 		335C80E41B60F8FA00702414 /* PlanCreationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */; };
 		335C80EB1B62063F00702414 /* PlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80EA1B62063F00702414 /* PlanDetailViewController.swift */; };
 		335C80ED1B62339E00702414 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335C80EC1B62339E00702414 /* CommentCell.swift */; };
@@ -255,6 +258,9 @@
 		3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinAnnotation.swift; path = ../CheckinAnnotation.swift; sourceTree = "<group>"; };
 		3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinAnnotationView.swift; sourceTree = "<group>"; };
 		334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationTableDateCell.swift; sourceTree = "<group>"; };
+		334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailHeaderCell.swift; sourceTree = "<group>"; };
+		334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailAddressCell.swift; sourceTree = "<group>"; };
+		334D1A7F1B71F1C300E5D025 /* PlanDetailInteractionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailInteractionCell.swift; sourceTree = "<group>"; };
 		335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationTextField.swift; sourceTree = "<group>"; };
 		335C80EA1B62063F00702414 /* PlanDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailViewController.swift; sourceTree = "<group>"; };
 		335C80EC1B62339E00702414 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -416,7 +422,10 @@
 		334D1A771B71D44900E5D025 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				334D1A7F1B71F1C300E5D025 /* PlanDetailInteractionCell.swift */,
 				33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */,
+				334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */,
+				334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */,
 				335C80EC1B62339E00702414 /* CommentCell.swift */,
 				336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */,
 				336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */,
@@ -975,8 +984,11 @@
 				336ED7E31B7171B300F75A24 /* PlanCreationActivityCell.swift in Sources */,
 				335C80E41B60F8FA00702414 /* PlanCreationTextField.swift in Sources */,
 				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
+				334D1A7E1B71F04700E5D025 /* PlanDetailAddressCell.swift in Sources */,
 				336ED7E71B71721100F75A24 /* PlanCreationLocationCell.swift in Sources */,
 				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
+				334D1A7C1B71EFD900E5D025 /* PlanDetailHeaderCell.swift in Sources */,
+				334D1A801B71F1C300E5D025 /* PlanDetailInteractionCell.swift in Sources */,
 				332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */,
 				332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
