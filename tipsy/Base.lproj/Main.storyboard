@@ -221,7 +221,7 @@ Comment on other people's plans and text them to meet up!</string>
                                 </constraints>
                                 <color key="separatorColor" red="0.42352941179999998" green="0.57647058819999997" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanTableCell" rowHeight="150" id="b9Z-Wk-vVj" customClass="PlanFeedCell" customModule="tipsy" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanTableCell" rowHeight="150" id="b9Z-Wk-vVj" customClass="PlanFeedCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b9Z-Wk-vVj" id="zIh-tE-jSa">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -282,6 +282,9 @@ Comment on other people's plans and text them to meet up!</string>
                                                                 <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="didTapHeart:" destination="vFn-9h-QqO" eventType="touchUpInside" id="PVh-Y6-dWt"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOv-pq-ohS">
                                                             <rect key="frame" x="251" y="9" width="40" height="25"/>
@@ -337,6 +340,9 @@ Comment on other people's plans and text them to meet up!</string>
                                                                     <exclude reference="u7d-93-Czb"/>
                                                                 </mask>
                                                             </variation>
+                                                            <connections>
+                                                                <action selector="didTapJoin:" destination="vFn-9h-QqO" eventType="touchUpInside" id="STL-qb-VZM"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
@@ -424,7 +430,10 @@ Comment on other people's plans and text them to meet up!</string>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="commentButton" destination="kOv-pq-ohS" id="9Mk-C3-KTU"/>
                                             <outlet property="fullTime" destination="p5h-g3-L2U" id="fxd-bK-rx7"/>
+                                            <outlet property="heartButton" destination="eek-ON-HhP" id="tiC-Ne-hmf"/>
+                                            <outlet property="joinButton" destination="zd7-SJ-RBo" id="Ff7-bO-UAT"/>
                                             <outlet property="location" destination="uTY-aw-uPo" id="fsx-9p-ytZ"/>
                                             <outlet property="message" destination="mRI-lt-esJ" id="gLG-jD-t7X"/>
                                             <outlet property="name" destination="Qba-80-eCT" id="lmd-lI-dFc"/>
@@ -1615,8 +1624,8 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="urZ-Y9-YSI"/>
-        <segue reference="cnr-oU-dOg"/>
+        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="VIb-lG-h26"/>
         <segue reference="qn0-AH-Q8Y"/>
     </inferredMetricsTieBreakers>
 </document>

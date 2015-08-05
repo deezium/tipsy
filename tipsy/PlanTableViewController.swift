@@ -44,17 +44,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.planTableView.reloadData()
     }
     
-    @IBAction func didTapRemoveFilters(sender: AnyObject) {
-        filtered = false
-        self.planTableView.reloadData()
-    }
     
-    @IBAction func didTapFilter(sender: AnyObject) {
-        filtered = true
-        filteredObjects = [PFObject]()
-        self.filterQueryResults(queryObjects)
-        self.planTableView.reloadData()
-    }
 
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
@@ -67,19 +57,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
-    func filterQueryResults(objects: [PFObject]) {
-        for object in objects {
-            let startTime = object.objectForKey("startTime") as? NSDate
-            let endTime = object.objectForKey("endTime") as? NSDate
-            let filterTime = timeFilter.date
-            
-            if (startTime!.isEarlierThanOrEqualTo(filterTime)) {
-                if (endTime!.isLaterThanOrEqualTo(filterTime)) {
-                    filteredObjects.append(object)
-                }
-            }
-        }
-    }
     
     func createPlanArrays(objects: [PFObject]) {
         
@@ -204,6 +181,83 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+    @IBAction func didTapHeart(sender: AnyObject) {
+        println("hearted!")
+        
+        let heartButton: UIButton = sender as! UIButton
+        
+        let cell = heartButton.superview?.superview?.superview as! UITableViewCell
+        
+        println(cell)
+        
+        let index = self.planTableView.indexPathForCell(cell)!
+        
+        
+        let sectionItems = self.getSectionItems(index.section)
+        
+        let plan = sectionItems[index.row]
+
+        println("selectedPlan \(plan)")
+        
+
+        let object = PFObject(className: "PlanHeart")
+        object.setObject(PFUser.currentUser()!, forKey: "heartingUser")
+        object.setObject(plan, forKey: "heartedPlan")
+        
+        let ACL = PFACL()
+        ACL.setPublicReadAccess(true)
+        ACL.setPublicWriteAccess(true)
+        object.ACL = ACL
+        
+        object.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("Success")
+            }
+            else {
+                println("error \(error)")
+            }
+        }
+    }
+    
+    @IBAction func didTapJoin(sender: AnyObject) {
+        println("joined!")
+        
+        let joinButton: UIButton = sender as! UIButton
+        
+        let cell = joinButton.superview?.superview?.superview as! UITableViewCell
+        
+        println(cell)
+        
+        let index = self.planTableView.indexPathForCell(cell)!
+        
+        
+        let sectionItems = self.getSectionItems(index.section)
+        
+        let plan = sectionItems[index.row]
+        
+        println("selectedPlan \(plan)")
+        
+        let object = PFObject(className: "PlanAttendance")
+        object.setObject(PFUser.currentUser()!, forKey: "attendingUser")
+        object.setObject(plan, forKey: "attendedPlan")
+        
+        let ACL = PFACL()
+        ACL.setPublicReadAccess(true)
+        ACL.setPublicWriteAccess(true)
+        object.ACL = ACL
+        
+        object.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("Success")
+            }
+            else {
+                println("error \(error)")
+            }
+        }
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -213,13 +267,20 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             let planDetailViewController = segue.destinationViewController as! PlanDetailViewController
             
             let index = self.planTableView.indexPathForSelectedRow()!
+            
+            
+            let sectionItems = self.getSectionItems(index.section)
+            
             var queryObject: PFObject
-            if segmentedControl.selectedSegmentIndex == 0 {
-                queryObject = upcomingPlans[index.row]
-            }
-            else {
-                queryObject = pastPlans[index.row]
-            }
+            
+            queryObject = sectionItems[index.row]
+            
+//            if segmentedControl.selectedSegmentIndex == 0 {
+//                queryObject = upcomingPlans[index.row]
+//            }
+//            else {
+//                queryObject = pastPlans[index.row]
+//            }
             selectedPlans.append(queryObject)
             println("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
@@ -403,6 +464,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         if let message = message {
             cell.message.text = message
         }
+        
+        cell.heartButton.setTitle("25", forState: UIControlState.Normal)
+        
+        cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
+    
         
         return cell
     }

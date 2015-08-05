@@ -403,6 +403,63 @@
 			name = "Calendar Cell";
 			sourceTree = "<group>";
 		};
+		334D1A761B71D42600E5D025 /* CurrentFiles */ = {
+			isa = PBXGroup;
+			children = (
+				334D1A7A1B71D4C600E5D025 /* Other */,
+				334D1A791B71D49900E5D025 /* ViewControllers */,
+				334D1A771B71D44900E5D025 /* TableCells */,
+			);
+			name = CurrentFiles;
+			sourceTree = "<group>";
+		};
+		334D1A771B71D44900E5D025 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */,
+				335C80EC1B62339E00702414 /* CommentCell.swift */,
+				336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */,
+				336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */,
+				336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */,
+				334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */,
+				338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */,
+				338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
+		334D1A791B71D49900E5D025 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */,
+				338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */,
+				3339CE431B43B084001C222C /* InitialViewController.swift */,
+				33F7793A1B713BF400CA7807 /* LocationSearchViewController.swift */,
+				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
+				335C80EA1B62063F00702414 /* PlanDetailViewController.swift */,
+				338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */,
+				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
+				332476DE1B4C7D8D00CF0881 /* TabBarController.swift */,
+				338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		334D1A7A1B71D4C600E5D025 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				336344951B3283F800DF3D90 /* AppDelegate.swift */,
+				336344C01B3B271200DF3D90 /* FacebookController.swift */,
+				338EAA781B5D6D6A00E63FC7 /* GoogleDataProvider.swift */,
+				336344991B3283F800DF3D90 /* Main.storyboard */,
+				335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */,
+				332476F01B51811100CF0881 /* QueryController.swift */,
+				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
+				3339CDF31B4244D1001C222C /* Util.swift */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		336344871B3283F800DF3D90 = {
 			isa = PBXGroup;
 			children = (
@@ -431,32 +488,7 @@
 				338EAAAA1B5EC1D200E63FC7 /* v1Files */,
 				338EAA641B58A11400E63FC7 /* Swifter.xcodeproj */,
 				33F385E01B5494CD0008AFF7 /* Images */,
-				3339CDF31B4244D1001C222C /* Util.swift */,
-				338EAA781B5D6D6A00E63FC7 /* GoogleDataProvider.swift */,
-				336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */,
-				334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */,
-				336344951B3283F800DF3D90 /* AppDelegate.swift */,
-				332476DE1B4C7D8D00CF0881 /* TabBarController.swift */,
-				3339CE431B43B084001C222C /* InitialViewController.swift */,
-				332476F01B51811100CF0881 /* QueryController.swift */,
-				336344C01B3B271200DF3D90 /* FacebookController.swift */,
-				336344991B3283F800DF3D90 /* Main.storyboard */,
-				336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */,
-				336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */,
-				33F7793A1B713BF400CA7807 /* LocationSearchViewController.swift */,
-				33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */,
-				3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */,
-				335C80EC1B62339E00702414 /* CommentCell.swift */,
-				335C80E31B60F8FA00702414 /* PlanCreationTextField.swift */,
-				338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */,
-				338EAA981B5D88C300E63FC7 /* PlanCreationViewController.swift */,
-				335C80EA1B62063F00702414 /* PlanDetailViewController.swift */,
-				338EAAAD1B5EC51100E63FC7 /* PlanProfileViewController.swift */,
-				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
-				338EAAAF1B5EC69500E63FC7 /* PlanProfileCell.swift */,
-				338EAAA61B5E229200E63FC7 /* PlanFeedCell.swift */,
-				338EAAA21B5DE70700E63FC7 /* SharedExtensions.swift */,
-				338EAA931B5D782500E63FC7 /* GoogleMapsViewController.swift */,
+				334D1A761B71D42600E5D025 /* CurrentFiles */,
 				3363449C1B3283F800DF3D90 /* Images.xcassets */,
 				3363449E1B3283F800DF3D90 /* LaunchScreen.xib */,
 				336344931B3283F800DF3D90 /* Supporting Files */,

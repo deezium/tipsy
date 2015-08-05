@@ -78,6 +78,7 @@ class QueryController {
         
         let currentDate = NSDate()
         
+        query.includeKey("heartedPlan")
         query.includeKey("creatingUser")
         query.orderByAscending("startTime")
         query.limit = 20
@@ -105,5 +106,34 @@ class QueryController {
         
         println(objects)
     }
+    
+    func queryPlanHearts(plan: PFObject) {
+        var query = PFQuery(className: "PlanHeart")
+        
+        println("querying for plan \(plan)")
+        query.includeKey("heartingUser")
+        query.includeKey("heartedPlan")
 
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveQueryResults(objects)
+        
+        println(objects)
+        
+    }
+
+    func queryPlanAttendances(plan: PFObject) {
+        var query = PFQuery(className: "PlanAttendance")
+        
+        println("querying for plan \(plan)")
+        query.includeKey("attendingUser")
+        query.includeKey("attendedPlan")
+        
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveQueryResults(objects)
+        
+        println(objects)
+        
+    }
+
+    
 }

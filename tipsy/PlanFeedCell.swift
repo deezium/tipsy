@@ -21,9 +21,14 @@ class PlanFeedCell: UITableViewCell {
     
     @IBOutlet weak var fullTime: UILabel!
 
+    @IBOutlet weak var commentButton: UIButton!
     
+    @IBOutlet weak var joinButton: UIButton!
+    @IBOutlet weak var heartButton: UIButton!
     
     @IBOutlet weak var message: UILabel!
+    
+    
     
     
 }
