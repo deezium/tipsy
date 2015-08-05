@@ -187,9 +187,15 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         return true
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.endTime.date = NSDate().dateByAddingHours(1)
+        planCreationTable.delegate = self
+        planCreationTable.dataSource = self
+        
+        
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
@@ -227,7 +233,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     //PROPERLY HIDE BUTTONS
     
     override func viewWillAppear(animated: Bool) {
+
         
+        planCreationTable.separatorColor = UIColor.grayColor()
+
         println("dese plans \(plans)")
         
         if plans.count != 0 {
@@ -253,6 +262,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
     }
     
+//    func textFieldShouldReturn(textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         if let location = locations.first as? CLLocation {
             println("your current location is \(currentLocation)")
@@ -261,13 +275,45 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationTextCell") as! UITableViewCell
+        
+        var cell = UITableViewCell()
+        
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+
+        }
+        if indexPath.row == 1 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
+        }
+        if indexPath.row == 2 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
+        }
+        if indexPath.row == 3 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+            
+        }
+        if indexPath.row == 4 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationTimeCell") as! PlanCreationTimeCell
+            cell.textLabel?.text = "Start Time"
+            
+        }
+        if indexPath.row == 5 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationTimeCell") as! PlanCreationTimeCell
+            cell.textLabel?.text = "End Time"
+            
+        }
+        if indexPath.row == 6 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+            
+        }
+        
+        println("yocell \(cell)")
         
         return cell
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 7
     }
     
     

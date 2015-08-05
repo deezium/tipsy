@@ -81,6 +81,10 @@
 		336344AC1B3283F800DF3D90 /* tipsyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344AB1B3283F800DF3D90 /* tipsyTests.swift */; };
 		336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */; };
 		336344C11B3B271200DF3D90 /* FacebookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336344C01B3B271200DF3D90 /* FacebookController.swift */; };
+		336ED7E31B7171B300F75A24 /* PlanCreationActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */; };
+		336ED7E71B71721100F75A24 /* PlanCreationLocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */; };
+		336ED7E91B717A5700F75A24 /* PlanCreationDividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */; };
+		336ED7EB1B717E1300F75A24 /* PlanCreationTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336ED7EA1B717E1300F75A24 /* PlanCreationTimeCell.swift */; };
 		338EAA791B5D6D6A00E63FC7 /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338EAA781B5D6D6A00E63FC7 /* GoogleDataProvider.swift */; };
 		338EAA7F1B5D6FBB00E63FC7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338EAA7E1B5D6FBB00E63FC7 /* AVFoundation.framework */; };
 		338EAA841B5D6FC300E63FC7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 338EAA831B5D6FC300E63FC7 /* CoreData.framework */; };
@@ -269,6 +273,10 @@
 		336344BB1B32893900DF3D90 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		336344C01B3B271200DF3D90 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
+		336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationActivityCell.swift; sourceTree = "<group>"; };
+		336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationLocationCell.swift; sourceTree = "<group>"; };
+		336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationDividerCell.swift; sourceTree = "<group>"; };
+		336ED7EA1B717E1300F75A24 /* PlanCreationTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlanCreationTimeCell.swift; path = ../PlanCreationTimeCell.swift; sourceTree = "<group>"; };
 		338EAA641B58A11400E63FC7 /* Swifter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Swifter.xcodeproj; path = /Users/debarshi/Documents/Sandbox/tipsy/Swifter/Swifter.xcodeproj; sourceTree = "<absolute>"; };
 		338EAA781B5D6D6A00E63FC7 /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoogleDataProvider.swift; path = ../GoogleDataProvider.swift; sourceTree = "<group>"; };
 		338EAA7E1B5D6FBB00E63FC7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -425,12 +433,15 @@
 				33F385E01B5494CD0008AFF7 /* Images */,
 				3339CDF31B4244D1001C222C /* Util.swift */,
 				338EAA781B5D6D6A00E63FC7 /* GoogleDataProvider.swift */,
+				336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */,
 				336344951B3283F800DF3D90 /* AppDelegate.swift */,
 				332476DE1B4C7D8D00CF0881 /* TabBarController.swift */,
 				3339CE431B43B084001C222C /* InitialViewController.swift */,
 				332476F01B51811100CF0881 /* QueryController.swift */,
 				336344C01B3B271200DF3D90 /* FacebookController.swift */,
 				336344991B3283F800DF3D90 /* Main.storyboard */,
+				336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */,
+				336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */,
 				33F7793A1B713BF400CA7807 /* LocationSearchViewController.swift */,
 				33F7792B1B70BA5500CA7807 /* CalendarHeaderCell.swift */,
 				3394DA4C1B6FF5D20065F2FD /* EditProfileViewController.swift */,
@@ -584,6 +595,7 @@
 		33F385E01B5494CD0008AFF7 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				336ED7EA1B717E1300F75A24 /* PlanCreationTimeCell.swift */,
 				33F385E11B5494CD0008AFF7 /* firstaid.png */,
 				33F385E21B5494CD0008AFF7 /* firstaid@2x.png */,
 				33F385E31B5494CD0008AFF7 /* food.png */,
@@ -927,14 +939,18 @@
 				336344BF1B3358D500DF3D90 /* FriendsListViewController.swift in Sources */,
 				338EAA791B5D6D6A00E63FC7 /* GoogleDataProvider.swift in Sources */,
 				338EAAA91B5E295500E63FC7 /* PlanTableViewController.swift in Sources */,
+				336ED7E31B7171B300F75A24 /* PlanCreationActivityCell.swift in Sources */,
 				335C80E41B60F8FA00702414 /* PlanCreationTextField.swift in Sources */,
 				3339CDF41B4244D1001C222C /* Util.swift in Sources */,
+				336ED7E71B71721100F75A24 /* PlanCreationLocationCell.swift in Sources */,
 				3339CE141B424EE6001C222C /* FMDatabaseQueue.m in Sources */,
 				332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */,
 				332476E91B4E0A4600CF0881 /* FeedTextCell.swift in Sources */,
 				336344961B3283F800DF3D90 /* AppDelegate.swift in Sources */,
 				33F386E81B5851830008AFF7 /* TwitterViewController.swift in Sources */,
+				336ED7E91B717A5700F75A24 /* PlanCreationDividerCell.swift in Sources */,
 				338EAAA71B5E229200E63FC7 /* PlanFeedCell.swift in Sources */,
+				336ED7EB1B717E1300F75A24 /* PlanCreationTimeCell.swift in Sources */,
 				332476E11B4C846600CF0881 /* MeViewController.swift in Sources */,
 				3339CE1A1B4357C2001C222C /* ProfileViewController.swift in Sources */,
 				338EAAA31B5DE70700E63FC7 /* SharedExtensions.swift in Sources */,

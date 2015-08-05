@@ -28,7 +28,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         
         searchBar.delegate = self
         
-        locationSearchResults.hidden = false
+        locationSearchResults.hidden = true
         locationSearchResults.dataSource = self
         locationSearchResults.delegate = self
         
