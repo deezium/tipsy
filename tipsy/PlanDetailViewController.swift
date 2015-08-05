@@ -25,6 +25,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     @IBOutlet weak var commentTable: UITableView!
     
+    var currentUser = PFUser.currentUser()
     var planObjects = [PFObject]()
     
     var query = QueryController()
@@ -128,6 +129,146 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
     }
     
+    @IBAction func didTapHeartButton(sender: AnyObject) {
+        let heartButton: UIButton = sender as! UIButton
+        
+        let cell = heartButton.superview?.superview as! PlanDetailInteractionCell
+        
+        
+        //        println(cell)
+        
+        let index = self.commentTable.indexPathForCell(cell)!
+        
+        let plan = planObjects.first!
+        //        println("selectedPlan \(plan)")
+        
+        var heartState = Bool()
+        
+        let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
+        
+        if let hearts = heartingUsers {
+            println("dem hearts \(hearts)")
+            println("dat user \(currentUser!.objectId!)")
+            if contains(hearts, currentUser!.objectId!) {
+                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
+                heartState = true
+            }
+            else {
+                heartState = false
+            }
+        }
+        
+        if heartState == false {
+            plan.addUniqueObject(currentUser!.objectId!, forKey: "heartingUsers")
+            
+            heartState = !heartState
+            
+            let originalHeartingUserCount = heartingUsers?.count ?? 0
+            
+            let newHeartingUserCount = originalHeartingUserCount + 1
+            
+            let newHeartingUserCountString = String(newHeartingUserCount)
+            
+            cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
+            println("hearted! \(heartState)")
+            
+        }
+        else {
+            plan.removeObject(currentUser!.objectId!, forKey: "heartingUsers")
+            
+            heartState = !heartState
+            
+            let originalHeartingUserCount = heartingUsers?.count ?? 0
+            
+            let newHeartingUserCount = originalHeartingUserCount - 1
+            
+            let newHeartingUserCountString = String(newHeartingUserCount)
+            
+            cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+            cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
+            println("unhearted! \(heartState)")
+        }
+        
+        
+        plan.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("Success")
+            }
+            else {
+                println("error \(error)")
+            }
+        }
+
+    }
+    
+    
+    
+    @IBAction func didTapJoinButton(sender: AnyObject) {
+        
+        let joinButton: UIButton = sender as! UIButton
+        
+        let cell = joinButton.superview?.superview as! PlanDetailInteractionCell
+        
+        
+        let index = self.commentTable.indexPathForCell(cell)!
+        
+        
+        
+        let plan = planObjects.first!
+        
+        var attendanceState = Bool()
+        
+        let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
+        
+        if let attendees = attendingUsers {
+            println("dem attendees \(attendees)")
+            println("dat user \(currentUser!.objectId!)")
+            if contains(attendees, currentUser!.objectId!) {
+                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
+                attendanceState = true
+            }
+            else {
+                attendanceState = false
+            }
+        }
+        
+        
+        if attendanceState == false {
+            plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
+            
+            attendanceState = !attendanceState
+            
+            
+            cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
+            cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
+            println("joined! \(attendanceState)")
+            
+        }
+        else {
+            plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
+            
+            attendanceState = !attendanceState
+            
+            
+            cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
+            cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
+            println("left! \(attendanceState)")
+        }
+        
+        
+        plan.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("Success")
+            }
+            else {
+                println("error \(error)")
+            }
+        }
+
+    }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -152,6 +293,61 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         else if indexPath.row == 1 {
             var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailInteractionCell") as? PlanDetailInteractionCell
+            
+            var heartState: Bool? = false
+            
+            let plan = planObjects.first!
+            
+            let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
+            let countHeartingUsers = heartingUsers?.count
+            
+            if let hearts = heartingUsers {
+                println("dem hearts \(hearts)")
+                println("dat user \(currentUser!.objectId!)")
+                if contains(hearts, currentUser!.objectId!) {
+                    println ("plan \(plan.objectId) is hearted by \(currentUser!.objectId!)")
+                    heartState = true
+                }
+            }
+            
+            var attendanceState: Bool? = false
+            
+            let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
+            let countAttendingUsers = attendingUsers?.count
+            
+            if let attendees = attendingUsers {
+                println("dem hearts \(attendees)")
+                println("dat user \(currentUser!.objectId!)")
+                if contains(attendees, currentUser!.objectId!) {
+                    println ("plan \(plan.objectId) is being attended by \(currentUser!.objectId!)")
+                    attendanceState = true
+                }
+            }
+            
+            if (heartState == true) {
+                cell?.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            }
+            else {
+                cell?.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+                
+            }
+            
+            cell?.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            
+            if (attendanceState == true) {
+                cell?.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
+                cell?.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
+                
+            }
+            else {
+                cell?.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
+                cell?.joinButton.setTitle("Join", forState: UIControlState.Normal)
+                
+                
+            }
+
+
+            
             finalCell = cell
 
         }
