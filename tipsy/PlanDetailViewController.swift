@@ -353,7 +353,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         else if indexPath.row == 2 {
-            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as? UITableViewCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as? PlanDetailAttendingCell
+            
+            let plan = planObjects.first!
+            
             finalCell = cell
             
         }
