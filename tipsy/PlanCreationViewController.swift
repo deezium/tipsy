@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import CoreLocation
 import GoogleMaps
 
@@ -22,7 +23,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     var selectedPlaceGeoPoint = PFGeoPoint()
     var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
-    @IBOutlet weak var planCreationTable: UITableView!
+
+    
+    @IBOutlet weak var tableView: UITableView!
     
 //    @IBOutlet weak var messageField: UITextField!
 //
@@ -39,11 +42,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     let kDateKey  = "date"  // key for obtaining the data source item's date value
     
     // keep track of which rows have date cells
-    let kDateStartRow = 4
-    let kDateEndRow   = 5
+    let kDateStartRow = 1
+    let kDateEndRow   = 2
     
-    let kDateCellID       = "PlanCreationDateCell";       // the cells with the start or end date
+    let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "DatePickerCell"; // the cell containing the date picker
+    let kOtherCellID      = "otherCell";      // the remaining cells at the end
     
     var dataArray: [[String: AnyObject]] = []
     var dateFormatter = NSDateFormatter()
@@ -53,6 +57,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     
     var pickerCellRowHeight: CGFloat = 216
 
+    @IBOutlet var pickerView: UIDatePicker!
     
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
@@ -114,9 +119,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //        }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        self.view.endEditing(true)
+//    }
     
     
     @IBAction func didTapUpdateButton(sender: AnyObject) {
@@ -215,9 +220,21 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.endTime.date = NSDate().dateByAddingHours(1)
-        planCreationTable.delegate = self
-        planCreationTable.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
+        // setup our data source
+        let itemOne = [kTitleKey : "Tap a cell to change its date:"]
+        let itemTwo = [kTitleKey : "Start Date", kDateKey : NSDate()]
+        let itemThree = [kTitleKey : "End Date", kDateKey : NSDate()]
+        let itemFour = [kTitleKey : "(other item1)"]
+        let itemFive = [kTitleKey : "(other item2)"]
+        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        
+        dateFormatter.dateStyle = .ShortStyle // show short-style date format
+        dateFormatter.timeStyle = .ShortStyle
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
         
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
@@ -249,7 +266,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     override func viewWillAppear(animated: Bool) {
 
         
-        planCreationTable.separatorColor = UIColor.grayColor()
+        tableView.separatorColor = UIColor.grayColor()
 
         println("dese plans \(plans)")
         
@@ -288,11 +305,153 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        
+//        var cell: UITableViewCell?
+//        
+//        var cellID = String()
+//        
+//        if indexPathHasPicker(indexPath) {
+//            // the indexPath is the one containing the inline date picker
+//            cellID = kDatePickerCellID     // the current/opened date picker cell
+//        } else if indexPathHasDate(indexPath) {
+//            // the indexPath is one that contains the date information
+//            cellID = kDateCellID       // the start/end date cells
+//        }
+//        
+//        
+//        if indexPath.row == 0 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+//
+//        }
+//        if indexPath.row == 1 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
+//        }
+//        if indexPath.row == 2 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
+//        }
+//        if indexPath.row == 3 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+//            
+//        }
+//        if indexPath.row == 4 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
+//            
+//        }
+//        if indexPath.row == 5 {
+//            cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+//            
+//        }
+//        
+//        if indexPath.row == 6 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
+//            
+//        }
+//        if indexPath.row == 7 {
+//            cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+//            
+//        }
+//
+//        if indexPath.row == 8 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+//            
+//        }
+//        
+//        println("yocell \(cell)")
+//        
+//        return cell!
+//    }
+    
+    func localeChanged(notif: NSNotification) {
+        // the user changed the locale (region format) in Settings, so we are notified here to
+        // update the date format in the table view cells
+        //
+        tableView.reloadData()
+    }
+
+    /*! Determines if the given indexPath has a cell below it with a UIDatePicker.
+    
+    @param indexPath The indexPath to check if its cell has a UIDatePicker below it.
+    */
+    func hasPickerForIndexPath(indexPath: NSIndexPath) -> Bool {
+        var hasDatePicker = false
         
+        let targetedRow = indexPath.row + 1
+        
+        let checkDatePickerCell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: targetedRow, inSection: 0))
+        let checkDatePicker = checkDatePickerCell?.viewWithTag(kDatePickerTag)
+        
+        hasDatePicker = checkDatePicker != nil
+        return hasDatePicker
+    }
+    
+    /*! Updates the UIDatePicker's value to match with the date of the cell above it.
+    */
+    func updateDatePicker() {
+        if let indexPath = datePickerIndexPath {
+            let associatedDatePickerCell = tableView.cellForRowAtIndexPath(indexPath)
+            if let targetedDatePicker = associatedDatePickerCell?.viewWithTag(kDatePickerTag) as! UIDatePicker? {
+                let itemData = dataArray[self.datePickerIndexPath!.row - 1]
+                targetedDatePicker.setDate(itemData[kDateKey] as! NSDate, animated: false)
+            }
+        }
+    }
+    
+    /*! Determines if the UITableViewController has a UIDatePicker in any of its cells.
+    */
+    func hasInlineDatePicker() -> Bool {
+        return datePickerIndexPath != nil
+    }
+    
+    /*! Determines if the given indexPath points to a cell that contains the UIDatePicker.
+    
+    @param indexPath The indexPath to check if it represents a cell with the UIDatePicker.
+    */
+    func indexPathHasPicker(indexPath: NSIndexPath) -> Bool {
+        return hasInlineDatePicker() && datePickerIndexPath?.row == indexPath.row
+    }
+    
+    /*! Determines if the given indexPath points to a cell that contains the start/end dates.
+    
+    @param indexPath The indexPath to check if it represents start/end date cell.
+    */
+    func indexPathHasDate(indexPath: NSIndexPath) -> Bool {
+        var hasDate = false
+        
+        if (indexPath.row == kDateStartRow) || (indexPath.row == kDateEndRow || (hasInlineDatePicker() && (indexPath.row == kDateEndRow + 1))) {
+            hasDate = true
+        }
+        return hasDate
+    }
+    
+    
+    // MARK: - Table view data source
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return (indexPathHasPicker(indexPath) ? pickerCellRowHeight : tableView.rowHeight)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Potentially incomplete method implementation.
+        // Return the number of sections.
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if hasInlineDatePicker() {
+            // we have a date picker, so allow for it in the number of rows in this section
+            var numRows = dataArray.count
+            return ++numRows;
+        }
+        
+        return dataArray.count;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         
-        var cellID = String()
+        var cellID = kOtherCellID
         
         if indexPathHasPicker(indexPath) {
             // the indexPath is the one containing the inline date picker
@@ -302,126 +461,66 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             cellID = kDateCellID       // the start/end date cells
         }
         
+        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
         
         if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-
-        }
-        if indexPath.row == 1 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
-        }
-        if indexPath.row == 2 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
-        }
-        if indexPath.row == 3 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-            
-        }
-        if indexPath.row == 4 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
-            
-        }
-        if indexPath.row == 5 {
-            cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-            
+            // we decide here that first cell in the table is not selectable (it's just an indicator)
+            cell?.selectionStyle = .None;
         }
         
-        if indexPath.row == 6 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
-            
-        }
-        if indexPath.row == 7 {
-            cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-            
-        }
-
-        if indexPath.row == 8 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-            
+        // if we have a date picker open whose cell is above the cell we want to update,
+        // then we have one more cell than the model allows
+        //
+        var modelRow = indexPath.row
+        if (datePickerIndexPath != nil && datePickerIndexPath?.row <= indexPath.row) {
+            modelRow--
         }
         
-        println("yocell \(cell)")
+        let itemData = dataArray[modelRow]
+        
+        if cellID == kDateCellID {
+            // we have either start or end date cells, populate their date field
+            //
+            cell?.textLabel?.text = itemData[kTitleKey] as? String
+            cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(itemData[kDateKey] as! NSDate)
+        } else if cellID == kOtherCellID {
+            // this cell is a non-date cell, just assign it's text label
+            //
+            cell?.textLabel?.text = itemData[kTitleKey] as? String
+        }
         
         return cell!
     }
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if hasInlineDatePicker() {
-            var numRows = 7
-            return ++numRows
-        }
-        
-        return 7
-    }
     
+    /*! Adds or removes a UIDatePicker cell below the given indexPath.
     
-    //DATE PICKER METHODS
-    
-    func hasPickerForIndexPath(indexPath: NSIndexPath) -> Bool {
-        var hasDatePicker = false
-        
-        let targetedRow = indexPath.row + 1
-        
-        let checkDatePickerCell = planCreationTable.cellForRowAtIndexPath(NSIndexPath(forRow: targetedRow, inSection: 0))
-        let checkDatePicker = checkDatePickerCell?.viewWithTag(kDatePickerTag)
-        
-        hasDatePicker = checkDatePicker != nil
-        return hasDatePicker
-    }
-    
-    func updateDatePicker() {
-        if let indexPath = datePickerIndexPath {
-            let associatedDatePickerCell = planCreationTable.cellForRowAtIndexPath(indexPath)
-            if let targetedDatePicker = associatedDatePickerCell?.viewWithTag(kDatePickerTag) as! UIDatePicker? {
-                let itemData = dataArray[self.datePickerIndexPath!.row - 1]
-                targetedDatePicker.setDate(itemData[kDateKey] as! NSDate, animated: false)
-            }
-        }
-    }
-
-    func hasInlineDatePicker() -> Bool {
-        return datePickerIndexPath != nil
-    }
-
-    func indexPathHasPicker(indexPath: NSIndexPath) -> Bool {
-        return hasInlineDatePicker() && datePickerIndexPath?.row == indexPath.row
-    }
-
-    func indexPathHasDate(indexPath: NSIndexPath) -> Bool {
-        var hasDate = false
-        
-        if (indexPath.row == kDateStartRow) || (indexPath.row == kDateEndRow || (hasInlineDatePicker() && (indexPath.row == kDateEndRow + 1))) {
-            hasDate = true
-        }
-        return hasDate
-    }
-
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return (indexPathHasPicker(indexPath) ? pickerCellRowHeight : tableView.rowHeight)
-    }
-
+    @param indexPath The indexPath to reveal the UIDatePicker.
+    */
     func toggleDatePickerForSelectedIndexPath(indexPath: NSIndexPath) {
         
-        planCreationTable.beginUpdates()
+        tableView.beginUpdates()
         
         let indexPaths = [NSIndexPath(forRow: indexPath.row + 1, inSection: 0)]
         
         // check if 'indexPath' has an attached date picker below it
         if hasPickerForIndexPath(indexPath) {
             // found a picker below it, so remove it
-            planCreationTable.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
+            tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
         } else {
             // didn't find a picker below it, so we should insert it
-            planCreationTable.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
+            tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Fade)
         }
-        planCreationTable.endUpdates()
+        tableView.endUpdates()
     }
     
+    /*! Reveals the date picker inline for the given indexPath, called by "didSelectRowAtIndexPath".
+    
+    @param indexPath The indexPath to reveal the UIDatePicker.
+    */
     func displayInlineDatePickerForRowAtIndexPath(indexPath: NSIndexPath) {
         
         // display the date picker inline with the table content
-        planCreationTable.beginUpdates()
+        tableView.beginUpdates()
         
         var before = false // indicates if the date picker is below "indexPath", help us determine which row to reveal
         if hasInlineDatePicker() {
@@ -432,7 +531,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         // remove any date picker cell if it exists
         if self.hasInlineDatePicker() {
-            planCreationTable.deleteRowsAtIndexPaths([NSIndexPath(forRow: datePickerIndexPath!.row, inSection: 0)], withRowAnimation: .Fade)
+            tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: datePickerIndexPath!.row, inSection: 0)], withRowAnimation: .Fade)
             datePickerIndexPath = nil
         }
         
@@ -446,17 +545,52 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
         
         // always deselect the row containing the start or end date
-        planCreationTable.deselectRowAtIndexPath(indexPath, animated:true)
+        tableView.deselectRowAtIndexPath(indexPath, animated:true)
         
-        planCreationTable.endUpdates()
+        tableView.endUpdates()
         
         // inform our date picker of the current date to match the current cell
         updateDatePicker()
     }
     
+    /*! Reveals the UIDatePicker as an external slide-in view, iOS 6.1.x and earlier, called by "didSelectRowAtIndexPath".
+    
+    @param indexPath The indexPath used to display the UIDatePicker.
+    */
+    /*
+    func displayExternalDatePickerForRowAtIndexPath(indexPath: NSIndexPath) {
+    
+    // first update the date picker's date value according to our model
+    let itemData: AnyObject = self.dataArray[indexPath.row]
+    self.pickerView.setDate(itemData.valueForKey(kDateKey) as NSDate, animated: true)
+    
+    // the date picker might already be showing, so don't add it to our view
+    if self.pickerView.superview == nil {
+    var startFrame = self.pickerView.frame
+    var endFrame = self.pickerView.frame
+    
+    // the start position is below the bottom of the visible frame
+    startFrame.origin.y = CGRectGetHeight(self.view.frame)
+    
+    // the end position is slid up by the height of the view
+    endFrame.origin.y = startFrame.origin.y - CGRectGetHeight(endFrame)
+    
+    self.pickerView.frame = startFrame
+    
+    self.view.addSubview(self.pickerView)
+    
+    // animate the date picker into view
+    UIView.animateWithDuration(kPickerAnimationDuration, animations: { self.pickerView.frame = endFrame }, completion: {(value: Bool) in
+    // add the "Done" button to the nav bar
+    //self.navigationItem.rightBarButtonItem = self.doneButton
+    })
+    }
+    }
+    */
+    
+    
+    // MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        println("selectedRow \(indexPath.row)")
         
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         if cell?.reuseIdentifier == kDateCellID {
@@ -465,9 +599,16 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
-
     
-
+    
+    // MARK: - Actions
+    
+    /*! User chose to change the date by changing the values inside the UIDatePicker.
+    
+    @param sender The sender for this action: UIDatePicker.
+    */
+    
+    
     @IBAction func dateAction(sender: UIDatePicker) {
         
         var targetedCellIndexPath: NSIndexPath?
@@ -478,10 +619,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             targetedCellIndexPath = NSIndexPath(forRow: datePickerIndexPath!.row - 1, inSection: 0)
         } else {
             // external date picker: update the current "selected" cell's date
-            targetedCellIndexPath = planCreationTable.indexPathForSelectedRow()!
+            targetedCellIndexPath = tableView.indexPathForSelectedRow()!
         }
         
-        var cell = planCreationTable.cellForRowAtIndexPath(targetedCellIndexPath!)
+        var cell = tableView.cellForRowAtIndexPath(targetedCellIndexPath!)
         let targetedDatePicker = sender
         
         // update our data model
@@ -493,9 +634,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         cell?.detailTextLabel?.text = dateFormatter.stringFromDate(targetedDatePicker.date)
         
         
-
     }
-
-    
     
 }
