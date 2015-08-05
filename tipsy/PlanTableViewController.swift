@@ -373,7 +373,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let dayOfWeekString = df.stringFromDate(date)
         
-        headerCell.headerLabel.text =  dayOfWeekString + ", " + dateString
+        df.dateFormat = "MMMM dd"
+        let prettyDateString = df.stringFromDate(date)
+        
+        headerCell.headerLabel.text =  dayOfWeekString + ", " + prettyDateString
         
     
         return headerCell
