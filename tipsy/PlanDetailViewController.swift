@@ -128,9 +128,11 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
     }
     
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(queryObjects.count)
-        return queryObjects.count + 4
+        return queryObjects.count + 3
     }
  
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -160,15 +162,15 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
         }
         
-        else if indexPath.row == 3 {
-            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailHeaderCell") as? UITableViewCell
-            finalCell = cell
-            
-        }
+//        else if indexPath.row == 3 {
+//            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailHeaderCell") as? UITableViewCell
+//            finalCell = cell
+//            
+//        }
         
         else {
             var cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
-            let commentObject = queryObjects[indexPath.row-4]
+            let commentObject = queryObjects[indexPath.row-3]
             
             let user = commentObject.objectForKey("commentingUser") as! PFUser
             let fullname = user.objectForKey("fullname") as? String

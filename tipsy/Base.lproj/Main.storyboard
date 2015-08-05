@@ -1245,18 +1245,22 @@ Comment on other people's plans and text them to meet up!</string>
                                             <outlet property="addressLabel" destination="pic-Xe-q20" id="waQ-jH-43k"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanDetailAttendingCell" textLabel="6Ma-h4-0uX" rowHeight="54" style="IBUITableViewCellStyleDefault" id="qc7-qS-tId" customClass="CommentCell" customModule="tipsy" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanDetailAttendingCell" rowHeight="70" id="qc7-qS-tId" customClass="PlanDetailAttendingCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qc7-qS-tId" id="XND-V8-Rgi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Attending" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Ma-h4-0uX">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Attending" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1W-7l-wHz">
+                                                    <rect key="frame" x="29" y="8" width="63" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="l1W-7l-wHz" firstAttribute="top" secondItem="XND-V8-Rgi" secondAttribute="top" constant="5" id="0r4-H2-8la"/>
+                                                <constraint firstItem="l1W-7l-wHz" firstAttribute="leading" secondItem="XND-V8-Rgi" secondAttribute="leading" constant="30" id="gc6-yo-uXO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCell" rowHeight="90" id="ECH-P5-qj7" customClass="CommentCell" customModule="tipsy" customModuleProvider="target">
@@ -1316,18 +1320,15 @@ Comment on other people's plans and text them to meet up!</string>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOL-Zj-c5g">
                                                     <rect key="frame" x="41" y="11" width="42" height="24"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ex3-TK-h3b"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="ex3-TK-h3b"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8K-SC-T3e">
                                                     <rect key="frame" x="287" y="15" width="42" height="20"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nR4-p5-B9s">
                                                     <rect key="frame" x="497" y="11" width="42" height="24"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeU-fD-qO9">
                                                     <rect key="frame" x="140" y="10" width="80" height="25"/>
@@ -1353,10 +1354,12 @@ Comment on other people's plans and text them to meet up!</string>
                                                 </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="NOL-Zj-c5g" firstAttribute="width" secondItem="q8K-SC-T3e" secondAttribute="width" id="2xe-Kb-Tg1"/>
                                                 <constraint firstItem="uuh-eM-E6K" firstAttribute="leading" relation="lessThanOrEqual" secondItem="q8K-SC-T3e" secondAttribute="trailing" priority="999" constant="10" id="3Gc-kY-V8D"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="nR4-p5-B9s" secondAttribute="centerY" id="5lG-x8-aQp"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="leading" relation="lessThanOrEqual" secondItem="NOL-Zj-c5g" secondAttribute="trailing" constant="10" id="Ii8-dc-mvu"/>
-                                                <constraint firstItem="nR4-p5-B9s" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uuh-eM-E6K" secondAttribute="trailing" priority="999" constant="10" id="Jbv-uy-zfT"/>
+                                                <constraint firstItem="nR4-p5-B9s" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uuh-eM-E6K" secondAttribute="trailing" constant="10" id="Jbv-uy-zfT"/>
+                                                <constraint firstItem="NOL-Zj-c5g" firstAttribute="width" secondItem="nR4-p5-B9s" secondAttribute="width" id="SO4-Eq-5Hr"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="q8K-SC-T3e" secondAttribute="centerY" id="aF5-bw-oBt"/>
                                                 <constraint firstAttribute="trailing" secondItem="nR4-p5-B9s" secondAttribute="trailing" constant="30" id="azU-aE-gh0"/>
                                                 <constraint firstAttribute="centerY" secondItem="NOL-Zj-c5g" secondAttribute="centerY" id="eAU-xC-MCu"/>
@@ -1367,6 +1370,12 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstItem="nR4-p5-B9s" firstAttribute="width" secondItem="q8K-SC-T3e" secondAttribute="width" id="vJ4-Jb-yDy"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="NOL-Zj-c5g" secondAttribute="centerY" id="zH8-xg-P7S"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="llf-GM-HiA"/>
+                                                    <exclude reference="vJ4-Jb-yDy"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="heartButton" destination="DeU-fD-qO9" id="G7m-eZ-AXI"/>
