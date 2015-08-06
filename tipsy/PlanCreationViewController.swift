@@ -333,7 +333,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
         if indexPath.row == 2 {
             cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
-        }        else if indexPath.row == 3 {
+        }
+        else if indexPath.row == 3 {
             cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
         }
         
