@@ -42,12 +42,15 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     let kDateKey  = "date"  // key for obtaining the data source item's date value
     
     // keep track of which rows have date cells
-    let kDateStartRow = 1
-    let kDateEndRow   = 2
+    let kDateStartRow = 4
+    let kDateEndRow   = 5
     
     let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "DatePickerCell"; // the cell containing the date picker
     let kOtherCellID      = "otherCell";      // the remaining cells at the end
+    let kDividerCellID = "PlanCreationDividerCell"
+    let kPlanCreationActivityCellID = "PlanCreationActivityCell"
+    let kPlanCreationLocationCellID = "PlanCreationLocationCell"
     
     var dataArray: [[String: AnyObject]] = []
     var dateFormatter = NSDateFormatter()
@@ -224,12 +227,14 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         tableView.dataSource = self
         
         // setup our data source
-        let itemOne = [kTitleKey : "Tap a cell to change its date:"]
-        let itemTwo = [kTitleKey : "Start Date", kDateKey : NSDate()]
-        let itemThree = [kTitleKey : "End Date", kDateKey : NSDate()]
-        let itemFour = [kTitleKey : "(other item1)"]
-        let itemFive = [kTitleKey : "(other item2)"]
-        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        let itemOne = [kTitleKey : ""]
+        let itemTwo = [kTitleKey : ""]
+        let itemThree = [kTitleKey : ""]
+        let itemFour = [kTitleKey : ""]
+        let itemFive = [kTitleKey : "Start Date", kDateKey : NSDate()]
+        let itemSix = [kTitleKey : "End Date", kDateKey : NSDate()]
+        let itemSeven = [kTitleKey: ""]
+        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven]
         
         dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
@@ -303,6 +308,57 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             println("your current location is \(currentLocation)")
             locationManager.stopUpdatingLocation()
         }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell: UITableViewCell?
+        
+        var cellID = kOtherCellID
+        
+        if indexPathHasPicker(indexPath) {
+            // the indexPath is the one containing the inline date picker
+            cellID = kDatePickerCellID     // the current/opened date picker cell
+        } else if indexPathHasDate(indexPath) {
+            // the indexPath is one that contains the date information
+            cellID = kDateCellID       // the start/end date cells
+        }
+        
+        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+        
+        if indexPath.row == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+        }
+        if indexPath.row == 1 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
+        }
+        if indexPath.row == 2 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
+        }        else if indexPath.row == 3 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+        }
+        
+        // if we have a date picker open whose cell is above the cell we want to update,
+        // then we have one more cell than the model allows
+        //
+        var modelRow = indexPath.row
+        if (datePickerIndexPath != nil && datePickerIndexPath?.row <= indexPath.row) {
+            modelRow--
+        }
+        
+        let itemData = dataArray[modelRow]
+        
+        if cellID == kDateCellID {
+            // we have either start or end date cells, populate their date field
+            //
+            cell?.textLabel?.text = itemData[kTitleKey] as? String
+            cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(itemData[kDateKey] as! NSDate)
+        } else if cellID == kOtherCellID {
+            // this cell is a non-date cell, just assign it's text label
+            //
+            cell?.textLabel?.text = itemData[kTitleKey] as? String
+        }
+        
+        return cell!
     }
     
 //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -448,49 +504,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         return dataArray.count;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
-        
-        var cellID = kOtherCellID
-        
-        if indexPathHasPicker(indexPath) {
-            // the indexPath is the one containing the inline date picker
-            cellID = kDatePickerCellID     // the current/opened date picker cell
-        } else if indexPathHasDate(indexPath) {
-            // the indexPath is one that contains the date information
-            cellID = kDateCellID       // the start/end date cells
-        }
-        
-        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-        
-        if indexPath.row == 0 {
-            // we decide here that first cell in the table is not selectable (it's just an indicator)
-            cell?.selectionStyle = .None;
-        }
-        
-        // if we have a date picker open whose cell is above the cell we want to update,
-        // then we have one more cell than the model allows
-        //
-        var modelRow = indexPath.row
-        if (datePickerIndexPath != nil && datePickerIndexPath?.row <= indexPath.row) {
-            modelRow--
-        }
-        
-        let itemData = dataArray[modelRow]
-        
-        if cellID == kDateCellID {
-            // we have either start or end date cells, populate their date field
-            //
-            cell?.textLabel?.text = itemData[kTitleKey] as? String
-            cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(itemData[kDateKey] as! NSDate)
-        } else if cellID == kOtherCellID {
-            // this cell is a non-date cell, just assign it's text label
-            //
-            cell?.textLabel?.text = itemData[kTitleKey] as? String
-        }
-        
-        return cell!
-    }
+
     
     /*! Adds or removes a UIDatePicker cell below the given indexPath.
     
