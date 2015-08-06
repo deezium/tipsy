@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tipsy/PlanProfileViewController.swift"
-            timestampString = "459422669.554799"
+            timestampString = "460591128.168574"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "createPlanArrays(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -303,6 +303,192 @@
             endingLineNumber = "427"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tipsy/PlanFeedCell.swift"
+            timestampString = "460590728.8573"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "PlanFeedCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.location.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590728.862679"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.location.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590728.862981"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.location.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590728.863217"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.init (tipsy.PlanFeedCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; tipsy.PlanFeedCell"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590728.863432"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "211">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.init (tipsy.PlanFeedCell.Type)(coder : ObjectiveC.NSCoder) -&gt; tipsy.PlanFeedCell"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590728.863766"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "138">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tipsy/PlanFeedCell.swift"
+            timestampString = "460590781.627322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "PlanFeedCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.commentButton.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590781.630339"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.commentButton.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590781.630516"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.commentButton.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UIButton&gt;"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590781.63063"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.init (tipsy.PlanFeedCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; tipsy.PlanFeedCell"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590781.630739"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "315">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tipsy.PlanFeedCell.init (tipsy.PlanFeedCell.Type)(coder : ObjectiveC.NSCoder) -&gt; tipsy.PlanFeedCell"
+                  moduleName = "tipsy"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/debarshi/Documents/Sandbox/tipsy/tipsy/PlanFeedCell.swift"
+                  timestampString = "460590781.630851"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "250">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

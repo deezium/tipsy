@@ -16,7 +16,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     @IBOutlet weak var planTableView: UITableView!
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-        
+    
+    var planTableHeaderArray = [String]()
+
+    let currentUser = PFUser.currentUser()
+
+    
     @IBAction func didChangeSegment(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
@@ -26,6 +31,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             default:
                 break;
         }
+        self.createTableSections()
         self.planTableView.reloadData()
     }
     
@@ -36,11 +42,15 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     var pastPlans = [PFObject]()
     var pastPlansOriginal = [PFObject]()
     var upcomingPlans = [PFObject]()
+    var upcomingPlansOriginal = [PFObject]()
+
  
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
             self.createPlanArrays(objects)
+            self.createTableSections()
+
             self.planTableView!.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
@@ -97,29 +107,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     }
     
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "ShowEdit" {
-//            var planCreationViewController = segue.destinationViewController as! PlanCreationViewController
-//            planCreationViewController.plans = selectedPlans
-//        }
-//    }
-//
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let planCreationViewController = PlanCreationViewController()
-//        
-//    
-//        let selectedPlan = pastPlans[indexPath.row]
-//        selectedPlans.append(selectedPlan)
-//        planCreationViewController.plans = selectedPlans
-//        println(planCreationViewController.plans)
-//        
-//        planCreationViewController.performSegueWithIdentifier("ShowEdit", sender: self)
-//    }
-//    
     func createPlanArrays(objects: [PFObject]) {
         
         upcomingPlans = [PFObject]()
         pastPlansOriginal = [PFObject]()
+        pastPlans = [PFObject]()
+        
         
         for object in objects {
             
@@ -127,12 +120,14 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             let currentTime = NSDate()
             
             if currentTime.isEarlierThan(endTime) {
-                upcomingPlans.append(object)
+                upcomingPlansOriginal.append(object)
             }
             else {
                 pastPlansOriginal.append(object)
             }
         }
+        upcomingPlans = upcomingPlansOriginal.reverse()
+
         pastPlans = pastPlansOriginal.reverse()
         println("profileUpcomingPlans \(upcomingPlans)")
     }
@@ -164,37 +159,131 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         query.queryProfilePlans("creatingUser")
     }
     
+    func createTableSections() {
+        
+        planTableHeaderArray = [String]()
+        
+        var plansForSection = [PFObject]()
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            plansForSection = upcomingPlans
+        }
+        else {
+            plansForSection = pastPlans
+        }
+        
+        let sections = NSSet(array: planTableHeaderArray)
+        
+        println("plansForSection \(plansForSection)")
+        
+        for object in plansForSection {
+            let objectDate = object.objectForKey("startTime") as! NSDate
+            
+            let df = NSDateFormatter()
+            df.dateFormat = "MM/dd/yyyy"
+            
+            let dateString = df.stringFromDate(objectDate)
+            
+            println("sections \(sections)")
+            
+            
+            
+            if !contains(planTableHeaderArray, dateString) {
+                planTableHeaderArray.append(dateString)
+            }
+        }
+        println("planTableHeaderArrayCount \(planTableHeaderArray.count)")
+        
+    }
     
+    func getSectionItems(section: Int) -> [PFObject] {
+        var sectionItems = [PFObject]()
+        
+        var plansForSection = [PFObject]()
+        
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            plansForSection = upcomingPlans
+        }
+        else {
+            plansForSection = pastPlans
+        }
+        
+        for object in plansForSection {
+            let objectDate = object.objectForKey("startTime") as! NSDate
+            
+            let df = NSDateFormatter()
+            df.dateFormat = "MM/dd/yyyy"
+            
+            let dateString = df.stringFromDate(objectDate)
+            
+            if dateString == planTableHeaderArray[section] as NSString {
+                sectionItems.append(object)
+            }
+            
+        }
+        
+        return sectionItems
+        
+    }
+
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return planTableHeaderArray.count
+    }
+
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("ProfileFeedHeaderCell") as! CalendarHeaderCell
+        
+        let dateString = planTableHeaderArray[section]
+        
+        let df = NSDateFormatter()
+        df.dateFormat = "MM/dd/yyyy"
+        let date = df.dateFromString(dateString)!
+        
+        df.dateFormat = "EEEE"
+        
+        let dayOfWeekString = df.stringFromDate(date)
+        
+        df.dateFormat = "MMMM dd"
+        let prettyDateString = df.stringFromDate(date)
+        
+        headerCell.headerLabel.text =  dayOfWeekString + ", " + prettyDateString
+        
+        
+        return headerCell
+    }
+
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            return upcomingPlans.count
-        }
-        else {
-            return pastPlans.count
-        }
+        return self.getSectionItems(section).count
+        
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         var queryObject: PFObject
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlanProfileCell") as! PlanProfileCell
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            queryObject = upcomingPlans[indexPath.row]
-            cell.editButton.hidden = false
-            cell.checkboxImage.hidden = true
-        }
-        else {
-            queryObject = pastPlans[indexPath.row]
-            cell.editButton.hidden = true
-            cell.checkboxImage.hidden = false
-        }
+        //        if segmentedControl.selectedSegmentIndex == 0 {
+        //            queryObject = upcomingPlans[indexPath.row]
+        //        }
+        //        else {
+        //            queryObject = pastPlans[indexPath.row]
+        //        }
         
+        let sectionItems = self.getSectionItems(indexPath.section)
+        
+        queryObject = sectionItems[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProfileFeedCell") as! PlanFeedCell
         
         let user = queryObject.objectForKey("creatingUser") as! PFUser
-        let username = user.objectForKey("fullname") as? String
+        let fullname = user.objectForKey("fullname") as? String
         let message = queryObject.objectForKey("message") as? String
         let startTime = queryObject.objectForKey("startTime") as? NSDate
         let endTime = queryObject.objectForKey("endTime") as? NSDate
@@ -202,33 +291,161 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
         let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
         var placeLabel: String?
-        var addressLabel: String?
+        
+        var heartState: Bool? = false
+        
+        let heartingUsers = queryObject.objectForKey("heartingUsers") as? [String]
+        let countHeartingUsers = heartingUsers?.count
+        
+        if let hearts = heartingUsers {
+            println("dem hearts \(hearts)")
+            println("dat user \(currentUser!.objectId!)")
+            if contains(hearts, currentUser!.objectId!) {
+                println ("plan \(queryObject.objectId) is hearted by \(currentUser!.objectId!)")
+                heartState = true
+            }
+        }
+        
+        var attendanceState: Bool? = false
+        
+        let attendingUsers = queryObject.objectForKey("attendingUsers") as? [String]
+        let countAttendingUsers = attendingUsers?.count
+        
+        if let attendees = attendingUsers {
+            println("dem hearts \(attendees)")
+            println("dat user \(currentUser!.objectId!)")
+            if contains(attendees, currentUser!.objectId!) {
+                println ("plan \(queryObject) is being attended by \(currentUser!.objectId!)")
+                attendanceState = true
+            }
+        }
+        
+        
         
         if let placeName = placeName {
             placeLabel = placeName
         }
         
-        if let shortAddress = shortAddress {
-            addressLabel = shortAddress
-        }
-
+        
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM d, hh:mm a"
+        dateFormatter.dateFormat = "hh:mm a"
         
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)
-
-        cell.startTime.text = startTimeString
-        cell.endTime.text = endTimeString
+        
+        println(startTime)
+        println(endTime)
+        
+        
+        let fullTimeString = "\(startTimeString) to \(endTimeString)"
+        
+        
+        if let postImage = user.objectForKey("profileImage") as? PFFile {
+            let imageData = postImage.getData()
+            let image = UIImage(data: imageData!)
+            let testImage = UIImage(named: "Map-50.png") as UIImage!
+            cell.profileImage.image = image
+            
+        }
+        
+        let firstname = fullname?.componentsSeparatedByString(" ")[0]
+        
+        cell.name.text = firstname
+        //        cell.startTime.text = startTimeString
+        //        cell.endTime.text = endTimeString
+        cell.fullTime.text = fullTimeString
         cell.location.text = placeLabel
-        cell.addressLabel.text = shortAddress
-        cell.editButton.tag = indexPath.row
-
+        
         if let message = message {
             cell.message.text = message
         }
         
+        if (heartState == true) {
+            cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+        }
+        else {
+            cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+            
+        }
+        
+        cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+        
+        if (attendanceState == true) {
+            cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
+            cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
+            
+        }
+        else {
+            cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
+            cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
+            
+            
+        }
+        
+        
+        
+        //        cell.heartButton.setTitle(heartState?.description, forState: UIControlState.Normal)
+        
+        
+        
+        
         return cell
     }
+
+    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//
+//        var queryObject: PFObject
+//        let cell = tableView.dequeueReusableCellWithIdentifier("PlanProfileCell") as! PlanProfileCell
+//        
+//        if segmentedControl.selectedSegmentIndex == 0 {
+//            queryObject = upcomingPlans[indexPath.row]
+//            cell.editButton.hidden = false
+//            cell.checkboxImage.hidden = true
+//        }
+//        else {
+//            queryObject = pastPlans[indexPath.row]
+//            cell.editButton.hidden = true
+//            cell.checkboxImage.hidden = false
+//        }
+//        
+//        
+//        let user = queryObject.objectForKey("creatingUser") as! PFUser
+//        let username = user.objectForKey("fullname") as? String
+//        let message = queryObject.objectForKey("message") as? String
+//        let startTime = queryObject.objectForKey("startTime") as? NSDate
+//        let endTime = queryObject.objectForKey("endTime") as? NSDate
+//        let placeName = queryObject.objectForKey("googlePlaceName") as? String
+//        let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
+//        let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+//        var placeLabel: String?
+//        var addressLabel: String?
+//        
+//        if let placeName = placeName {
+//            placeLabel = placeName
+//        }
+//        
+//        if let shortAddress = shortAddress {
+//            addressLabel = shortAddress
+//        }
+//
+//        var dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "MMM d, hh:mm a"
+//        
+//        let startTimeString = dateFormatter.stringFromDate(startTime!)
+//        let endTimeString = dateFormatter.stringFromDate(endTime!)
+//
+//        cell.startTime.text = startTimeString
+//        cell.endTime.text = endTimeString
+//        cell.location.text = placeLabel
+//        cell.addressLabel.text = shortAddress
+//        cell.editButton.tag = indexPath.row
+//
+//        if let message = message {
+//            cell.message.text = message
+//        }
+//        
+//        return cell
+//    }
     
 }
