@@ -12,7 +12,7 @@ import CoreLocation
 
 let commentMadeNotificationKey = "commentMadeNotificationKey"
 
-class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
+class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, UITextFieldDelegate {
     
 
     @IBOutlet weak var messageLabel: UILabel!
@@ -24,6 +24,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     @IBOutlet weak var commentEntry: UITextField!
     
     @IBOutlet weak var commentTable: UITableView!
+    
+    @IBOutlet weak var editButton: UIButton!
+  
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var currentUser = PFUser.currentUser()
     var planObjects = [PFObject]()
@@ -62,7 +66,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         
-        
+        commentEntry.delegate = self
         
         
         if (CLLocationManager.locationServicesEnabled()) {
@@ -97,6 +101,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)
 
+        
+        if (currentUser?.objectId == creatingUser.objectId) {
+            editButton.hidden = false
+        }
+        else {
+            editButton.hidden = true
+        }
+        
         messageLabel.text = plan!.objectForKey("message") as! String
         nameLabel.text = firstname
         locationLabel.text = placeName
@@ -109,6 +121,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
         }
 
+        
+        
         
         let planGeoPoint = plan!.objectForKey("googlePlaceCoordinate") as? PFGeoPoint
         
@@ -128,17 +142,50 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         query.queryComments(plan!)
         query.queryAttendingUsersForPlan(plan!)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
+
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshComments", name: commentMadeNotificationKey, object: nil)
 
 
         
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.bottomConstraint.constant = keyboardFrame.size.height - 50
+        })
+    }
+
+    func keyboardWasHidden(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(1, animations: { () -> Void in
+            self.bottomConstraint.constant = 0
+        })
+    }
+
+    
+    
     func refreshComments() {
         let plan = planObjects.first
         query.queryComments(plan!)
         query.queryAttendingUsersForPlan(plan!)
 
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        commentEntry.resignFirstResponder()
+        return true
     }
     
     @IBAction func didTapHeartButton(sender: AnyObject) {

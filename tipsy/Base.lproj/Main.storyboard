@@ -841,20 +841,7 @@ Comment on other people's plans and text them to meet up!</string>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Plan" image="Pen.png" id="QIY-ga-sUz"/>
-                    <navigationItem key="navigationItem" title="Share a Plan" id="Kik-Ji-16Z">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Qsn-4u-w67">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4yV-d2-PlC">
-                                <rect key="frame" x="451" y="7" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Date">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="gaD-6W-7W4" kind="show" id="9Nt-16-mFd"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Share a Plan" id="Kik-Ji-16Z"/>
                     <connections>
                         <outlet property="deleteButton" destination="dRp-CP-ih8" id="O43-Av-sAw"/>
                         <outlet property="pickerView" destination="WT4-XV-gMq" id="DIa-bI-Vw6"/>
@@ -1578,7 +1565,7 @@ Comment on other people's plans and text them to meet up!</string>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="4PY-GD-77r"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="4PY-GD-77r"/>
@@ -1590,8 +1577,9 @@ Comment on other people's plans and text them to meet up!</string>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="ozD-PL-iAu"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                         <state key="normal" title="Post">
-                                            <color key="titleColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -1599,6 +1587,7 @@ Comment on other people's plans and text them to meet up!</string>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" red="0.42352941179999998" green="0.57647058819999997" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="3k6-rw-YKO" firstAttribute="leading" secondItem="UGX-sd-LVV" secondAttribute="leading" constant="10" id="5bm-Kc-NeK"/>
                                     <constraint firstItem="coz-uM-EAp" firstAttribute="leading" secondItem="3k6-rw-YKO" secondAttribute="trailing" constant="10" id="9L1-A0-hqe"/>
@@ -1678,8 +1667,10 @@ Comment on other people's plans and text them to meet up!</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomConstraint" destination="SlK-ZX-Pxx" id="ppM-jj-GVk"/>
                         <outlet property="commentEntry" destination="3k6-rw-YKO" id="svu-Yo-EUf"/>
                         <outlet property="commentTable" destination="i22-BW-qzk" id="QyE-eI-AYi"/>
+                        <outlet property="editButton" destination="ilP-lJ-hpE" id="5ye-cE-TgT"/>
                         <outlet property="locationLabel" destination="Eme-xB-T9g" id="mCH-1G-8sO"/>
                         <outlet property="messageLabel" destination="ASp-ra-6hf" id="O1g-fv-Wfj"/>
                         <outlet property="nameLabel" destination="I4M-aD-dN2" id="CZ8-sh-iUV"/>
@@ -1749,7 +1740,7 @@ Comment on other people's plans and text them to meet up!</string>
             <objects>
                 <tableViewController id="gaD-6W-7W4" customClass="DateCellTableViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qFl-YT-ehW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
