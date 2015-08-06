@@ -348,6 +348,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let itemData = dataArray[modelRow]
         
+        if indexPath.row == 4 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
+            
+        }
+        
         if cellID == kDateCellID {
             // we have either start or end date cells, populate their date field
             //
