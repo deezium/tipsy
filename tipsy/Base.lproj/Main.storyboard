@@ -1147,10 +1147,9 @@ Comment on other people's plans and text them to meet up!</string>
                                             <outlet property="location" destination="vF1-pC-9qA" id="1wj-Fa-HRw"/>
                                             <outlet property="message" destination="Fe2-Ul-UTe" id="5Yh-gb-Nuj"/>
                                             <outlet property="startTime" destination="JFX-Rt-OEb" id="7mF-6e-14z"/>
-                                            <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailViewFromProfile" id="cnr-oU-dOg"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="ProfileFeedCell" rowHeight="150" id="qWG-Sm-wLd" customClass="PlanFeedCell" customModule="tipsy" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="ProfileFeedCell" rowHeight="150" id="qWG-Sm-wLd" customClass="PlanFeedCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qWG-Sm-wLd" id="EFs-lG-ilO">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1219,6 +1218,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             </state>
                                                             <connections>
                                                                 <action selector="didTapHeart:" destination="vFn-9h-QqO" eventType="touchUpInside" id="hqU-OU-xAK"/>
+                                                                <action selector="didTapHeartButton:" destination="oRv-B1-WtN" eventType="touchUpInside" id="uOd-y0-49i"/>
                                                             </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjl-nJ-vd4">
@@ -1277,6 +1277,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             </variation>
                                                             <connections>
                                                                 <action selector="didTapJoin:" destination="vFn-9h-QqO" eventType="touchUpInside" id="ov0-S7-XSr"/>
+                                                                <action selector="didTapJoinButton:" destination="oRv-B1-WtN" eventType="touchUpInside" id="tHz-wc-5Hh"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -1349,11 +1350,12 @@ Comment on other people's plans and text them to meet up!</string>
                                             <outlet property="commentButton" destination="hjl-nJ-vd4" id="dGX-yX-tJi"/>
                                             <outlet property="fullTime" destination="h0z-hZ-B7Y" id="ERm-58-mjy"/>
                                             <outlet property="heartButton" destination="sYw-mm-9zF" id="69t-4s-fjs"/>
-                                            <outlet property="joinButton" destination="sYw-mm-9zF" id="uAm-M2-4u8"/>
+                                            <outlet property="joinButton" destination="RXk-17-lGf" id="LN5-SG-bQj"/>
                                             <outlet property="location" destination="Pf3-Oe-7ub" id="1gH-KL-gET"/>
                                             <outlet property="message" destination="80s-H6-6fI" id="cgQ-xP-nlm"/>
                                             <outlet property="name" destination="dSM-Bh-6Gm" id="Z87-4J-E5f"/>
                                             <outlet property="profileImage" destination="AB0-dr-0m0" id="MG7-yT-7DA"/>
+                                            <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailViewFromProfile" id="MUB-pR-8Ix"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="ProfileFeedHeaderCell" rowHeight="50" id="Cg5-s8-XZE" customClass="CalendarHeaderCell" customModule="tipsy" customModuleProvider="target">
@@ -1399,7 +1401,7 @@ Comment on other people's plans and text them to meet up!</string>
                                     <constraint firstAttribute="width" constant="80" id="E0C-rE-aTH"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p9-Ob-kiN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gettin' tipsy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p9-Ob-kiN">
                                 <rect key="frame" x="98" y="101" width="86" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1525,8 +1527,8 @@ Comment on other people's plans and text them to meet up!</string>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g80-bS-FVC">
                                 <rect key="frame" x="108" y="123" width="34" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="i22-BW-qzk">
@@ -2094,7 +2096,7 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="urZ-Y9-YSI"/>
-        <segue reference="cnr-oU-dOg"/>
+        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="Tyd-4d-APj"/>
     </inferredMetricsTieBreakers>
 </document>
