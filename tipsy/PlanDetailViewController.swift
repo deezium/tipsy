@@ -264,6 +264,85 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     
     
+    @IBAction func didTapCommentHeart(sender: AnyObject) {
+        println("Comment hearted!")
+        
+        let heartButton: UIButton = sender as! UIButton
+        
+        let cell = heartButton.superview?.superview as! CommentCell
+        
+        
+        //        println(cell)
+        
+        
+        let index = self.commentTable.indexPathForCell(cell)!
+        
+        let comment = queryObjects[index.row-3]
+        
+        
+        var heartState = Bool()
+        
+        let heartingUsers = comment.objectForKey("heartingUsers") as? [String]
+        
+        if let hearts = heartingUsers {
+            println("dem hearts \(hearts)")
+            println("dat user \(currentUser!.objectId!)")
+            if contains(hearts, currentUser!.objectId!) {
+                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
+                heartState = true
+            }
+            else {
+                heartState = false
+            }
+        }
+        
+        if heartState == false {
+            comment.addUniqueObject(currentUser!.objectId!, forKey: "heartingUsers")
+            
+            heartState = !heartState
+            
+            let originalHeartingUserCount = heartingUsers?.count ?? 0
+            
+            let newHeartingUserCount = originalHeartingUserCount + 1
+            
+            let newHeartingUserCountString = String(newHeartingUserCount)
+            
+            cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
+            println("hearted! \(heartState)")
+            
+        }
+        else {
+            comment.removeObject(currentUser!.objectId!, forKey: "heartingUsers")
+            
+            heartState = !heartState
+            
+            let originalHeartingUserCount = heartingUsers?.count ?? 0
+            
+            let newHeartingUserCount = originalHeartingUserCount - 1
+            
+            let newHeartingUserCountString = String(newHeartingUserCount)
+            
+            cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+            cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
+            println("unhearted! \(heartState)")
+        }
+        
+        
+        comment.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("Success")
+            }
+            else {
+                println("error \(error)")
+            }
+        }
+        
+
+        
+    }
+    
     @IBAction func didTapJoinButton(sender: AnyObject) {
         
         let joinButton: UIButton = sender as! UIButton
@@ -473,6 +552,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         else {
             var cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
             let commentObject = queryObjects[indexPath.row-3]
+            var heartState: Bool? = false
+            
             
             let user = commentObject.objectForKey("commentingUser") as! PFUser
             let fullname = user.objectForKey("fullname") as? String
@@ -490,6 +571,30 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             cell.nameLabel.text = firstname
             cell.messageLabel.text = commentBody
             cell.timeLabel.text = timeAgo
+            
+            let heartingUsers = commentObject.objectForKey("heartingUsers") as? [String]
+            let countHeartingUsers = heartingUsers?.count
+            
+            if let hearts = heartingUsers {
+                println("dem hearts \(hearts)")
+                println("dat user \(currentUser!.objectId!)")
+                if contains(hearts, currentUser!.objectId!) {
+                    println ("plan \(commentObject.objectId) is hearted by \(currentUser!.objectId!)")
+                    heartState = true
+                }
+            }
+            
+            if (heartState == true) {
+                cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            }
+            else {
+                cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+                
+            }
+            
+            cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            
+
             
             finalCell = cell
             

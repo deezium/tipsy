@@ -15,4 +15,10 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var heartButton: UIButton!
+ 
+    
+    
+    
 }

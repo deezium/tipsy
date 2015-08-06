@@ -1673,7 +1673,7 @@ Comment on other people's plans and text them to meet up!</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbU-bs-L2U">
-                                                    <rect key="frame" x="538" y="27" width="34" height="21"/>
+                                                    <rect key="frame" x="537" y="12" width="34" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -1697,20 +1697,47 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <color key="textColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7V-Qi-09F">
+                                                    <rect key="frame" x="539" y="32" width="45" height="65"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="Nvs-MA-BZh"/>
+                                                        <constraint firstAttribute="height" constant="30" id="j0i-nu-zu5"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <inset key="titleEdgeInsets" minX="-24" minY="35" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="x" image="Like.png">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapCommentHeart:" destination="lra-bo-m7v" eventType="touchUpInside" id="O7G-pT-dVr"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="centerX" secondItem="B7V-Qi-09F" secondAttribute="centerX" id="4zu-HY-jNj"/>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="top" secondItem="AZn-GJ-d12" secondAttribute="top" id="Cec-zX-ih9"/>
                                                 <constraint firstItem="AZn-GJ-d12" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="top" id="J7I-W7-eIt"/>
                                                 <constraint firstAttribute="trailing" secondItem="zbU-bs-L2U" secondAttribute="trailing" constant="30" id="Kld-du-ewX"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="centerX" secondItem="QKB-mt-yKE" secondAttribute="centerX" id="OeZ-VP-9Nq"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="top" secondItem="eTT-BA-iaT" secondAttribute="top" constant="10" id="W6K-mT-ObK"/>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="top" secondItem="AZn-GJ-d12" secondAttribute="top" constant="4" id="YqA-Ef-D2X"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="leading" secondItem="eTT-BA-iaT" secondAttribute="leading" constant="30" id="jv9-eZ-nFS"/>
+                                                <constraint firstItem="B7V-Qi-09F" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="bottom" id="l0r-hn-UpD"/>
                                                 <constraint firstItem="QKB-mt-yKE" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="bottom" id="qPg-xJ-il7"/>
                                                 <constraint firstItem="AZn-GJ-d12" firstAttribute="leading" secondItem="mBv-IQ-LAr" secondAttribute="trailing" constant="10" id="rAe-gA-XUM"/>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="AZn-GJ-d12" secondAttribute="trailing" priority="999" constant="10" id="wvo-Tf-GlF"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="centerY" secondItem="zbU-bs-L2U" secondAttribute="centerY" id="zZq-Yl-Ed1"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="zZq-Yl-Ed1"/>
+                                                    <exclude reference="YqA-Ef-D2X"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="heartButton" destination="B7V-Qi-09F" id="tan-sh-frD"/>
                                             <outlet property="messageLabel" destination="AZn-GJ-d12" id="J4u-Mn-6hd"/>
                                             <outlet property="nameLabel" destination="QKB-mt-yKE" id="21h-0H-fvt"/>
                                             <outlet property="profileImage" destination="mBv-IQ-LAr" id="nAZ-nN-CnT"/>
