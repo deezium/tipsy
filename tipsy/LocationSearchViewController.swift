@@ -46,15 +46,49 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
 
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
+    override func viewWillDisappear(animated: Bool) {
+        let n = self.navigationController?.viewControllers?.count as Int!
+        let planCreationViewController = self.navigationController?.viewControllers[n-1] as! PlanCreationViewController
         
+        self.navigationController?.navigationBar.backItem
         planCreationViewController.selectedPlaceId = selectedPlaceId
         planCreationViewController.selectedPlaceName = selectedPlaceName
         planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
         planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
 
+        println("selectedPlaceForSegue \(selectedPlaceName)")
+
+        println("planCreationViewController \(planCreationViewController)")
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        
+//        let n = self.navigationController?.viewControllers?.count as Int!
+//        let planCreationViewController = self.navigationController?.viewControllers[n-2] as! PlanCreationViewController
+//        
+//        self.navigationController?.navigationBar.backItem
+//        
+//        println("planCreationViewController"planCreationViewController)
+//        
+////        let navController = segue.destinationViewController as! UINavigationController
+////        let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
+////        
+////        planCreationViewController.selectedPlaceId = selectedPlaceId
+////        planCreationViewController.selectedPlaceName = selectedPlaceName
+////        planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
+////        planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
+////        
+////        println("selectedPlaceForSegue \(selectedPlaceName)")
+//
+//    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        
+        println("selectedPlaceLocationSearch \(selectedPlaceName)")
+    }
+    
+    
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)

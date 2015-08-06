@@ -23,7 +23,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     var selectedPlaceGeoPoint = PFGeoPoint()
     var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
-
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -42,8 +41,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     let kDateKey  = "date"  // key for obtaining the data source item's date value
     
     // keep track of which rows have date cells
-    let kDateStartRow = 4
-    let kDateEndRow   = 5
+    let kDateStartRow = 3
+    let kDateEndRow   = 4
     
     let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "DatePickerCell"; // the cell containing the date picker
@@ -76,16 +75,55 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //            self.presentViewController(alert, animated: true, completion: nil)
 //        }
 //        else {
-//            
+//          
+
+        let locationIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
+        println("locationCell \(locationCell.locationLabel.text)")
+
+        if locationCell.locationLabel.text == "Where are you going?" {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make a plan without a location!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+
+        else {
+        
+            let activityIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+            let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
+            println("activityCell \(activityCell.messageLabel.text)")
+
+
+            
+            let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+            let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
+            let startDateString = startDateCell?.detailTextLabel?.text as String!
+            
+            println("startDateString \(startDateString)")
+            
+            let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
+
+            
+            let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+            let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
+            let endDateString = endDateCell?.detailTextLabel?.text as String!
+            
+            let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
+
+            
+            println("endDateString \(endDateString)")
+        
+        
         
             let planObject = PFObject(className: "Plan")
-            //planObject.setObject(startTime.date, forKey: "startTime")
-            //planObject.setObject(endTime.date, forKey: "endTime")
+            planObject.setObject(planStartDate, forKey: "startTime")
+            planObject.setObject(planEndDate, forKey: "endTime")
             planObject.setObject(PFUser.currentUser()!, forKey: "creatingUser")
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-          //  planObject.setObject(activityLabel.text, forKey: "message")
+            planObject.setObject(activityCell.messageLabel.text, forKey: "message")
             planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
             
             let ACL = PFACL()
@@ -106,7 +144,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
-            //        self.activityLabel.text = ""
+                    activityCell.messageLabel.text = ""
            //         self.startTime.date = NSDate()
           //          self.endTime.date = NSDate().dateByAddingHours(1)
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
@@ -119,7 +157,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             }
         
 
-//        }
+        }
     }
     
 //    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
@@ -218,10 +256,21 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         return true
     }
     
+//    func dismissKeyboard(){
+//        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+//        view.endEditing(true)
+//    }
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+//        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        view.addGestureRecognizer(tap)
+        
 //        self.endTime.date = NSDate().dateByAddingHours(1)
         tableView.delegate = self
         tableView.dataSource = self
@@ -230,11 +279,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let itemOne = [kTitleKey : ""]
         let itemTwo = [kTitleKey : ""]
         let itemThree = [kTitleKey : ""]
-        let itemFour = [kTitleKey : ""]
-        let itemFive = [kTitleKey : "Start Date", kDateKey : NSDate()]
-        let itemSix = [kTitleKey : "End Date", kDateKey : NSDate()]
-        let itemSeven = [kTitleKey: ""]
-        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven]
+        let itemFour = [kTitleKey : "Start Date", kDateKey : NSDate()]
+        let itemFive = [kTitleKey : "End Date", kDateKey : NSDate()]
+        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
         
         dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
@@ -296,6 +343,18 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             deleteButton.hidden = true
             postButton.hidden = false
         }
+        
+        println("selectedPlace \(selectedPlaceName)")
+        
+        if selectedPlaceName != "" {
+            let indexPath = NSIndexPath(forRow: 2, inSection: 0)
+            let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
+            println(cell.locationLabel)
+            
+            
+            cell.locationLabel.text = selectedPlaceName
+            
+        }
     }
     
 //    func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -334,9 +393,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         if indexPath.row == 2 {
             cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
         }
-        else if indexPath.row == 3 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-        }
+//        else if indexPath.row == 3 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+//        }
         
         // if we have a date picker open whose cell is above the cell we want to update,
         // then we have one more cell than the model allows
@@ -347,11 +406,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
         
         let itemData = dataArray[modelRow]
-        
-        if indexPath.row == 4 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
-            
-        }
         
         if cellID == kDateCellID {
             // we have either start or end date cells, populate their date field
@@ -364,65 +418,15 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             cell?.textLabel?.text = itemData[kTitleKey] as? String
         }
         
+//        cell?.indentationLevel = 0
+//        cell?.indentationWidth = 0.0
+        cell?.layoutMargins = UIEdgeInsetsZero
+        cell?.preservesSuperviewLayoutMargins = false
+        
         return cell!
     }
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        
-//        var cell: UITableViewCell?
-//        
-//        var cellID = String()
-//        
-//        if indexPathHasPicker(indexPath) {
-//            // the indexPath is the one containing the inline date picker
-//            cellID = kDatePickerCellID     // the current/opened date picker cell
-//        } else if indexPathHasDate(indexPath) {
-//            // the indexPath is one that contains the date information
-//            cellID = kDateCellID       // the start/end date cells
-//        }
-//        
-//        
-//        if indexPath.row == 0 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-//
-//        }
-//        if indexPath.row == 1 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
-//        }
-//        if indexPath.row == 2 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
-//        }
-//        if indexPath.row == 3 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-//            
-//        }
-//        if indexPath.row == 4 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
-//            
-//        }
-//        if indexPath.row == 5 {
-//            cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-//            
-//        }
-//        
-//        if indexPath.row == 6 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDateCell") as! PlanCreationTableDateCell
-//            
-//        }
-//        if indexPath.row == 7 {
-//            cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
-//            
-//        }
-//
-//        if indexPath.row == 8 {
-//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-//            
-//        }
-//        
-//        println("yocell \(cell)")
-//        
-//        return cell!
-//    }
+
     
     func localeChanged(notif: NSNotification) {
         // the user changed the locale (region format) in Settings, so we are notified here to

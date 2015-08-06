@@ -9,10 +9,22 @@
 import Foundation
 import UIKit
 
-class PlanCreationActivityCell: UITableViewCell {
+class PlanCreationActivityCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var iconImage: UIImageView!
     
     @IBOutlet weak var messageLabel: UITextField!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        messageLabel.delegate = self
+    }
+    
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        messageLabel.resignFirstResponder()
+        return true
+    }
     
 }
