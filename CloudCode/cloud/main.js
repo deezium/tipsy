@@ -8,50 +8,50 @@ Parse.Cloud.define("hello", function(request, response) {
 
 
 
-Parse.Cloud.afterSave("Plan", function(request){
+// Parse.Cloud.afterSave("Plan", function(request){
 
-	if (!request.object.existed()) {
-		var planMessage = request.object.get('message');
-		var planCreatingUser = request.object.get('creatingUser');
-		var userId = planCreatingUser.id;
+// 	if (!request.object.existed()) {
+// 		var planMessage = request.object.get('message');
+// 		var planCreatingUser = request.object.get('creatingUser');
+// 		var userId = planCreatingUser.id;
 
-		var pushQuery = new Parse.Query(Parse.Installation);
-		pushQuery.equalTo('channels', 'global');
-		pushQuery.notEqualTo('user', planCreatingUser);
+// 		var pushQuery = new Parse.Query(Parse.Installation);
+// 		pushQuery.equalTo('channels', 'global');
+// 		pushQuery.notEqualTo('user', planCreatingUser);
 
-		var userQuery = new Parse.Query(Parse.User);
-		userQuery.equalTo('objectId', userId);
+// 		var userQuery = new Parse.Query(Parse.User);
+// 		userQuery.equalTo('objectId', userId);
 
-		var username = [];
+// 		var username = [];
 
-		userQuery.find({
-			success: function(users) {
-				var user = users[0];
-				fullname = user.get("fullname");
-				username.push(fullname);
-				firstname = username[0].split(" ")[0]
+// 		userQuery.find({
+// 			success: function(users) {
+// 				var user = users[0];
+// 				fullname = user.get("fullname");
+// 				username.push(fullname);
+// 				firstname = username[0].split(" ")[0]
 
-				Parse.Push.send({
-					where: pushQuery,
-					data: {
-						alert: firstname + " just planned " + planMessage + "!"
-					}
-				}, {
-					success: function() {
-						print("success")
-					},
-					error: function(error) {
-						print("error")
-					}
-				});
+// 				Parse.Push.send({
+// 					where: pushQuery,
+// 					data: {
+// 						alert: firstname + " just planned " + planMessage + "!"
+// 					}
+// 				}, {
+// 					success: function() {
+// 						print("success")
+// 					},
+// 					error: function(error) {
+// 						print("error")
+// 					}
+// 				});
 
-			},
-			error: function(error) {
-				console.log("error");
-			}
-		});
-	};
-});
+// 			},
+// 			error: function(error) {
+// 				console.log("error");
+// 			}
+// 		});
+// 	};
+// });
 
 Parse.Cloud.afterSave("Comment", function(request){
 

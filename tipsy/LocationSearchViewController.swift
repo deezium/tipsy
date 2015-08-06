@@ -45,6 +45,16 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         }
 
     }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
+        
+        planCreationViewController.selectedPlaceId = selectedPlaceId
+        planCreationViewController.selectedPlaceName = selectedPlaceName
+        planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
+        planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
+
+    }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)

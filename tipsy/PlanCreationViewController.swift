@@ -85,7 +85,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-            //planObject.setObject(messageField.text, forKey: "message")
+          //  planObject.setObject(activityLabel.text, forKey: "message")
             planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
             
             let ACL = PFACL()
@@ -106,7 +106,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
-                 //   self.messageField.text = ""
+            //        self.activityLabel.text = ""
            //         self.startTime.date = NSDate()
           //          self.endTime.date = NSDate().dateByAddingHours(1)
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
@@ -142,7 +142,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
         planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
         planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-       // planObject.setObject(messageField.text, forKey: "message")
+       // planObject.setObject(activityLabel.text, forKey: "message")
         planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
 
 
