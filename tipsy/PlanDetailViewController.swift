@@ -466,22 +466,17 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "ShowEditFromPlan" {
+        if segue.identifier == "ShowEditFromDetail" {
             var selectedPlans = [PFObject]()
+            let plan = planObjects.first
+
             
-            let editProfileViewController = segue.destinationViewController as! EditProfileViewController
+            let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
             
-//            let index = self.planTableView.indexPathForSelectedRow()!
-//            var queryObject: PFObject
-//            if segmentedControl.selectedSegmentIndex == 0 {
-//                queryObject = upcomingPlans[index.row]
-//            }
-//            else {
-//                queryObject = pastPlans[index.row]
-//            }
-//            selectedPlans.append(queryObject)
-//            println("selected plan \(selectedPlans)")
-//            planDetailViewController.planObjects = selectedPlans
+            selectedPlans.append(plan!)
+            
+            planCreationViewController.plans = selectedPlans
+            
         }
         
     }
