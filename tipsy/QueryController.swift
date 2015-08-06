@@ -8,8 +8,10 @@
 
 import Foundation
 
-protocol QueryControllerProtocol {
+@objc protocol QueryControllerProtocol {
     func didReceiveQueryResults(objects: [PFObject])
+    
+    optional func didReceiveSecondQueryResults(objects: [PFObject])
 }
 
 class QueryController {
@@ -107,33 +109,19 @@ class QueryController {
         println(objects)
     }
     
-    func queryPlanHearts(plan: PFObject) {
-        var query = PFQuery(className: "PlanHeart")
+    
+    func queryAttendingUsersForPlan(plan: PFObject) {
+        var query = PFUser.query()!
+        let planId = plan.objectId
+        query.whereKey("attendedPlans", equalTo: planId!)
         
-        println("querying for plan \(plan)")
-        query.includeKey("heartingUser")
-        query.includeKey("heartedPlan")
-
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveQueryResults(objects)
+        self.delegate!.didReceiveSecondQueryResults!(objects)
         
-        println(objects)
+        println("attending users for \(planId) are \(objects)")
         
     }
 
-    func queryPlanAttendances(plan: PFObject) {
-        var query = PFQuery(className: "PlanAttendance")
-        
-        println("querying for plan \(plan)")
-        query.includeKey("attendingUser")
-        query.includeKey("attendedPlan")
-        
-        var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveQueryResults(objects)
-        
-        println(objects)
-        
-    }
 
     
 }

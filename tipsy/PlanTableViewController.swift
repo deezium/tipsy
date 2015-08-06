@@ -293,6 +293,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         if attendanceState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
+            currentUser?.addUniqueObject(plan.objectId!, forKey: "attendedPlans")
             
             attendanceState = !attendanceState
             
@@ -304,6 +305,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         else {
             plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
+            currentUser?.removeObject(plan.objectId!, forKey: "attendedPlans")
             
             attendanceState = !attendanceState
            
@@ -317,12 +319,24 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Success")
+                println("Plan save success")
             }
             else {
-                println("error \(error)")
+                println("Plan save error \(error)")
             }
         }
+
+        currentUser?.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("User save success")
+            }
+            else {
+                println("User save error \(error)")
+            }
+        }
+
+        
     }
     
     

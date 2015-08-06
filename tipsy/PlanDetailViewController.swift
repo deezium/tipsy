@@ -31,6 +31,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     var query = QueryController()
     var queryObjects = [PFObject]()
 
+    var attendeeQueryObjects = [PFObject]()
+
+    
     @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
     
@@ -42,6 +45,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         })
     }
 
+    func didReceiveSecondQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.attendeeQueryObjects = objects
+            self.commentTable!.reloadData()
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,6 +126,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         query.delegate = self
         query.queryComments(plan!)
+        query.queryAttendingUsersForPlan(plan!)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshComments", name: commentMadeNotificationKey, object: nil)
 
@@ -126,6 +137,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     func refreshComments() {
         let plan = planObjects.first
         query.queryComments(plan!)
+        query.queryAttendingUsersForPlan(plan!)
 
     }
     
@@ -353,9 +365,52 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         else if indexPath.row == 2 {
-            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as? PlanDetailAttendingCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as! PlanDetailAttendingCell
             
             let plan = planObjects.first!
+            let creatingUser = plan.objectForKey("creatingUser") as! PFObject
+            
+            var attendeeImageArray = [UIImage?]()
+            
+            for attendee in attendeeQueryObjects {
+                if let postImage = attendee.objectForKey("profileImage") as? PFFile {
+                    let imageData = postImage.getData()
+                    let image = UIImage(data: imageData!)
+                    attendeeImageArray.append(image!)
+                }
+            }
+            
+            println("first attendee \(attendeeImageArray.first)")
+            
+            if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
+                let imageData = postImage.getData()
+                let image = UIImage(data: imageData!)
+                cell.firstAttendee.image = image
+                
+            }
+            
+            for (index, image) in enumerate(attendeeImageArray) {
+                if index == 0 {
+                    cell.secondAttendee.image = image
+                }
+                if index == 1 {
+                    cell.thirdAttendee.image = image
+                }
+                if index == 2 {
+                    cell.fourthAttendee.image = image
+                }
+                if index == 3 {
+                    cell.fifthAttendee.image = image
+                }
+
+            }
+            
+//            if let attendee = attendeeImageArray[0] {
+//                cell.secondAttendee.image = attendeeImageArray[0]
+//            }
+            
+//            cell.firstAttendee.image = attendeeImageArray[0]
+            
             
             finalCell = cell
             
