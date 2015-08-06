@@ -1582,8 +1582,12 @@ Comment on other people's plans and text them to meet up!</string>
                                             <constraint firstAttribute="width" constant="40" id="ozD-PL-iAu"/>
                                         </constraints>
                                         <state key="normal" title="Post">
+                                            <color key="titleColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapPostButton:" destination="lra-bo-m7v" eventType="touchUpInside" id="ihM-og-mam"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1665,6 +1669,7 @@ Comment on other people's plans and text them to meet up!</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="commentEntry" destination="3k6-rw-YKO" id="svu-Yo-EUf"/>
                         <outlet property="commentTable" destination="i22-BW-qzk" id="QyE-eI-AYi"/>
                         <outlet property="locationLabel" destination="Eme-xB-T9g" id="mCH-1G-8sO"/>
                         <outlet property="messageLabel" destination="ASp-ra-6hf" id="O1g-fv-Wfj"/>

@@ -53,47 +53,47 @@ Parse.Cloud.define("hello", function(request, response) {
 // 	};
 // });
 
-Parse.Cloud.afterSave("Comment", function(request){
+// Parse.Cloud.afterSave("Comment", function(request){
 
-	if (!request.object.existed()) {
-		var planCommentingUser = request.object.get('commentingUser');
-		var userId = planCommentingUser.id;
+// 	if (!request.object.existed()) {
+// 		var planCommentingUser = request.object.get('commentingUser');
+// 		var userId = planCommentingUser.id;
 
-		var commentedPlan = request.object.get('commentedPlan');
-		var planId = commentedPlan.id;
+// 		var commentedPlan = request.object.get('commentedPlan');
+// 		var planId = commentedPlan.id;
 
-		var pushQuery = new Parse.Query(Parse.Installation);
-		pushQuery.equalTo('channels', planId);
-		pushQuery.notEqualTo('user', planCommentingUser);
+// 		var pushQuery = new Parse.Query(Parse.Installation);
+// 		pushQuery.equalTo('channels', planId);
+// 		pushQuery.notEqualTo('user', planCommentingUser);
 
-		var planQuery = new Parse.Query("Plan");
-		planQuery.equalTo('objectId', planId);
+// 		var planQuery = new Parse.Query("Plan");
+// 		planQuery.equalTo('objectId', planId);
 
 
-		planQuery.find({
-			success: function(plans) {
-				var plan = plans[0];
-				message = plan.get("message");
+// 		planQuery.find({
+// 			success: function(plans) {
+// 				var plan = plans[0];
+// 				message = plan.get("message");
 
-				Parse.Push.send({
-					where: pushQuery,
-					data: {
-						alert: "New comment on " + message + "!"
-					}
-				}, {
-					success: function() {
-						print("success")
-					},
-					error: function(error) {
-						print("error")
-					}
-				});
+// 				Parse.Push.send({
+// 					where: pushQuery,
+// 					data: {
+// 						alert: "New comment on " + message + "!"
+// 					}
+// 				}, {
+// 					success: function() {
+// 						print("success")
+// 					},
+// 					error: function(error) {
+// 						print("error")
+// 					}
+// 				});
 
-			},
-			error: function(error) {
-				console.log("error");
-			}
-		});
+// 			},
+// 			error: function(error) {
+// 				console.log("error");
+// 			}
+// 		});
 
-	};
-});
+// 	};
+// });

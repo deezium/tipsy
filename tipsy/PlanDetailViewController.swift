@@ -283,6 +283,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
     
     
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(queryObjects.count)
         return queryObjects.count + 3
