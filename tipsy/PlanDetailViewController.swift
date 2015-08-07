@@ -515,22 +515,33 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
                 let imageData = postImage.getData()
                 let image = UIImage(data: imageData!)
-                cell.firstAttendee.image = image
+                cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
+                cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.firstAttendee.tag = 0
                 
             }
             
             for (index, image) in enumerate(attendeeImageArray) {
                 if index == 0 {
-                    cell.secondAttendee.image = image
+                    cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.secondAttendee.tag = index+1
                 }
                 if index == 1 {
-                    cell.thirdAttendee.image = image
+                    cell.thirdAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.thirdAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.thirdAttendee.tag = index+1
+
                 }
                 if index == 2 {
-                    cell.fourthAttendee.image = image
+                    cell.fourthAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.fourthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.fourthAttendee.tag = index+1
                 }
                 if index == 3 {
-                    cell.fifthAttendee.image = image
+                    cell.fifthAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.fifthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.fifthAttendee.tag = index+1
                 }
 
             }
@@ -607,6 +618,26 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         return finalCell!
 
+    }
+    
+    func didTapUserProfileImage(sender: UIButton!) {
+        var attendee: PFUser?
+        if sender.tag == 0 {
+            attendee = planObjects.first?.objectForKey("creatingUser") as? PFUser
+            println("user picture tapped! \(attendee)")
+            let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
+            profileViewController.user = attendee
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+        }
+        else {
+            attendee = attendeeQueryObjects[sender.tag-1] as? PFUser
+            println("user picture tapped! \(attendee)")
+            let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
+            profileViewController.user = attendee
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+
+        }
+        
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

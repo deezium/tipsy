@@ -11,18 +11,17 @@ import UIKit
 
 class PlanDetailAttendingCell: UITableViewCell {
     
+    @IBOutlet weak var firstAttendee: UIButton!
     
-    @IBOutlet weak var firstAttendee: UIImageView!
+
+    @IBOutlet weak var secondAttendee: UIButton!
  
-    @IBOutlet weak var secondAttendee: UIImageView!
+    
+    @IBOutlet weak var thirdAttendee: UIButton!
     
     
-    @IBOutlet weak var thirdAttendee: UIImageView!
+    @IBOutlet weak var fourthAttendee: UIButton!
     
-    
-    @IBOutlet weak var fourthAttendee: UIImageView!
-    
-    
-    @IBOutlet weak var fifthAttendee: UIImageView!
+    @IBOutlet weak var fifthAttendee: UIButton!
     
 }

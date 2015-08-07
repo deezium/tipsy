@@ -69,13 +69,15 @@ class QueryController {
         
     }
     
-    func queryProfilePlans(filter: String) {
+    func queryProfilePlans(filter: String, userId: String) {
         
         println("fuck")
         var query = PFQuery(className: "Plan")
         
+        var pointer = PFObject(withoutDataWithClassName: "_User", objectId: userId)
+        
         if (filter != "") {
-            query.whereKey(filter, equalTo: user)
+            query.whereKey(filter, equalTo: pointer)
         }
         
         let currentDate = NSDate()

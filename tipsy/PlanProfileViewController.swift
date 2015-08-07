@@ -37,7 +37,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         self.planTableView.reloadData()
     }
     
-    let user = PFUser.currentUser()
+    var user = PFUser.currentUser()
     
     var query = QueryController()
     var queryObjects = [PFObject]()
@@ -147,7 +147,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         super.viewDidLoad()
         
         query.delegate = self
-        query.queryProfilePlans("creatingUser")
+        query.queryProfilePlans("creatingUser", userId: user!.objectId!)
 
         self.username.text = user!.objectForKey("fullname") as? String
         
@@ -174,7 +174,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     }
     
     func refreshPosts() {
-        query.queryProfilePlans("creatingUser")
+        query.queryProfilePlans("creatingUser", userId: user!.objectId!)
     }
 
     
