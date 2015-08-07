@@ -304,6 +304,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
         else {
+            
+            println("attendanceToRemove \(plan.objectId!)")
             plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
             currentUser?.removeObject(plan.objectId!, forKey: "attendedPlans")
             

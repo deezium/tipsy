@@ -376,7 +376,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         if attendanceState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
-            
+            //currentUser?.addUniqueObject(plan.objectId!, forKey: "attendedPlans")
+
             attendanceState = !attendanceState
             
             
@@ -387,6 +388,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         else {
             plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
+            //currentUser?.removeObject(plan.objectId!, forKey: "attendedPlans")
+            
             
             attendanceState = !attendanceState
             
