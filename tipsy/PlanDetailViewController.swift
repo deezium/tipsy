@@ -15,8 +15,10 @@ let commentMadeNotificationKey = "commentMadeNotificationKey"
 class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, UITextFieldDelegate {
     
 
+    @IBOutlet weak var profileImageButton: UIButton!
+    
+    
     @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
@@ -118,7 +120,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
             let imageData = postImage.getData()
             let image = UIImage(data: imageData!)
-            self.profileImage.image = image
+            
+            profileImageButton.setImage(image, forState: UIControlState.Normal)
+            profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+
             
         }
 
@@ -591,7 +596,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             if let postImage = user.objectForKey("profileImage") as? PFFile {
                 let imageData = postImage.getData()
                 let image = UIImage(data: imageData!)
-                cell.profileImage.image = image
+                cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+               // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.profileImageButton.tag = indexPath.row
                 
             }
             
@@ -636,7 +643,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     func didTapUserProfileImage(sender: UIButton!) {
         var attendee: PFUser?
-        if sender.tag == 0 {
+        
+        
+        
+        if (sender.tag == 0) {
             attendee = planObjects.first?.objectForKey("creatingUser") as? PFUser
             println("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController

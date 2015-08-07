@@ -1508,21 +1508,6 @@ Comment on other people's plans and text them to meet up!</string>
                         <rect key="frame" x="0.0" y="64" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="WWM-Uj-e9n">
-                                <rect key="frame" x="16" y="72" width="80" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="4zh-QP-cgK"/>
-                                    <constraint firstAttribute="width" constant="70" id="Bvt-0f-BrK"/>
-                                    <constraint firstAttribute="height" constant="70" id="hMg-Gu-0fa"/>
-                                    <constraint firstAttribute="width" constant="80" id="mdg-5O-MWp"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Bvt-0f-BrK"/>
-                                        <exclude reference="hMg-Gu-0fa"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eme-xB-T9g">
                                 <rect key="frame" x="104" y="101" width="89" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
@@ -1700,13 +1685,6 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBv-IQ-LAr">
-                                                    <rect key="frame" x="24" y="8" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="h7r-fs-Yka"/>
-                                                        <constraint firstAttribute="height" constant="40" id="n8L-UG-ClL"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKB-mt-yKE">
                                                     <rect key="frame" x="23" y="56" width="43" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
@@ -1739,26 +1717,34 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
                                                 </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-zy-Pkm">
+                                                    <rect key="frame" x="26" y="12" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="dh5-pr-noH"/>
+                                                        <constraint firstAttribute="width" constant="40" id="hag-lM-lDl"/>
+                                                    </constraints>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="centerX" secondItem="B7V-Qi-09F" secondAttribute="centerX" id="4zu-HY-jNj"/>
+                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="leading" secondItem="a10-zy-Pkm" secondAttribute="trailing" constant="10" id="BQV-Og-M71"/>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="LhV-8A-tcx" secondAttribute="trailing" constant="10" id="Dn2-ca-AuX"/>
+                                                <constraint firstItem="a10-zy-Pkm" firstAttribute="leading" secondItem="eTT-BA-iaT" secondAttribute="leading" constant="30" id="Iyd-CW-qkI"/>
                                                 <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="top" id="JOT-hZ-yJA"/>
                                                 <constraint firstAttribute="trailing" secondItem="zbU-bs-L2U" secondAttribute="trailing" constant="30" id="Kld-du-ewX"/>
-                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="leading" secondItem="mBv-IQ-LAr" secondAttribute="trailing" constant="10" id="M4q-Gt-Uy9"/>
-                                                <constraint firstItem="mBv-IQ-LAr" firstAttribute="centerX" secondItem="QKB-mt-yKE" secondAttribute="centerX" id="OeZ-VP-9Nq"/>
-                                                <constraint firstItem="mBv-IQ-LAr" firstAttribute="top" secondItem="eTT-BA-iaT" secondAttribute="top" constant="10" id="W6K-mT-ObK"/>
+                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="a10-zy-Pkm" secondAttribute="top" id="YJ8-89-SUF"/>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="B7V-Qi-09F" secondAttribute="leading" constant="-20" id="ZjW-Wd-Wzv"/>
-                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="top" id="eU8-o3-btX"/>
+                                                <constraint firstItem="a10-zy-Pkm" firstAttribute="top" secondItem="eTT-BA-iaT" secondAttribute="top" constant="10" id="ahZ-DS-CJS"/>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="trailing" secondItem="B7V-Qi-09F" secondAttribute="trailing" constant="-15" id="jDC-h5-GvB"/>
-                                                <constraint firstItem="mBv-IQ-LAr" firstAttribute="leading" secondItem="eTT-BA-iaT" secondAttribute="leading" constant="30" id="jv9-eZ-nFS"/>
                                                 <constraint firstItem="B7V-Qi-09F" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="bottom" id="l0r-hn-UpD"/>
-                                                <constraint firstItem="QKB-mt-yKE" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="bottom" id="qPg-xJ-il7"/>
-                                                <constraint firstItem="mBv-IQ-LAr" firstAttribute="centerY" secondItem="zbU-bs-L2U" secondAttribute="centerY" id="zZq-Yl-Ed1"/>
+                                                <constraint firstItem="QKB-mt-yKE" firstAttribute="top" secondItem="a10-zy-Pkm" secondAttribute="bottom" id="mbb-X1-LiE"/>
+                                                <constraint firstItem="QKB-mt-yKE" firstAttribute="centerX" secondItem="a10-zy-Pkm" secondAttribute="centerX" id="mm1-AE-EUO"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="zZq-Yl-Ed1"/>
                                                     <exclude reference="4zu-HY-jNj"/>
                                                     <exclude reference="ZjW-Wd-Wzv"/>
                                                 </mask>
@@ -1768,7 +1754,7 @@ Comment on other people's plans and text them to meet up!</string>
                                             <outlet property="heartButton" destination="B7V-Qi-09F" id="tan-sh-frD"/>
                                             <outlet property="nameLabel" destination="QKB-mt-yKE" id="21h-0H-fvt"/>
                                             <outlet property="newCommentTextField" destination="LhV-8A-tcx" id="3KA-GK-8np"/>
-                                            <outlet property="profileImage" destination="mBv-IQ-LAr" id="nAZ-nN-CnT"/>
+                                            <outlet property="profileImageButton" destination="a10-zy-Pkm" id="HfF-tp-gBr"/>
                                             <outlet property="timeLabel" destination="zbU-bs-L2U" id="dfZ-bW-Shq"/>
                                         </connections>
                                     </tableViewCell>
@@ -1932,39 +1918,45 @@ Comment on other people's plans and text them to meet up!</string>
                                     </mask>
                                 </variation>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-Dt-1YQ">
+                                <rect key="frame" x="20" y="72" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="5KO-hc-a2d"/>
+                                    <constraint firstAttribute="height" constant="80" id="Bnb-4Q-S6j"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ASp-ra-6hf" firstAttribute="top" secondItem="aaU-dI-feM" secondAttribute="bottom" constant="10" id="3Hg-sT-wtq"/>
-                            <constraint firstItem="WWM-Uj-e9n" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="10" id="5mE-dc-QjE"/>
-                            <constraint firstItem="I4M-aD-dN2" firstAttribute="centerX" secondItem="WWM-Uj-e9n" secondAttribute="centerX" id="9Ny-vd-33q"/>
+                            <constraint firstItem="ASp-ra-6hf" firstAttribute="leading" secondItem="pSa-Dt-1YQ" secondAttribute="trailing" constant="10" id="CSJ-UR-qqa"/>
+                            <constraint firstItem="I4M-aD-dN2" firstAttribute="top" secondItem="pSa-Dt-1YQ" secondAttribute="bottom" constant="5" id="D5q-Cl-l0u"/>
                             <constraint firstItem="Eme-xB-T9g" firstAttribute="top" secondItem="ASp-ra-6hf" secondAttribute="bottom" constant="5" id="DLZ-v2-XYA"/>
+                            <constraint firstItem="pSa-Dt-1YQ" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="10" id="F6x-Ci-yI6"/>
                             <constraint firstAttribute="trailing" secondItem="UGX-sd-LVV" secondAttribute="trailing" constant="-10" id="HAs-oX-eIU"/>
                             <constraint firstItem="I4M-aD-dN2" firstAttribute="leading" secondItem="Eme-xB-T9g" secondAttribute="leading" id="Ic5-DE-qpV"/>
-                            <constraint firstItem="WWM-Uj-e9n" firstAttribute="top" secondItem="aaU-dI-feM" secondAttribute="bottom" constant="10" id="MLP-RZ-aJn"/>
                             <constraint firstAttribute="trailing" secondItem="i22-BW-qzk" secondAttribute="trailing" constant="-20" id="Nq9-T8-DKQ"/>
                             <constraint firstItem="UGX-sd-LVV" firstAttribute="top" secondItem="i22-BW-qzk" secondAttribute="bottom" id="OCF-tX-LfJ"/>
                             <constraint firstItem="V7r-Tu-Xtp" firstAttribute="top" secondItem="UGX-sd-LVV" secondAttribute="bottom" id="SlK-ZX-Pxx"/>
+                            <constraint firstItem="pSa-Dt-1YQ" firstAttribute="top" secondItem="aaU-dI-feM" secondAttribute="bottom" constant="10" id="TH2-uZ-Ivi"/>
                             <constraint firstItem="V7r-Tu-Xtp" firstAttribute="top" secondItem="i22-BW-qzk" secondAttribute="bottom" constant="20" id="Vzn-Cb-EKx"/>
+                            <constraint firstItem="Eme-xB-T9g" firstAttribute="leading" secondItem="ASp-ra-6hf" secondAttribute="leading" id="W58-cy-c3m"/>
                             <constraint firstItem="i22-BW-qzk" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="-20" id="WTQ-mQ-hoc"/>
-                            <constraint firstItem="I4M-aD-dN2" firstAttribute="top" secondItem="WWM-Uj-e9n" secondAttribute="top" id="WZM-3Y-DeU"/>
                             <constraint firstItem="UGX-sd-LVV" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="-10" id="ZPZ-DI-jTp"/>
-                            <constraint firstItem="WWM-Uj-e9n" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="10" id="bF4-8B-3vH"/>
                             <constraint firstItem="Eme-xB-T9g" firstAttribute="top" secondItem="I4M-aD-dN2" secondAttribute="bottom" constant="10" id="bkl-ih-o70"/>
                             <constraint firstItem="i22-BW-qzk" firstAttribute="top" secondItem="I4M-aD-dN2" secondAttribute="bottom" constant="10" id="iTl-zn-q1X"/>
-                            <constraint firstItem="ASp-ra-6hf" firstAttribute="leading" secondItem="WWM-Uj-e9n" secondAttribute="trailing" constant="10" id="jXT-CP-A1M"/>
-                            <constraint firstItem="I4M-aD-dN2" firstAttribute="top" secondItem="WWM-Uj-e9n" secondAttribute="bottom" constant="5" id="n2u-CL-u18"/>
-                            <constraint firstItem="g80-bS-FVC" firstAttribute="leading" secondItem="WWM-Uj-e9n" secondAttribute="trailing" constant="10" id="pFv-Be-qRq"/>
+                            <constraint firstItem="I4M-aD-dN2" firstAttribute="centerX" secondItem="pSa-Dt-1YQ" secondAttribute="centerX" id="q9j-zf-EWv"/>
                             <constraint firstAttribute="trailing" secondItem="ASp-ra-6hf" secondAttribute="trailing" constant="10" id="r7g-Mv-fOY"/>
                             <constraint firstItem="Eme-xB-T9g" firstAttribute="leading" secondItem="g80-bS-FVC" secondAttribute="leading" id="rZw-X0-Yye"/>
                             <constraint firstItem="g80-bS-FVC" firstAttribute="top" secondItem="Eme-xB-T9g" secondAttribute="bottom" constant="5" id="vbS-fy-4ju"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="bF4-8B-3vH"/>
                                 <exclude reference="bkl-ih-o70"/>
                                 <exclude reference="Ic5-DE-qpV"/>
-                                <exclude reference="WZM-3Y-DeU"/>
                                 <exclude reference="Vzn-Cb-EKx"/>
                             </mask>
                         </variation>
@@ -1991,7 +1983,7 @@ Comment on other people's plans and text them to meet up!</string>
                         <outlet property="locationLabel" destination="Eme-xB-T9g" id="mCH-1G-8sO"/>
                         <outlet property="messageLabel" destination="ASp-ra-6hf" id="O1g-fv-Wfj"/>
                         <outlet property="nameLabel" destination="I4M-aD-dN2" id="CZ8-sh-iUV"/>
-                        <outlet property="profileImage" destination="WWM-Uj-e9n" id="ay3-VW-Jag"/>
+                        <outlet property="profileImageButton" destination="pSa-Dt-1YQ" id="78l-wo-cz7"/>
                         <outlet property="timeLabel" destination="g80-bS-FVC" id="Rv5-aG-Hn1"/>
                     </connections>
                 </viewController>
@@ -2193,7 +2185,7 @@ Comment on other people's plans and text them to meet up!</string>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="urZ-Y9-YSI"/>
         <segue reference="MUB-pR-8Ix"/>
+        <segue reference="Tyd-4d-APj"/>
     </inferredMetricsTieBreakers>
 </document>
