@@ -422,10 +422,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         if indexPath.row == 0 {
             var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
             let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
-            let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
             
             cell?.addressLabel.text = placeAddress
-
+            
+            
+//            let shortAddressLabel = shortAddress[0]
+            
             
             finalCell = cell
         }

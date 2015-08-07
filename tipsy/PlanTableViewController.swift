@@ -450,6 +450,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         df.dateFormat = "MM/dd/yyyy"
         let date = df.dateFromString(dateString)!
         
+        let today = NSDate()
+        let todayString = df.stringFromDate(today)
+        
         df.dateFormat = "EEEE"
         
         let dayOfWeekString = df.stringFromDate(date)
@@ -457,7 +460,14 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         df.dateFormat = "MMMM dd"
         let prettyDateString = df.stringFromDate(date)
         
-        headerCell.headerLabel.text =  dayOfWeekString + ", " + prettyDateString
+        if (dateString == todayString) {
+            headerCell.headerLabel.text = "Today"
+        }
+        else {
+            headerCell.headerLabel.text =  dayOfWeekString + ", " + prettyDateString
+            
+        }
+        
         
     
         return headerCell

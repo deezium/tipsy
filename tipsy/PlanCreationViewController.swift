@@ -362,7 +362,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.separatorColor = UIColor.grayColor()
+        //tableView.separatorColor = UIColor.whiteColor()
 
         println("dese plans \(plans)")
         

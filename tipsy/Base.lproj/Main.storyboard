@@ -226,7 +226,7 @@ Comment on other people's plans and text them to meet up!</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b9Z-Wk-vVj" id="zIh-tE-jSa">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-7m-EYW">
+                                                <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hod-7m-EYW">
                                                     <rect key="frame" x="33" y="10" width="70" height="70"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="70" id="0GH-bB-0ku"/>
@@ -818,7 +818,7 @@ Comment on other people's plans and text them to meet up!</string>
                                 </variation>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="moz-Uw-fz2" firstAttribute="leading" secondItem="N1O-WU-tKc" secondAttribute="leadingMargin" constant="20" id="3aM-Yk-A35"/>
                             <constraint firstItem="eZK-XW-FK0" firstAttribute="top" secondItem="P4w-58-QsC" secondAttribute="bottom" id="80c-V1-Nct"/>
@@ -1401,8 +1401,8 @@ Comment on other people's plans and text them to meet up!</string>
                                     <constraint firstAttribute="width" constant="80" id="E0C-rE-aTH"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gettin' tipsy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p9-Ob-kiN">
-                                <rect key="frame" x="98" y="101" width="86" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About me: I love gettin' tipsy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p9-Ob-kiN">
+                                <rect key="frame" x="98" y="101" width="171" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1554,7 +1554,7 @@ Comment on other people's plans and text them to meet up!</string>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="pic-Xe-q20" secondAttribute="centerY" id="FU9-cb-Pdq"/>
                                                 <constraint firstItem="pic-Xe-q20" firstAttribute="leading" secondItem="PHR-At-2U4" secondAttribute="leading" constant="30" id="QgP-Oa-3UT"/>
-                                                <constraint firstAttribute="trailing" secondItem="pic-Xe-q20" secondAttribute="trailing" constant="10" id="rxW-Ni-bp0"/>
+                                                <constraint firstAttribute="trailing" secondItem="pic-Xe-q20" secondAttribute="trailing" constant="30" id="rxW-Ni-bp0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
