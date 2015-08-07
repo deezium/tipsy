@@ -17,6 +17,9 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    
+    @IBOutlet weak var editButton: UIButton!
+    
     @IBOutlet weak var aboutLabel: UILabel!
     var planTableHeaderArray = [String]()
 
@@ -167,6 +170,15 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         self.planTableView!.delegate = self
         self.planTableView!.dataSource = self
+        
+        if (user?.objectId != PFUser.currentUser()?.objectId) {
+            editButton.hidden = true
+            segmentedControl.selectedSegmentIndex = 1
+        }
+        else {
+            editButton.hidden = false
+        }
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
 

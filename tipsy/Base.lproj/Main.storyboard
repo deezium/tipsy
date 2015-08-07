@@ -1485,6 +1485,7 @@ Comment on other people's plans and text them to meet up!</string>
                     </navigationItem>
                     <connections>
                         <outlet property="aboutLabel" destination="6p9-Ob-kiN" id="7Q9-Pn-ypr"/>
+                        <outlet property="editButton" destination="PPz-VO-MHY" id="51h-EK-NuG"/>
                         <outlet property="planTableView" destination="tXw-m8-Fzo" id="vgT-LS-E0S"/>
                         <outlet property="profileImage" destination="axK-s3-zrr" id="6z2-rR-Fgo"/>
                         <outlet property="segmentedControl" destination="Fdg-G8-muh" id="aVJ-aI-GRT"/>
