@@ -518,6 +518,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let placeName = queryObject.objectForKey("googlePlaceName") as? String
         let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
         let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+        
         var placeLabel: String?
         
         var heartState: Bool? = false
@@ -548,7 +549,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         
+        let comments = queryObject.objectForKey("comments") as? [String]
+        let commentCount = comments?.count
         
+        cell.commentButton.setTitle(commentCount?.description, forState: UIControlState.Normal)
         
         if let placeName = placeName {
             placeLabel = placeName

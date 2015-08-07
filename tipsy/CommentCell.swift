@@ -16,9 +16,19 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var newCommentTextField: UITextView!
     @IBOutlet weak var heartButton: UIButton!
  
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        newCommentTextField.editable = false
+        newCommentTextField.dataDetectorTypes = UIDataDetectorTypes.All
+        newCommentTextField.setContentOffset(CGPointZero, animated: false)
     
+    }
+    
+
     
     
 }

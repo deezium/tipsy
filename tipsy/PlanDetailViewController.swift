@@ -57,6 +57,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         })
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -555,8 +556,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             var cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
             let commentObject = queryObjects[indexPath.row-3]
             var heartState: Bool? = false
-            
-            
+
             let user = commentObject.objectForKey("commentingUser") as! PFUser
             let fullname = user.objectForKey("fullname") as? String
             let firstname = fullname?.componentsSeparatedByString(" ")[0]
@@ -571,7 +571,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             }
             
             cell.nameLabel.text = firstname
-            cell.messageLabel.text = commentBody
+//            cell.messageLabel.text = commentBody
+            cell.newCommentTextField.text = commentBody
             cell.timeLabel.text = timeAgo
             
             let heartingUsers = commentObject.objectForKey("heartingUsers") as? [String]
@@ -657,6 +658,17 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 currentInstallation.addUniqueObject(self.planObjects.first!.objectId!, forKey: "channels")
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
+                
+                self.planObjects.first?.addObject(commentObject.objectId!, forKey: "comments")
+                self.planObjects.first?.saveInBackgroundWithBlock {
+                    (success, error) -> Void in
+                    if success == true {
+                        println("comment added to plan")
+                    }
+                    else {
+                        println("comment not added to plan")
+                    }
+                }
 
                 let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))

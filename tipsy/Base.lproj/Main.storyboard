@@ -279,7 +279,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <state key="normal" title=" x" image="Like.png">
-                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -293,7 +293,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <state key="normal" title=" x" image="Comments.png">
-                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
@@ -332,7 +332,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <state key="normal" title=" Join" image="AddUser.png">
-                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <variation key="default">
@@ -1213,7 +1213,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <state key="normal" title=" x" image="Like.png">
-                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <connections>
@@ -1228,7 +1228,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <state key="normal" title=" x" image="Comments.png">
-                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                         </button>
@@ -1267,7 +1267,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <state key="normal" title=" Join" image="AddUser.png">
-                                                                <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
                                                             <variation key="default">
@@ -1401,7 +1401,7 @@ Comment on other people's plans and text them to meet up!</string>
                                     <constraint firstAttribute="width" constant="80" id="E0C-rE-aTH"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About me: I love gettin' tipsy." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p9-Ob-kiN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="about" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p9-Ob-kiN">
                                 <rect key="frame" x="98" y="101" width="171" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1482,6 +1482,7 @@ Comment on other people's plans and text them to meet up!</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="aboutLabel" destination="6p9-Ob-kiN" id="7Q9-Pn-ypr"/>
                         <outlet property="planTableView" destination="tXw-m8-Fzo" id="vgT-LS-E0S"/>
                         <outlet property="profileImage" destination="axK-s3-zrr" id="6z2-rR-Fgo"/>
                         <outlet property="segmentedControl" destination="Fdg-G8-muh" id="aVJ-aI-GRT"/>
@@ -1587,6 +1588,9 @@ Comment on other people's plans and text them to meet up!</string>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFD-Js-DYI">
                                                     <rect key="frame" x="132" y="37" width="30" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="1" id="9Lf-FI-T8a"/>
+                                                    </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Vf-Y0-lJb">
                                                     <rect key="frame" x="180" y="37" width="40" height="40"/>
@@ -1644,7 +1648,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                 <constraint firstItem="xFD-Js-DYI" firstAttribute="centerY" secondItem="WUc-TI-gQj" secondAttribute="centerY" id="egs-kS-cPV"/>
                                                 <constraint firstItem="WUc-TI-gQj" firstAttribute="leading" relation="lessThanOrEqual" secondItem="wsv-5c-F9E" secondAttribute="trailing" constant="10" id="g8C-d0-PFc"/>
                                                 <constraint firstItem="l1W-7l-wHz" firstAttribute="leading" secondItem="XND-V8-Rgi" secondAttribute="leading" constant="30" id="gc6-yo-uXO"/>
-                                                <constraint firstItem="wsv-5c-F9E" firstAttribute="leading" secondItem="XND-V8-Rgi" secondAttribute="leading" constant="30" id="gzb-zV-HF2"/>
+                                                <constraint firstItem="wsv-5c-F9E" firstAttribute="leading" secondItem="XND-V8-Rgi" secondAttribute="leading" constant="20" id="gzb-zV-HF2"/>
                                                 <constraint firstItem="7Vf-Y0-lJb" firstAttribute="width" secondItem="ZPw-mE-dW1" secondAttribute="width" id="hX9-wZ-bXi"/>
                                                 <constraint firstItem="S7h-L6-iAN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="AB3-hI-PtN" secondAttribute="trailing" constant="10" id="nDI-Fu-Vid"/>
                                                 <constraint firstItem="7Vf-Y0-lJb" firstAttribute="height" secondItem="AB3-hI-PtN" secondAttribute="height" id="pDB-ek-Y4o"/>
@@ -1672,7 +1676,7 @@ Comment on other people's plans and text them to meet up!</string>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECH-P5-qj7" id="eTT-BA-iaT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbU-bs-L2U">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbU-bs-L2U">
                                                     <rect key="frame" x="537" y="12" width="34" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1685,27 +1689,21 @@ Comment on other people's plans and text them to meet up!</string>
                                                         <constraint firstAttribute="height" constant="40" id="n8L-UG-ClL"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZn-GJ-d12">
-                                                    <rect key="frame" x="98" y="8" width="64" height="22"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKB-mt-yKE">
                                                     <rect key="frame" x="23" y="56" width="43" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7V-Qi-09F">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B7V-Qi-09F">
                                                     <rect key="frame" x="539" y="32" width="45" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="Nvs-MA-BZh"/>
                                                         <constraint firstAttribute="height" constant="30" id="j0i-nu-zu5"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <inset key="titleEdgeInsets" minX="-24" minY="35" maxX="0.0" maxY="0.0"/>
-                                                    <inset key="imageEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="titleEdgeInsets" minX="-20" minY="35" maxX="0.0" maxY="0.0"/>
+                                                    <inset key="imageEdgeInsets" minX="12" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     <state key="normal" title="x" image="Like.png">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -1713,33 +1711,45 @@ Comment on other people's plans and text them to meet up!</string>
                                                         <action selector="didTapCommentHeart:" destination="lra-bo-m7v" eventType="touchUpInside" id="O7G-pT-dVr"/>
                                                     </connections>
                                                 </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="message" translatesAutoresizingMaskIntoConstraints="NO" id="LhV-8A-tcx">
+                                                    <rect key="frame" x="72" y="12" width="308" height="45"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="dq4-UC-ygx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                                </textView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="centerX" secondItem="B7V-Qi-09F" secondAttribute="centerX" id="4zu-HY-jNj"/>
-                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="top" secondItem="AZn-GJ-d12" secondAttribute="top" id="Cec-zX-ih9"/>
-                                                <constraint firstItem="AZn-GJ-d12" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="top" id="J7I-W7-eIt"/>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="LhV-8A-tcx" secondAttribute="trailing" constant="10" id="Dn2-ca-AuX"/>
+                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="top" id="JOT-hZ-yJA"/>
                                                 <constraint firstAttribute="trailing" secondItem="zbU-bs-L2U" secondAttribute="trailing" constant="30" id="Kld-du-ewX"/>
+                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="leading" secondItem="mBv-IQ-LAr" secondAttribute="trailing" constant="10" id="M4q-Gt-Uy9"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="centerX" secondItem="QKB-mt-yKE" secondAttribute="centerX" id="OeZ-VP-9Nq"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="top" secondItem="eTT-BA-iaT" secondAttribute="top" constant="10" id="W6K-mT-ObK"/>
-                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="top" secondItem="AZn-GJ-d12" secondAttribute="top" constant="4" id="YqA-Ef-D2X"/>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="B7V-Qi-09F" secondAttribute="leading" constant="-20" id="ZjW-Wd-Wzv"/>
+                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="top" id="eU8-o3-btX"/>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="trailing" secondItem="B7V-Qi-09F" secondAttribute="trailing" constant="-15" id="jDC-h5-GvB"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="leading" secondItem="eTT-BA-iaT" secondAttribute="leading" constant="30" id="jv9-eZ-nFS"/>
                                                 <constraint firstItem="B7V-Qi-09F" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="bottom" id="l0r-hn-UpD"/>
                                                 <constraint firstItem="QKB-mt-yKE" firstAttribute="top" secondItem="mBv-IQ-LAr" secondAttribute="bottom" id="qPg-xJ-il7"/>
-                                                <constraint firstItem="AZn-GJ-d12" firstAttribute="leading" secondItem="mBv-IQ-LAr" secondAttribute="trailing" constant="10" id="rAe-gA-XUM"/>
-                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="AZn-GJ-d12" secondAttribute="trailing" priority="999" constant="10" id="wvo-Tf-GlF"/>
                                                 <constraint firstItem="mBv-IQ-LAr" firstAttribute="centerY" secondItem="zbU-bs-L2U" secondAttribute="centerY" id="zZq-Yl-Ed1"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="zZq-Yl-Ed1"/>
-                                                    <exclude reference="YqA-Ef-D2X"/>
+                                                    <exclude reference="4zu-HY-jNj"/>
+                                                    <exclude reference="ZjW-Wd-Wzv"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="heartButton" destination="B7V-Qi-09F" id="tan-sh-frD"/>
-                                            <outlet property="messageLabel" destination="AZn-GJ-d12" id="J4u-Mn-6hd"/>
                                             <outlet property="nameLabel" destination="QKB-mt-yKE" id="21h-0H-fvt"/>
+                                            <outlet property="newCommentTextField" destination="LhV-8A-tcx" id="3KA-GK-8np"/>
                                             <outlet property="profileImage" destination="mBv-IQ-LAr" id="nAZ-nN-CnT"/>
                                             <outlet property="timeLabel" destination="zbU-bs-L2U" id="dfZ-bW-Shq"/>
                                         </connections>
@@ -1768,7 +1778,7 @@ Comment on other people's plans and text them to meet up!</string>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title=" x" image="Like.png">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1780,9 +1790,9 @@ Comment on other people's plans and text them to meet up!</string>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="tzL-HN-01h"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title=" y" image="AddUser.png">
-                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -1854,7 +1864,7 @@ Comment on other people's plans and text them to meet up!</string>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="4PY-GD-77r"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="4PY-GD-77r"/>
@@ -1982,13 +1992,55 @@ Comment on other people's plans and text them to meet up!</string>
                     <view key="view" contentMode="scaleToFill" id="FvI-9I-9IQ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell us what's awesome about you!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0o0-Ch-dyN">
+                                <rect key="frame" x="253" y="491" width="100" height="40"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ush-c1-398"/>
+                                    <constraint firstAttribute="width" constant="100" id="vUl-2r-i7w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapPostButton:" destination="ire-on-Dx3" eventType="touchUpInside" id="56j-wY-Zo9"/>
+                                    <action selector="didTapSaveButton:" destination="ZeH-Dc-3xZ" eventType="touchUpInside" id="xtx-wu-drC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="More stuff coming soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-Iy-Snz">
+                                <rect key="frame" x="207" y="303" width="187" height="21"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="OSN-Iy-Snz" secondAttribute="centerY" constant="-37" id="1UP-LI-Nb3"/>
+                            <constraint firstItem="8dA-Vl-Me1" firstAttribute="leading" secondItem="FvI-9I-9IQ" secondAttribute="leading" id="1ZT-Nz-dK0"/>
+                            <constraint firstAttribute="trailing" secondItem="8dA-Vl-Me1" secondAttribute="trailing" id="CWq-9c-0fj"/>
+                            <constraint firstAttribute="centerX" secondItem="0o0-Ch-dyN" secondAttribute="centerX" id="Gff-oj-Lp1"/>
+                            <constraint firstAttribute="centerX" secondItem="OSN-Iy-Snz" secondAttribute="centerX" id="ci5-94-AA4"/>
+                            <constraint firstItem="8dA-Vl-Me1" firstAttribute="top" secondItem="Hsg-KF-6ie" secondAttribute="bottom" id="hTM-es-olk"/>
+                            <constraint firstItem="Ri2-mj-YBW" firstAttribute="top" secondItem="0o0-Ch-dyN" secondAttribute="bottom" constant="20" id="pon-3B-01k"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="l4F-D1-wTr"/>
+                    <connections>
+                        <outlet property="aboutField" destination="8dA-Vl-Me1" id="vOG-bF-rGh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LnV-5i-nTo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="677" y="188"/>
+            <point key="canvasLocation" x="691" y="194"/>
         </scene>
         <!--Map-->
         <scene sceneID="VsI-Y6-kF8">
@@ -2124,6 +2176,6 @@ Comment on other people's plans and text them to meet up!</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5YK-eT-8Z7"/>
-        <segue reference="Tyd-4d-APj"/>
+        <segue reference="VIb-lG-h26"/>
     </inferredMetricsTieBreakers>
 </document>

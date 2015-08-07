@@ -9,6 +9,51 @@
 import Foundation
 import UIKit
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UITextFieldDelegate {
+    
+    let currentUser = PFUser.currentUser()!
+    
+    @IBOutlet weak var aboutField: UITextField!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        aboutField.delegate = self
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        aboutField.resignFirstResponder()
+        return true
+    }
+    
+    
+    @IBAction func didTapSaveButton(sender: AnyObject) {
+        
+        currentUser.setObject(aboutField.text, forKey: "about")
+        
+        
+        currentUser.saveInBackgroundWithBlock {
+            (success, error) -> Void in
+            if success == true {
+                
+                let alert = UIAlertController(title: "Success", message: "Your profile has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+                self.aboutField.text = ""
+    
+//                NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+            }
+            else {
+                let alert = UIAlertController(title: "Sorry!", message: "We had trouble updating your profile.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+
+        
+        
+    }
     
 }

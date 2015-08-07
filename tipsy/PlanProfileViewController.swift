@@ -17,8 +17,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     @IBOutlet weak var username: UILabel!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBOutlet weak var aboutLabel: UILabel!
     var planTableHeaderArray = [String]()
 
+    @IBOutlet weak var interestsLabel: UILabel!
     let currentUser = PFUser.currentUser()
 
     
@@ -118,7 +120,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     
     func createPlanArrays(objects: [PFObject]) {
         
-        upcomingPlans = [PFObject]()
+        upcomingPlansOriginal = [PFObject]()
         pastPlansOriginal = [PFObject]()
         pastPlans = [PFObject]()
         
@@ -135,9 +137,9 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 pastPlansOriginal.append(object)
             }
         }
-        upcomingPlans = upcomingPlansOriginal
+        upcomingPlans = upcomingPlansOriginal.reverse()
 
-        pastPlans = pastPlansOriginal.reverse()
+        pastPlans = pastPlansOriginal
         println("profileUpcomingPlans \(upcomingPlans)")
     }
     
@@ -154,6 +156,13 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             let image = UIImage(data: imageData!)
             self.profileImage.image = image
             
+        }
+        
+        if let about = user!.objectForKey("about") as? String {
+            aboutLabel.text = "About me: " + about
+        }
+        else {
+            aboutLabel.text = "About me: Well, I'm very awesome."
         }
         
         self.planTableView!.delegate = self

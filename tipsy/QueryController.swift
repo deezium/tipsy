@@ -82,7 +82,7 @@ class QueryController {
         
         query.includeKey("heartedPlan")
         query.includeKey("creatingUser")
-        query.orderByAscending("startTime")
+        query.orderByDescending("startTime")
         query.limit = 20
         
         var objects = query.findObjects() as! [PFObject]
