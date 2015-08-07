@@ -401,6 +401,15 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             (success,error) -> Void in
             if success == true {
                 println("Success")
+                let joinChannel = "join-" + plan.objectId!
+                let commentsChannel = "comments-" + plan.objectId!
+                
+                let currentInstallation = PFInstallation.currentInstallation()
+                currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
+                currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
+                currentInstallation.saveInBackground()
+                println("registered installation for pushes")
+
             }
             else {
                 println("error \(error)")
@@ -574,6 +583,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let timeAgo = commentObject.createdAt!.shortTimeAgoSinceNow()
             let commentBody = commentObject.objectForKey("body") as? String
             
+            
+            
             if let postImage = user.objectForKey("profileImage") as? PFFile {
                 let imageData = postImage.getData()
                 let image = UIImage(data: imageData!)
@@ -685,8 +696,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             (success, error) -> Void in
             if success == true {
                 println("Success")
+                
+                let pushChannel = "comments-" + self.planObjects.first!.objectId!
                 let currentInstallation = PFInstallation.currentInstallation()
-                currentInstallation.addUniqueObject(self.planObjects.first!.objectId!, forKey: "channels")
+                currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
                 

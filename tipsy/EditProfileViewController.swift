@@ -28,6 +28,14 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        let n = self.navigationController?.viewControllers?.count as Int!
+        let profileViewController = self.navigationController?.viewControllers[n-1] as! PlanProfileViewController
+        
+        self.navigationController?.navigationBar.backItem
+        profileViewController.aboutLabel.text = aboutField.text
+    }
+
     
     @IBAction func didTapSaveButton(sender: AnyObject) {
         
@@ -41,7 +49,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
                 let alert = UIAlertController(title: "Success", message: "Your profile has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-                self.aboutField.text = ""
+                //self.aboutField.text = ""
     
 //                NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
             }

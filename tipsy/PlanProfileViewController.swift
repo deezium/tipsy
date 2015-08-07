@@ -332,6 +332,15 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
+                let joinChannel = "join-" + plan.objectId!
+                let commentsChannel = "comments-" + plan.objectId!
+                
+                let currentInstallation = PFInstallation.currentInstallation()
+                currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
+                currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
+                currentInstallation.saveInBackground()
+                println("registered installation for pushes")
+
                 println("Plan save success")
             }
             else {
@@ -497,6 +506,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         var placeLabel: String?
         
         var heartState: Bool? = false
+        
+        let comments = queryObject.objectForKey("comments") as? [String]
+        let commentCount = comments?.count
+        
+        cell.commentButton.setTitle(commentCount?.description, forState: UIControlState.Normal)
+
         
         let heartingUsers = queryObject.objectForKey("heartingUsers") as? [String]
         let countHeartingUsers = heartingUsers?.count

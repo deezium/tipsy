@@ -136,8 +136,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 if success == true {
                     println("Success \(planObject.objectId)")
                     
+                    let pushChannel = "all-" + planObject.objectId!
+                    
                     let currentInstallation = PFInstallation.currentInstallation()
-                    currentInstallation.addUniqueObject(planObject.objectId!, forKey: "channels")
+                    currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
                     currentInstallation.saveInBackground()
                     println("registered installation for pushes")
 
@@ -145,8 +147,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                     activityCell.messageLabel.text = ""
-           //         self.startTime.date = NSDate()
-          //          self.endTime.date = NSDate().dateByAddingHours(1)
+           
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 }
                 else {

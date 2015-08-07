@@ -320,6 +320,16 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             (success,error) -> Void in
             if success == true {
                 println("Plan save success")
+                
+                let joinChannel = "join-" + plan.objectId!
+                let commentsChannel = "comments-" + plan.objectId!
+                
+                let currentInstallation = PFInstallation.currentInstallation()
+                currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
+                currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
+                currentInstallation.saveInBackground()
+                println("registered installation for pushes")
+
             }
             else {
                 println("Plan save error \(error)")
