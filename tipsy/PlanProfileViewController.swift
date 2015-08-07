@@ -194,6 +194,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         let plan = sectionItems[index.row]
         
+        
         //        println("selectedPlan \(plan)")
         
         var heartState = Bool()
@@ -535,7 +536,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             let imageData = postImage.getData()
             let image = UIImage(data: imageData!)
             let testImage = UIImage(named: "Map-50.png") as UIImage!
-            cell.profileImage.image = image
+            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
             
         }
         

@@ -12,7 +12,7 @@ import CoreGraphics
 
 class PlanFeedCell: UITableViewCell {
     
-    @IBOutlet weak var profileImage: UIImageView!
+//    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var location: UILabel!
 //    @IBOutlet weak var startTime: UILabel!
@@ -27,6 +27,8 @@ class PlanFeedCell: UITableViewCell {
     @IBOutlet weak var heartButton: UIButton!
     
     @IBOutlet weak var message: UILabel!
+    
+    @IBOutlet weak var profileImageButton: UIButton!
     
     
     
