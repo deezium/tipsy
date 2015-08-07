@@ -296,6 +296,8 @@
 		336344BB1B32893900DF3D90 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		336344BE1B3358D500DF3D90 /* FriendsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		336344C01B3B271200DF3D90 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
+		336D98161B74E058001F1BFD /* AlphaTest21.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest21.mobileprovision; sourceTree = "<group>"; };
+		336D98171B7524EC001F1BFD /* AlphaTest22.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest22.mobileprovision; sourceTree = "<group>"; };
 		336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationActivityCell.swift; sourceTree = "<group>"; };
 		336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationLocationCell.swift; sourceTree = "<group>"; };
 		336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationDividerCell.swift; sourceTree = "<group>"; };
@@ -533,6 +535,8 @@
 			isa = PBXGroup;
 			children = (
 				33EAEC2D1B66F38E009B3367 /* AlphaTest9.mobileprovision */,
+				336D98171B7524EC001F1BFD /* AlphaTest22.mobileprovision */,
+				336D98161B74E058001F1BFD /* AlphaTest21.mobileprovision */,
 				33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */,
 				33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */,
 				33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */,
@@ -1194,7 +1198,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d446aac8-88bd-445f-b8c9-705b6b2f009d";
+				PROVISIONING_PROFILE = "221c14ca-00e1-492b-a11a-153fde8ae62d";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Debug;
@@ -1227,7 +1231,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d446aac8-88bd-445f-b8c9-705b6b2f009d";
+				PROVISIONING_PROFILE = "221c14ca-00e1-492b-a11a-153fde8ae62d";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Release;

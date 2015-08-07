@@ -10,59 +10,14 @@ Parse.Cloud.define("hello", function(request, response) {
 
 Parse.Cloud.afterSave("Plan", function(request){
 
-	// if (!request.object.existed()) {
-	// 	var planMessage = request.object.get('message');
-	// 	var planCreatingUser = request.object.get('creatingUser');
-	// 	var userId = planCreatingUser.id;
-
-	// 	var pushQuery = new Parse.Query(Parse.Installation);
-	// 	pushQuery.equalTo('channels', 'global');
-	// 	pushQuery.notEqualTo('user', planCreatingUser);
-
-	// 	var userQuery = new Parse.Query(Parse.User);
-	// 	userQuery.equalTo('objectId', userId);
-
-	// 	var username = [];
-
-	// 	userQuery.find({
-	// 		success: function(users) {
-	// 			var user = users[0];
-	// 			fullname = user.get("fullname");
-	// 			username.push(fullname);
-	// 			firstname = username[0].split(" ")[0]
-
-	// 			Parse.Push.send({
-	// 				where: pushQuery,
-	// 				data: {
-	// 					alert: firstname + " just planned " + planMessage + "!"
-	// 				}
-	// 			}, {
-	// 				success: function() {
-	// 					print("success")
-	// 				},
-	// 				error: function(error) {
-	// 					print("error")
-	// 				}
-	// 			});
-
-	// 		},
-	// 		error: function(error) {
-	// 			console.log("error");
-	// 		}
-	// 	});
-	// };
-
-	if (request.object.get('attendingUsers')) {
-		var newAttendee = request.object.get('attendingUsers');
-		var userId = newAttendee.id;
-
+	if (!request.object.existed()) {
 		var planMessage = request.object.get('message');
-		var planId = request.object.id
-
+		var planCreatingUser = request.object.get('creatingUser');
+		var userId = planCreatingUser.id;
 
 		var pushQuery = new Parse.Query(Parse.Installation);
-		pushQuery.equalTo('channels', 'join-'+planId);
-//		pushQuery.notEqualTo('user', planCreatingUser);
+		pushQuery.equalTo('channels', 'global');
+		pushQuery.notEqualTo('user', planCreatingUser);
 
 		var userQuery = new Parse.Query(Parse.User);
 		userQuery.equalTo('objectId', userId);
@@ -79,7 +34,7 @@ Parse.Cloud.afterSave("Plan", function(request){
 				Parse.Push.send({
 					where: pushQuery,
 					data: {
-						alert: firstname + " just joined " + planMessage + "!"
+						alert: firstname + " just planned " + planMessage + "!"
 					}
 				}, {
 					success: function() {
@@ -95,47 +50,48 @@ Parse.Cloud.afterSave("Plan", function(request){
 				console.log("error");
 			}
 		});
-
 	};
-});
 
-// Parse.Cloud.afterSave("Comment", function(request){
+// 	if (request.object.get('attendingUsers')) {
+// 		var newAttendee = request.object.get('attendingUsers');
+// 		var userId = newAttendee[newAttendee.length-1];
 
-// 	if (!request.object.existed()) {
-// 		var planCommentingUser = request.object.get('commentingUser');
-// 		var userId = planCommentingUser.id;
+// 		console.log("user " + userId);
 
-// 		var commentedPlan = request.object.get('commentedPlan');
-// 		var planId = commentedPlan.id;
+// 		var planMessage = request.object.get('message');
+// 		var planId = request.object.id;
+
+// 		console.log("plan " + planId);
+// 		console.log("planMessage " + planMessage);
+
 
 // 		var pushQuery = new Parse.Query(Parse.Installation);
+// 		pushQuery.equalTo('channels', 'join-'+planId);
+// //		pushQuery.notEqualTo('user', planCreatingUser);
 
-//		var allChannel = "all-" + planId
-//		var commentChannel = "comment-" + planId
-// 		pushQuery.equalTo('channels', allChannel);
-//		pushQuery.equalTo('channels', commentChannel);
-// 		pushQuery.notEqualTo('user', planCommentingUser);
+// 		var userQuery = new Parse.Query(Parse.User);
+// 		userQuery.equalTo('objectId', userId);
 
-// 		var planQuery = new Parse.Query("Plan");
-// 		planQuery.equalTo('objectId', planId);
+// 		var username = [];
 
-
-// 		planQuery.find({
-// 			success: function(plans) {
-// 				var plan = plans[0];
-// 				message = plan.get("message");
+// 		userQuery.find({
+// 			success: function(users) {
+// 				var user = users[0];
+// 				fullname = user.get("fullname");
+// 				username.push(fullname);
+// 				firstname = username[0].split(" ")[0]
 
 // 				Parse.Push.send({
 // 					where: pushQuery,
 // 					data: {
-// 						alert: "New comment on " + message
+// 						alert: "Attendee list changed for " + planMessage + "!"
 // 					}
 // 				}, {
 // 					success: function() {
-// 						print("success")
+// 						console.log("success");
 // 					},
 // 					error: function(error) {
-// 						print("error")
+// 						console.log("error");
 // 					}
 // 				});
 
@@ -146,4 +102,110 @@ Parse.Cloud.afterSave("Plan", function(request){
 // 		});
 
 // 	};
+});
+
+Parse.Cloud.afterSave("Comment", function(request){
+
+	if (!request.object.existed()) {
+		var planCommentingUser = request.object.get('commentingUser');
+		var userId = planCommentingUser.id;
+
+		var commentedPlan = request.object.get('commentedPlan');
+		var planId = commentedPlan.id;
+
+		var pushQuery = new Parse.Query(Parse.Installation);
+
+		var allChannel = "all-" + planId;
+		var commentChannel = "comments-" + planId;
+		pushQuery.equalTo('channels', allChannel);
+		pushQuery.equalTo('channels', commentChannel);
+		pushQuery.notEqualTo('user', planCommentingUser);
+
+		var planQuery = new Parse.Query("Plan");
+		planQuery.equalTo('objectId', planId);
+
+
+		planQuery.find({
+			success: function(plans) {
+				var plan = plans[0];
+				message = plan.get("message");
+
+				Parse.Push.send({
+					where: pushQuery,
+					data: {
+						alert: "New comment on " + message
+					}
+				}, {
+					success: function() {
+						console.log("success");
+					},
+					error: function(error) {
+						console.log("error");
+					}
+				});
+
+			},
+			error: function(error) {
+				console.log("error");
+			}
+		});
+
+	};
+});
+
+// Parse.Cloud.beforeSave("Plan", function(request){
+// 	//if (request.original.get('objects')) {
+// 		var newAttendee = request.object.get('attendingUsers');
+// 		var userId = newAttendee[newAttendee.length-1];
+
+// 		console.log("user " + userId);
+
+// 		var objects = request.original.update;
+// 		console.log("retrieved objects" + objects);
+
+// 		var planMessage = request.object.get('message');
+// 		var planId = request.object.id;
+
+// 		console.log("plan " + planId);
+// 		console.log("planMessage " + planMessage);
+
+
+// 		var pushQuery = new Parse.Query(Parse.Installation);
+// 		pushQuery.equalTo('channels', 'join-'+planId);
+// //		pushQuery.notEqualTo('user', planCreatingUser);
+
+// 		var userQuery = new Parse.Query(Parse.User);
+// 		userQuery.equalTo('objectId', userId);
+
+// 		var username = [];
+
+// 		userQuery.find({
+// 			success: function(users) {
+// 				var user = users[0];
+// 				fullname = user.get("fullname");
+// 				username.push(fullname);
+// 				firstname = username[0].split(" ")[0]
+
+// 				Parse.Push.send({
+// 					where: pushQuery,
+// 					data: {
+// 						alert: firstname + " just joined " + planMessage + "!"
+// 					}
+// 				}, {
+// 					success: function() {
+// 						console.log("success");
+// 					},
+// 					error: function(error) {
+// 						console.log("error");
+// 					}
+// 				});
+
+// 			},
+// 			error: function(error) {
+// 				console.log("error");
+// 			}
+// 		});
+
+// //	};
+
 // });
