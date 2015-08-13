@@ -26,7 +26,7 @@
                                     <action selector="didTapFacebookLogin:" destination="D45-ZX-3iv" eventType="touchUpInside" id="CL7-d8-r0x"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to tipsy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xk-c6-b9d">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to Tipsy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xk-c6-b9d">
                                 <rect key="frame" x="74" y="199" width="452" height="69"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1177,8 +1177,8 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="fXm-ts-FfD"/>
                                                             <exclude reference="9XI-fg-QFN"/>
+                                                            <exclude reference="fXm-ts-FfD"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
@@ -1305,8 +1305,8 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                             <exclude reference="l4V-iD-dPX"/>
                                                             <exclude reference="Wex-dm-eik"/>
                                                             <exclude reference="bxf-Fv-dCn"/>
-                                                            <exclude reference="vsb-fK-pm9"/>
                                                             <exclude reference="gy5-bR-Xhp"/>
+                                                            <exclude reference="vsb-fK-pm9"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -2026,7 +2026,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="More stuff coming soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-Iy-Snz">
-                                <rect key="frame" x="207" y="302.5" width="186.5" height="20.5"/>
+                                <rect key="frame" x="207" y="303" width="187" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
