@@ -298,6 +298,9 @@
 		336344C01B3B271200DF3D90 /* FacebookController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookController.swift; sourceTree = "<group>"; };
 		336D98161B74E058001F1BFD /* AlphaTest21.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest21.mobileprovision; sourceTree = "<group>"; };
 		336D98171B7524EC001F1BFD /* AlphaTest22.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest22.mobileprovision; sourceTree = "<group>"; };
+		336D98181B7534C8001F1BFD /* AlphaTest23.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest23.mobileprovision; sourceTree = "<group>"; };
+		336D98191B75E109001F1BFD /* AlphaTest24.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest24.mobileprovision; sourceTree = "<group>"; };
+		336D981A1B7910D3001F1BFD /* AlphaTest25.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest25.mobileprovision; sourceTree = "<group>"; };
 		336ED7E21B7171B300F75A24 /* PlanCreationActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationActivityCell.swift; sourceTree = "<group>"; };
 		336ED7E61B71721100F75A24 /* PlanCreationLocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationLocationCell.swift; sourceTree = "<group>"; };
 		336ED7E81B717A5700F75A24 /* PlanCreationDividerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationDividerCell.swift; sourceTree = "<group>"; };
@@ -536,11 +539,14 @@
 			children = (
 				33EAEC2D1B66F38E009B3367 /* AlphaTest9.mobileprovision */,
 				336D98171B7524EC001F1BFD /* AlphaTest22.mobileprovision */,
+				336D98191B75E109001F1BFD /* AlphaTest24.mobileprovision */,
+				336D98181B7534C8001F1BFD /* AlphaTest23.mobileprovision */,
 				336D98161B74E058001F1BFD /* AlphaTest21.mobileprovision */,
 				33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */,
 				33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */,
 				33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */,
 				33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */,
+				336D981A1B7910D3001F1BFD /* AlphaTest25.mobileprovision */,
 				33EAEC2E1B684C36009B3367 /* AlphaTest10.mobileprovision */,
 				33EAEC2F1B6972DC009B3367 /* AlphaTest11.mobileprovision */,
 				335C80F01B62550D00702414 /* Media.xcassets */,
@@ -1198,7 +1204,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "221c14ca-00e1-492b-a11a-153fde8ae62d";
+				PROVISIONING_PROFILE = "b051594c-e0ba-473e-88c4-da64502f2189";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Debug;
@@ -1231,7 +1237,7 @@
 					"\"SwiftAddressBook\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "221c14ca-00e1-492b-a11a-153fde8ae62d";
+				PROVISIONING_PROFILE = "b051594c-e0ba-473e-88c4-da64502f2189";
 				SWIFT_OBJC_BRIDGING_HEADER = "tipsy/Bridging-Header.h";
 			};
 			name = Release;
