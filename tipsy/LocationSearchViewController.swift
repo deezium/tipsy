@@ -102,9 +102,10 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         let place = self.searchResultData[indexPath.row]
         let placeText = place.attributedFullText.string
         println("row selected")
-        self.searchBar.text = placeText
+//        self.searchBar.text = placeText
         self.selectedPlaceId = place.placeID
         self.locationSearchResults.hidden = true
+        
         
         //let placeId = "ChIJv2V798IJlR4Rq66ydZpHmt0"
         
@@ -123,6 +124,9 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
                 let latitude = selectedPlaceCoordinate.latitude
                 
                 self.selectedPlaceGeoPoint = PFGeoPoint(latitude: selectedPlaceCoordinate.latitude, longitude: selectedPlaceCoordinate.longitude)
+                let n = self.navigationController
+                n?.popViewControllerAnimated(true)
+
             }
             
         })

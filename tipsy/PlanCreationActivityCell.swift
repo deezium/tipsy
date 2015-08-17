@@ -27,4 +27,9 @@ class PlanCreationActivityCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
+    
+//    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+//        println("touchesBegan called")
+//        messageLabel.endEditing(true)
+//    }
 }

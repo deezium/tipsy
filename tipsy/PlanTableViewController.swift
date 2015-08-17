@@ -28,23 +28,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var planTableHeaderArray = [String]()
     
     
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
-    
-    @IBAction func didChangeSegment(sender: AnyObject) {
-        switch segmentedControl.selectedSegmentIndex {
-        case 0:
-            println("upcoming")
-        case 1:
-            println("past")
-
-        default:
-            break;
-        }
-        self.createTableSections()
-        self.planTableView.reloadData()
-    }
-    
     
 
     func didReceiveQueryResults(objects: [PFObject]) {
@@ -155,6 +138,29 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 })
             }
             
+        }
+        
+        if (PFUser.currentUser() != nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil ) {
+                var friendsArray = [String]()
+                let userFriendsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/friends", parameters: nil)
+                userFriendsRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("Oops, friend fetch failed")
+                    }
+                    else {
+                        println(result["data"]![0]["id"])
+                        let resultArray = result.objectForKey("data") as! NSArray
+                        println(resultArray)
+                        for i in resultArray {
+                            var id = i.objectForKey("id") as! String
+                            friendsArray.append(id)
+                        }
+                        PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
         }
     }
 
@@ -368,12 +374,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             queryObject = sectionItems[index.row]
             
-//            if segmentedControl.selectedSegmentIndex == 0 {
-//                queryObject = upcomingPlans[index.row]
-//            }
-//            else {
-//                queryObject = pastPlans[index.row]
-//            }
             selectedPlans.append(queryObject)
             println("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
@@ -387,13 +387,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         var plansForSection = [PFObject]()
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            plansForSection = upcomingPlans
-        }
-        else {
-            plansForSection = pastPlans
-        }
-        
+        plansForSection = upcomingPlans
         let sections = NSSet(array: planTableHeaderArray)
         
         println("plansForSection \(plansForSection)")
@@ -424,12 +418,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         var plansForSection = [PFObject]()
 
         
-        if segmentedControl.selectedSegmentIndex == 0 {
-            plansForSection = upcomingPlans
-        }
-        else {
-            plansForSection = pastPlans
-        }
+        plansForSection = upcomingPlans
         
         for object in plansForSection {
             let objectDate = object.objectForKey("startTime") as! NSDate
@@ -490,15 +479,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        
-//        println(queryObjects.count)
-//        if segmentedControl.selectedSegmentIndex == 0 {
-//            return upcomingPlans.count
-//        }
-//        else {
-//            return pastPlans.count
-//        }
-//        
         
         return self.getSectionItems(section).count
         
@@ -515,12 +495,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         var queryObject: PFObject
         
-//        if segmentedControl.selectedSegmentIndex == 0 {
-//            queryObject = upcomingPlans[indexPath.row]
-//        }
-//        else {
-//            queryObject = pastPlans[indexPath.row]
-//        }
         
         let sectionItems = self.getSectionItems(indexPath.section)
         
