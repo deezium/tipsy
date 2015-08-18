@@ -41,6 +41,18 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         })
     }
     
+
+    func didReceiveSecondQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+//            self.queryObjects = objects
+//            self.createPlanArrays(objects)
+//            self.createTableSections()
+//            self.planTableView!.reloadData()
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+
     
     func createPlanArrays(objects: [PFObject]) {
         
@@ -72,6 +84,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.saveFacebookData()
         query.delegate = self
         query.queryPlans("")
+        query.queryUserIdsForFriends()
         
         self.planTableView!.delegate = self
         self.planTableView!.dataSource = self

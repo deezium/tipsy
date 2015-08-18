@@ -12,6 +12,8 @@ import Foundation
     func didReceiveQueryResults(objects: [PFObject])
     
     optional func didReceiveSecondQueryResults(objects: [PFObject])
+    
+    optional func didReceiveThirdQueryResults(objects: [PFObject])
 }
 
 class QueryController {
@@ -113,6 +115,18 @@ class QueryController {
         println(objects)
     }
     
+    
+    func queryUserIdsForFriends() {
+        
+        let currentUser = PFUser.currentUser()
+        let currentUserFriends = PFUser.currentUser()?.objectForKey("friendsUsingTipsy") as! NSArray
+        var query = PFUser.query()!
+        query.whereKey("facebookID", containedIn: currentUserFriends as [AnyObject])
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveSecondQueryResults!(objects)
+        
+        println("friend users for \(currentUser) are \(objects)")
+    }
     
     func queryAttendingUsersForPlan(plan: PFObject) {
         var query = PFUser.query()!
