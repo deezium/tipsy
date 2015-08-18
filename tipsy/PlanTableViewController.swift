@@ -25,12 +25,23 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var refreshControl = UIRefreshControl()
     let currentUser = PFUser.currentUser()
     
+//    var userFriendsQueryObjects = [PFObject]()
+    
     var planTableHeaderArray = [String]()
+    var friendIdArray = [String]()
     
     
-    
-
     func didReceiveQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            //            self.userFriendsQueryObjects = objects
+            //self.createFriendIdArrays(objects)
+            self.query.queryPlansForFriends(objects)
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+
+    func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
             self.createPlanArrays(objects)
@@ -42,15 +53,14 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
 
-    func didReceiveSecondQueryResults(objects: [PFObject]) {
-        dispatch_async(dispatch_get_main_queue(), {
-//            self.queryObjects = objects
-//            self.createPlanArrays(objects)
-//            self.createTableSections()
-//            self.planTableView!.reloadData()
-            
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-        })
+    
+    func createFriendIdArrays(objects: [PFObject]) {
+        for object in objects {
+            println("friend object \(object)")
+            let id = object.objectId
+            friendIdArray.append(id!)
+        }
+        println("friend id array \(friendIdArray)")
     }
 
     
@@ -83,7 +93,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         self.saveFacebookData()
         query.delegate = self
-        query.queryPlans("")
         query.queryUserIdsForFriends()
         
         self.planTableView!.delegate = self

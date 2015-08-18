@@ -123,10 +123,32 @@ class QueryController {
         var query = PFUser.query()!
         query.whereKey("facebookID", containedIn: currentUserFriends as [AnyObject])
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveSecondQueryResults!(objects)
+        self.delegate!.didReceiveQueryResults(objects)
         
         println("friend users for \(currentUser) are \(objects)")
     }
+    
+    func queryPlansForFriends(friends: [PFObject]) {
+        
+        var query = PFQuery(className: "Plan")
+        
+        let currentDate = NSDate()
+        
+        println("friends being queried \(friends)")
+        
+        query.includeKey("creatingUser")
+        query.orderByDescending("startTime")
+        query.whereKey("creatingUser", containedIn: friends as [AnyObject])
+        query.limit = 40
+        
+        var objects = query.findObjects() as? [PFObject]
+        self.delegate!.didReceiveSecondQueryResults!(objects!)
+        
+        println("plans for friends are \(objects)")
+        
+        
+    }
+
     
     func queryAttendingUsersForPlan(plan: PFObject) {
         var query = PFUser.query()!
