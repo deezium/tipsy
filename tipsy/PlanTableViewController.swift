@@ -162,6 +162,24 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 })
             }
         }
+        
+        if (PFUser.currentUser() != nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
+                let userIDRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+                userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("Oops, id fetch failed")
+                    }
+                    else {
+                        println("idrequest")
+                        println(result["id"])
+            
+                        PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
+        }
     }
 
     

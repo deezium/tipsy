@@ -49,6 +49,7 @@ class QueryController {
         
         println("fuck")
         var query = PFQuery(className: "Plan")
+        let friendsArray = PFUser.currentUser()?.objectForKey("friendsUsingTipsy")
         
         if (filter != "") {
             query.whereKey(filter, equalTo: user)
@@ -57,6 +58,7 @@ class QueryController {
         let currentDate = NSDate()
         
 //        query.whereKey("endTime", greaterThanOrEqualTo: currentDate)
+//        query.whereKey("creatingUser", containedIn: friendsArray)
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
         query.limit = 40
