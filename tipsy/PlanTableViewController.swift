@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Darwin
 import UIKit
 
 class PlanTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
@@ -24,8 +25,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     let locationManager = CLLocationManager()
     var refreshControl = UIRefreshControl()
     let currentUser = PFUser.currentUser()
+    var currentLocation = CLLocation()
     
-//    var userFriendsQueryObjects = [PFObject]()
+    var userFriendsQueryObjects = [PFObject]()
     
     var planTableHeaderArray = [String]()
     var friendIdArray = [String]()
@@ -33,9 +35,17 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
-            //            self.userFriendsQueryObjects = objects
+            self.userFriendsQueryObjects = objects
+            self.userFriendsQueryObjects.append(self.currentUser!)
             //self.createFriendIdArrays(objects)
-            self.query.queryPlansForFriends(objects)
+            
+            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+            
+            
+            let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+            
+
+            self.query.queryPlansForFriends(self.userFriendsQueryObjects, point: point)
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
@@ -107,6 +117,17 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
+        
+        
+        if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
+            sleep(1)
+            self.currentLocation = locationManager.location
+            println("queriedLocation \(currentLocation)")
+        }
+        
 //        if (CLLocationManager.locationServicesEnabled()) {
 //            self.locationManager.delegate = self
 //            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
@@ -223,7 +244,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func refreshPosts() {
-        query.queryPlans("")
+        var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+        
+        
+        let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+        query.queryPlansForFriends(self.userFriendsQueryObjects, point: point)
         self.refreshControl.endRefreshing()
     }
     

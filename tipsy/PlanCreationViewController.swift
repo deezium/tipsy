@@ -108,18 +108,18 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.presentViewController(alert, animated: true, completion: nil)
             
         }
-        else if planStartDate.isLaterThan(futureBoundTime) {
-            let alert = UIAlertController(title: "Sorry!", message: "We love your enthusiasm, but you can't make an event more than a week in advance.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
-        else if planEndDate.isLaterThan(lengthBound) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
+//        else if planStartDate.isLaterThan(futureBoundTime) {
+//            let alert = UIAlertController(title: "Sorry!", message: "We love your enthusiasm, but you can't make an event more than a week in advance.", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//            
+//        }
+//        else if planEndDate.isLaterThan(lengthBound) {
+//            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//            
+//        }
 
         else {
         

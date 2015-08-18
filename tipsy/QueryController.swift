@@ -128,17 +128,20 @@ class QueryController {
         println("friend users for \(currentUser) are \(objects)")
     }
     
-    func queryPlansForFriends(friends: [PFObject]) {
+    func queryPlansForFriends(friends: [PFObject], point: PFGeoPoint) {
         
         var query = PFQuery(className: "Plan")
+        let currentUser = PFUser.currentUser()
         
         let currentDate = NSDate()
         
         println("friends being queried \(friends)")
+        println("queriedPoint \(point)")
         
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
         query.whereKey("creatingUser", containedIn: friends as [AnyObject])
+//        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 5000)
         query.limit = 40
         
         var objects = query.findObjects() as? [PFObject]
