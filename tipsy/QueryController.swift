@@ -152,7 +152,31 @@ class QueryController {
         
         
     }
+    
+    func queryNewPlansForActivity() {
+        var query = PFQuery(className: "Plan")
+        
+        query.includeKey("creatingUser")
+        query.orderByAscending("createdAt")
+        
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveQueryResults(objects)
+    }
 
+    
+    func queryOngoingPlansForActivity() {
+        var query = PFQuery(className: "Plan")
+        let currentTime = NSDate()
+        
+        query.includeKey("creatingUser")
+        query.whereKey("endTime", greaterThanOrEqualTo: currentTime)
+        query.whereKey("startTime", lessThanOrEqualTo: currentTime)
+        query.orderByAscending("createdAt")
+        
+        
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveSecondQueryResults!(objects)
+    }
     
     func queryAttendingUsersForPlan(plan: PFObject) {
         var query = PFUser.query()!
