@@ -38,8 +38,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     let kDateKey  = "date"  // key for obtaining the data source item's date value
     
     // keep track of which rows have date cells
-    let kDateStartRow = 3
-    let kDateEndRow   = 4
+    let kDateStartRow = 2
+    let kDateEndRow   = 3
     
     let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "DatePickerCell"; // the cell containing the date picker
@@ -68,17 +68,17 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
         let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 24, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
         
-        let locationIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
         println("locationCell \(locationCell.locationLabel.text)")
         
-        let activityIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+        let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
         println("activityCell \(activityCell.messageLabel.text)")
         
         
         
-        let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+        let startDateIndexPath = NSIndexPath(forRow: 2, inSection: 0)
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
         
@@ -87,7 +87,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
         
-        let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+        let endDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
@@ -132,13 +132,13 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             postButton.enabled = false
             activityIndicator.startAnimating()
 
-            let activityIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+            let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
             let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
             println("activityCell \(activityCell.messageLabel.text)")
 
 
             
-            let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+            let startDateIndexPath = NSIndexPath(forRow: 2, inSection: 0)
             let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
             let startDateString = startDateCell?.detailTextLabel?.text as String!
             
@@ -147,7 +147,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
 
             
-            let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+            let endDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
             let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
             let endDateString = endDateCell?.detailTextLabel?.text as String!
             
@@ -214,17 +214,17 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
             
         
-        let locationIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
         println("locationCell \(locationCell.locationLabel.text)")
 
-        let activityIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+        let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
         println("activityCell \(activityCell.messageLabel.text)")
         
         
         
-        let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+        let startDateIndexPath = NSIndexPath(forRow: 2, inSection: 0)
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
         
@@ -233,7 +233,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
         
-        let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+        let endDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
@@ -396,10 +396,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         // setup our data source
         let itemOne = [kTitleKey : ""]
         let itemTwo = [kTitleKey : ""]
-        let itemThree = [kTitleKey : ""]
-        let itemFour = [kTitleKey : "Start Date", kDateKey : NSDate()]
-        let itemFive = [kTitleKey : "End Date", kDateKey : NSDate()]
-        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+        let itemThree = [kTitleKey : "Start Date", kDateKey : NSDate()]
+        let itemFour = [kTitleKey : "End Date", kDateKey : NSDate()]
+        dataArray = [itemOne, itemTwo, itemThree, itemFour]
         
         dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
@@ -465,7 +464,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             deleteButton.hidden = true
             postButton.hidden = false
             if selectedPlaceName != "" {
-                let indexPath = NSIndexPath(forRow: 2, inSection: 0)
+                let indexPath = NSIndexPath(forRow: 1, inSection: 0)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
                 println(cell.locationLabel)
                 
@@ -504,10 +503,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
         
+//        if indexPath.row == 0 {
+//            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
+//        }
         if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
-        }
-        if indexPath.row == 1 {
             var tempcell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
             if plans.count != 0 {
                 tempcell.messageLabel.text = plans.first?.objectForKey("message") as? String
@@ -516,7 +515,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             
             cell = tempcell
         }
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
            var tempcell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
             if plans.count != 0 {
                 tempcell.locationLabel.text = plans.first?.objectForKey("googlePlaceName") as? String
@@ -546,10 +545,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 let planEndTime = plan?.objectForKey("endTime") as! NSDate
 
                 
-                if indexPath.row == 3 {
+                if indexPath.row == 2 {
                     cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(planStartTime) as String?
                 }
-                if indexPath.row == 4 {
+                if indexPath.row == 3 {
                     cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(planEndTime) as String?
                 }
 

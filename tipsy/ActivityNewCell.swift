@@ -10,7 +10,15 @@ import Foundation
 
 class ActivityNewCell: UITableViewCell {
     
+    @IBOutlet weak var profileButton: UIButton!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var messageLabel: UILabel!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var timeLabel: UILabel!
     
     
 }
