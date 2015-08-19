@@ -401,12 +401,6 @@ Join other people's plans or just comment on them to let them know how awesome /
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTp-Vp-zno" id="zyW-vr-CJ7">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="startTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtU-VG-guq">
-                                                    <rect key="frame" x="537" y="10" width="55" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpU-Mq-Rrb">
                                                     <rect key="frame" x="105" y="8" width="415" height="21"/>
                                                     <constraints>
@@ -454,42 +448,48 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                     <color key="textColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="endTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sl-mc-YcG">
-                                                    <rect key="frame" x="537" y="44" width="55" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="qtU-VG-guq" secondAttribute="trailing" constant="30" id="Aad-tW-mXG"/>
-                                                <constraint firstItem="7sl-mc-YcG" firstAttribute="top" secondItem="qtU-VG-guq" secondAttribute="bottom" constant="10" id="Csp-L4-fk1"/>
-                                                <constraint firstItem="qtU-VG-guq" firstAttribute="centerX" secondItem="7sl-mc-YcG" secondAttribute="centerX" id="Oao-nY-GY6"/>
                                                 <constraint firstItem="HpU-Mq-Rrb" firstAttribute="top" secondItem="GPo-9i-ej3" secondAttribute="top" id="Qrw-Ey-9ob"/>
                                                 <constraint firstItem="aeT-Kr-NCr" firstAttribute="centerX" secondItem="GPo-9i-ej3" secondAttribute="centerX" id="Rxw-p4-It7"/>
                                                 <constraint firstItem="fdt-Eo-nPR" firstAttribute="top" secondItem="HpU-Mq-Rrb" secondAttribute="bottom" constant="5" id="X0B-gg-Krh"/>
                                                 <constraint firstItem="GPo-9i-ej3" firstAttribute="top" secondItem="zyW-vr-CJ7" secondAttribute="top" constant="5" id="XKa-Ph-nOv"/>
-                                                <constraint firstItem="qtU-VG-guq" firstAttribute="top" secondItem="HpU-Mq-Rrb" secondAttribute="top" id="XeI-Uv-fZG"/>
                                                 <constraint firstItem="HpU-Mq-Rrb" firstAttribute="leading" secondItem="fdt-Eo-nPR" secondAttribute="leading" id="es1-vB-LSN"/>
                                                 <constraint firstItem="GPo-9i-ej3" firstAttribute="leading" secondItem="zyW-vr-CJ7" secondAttribute="leading" constant="30" id="mYG-7h-bkc"/>
                                                 <constraint firstItem="aeT-Kr-NCr" firstAttribute="top" secondItem="GPo-9i-ej3" secondAttribute="bottom" constant="5" id="pAG-h3-eVO"/>
                                                 <constraint firstItem="HpU-Mq-Rrb" firstAttribute="leading" secondItem="GPo-9i-ej3" secondAttribute="trailing" constant="10" id="rNW-FJ-nb9"/>
+                                                <constraint firstAttribute="trailing" secondItem="HpU-Mq-Rrb" secondAttribute="trailing" constant="30" id="xdo-xC-kIC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="endTime" destination="7sl-mc-YcG" id="PRZ-gk-5Mo"/>
                                             <outlet property="locationLabel" destination="fdt-Eo-nPR" id="KHm-bj-fEt"/>
                                             <outlet property="messageLabel" destination="HpU-Mq-Rrb" id="T3Q-rY-uwh"/>
                                             <outlet property="nameLabel" destination="aeT-Kr-NCr" id="i1q-Dr-jdw"/>
                                             <outlet property="profileButton" destination="GPo-9i-ej3" id="3nf-Mp-VpH"/>
-                                            <outlet property="startTime" destination="qtU-VG-guq" id="gP4-E4-IEw"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="e4d-Fn-f5U">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityHeaderCell" id="e4d-Fn-f5U" customClass="CalendarHeaderCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e4d-Fn-f5U" id="hJn-x0-P6f">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="headerLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pL-LJ-C9a">
+                                                    <rect key="frame" x="23" y="17" width="324" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7pL-LJ-C9a" firstAttribute="leading" secondItem="hJn-x0-P6f" secondAttribute="leading" constant="30" id="OwR-Ow-pGE"/>
+                                                <constraint firstItem="7pL-LJ-C9a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hJn-x0-P6f" secondAttribute="topMargin" constant="5" id="TBo-Dc-Aon"/>
+                                                <constraint firstAttribute="centerY" secondItem="7pL-LJ-C9a" secondAttribute="centerY" id="Z8M-hO-4GM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="headerLabel" destination="7pL-LJ-C9a" id="Eqj-lt-T6W"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -509,11 +509,12 @@ Join other people's plans or just comment on them to let them know how awesome /
                     <connections>
                         <outlet property="segmentedControl" destination="OZq-xi-VZg" id="Yea-Ya-91u"/>
                         <outlet property="tableView" destination="CQP-rh-t4v" id="Iss-LU-6FY"/>
+                        <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailsFromActivity" id="Jto-Zv-t2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8X5-nD-hrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24" y="1772"/>
+            <point key="canvasLocation" x="-837" y="1590"/>
         </scene>
         <!--Item-->
         <scene sceneID="KpN-Ln-eo8">
@@ -868,6 +869,7 @@ Answer three.</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1SU-1y-309">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
@@ -2917,7 +2919,7 @@ Answer three.</string>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="Jto-Zv-t2p"/>
         <segue reference="VIb-lG-h26"/>
         <segue reference="j3I-Q1-oYJ"/>
     </inferredMetricsTieBreakers>

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import DateTools
 
 class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
     
@@ -77,10 +78,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -120,20 +117,39 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             let firstname = fullname?.componentsSeparatedByString(" ")[0]
 
             let message = queryObject.objectForKey("message") as? String
-            let createdAt = queryObject.objectForKey("createdAt") as? String
+            let createdAt = queryObject.createdAt
             let placeName = queryObject.objectForKey("googlePlaceName") as? String
             let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
             let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+            
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MMM d, hh:mm a"
+            
+
+            let timeAgo = createdAt!.shortTimeAgoSinceNow()
             
             var placeLabel: String?
             
             if let placeName = placeName {
                 placeLabel = placeName
             }
+
             
+            
+            if let postImage = user.objectForKey("profileImage") as? PFFile {
+                println("postImage \(postImage)")
+                let imageData = postImage.getData()
+                let image = UIImage(data: imageData!)
+                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.profileButton.tag = indexPath.row
+                
+            }
+
             cell.nameLabel.text = firstname
             cell.messageLabel.text = message
             cell.locationLabel.text = placeName
+            cell.timeLabel.text = timeAgo
 
             
             finalCell = cell
@@ -154,10 +170,32 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
             let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
             
+            let startTime = queryObject.objectForKey("startTime") as? NSDate
+            let endTime = queryObject.objectForKey("endTime") as? NSDate
+            
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MMM d, hh:mm a"
+            
+            let startTimeString = dateFormatter.stringFromDate(startTime!)
+            let endTimeString = dateFormatter.stringFromDate(endTime!)
+
+            
+            
             var placeLabel: String?
             
             if let placeName = placeName {
                 placeLabel = placeName
+            }
+            
+            
+            if let postImage = user.objectForKey("profileImage") as? PFFile {
+                println("postImage \(postImage)")
+                let imageData = postImage.getData()
+                let image = UIImage(data: imageData!)
+                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.profileButton.tag = indexPath.row
+                
             }
             
             cell.nameLabel.text = firstname
@@ -170,5 +208,74 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
         return finalCell!
     }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerCell = tableView.dequeueReusableCellWithIdentifier("ActivityHeaderCell") as! CalendarHeaderCell
+        
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            headerCell.headerLabel.text =  "Popular around you"
+        }
+        else if segmentedControl.selectedSegmentIndex == 1 {
+            headerCell.headerLabel.text =  "Recently created"
+        }
+        else if segmentedControl.selectedSegmentIndex == 2 {
+            headerCell.headerLabel.text =  "Happening now"
+        }
+
+        
+        
+        return headerCell
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40.0
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("ShowPlanDetailsFromActivity", sender: nil)
+    }
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowPlanDetailsFromActivity" {
+            var selectedPlans = [PFObject]()
+            
+            let planDetailViewController = segue.destinationViewController as! PlanDetailViewController
+            
+            let index = self.tableView.indexPathForSelectedRow()!
+        
+            var queryObject: PFObject
+            
+            if segmentedControl.selectedSegmentIndex == 0 {
+                queryObject = hotQueryObjects[index.row]
+            }
+            else if segmentedControl.selectedSegmentIndex == 1 {
+                queryObject = newQueryObjects[index.row]
+            }
+            else  {
+                queryObject = ongoingQueryObjects[index.row]
+            }
+
+            
+            //            if segmentedControl.selectedSegmentIndex == 0 {
+            //                queryObject = upcomingPlans[index.row]
+            //            }
+            //            else {
+            //                queryObject = pastPlans[index.row]
+            //            }
+            selectedPlans.append(queryObject)
+            println("selected plan \(selectedPlans)")
+            planDetailViewController.planObjects = selectedPlans
+        }
+        
+        
+    }
+
     
 }

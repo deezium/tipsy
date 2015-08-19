@@ -157,7 +157,8 @@ class QueryController {
         var query = PFQuery(className: "Plan")
         
         query.includeKey("creatingUser")
-        query.orderByAscending("createdAt")
+        query.orderByDescending("createdAt")
+        query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
@@ -171,7 +172,7 @@ class QueryController {
         query.includeKey("creatingUser")
         query.whereKey("endTime", greaterThanOrEqualTo: currentTime)
         query.whereKey("startTime", lessThanOrEqualTo: currentTime)
-        query.orderByAscending("createdAt")
+        query.orderByDescending("startTime")
         
         
         var objects = query.findObjects() as! [PFObject]
