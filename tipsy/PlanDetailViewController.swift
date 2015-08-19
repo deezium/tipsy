@@ -14,9 +14,11 @@ let commentMadeNotificationKey = "commentMadeNotificationKey"
 
 class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, UITextFieldDelegate {
     
+    @IBOutlet weak var postButton: UIButton!
 
     @IBOutlet weak var profileImageButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -47,6 +49,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
             self.commentTable!.reloadData()
+            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -55,6 +58,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         dispatch_async(dispatch_get_main_queue(), {
             self.attendeeQueryObjects = objects
             self.commentTable!.reloadData()
+            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -62,7 +66,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        activityIndicator.startAnimating()
         self.commentTable.delegate = self
         self.commentTable.dataSource = self
         
@@ -694,51 +698,69 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     @IBAction func didTapPostButton(sender: AnyObject) {
         
-        let commentObject = PFObject(className: "Comment")
-        commentObject.setObject(commentEntry.text, forKey: "body")
-        commentObject.setObject(PFUser.currentUser()!, forKey: "commentingUser")
-        commentObject.setObject(planObjects.first!, forKey: "commentedPlan")
-        
-        
-        let ACL = PFACL()
-        ACL.setPublicReadAccess(true)
-        ACL.setPublicWriteAccess(true)
-        commentObject.ACL = ACL
-        
-        commentObject.saveInBackgroundWithBlock {
-            (success, error) -> Void in
-            if success == true {
-                println("Success")
-                
-                let pushChannel = "comments-" + self.planObjects.first!.objectId!
-                let currentInstallation = PFInstallation.currentInstallation()
-                currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
-                currentInstallation.saveInBackground()
-                println("registered installation for pushes")
-                
-                self.planObjects.first?.addObject(commentObject.objectId!, forKey: "comments")
-                self.planObjects.first?.saveInBackgroundWithBlock {
-                    (success, error) -> Void in
-                    if success == true {
-                        println("comment added to plan")
-                    }
-                    else {
-                        println("comment not added to plan")
-                    }
-                }
+        if commentEntry.text == "" {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't post a blank comment!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Gotcha!", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
 
-                let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-                self.commentEntry.text = ""
-                NSNotificationCenter.defaultCenter().postNotificationName(commentMadeNotificationKey, object: self)
-            }
-            else {
-                let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your comment.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            }
         }
+        else {
+            
+            activityIndicator.startAnimating()
+            postButton.enabled = false
+            let commentObject = PFObject(className: "Comment")
+            commentObject.setObject(commentEntry.text, forKey: "body")
+            commentObject.setObject(PFUser.currentUser()!, forKey: "commentingUser")
+            commentObject.setObject(planObjects.first!, forKey: "commentedPlan")
+            
+            
+            let ACL = PFACL()
+            ACL.setPublicReadAccess(true)
+            ACL.setPublicWriteAccess(true)
+            commentObject.ACL = ACL
+            
+            commentObject.saveInBackgroundWithBlock {
+                (success, error) -> Void in
+                if success == true {
+                    println("Success")
+                    
+                    let pushChannel = "comments-" + self.planObjects.first!.objectId!
+                    let currentInstallation = PFInstallation.currentInstallation()
+                    currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
+                    currentInstallation.saveInBackground()
+                    println("registered installation for pushes")
+                    
+                    self.planObjects.first?.addObject(commentObject.objectId!, forKey: "comments")
+                    self.planObjects.first?.saveInBackgroundWithBlock {
+                        (success, error) -> Void in
+                        if success == true {
+                            println("comment added to plan")
+                        }
+                        else {
+                            println("comment not added to plan")
+                        }
+                    }
+                    self.activityIndicator.stopAnimating()
+                    let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.commentEntry.text = ""
+                    self.postButton.enabled = true
+                    NSNotificationCenter.defaultCenter().postNotificationName(commentMadeNotificationKey, object: self)
+                }
+                else {
+                    self.activityIndicator.stopAnimating()
+                    self.postButton.enabled = true
+                    let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your comment.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                    
+                }
+            }
+
+            
+        }
+        
 
     }
 }

@@ -27,6 +27,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     let currentUser = PFUser.currentUser()
     var currentLocation = CLLocation()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var userFriendsQueryObjects = [PFObject]()
     
     var planTableHeaderArray = [String]()
@@ -58,6 +59,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.createTableSections()
             self.planTableView!.reloadData()
             
+            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -101,6 +103,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.startAnimating()
         self.saveFacebookData()
         query.delegate = self
         query.queryUserIdsForFriends()

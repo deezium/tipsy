@@ -25,6 +25,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
 
     @IBOutlet weak var interestsLabel: UILabel!
     let currentUser = PFUser.currentUser()
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     
     @IBAction func didChangeSegment(sender: UISegmentedControl) {
@@ -57,6 +58,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             self.createTableSections()
 
             self.planTableView!.reloadData()
+            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -148,6 +150,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
+     
         
         query.delegate = self
         query.queryProfilePlans("creatingUser", userId: user!.objectId!)

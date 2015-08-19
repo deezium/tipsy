@@ -31,15 +31,15 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
             finalCell = cell
         }
         
-        if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("MoreTableCell") as! MoreTableCell
-            cell.titleLabel.text = "Notifications"
-            cell.iconImage.image = UIImage(named: "Megaphone.png")
-            
-            finalCell = cell
-        }
+//        if indexPath.row == 1 {
+//            let cell = tableView.dequeueReusableCellWithIdentifier("MoreTableCell") as! MoreTableCell
+//            cell.titleLabel.text = "Notifications"
+//            cell.iconImage.image = UIImage(named: "Megaphone.png")
+//            
+//            finalCell = cell
+//        }
 
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("MoreTableCell") as! MoreTableCell
             cell.titleLabel.text = "Feedback"
             cell.iconImage.image = UIImage(named: "VoicePresentation.png")
@@ -47,7 +47,7 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
             finalCell = cell
         }
 
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCellWithIdentifier("MoreTableCell") as! MoreTableCell
             cell.titleLabel.text = "FAQ"
             cell.iconImage.image = UIImage(named: "Help.png")
@@ -55,7 +55,7 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
             finalCell = cell
         }
 
-        if indexPath.row == 4 {
+        if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCellWithIdentifier("MoreTableCell") as! MoreTableCell
             cell.titleLabel.text = "About"
             cell.iconImage.image = UIImage(named: "Info.png")
@@ -69,7 +69,7 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -77,19 +77,19 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
             performSegueWithIdentifier("ShowMyFriendsFromMore", sender: nil)
         }
         
-        if indexPath.row == 1 {
-            performSegueWithIdentifier("ShowNotificationsFromMore", sender: nil)
-        }
+//        if indexPath.row == 1 {
+//            performSegueWithIdentifier("ShowNotificationsFromMore", sender: nil)
+//        }
         
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
             performSegueWithIdentifier("ShowFeedbackFromMore", sender: nil)
         }
         
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             performSegueWithIdentifier("ShowFAQFromMore", sender: nil)
         }
         
-        if indexPath.row == 4 {
+        if indexPath.row == 3 {
             performSegueWithIdentifier("ShowAboutFromMore", sender: nil)
         }
     }

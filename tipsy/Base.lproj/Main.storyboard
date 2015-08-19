@@ -187,10 +187,10 @@ Join other people's plans or just comment on them to let them know how awesome /
             </objects>
             <point key="canvasLocation" x="-1475" y="1126"/>
         </scene>
-        <!--Nearby-->
+        <!--ActivityViewController-->
         <scene sceneID="c1K-w2-Wvm">
             <objects>
-                <viewController id="YIt-U7-OVZ" sceneMemberID="viewController">
+                <viewController title="ActivityViewController" id="YIt-U7-OVZ" customClass="ActivityViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZhI-0J-j5l"/>
                         <viewControllerLayoutGuide type="bottom" id="9EE-rF-oNX"/>
@@ -198,14 +198,67 @@ Join other people's plans or just comment on them to let them know how awesome /
                     <view key="view" contentMode="scaleToFill" id="WzV-HA-dJO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-xi-VZg">
+                                <rect key="frame" x="200" y="84" width="200" height="29"/>
+                                <segments>
+                                    <segment title="Hot"/>
+                                    <segment title="New"/>
+                                    <segment title="Ongoing"/>
+                                </segments>
+                                <color key="tintColor" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CQP-rh-t4v">
+                                <rect key="frame" x="-10" y="120" width="610" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5tJ-My-aTz">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5tJ-My-aTz" id="Vzl-PB-MBu">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kxf-ku-YZh">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kxf-ku-YZh" id="PgM-Yd-rbN">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="kTp-Vp-zno">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTp-Vp-zno" id="zyW-vr-CJ7">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="e4d-Fn-f5U">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e4d-Fn-f5U" id="hJn-x0-P6f">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CQP-rh-t4v" secondAttribute="trailing" constant="-20" id="3HM-Sq-KOd"/>
+                            <constraint firstAttribute="bottom" secondItem="CQP-rh-t4v" secondAttribute="bottom" id="4xy-Im-Gcq"/>
+                            <constraint firstItem="OZq-xi-VZg" firstAttribute="top" secondItem="ZhI-0J-j5l" secondAttribute="bottom" constant="20" id="AVg-vY-9F6"/>
+                            <constraint firstItem="CQP-rh-t4v" firstAttribute="leading" secondItem="WzV-HA-dJO" secondAttribute="leading" constant="-20" id="Bng-X9-LMa"/>
+                            <constraint firstAttribute="centerX" secondItem="OZq-xi-VZg" secondAttribute="centerX" id="fFg-rY-dwM"/>
+                            <constraint firstItem="CQP-rh-t4v" firstAttribute="top" secondItem="OZq-xi-VZg" secondAttribute="bottom" constant="20" id="s1O-Am-mhX"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Nearby" image="NearMe.png" id="jfy-LV-q5I"/>
-                    <navigationItem key="navigationItem" title="Nearby" id="BKy-oB-v1H"/>
+                    <tabBarItem key="tabBarItem" title="Activity" image="Online.png" id="jfy-LV-q5I"/>
+                    <navigationItem key="navigationItem" title="Activity" id="BKy-oB-v1H"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="OZq-xi-VZg" id="Yea-Ya-91u"/>
+                        <outlet property="tableView" destination="CQP-rh-t4v" id="Iss-LU-6FY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8X5-nD-hrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1538" y="1814"/>
+            <point key="canvasLocation" x="-648" y="1454"/>
         </scene>
         <!--Item-->
         <scene sceneID="KpN-Ln-eo8">
@@ -261,7 +314,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-2V-1JR">
                                                     <rect key="frame" x="85" y="22" width="28" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -318,7 +371,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dnh-Gi-Uwk">
-                                <rect key="frame" x="0.0" y="37" width="600" height="638"/>
+                                <rect key="frame" x="0.0" y="37" width="600" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MyFriendsCell" id="ua3-ww-ptM" customClass="MyFriendsCell" customModule="tipsy" customModuleProvider="target">
@@ -336,7 +389,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md4-C0-iYb">
                                                     <rect key="frame" x="86" y="24" width="43" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -354,10 +407,16 @@ Join other people's plans or just comment on them to let them know how awesome /
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lpq-yx-cCc">
+                                <rect key="frame" x="281" y="257" width="37" height="37"/>
+                                <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerY" secondItem="lpq-yx-cCc" secondAttribute="centerY" id="52H-I1-kx0"/>
                             <constraint firstAttribute="trailing" secondItem="Dnh-Gi-Uwk" secondAttribute="trailing" constant="-20" id="E3f-Sp-vuZ"/>
+                            <constraint firstAttribute="centerX" secondItem="lpq-yx-cCc" secondAttribute="centerX" id="Fdd-of-Xx5"/>
                             <constraint firstItem="Dnh-Gi-Uwk" firstAttribute="leading" secondItem="BBh-Hm-guc" secondAttribute="leading" constant="-20" id="eeu-Yh-MsN"/>
                             <constraint firstItem="Dnh-Gi-Uwk" firstAttribute="top" secondItem="S9b-S5-Fih" secondAttribute="bottom" constant="-65" id="m3Q-rZ-UCa"/>
                             <constraint firstAttribute="bottom" secondItem="Dnh-Gi-Uwk" secondAttribute="bottom" id="y4u-pO-ZBF"/>
@@ -371,6 +430,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                     </view>
                     <navigationItem key="navigationItem" title="My Friends" id="fFh-SZ-plg"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="lpq-yx-cCc" id="zH0-Oe-7Cw"/>
                         <outlet property="tableView" destination="Dnh-Gi-Uwk" id="PEe-ln-NKh"/>
                     </connections>
                 </viewController>
@@ -567,10 +627,10 @@ Answer three.</string>
             </objects>
             <point key="canvasLocation" x="-2160" y="1303"/>
         </scene>
-        <!--ProfileViewController-->
+        <!--FriendFeedViewController-->
         <scene sceneID="uGG-fU-HHa">
             <objects>
-                <viewController storyboardIdentifier="PlanTableViewController" title="ProfileViewController" id="vFn-9h-QqO" customClass="PlanTableViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlanTableViewController" title="FriendFeedViewController" id="vFn-9h-QqO" customClass="PlanTableViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z1U-cv-PjY"/>
                         <viewControllerLayoutGuide type="bottom" id="kut-pQ-wxs"/>
@@ -847,6 +907,10 @@ Answer three.</string>
                                     </mask>
                                 </variation>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1F0-2e-X0i">
+                                <rect key="frame" x="281" y="257" width="37" height="37"/>
+                                <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -854,8 +918,10 @@ Answer three.</string>
                             <constraint firstAttribute="trailing" secondItem="puL-aa-VKn" secondAttribute="trailing" constant="-20" id="UnK-OI-GYl"/>
                             <constraint firstAttribute="centerX" secondItem="puL-aa-VKn" secondAttribute="centerX" id="bmU-oC-sCL"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="leading" secondItem="2oi-4j-mJF" secondAttribute="leading" constant="-20" id="mTr-BU-Y8f"/>
+                            <constraint firstAttribute="centerY" secondItem="1F0-2e-X0i" secondAttribute="centerY" id="p6b-LJ-xhK"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="2oi-4j-mJF" secondAttribute="top" id="qnV-ji-dk4"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="z1U-cv-PjY" secondAttribute="bottom" constant="-65" id="rbz-Qf-C50"/>
+                            <constraint firstAttribute="centerX" secondItem="1F0-2e-X0i" secondAttribute="centerX" id="rvQ-H1-q3C"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="z1U-cv-PjY" secondAttribute="bottom" id="sV8-Jd-Pqm"/>
                         </constraints>
                         <variation key="default">
@@ -865,8 +931,8 @@ Answer three.</string>
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" image="Today.png" id="aCe-Ek-tfz"/>
-                    <navigationItem key="navigationItem" title="Calendar" id="3hk-hv-CTG">
+                    <tabBarItem key="tabBarItem" title="Friend Feed" image="Meeting.png" id="aCe-Ek-tfz"/>
+                    <navigationItem key="navigationItem" title="Friend Feed" id="3hk-hv-CTG">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="CEs-gd-ADW">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kMg-Lx-mUE">
                                 <rect key="frame" x="534" y="-16" width="25" height="75"/>
@@ -882,6 +948,7 @@ Answer three.</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="1F0-2e-X0i" id="I3K-J7-RBD"/>
                         <outlet property="planTableView" destination="puL-aa-VKn" id="GC9-UC-5mQ"/>
                     </connections>
                 </viewController>
@@ -1187,6 +1254,10 @@ Answer three.</string>
                                     </mask>
                                 </variation>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LuG-M8-FoA">
+                                <rect key="frame" x="281" y="257" width="37" height="37"/>
+                                <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1197,6 +1268,8 @@ Answer three.</string>
                             <constraint firstItem="eZK-XW-FK0" firstAttribute="leading" secondItem="N1O-WU-tKc" secondAttribute="leading" constant="-5" id="QL8-cO-S3R"/>
                             <constraint firstAttribute="centerX" secondItem="eZK-XW-FK0" secondAttribute="centerX" id="Ru8-vA-E15"/>
                             <constraint firstItem="dRp-CP-ih8" firstAttribute="leading" secondItem="T5a-Wm-FdK" secondAttribute="trailing" constant="20" id="SNP-gH-r04"/>
+                            <constraint firstAttribute="centerY" secondItem="LuG-M8-FoA" secondAttribute="centerY" id="VLs-YF-bpW"/>
+                            <constraint firstAttribute="centerX" secondItem="LuG-M8-FoA" secondAttribute="centerX" id="WXm-aV-EdC"/>
                             <constraint firstItem="dRp-CP-ih8" firstAttribute="top" secondItem="T5a-Wm-FdK" secondAttribute="top" id="haq-2D-GNW"/>
                             <constraint firstItem="T5a-Wm-FdK" firstAttribute="top" secondItem="eZK-XW-FK0" secondAttribute="bottom" constant="26" id="lzz-2d-Oks"/>
                             <constraint firstAttribute="centerX" secondItem="T5a-Wm-FdK" secondAttribute="centerX" id="o6r-3h-ukZ"/>
@@ -1214,6 +1287,7 @@ Answer three.</string>
                     <tabBarItem key="tabBarItem" title="Plan" image="Pen.png" id="QIY-ga-sUz"/>
                     <navigationItem key="navigationItem" title="Share a Plan" id="Kik-Ji-16Z"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="LuG-M8-FoA" id="OOo-NB-YFG"/>
                         <outlet property="deleteButton" destination="dRp-CP-ih8" id="O43-Av-sAw"/>
                         <outlet property="pickerView" destination="WT4-XV-gMq" id="DIa-bI-Vw6"/>
                         <outlet property="postButton" destination="T5a-Wm-FdK" id="fVa-nr-0AU"/>
@@ -1262,10 +1336,10 @@ Answer three.</string>
                         <viewControllerLayoutGuide type="bottom" id="nxN-yi-Cpr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hov-U6-FBE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjY-sV-jvL">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XjY-sV-jvL">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
@@ -1803,10 +1877,15 @@ Answer three.</string>
                                     </mask>
                                 </variation>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LaB-B3-yYo">
+                                <rect key="frame" x="282" y="257" width="37" height="37"/>
+                                <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="axK-s3-zrr" firstAttribute="top" secondItem="l4c-tv-F11" secondAttribute="top" constant="20" id="4Ac-Ux-Bg5"/>
+                            <constraint firstAttribute="centerY" secondItem="LaB-B3-yYo" secondAttribute="centerY" id="4k4-hL-Lmr"/>
                             <constraint firstItem="tXw-m8-Fzo" firstAttribute="leading" secondItem="l4c-tv-F11" secondAttribute="leading" constant="-20" id="4lV-Ux-lNM"/>
                             <constraint firstItem="axK-s3-zrr" firstAttribute="top" secondItem="OGJ-nK-baB" secondAttribute="bottom" constant="10" id="BGv-FX-kMD"/>
                             <constraint firstItem="TE6-KT-kWI" firstAttribute="top" secondItem="OGJ-nK-baB" secondAttribute="bottom" constant="10" id="EPP-A7-qjW"/>
@@ -1821,6 +1900,7 @@ Answer three.</string>
                             <constraint firstAttribute="trailing" secondItem="6p9-Ob-kiN" secondAttribute="trailing" constant="10" id="bQh-UM-Qmb"/>
                             <constraint firstAttribute="centerX" secondItem="tXw-m8-Fzo" secondAttribute="centerX" id="gvI-sQ-D9x"/>
                             <constraint firstItem="axK-s3-zrr" firstAttribute="leading" secondItem="l4c-tv-F11" secondAttribute="leading" constant="10" id="h03-qX-AGt"/>
+                            <constraint firstAttribute="centerX" secondItem="LaB-B3-yYo" secondAttribute="centerX" id="i3H-IV-mTB"/>
                             <constraint firstItem="Fdg-G8-muh" firstAttribute="top" secondItem="axK-s3-zrr" secondAttribute="bottom" constant="20" id="iKO-8z-cnJ"/>
                             <constraint firstAttribute="centerX" secondItem="Fdg-G8-muh" secondAttribute="centerX" constant="-0.5" id="jah-S1-htP"/>
                             <constraint firstAttribute="centerX" secondItem="tXw-m8-Fzo" secondAttribute="centerX" id="knK-Ai-AYD"/>
@@ -1863,6 +1943,7 @@ Answer three.</string>
                     </navigationItem>
                     <connections>
                         <outlet property="aboutLabel" destination="6p9-Ob-kiN" id="7Q9-Pn-ypr"/>
+                        <outlet property="activityIndicator" destination="LaB-B3-yYo" id="VYc-m6-SJ0"/>
                         <outlet property="editButton" destination="PPz-VO-MHY" id="51h-EK-NuG"/>
                         <outlet property="planTableView" destination="tXw-m8-Fzo" id="vgT-LS-E0S"/>
                         <outlet property="profileImage" destination="axK-s3-zrr" id="6z2-rR-Fgo"/>
@@ -2306,6 +2387,10 @@ Answer three.</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="2ly-1C-Ehg">
+                                <rect key="frame" x="281" y="257" width="37" height="37"/>
+                                <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -2322,6 +2407,7 @@ Answer three.</string>
                             <constraint firstItem="pSa-Dt-1YQ" firstAttribute="top" secondItem="aaU-dI-feM" secondAttribute="bottom" constant="10" id="TH2-uZ-Ivi"/>
                             <constraint firstItem="V7r-Tu-Xtp" firstAttribute="top" secondItem="i22-BW-qzk" secondAttribute="bottom" constant="20" id="Vzn-Cb-EKx"/>
                             <constraint firstItem="Eme-xB-T9g" firstAttribute="leading" secondItem="ASp-ra-6hf" secondAttribute="leading" id="W58-cy-c3m"/>
+                            <constraint firstAttribute="centerX" secondItem="2ly-1C-Ehg" secondAttribute="centerX" id="WEs-aa-yy5"/>
                             <constraint firstItem="i22-BW-qzk" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="-20" id="WTQ-mQ-hoc"/>
                             <constraint firstItem="UGX-sd-LVV" firstAttribute="leading" secondItem="jVh-BT-f7G" secondAttribute="leading" constant="-10" id="ZPZ-DI-jTp"/>
                             <constraint firstItem="Eme-xB-T9g" firstAttribute="top" secondItem="I4M-aD-dN2" secondAttribute="bottom" constant="10" id="bkl-ih-o70"/>
@@ -2329,6 +2415,7 @@ Answer three.</string>
                             <constraint firstItem="I4M-aD-dN2" firstAttribute="centerX" secondItem="pSa-Dt-1YQ" secondAttribute="centerX" id="q9j-zf-EWv"/>
                             <constraint firstAttribute="trailing" secondItem="ASp-ra-6hf" secondAttribute="trailing" constant="10" id="r7g-Mv-fOY"/>
                             <constraint firstItem="Eme-xB-T9g" firstAttribute="leading" secondItem="g80-bS-FVC" secondAttribute="leading" id="rZw-X0-Yye"/>
+                            <constraint firstAttribute="centerY" secondItem="2ly-1C-Ehg" secondAttribute="centerY" id="u2Z-O4-K4s"/>
                             <constraint firstItem="g80-bS-FVC" firstAttribute="top" secondItem="Eme-xB-T9g" secondAttribute="bottom" constant="5" id="vbS-fy-4ju"/>
                         </constraints>
                         <variation key="default">
@@ -2354,6 +2441,7 @@ Answer three.</string>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="2ly-1C-Ehg" id="5xo-c8-qfA"/>
                         <outlet property="bottomConstraint" destination="SlK-ZX-Pxx" id="ppM-jj-GVk"/>
                         <outlet property="commentEntry" destination="3k6-rw-YKO" id="svu-Yo-EUf"/>
                         <outlet property="commentTable" destination="i22-BW-qzk" id="QyE-eI-AYi"/>
@@ -2361,6 +2449,7 @@ Answer three.</string>
                         <outlet property="locationLabel" destination="Eme-xB-T9g" id="mCH-1G-8sO"/>
                         <outlet property="messageLabel" destination="ASp-ra-6hf" id="O1g-fv-Wfj"/>
                         <outlet property="nameLabel" destination="I4M-aD-dN2" id="CZ8-sh-iUV"/>
+                        <outlet property="postButton" destination="coz-uM-EAp" id="DL3-o5-4m0"/>
                         <outlet property="profileImageButton" destination="pSa-Dt-1YQ" id="78l-wo-cz7"/>
                         <outlet property="timeLabel" destination="g80-bS-FVC" id="Rv5-aG-Hn1"/>
                     </connections>
@@ -2556,18 +2645,18 @@ Answer three.</string>
         <image name="Geo-fence-50.png" width="50" height="50"/>
         <image name="Like.png" width="25" height="25"/>
         <image name="Map-25.png" width="25" height="25"/>
+        <image name="Meeting.png" width="25" height="25"/>
         <image name="Menu.png" width="25" height="25"/>
-        <image name="NearMe.png" width="25" height="25"/>
+        <image name="Online.png" width="25" height="25"/>
         <image name="Pen-white.png" width="25" height="25"/>
         <image name="Pen.png" width="25" height="25"/>
         <image name="Public-50.png" width="50" height="50"/>
-        <image name="Today.png" width="25" height="25"/>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="VIb-lG-h26"/>
         <segue reference="j3I-Q1-oYJ"/>
-        <segue reference="urZ-Y9-YSI"/>
-        <segue reference="MUB-pR-8Ix"/>
     </inferredMetricsTieBreakers>
 </document>

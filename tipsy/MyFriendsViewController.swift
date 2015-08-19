@@ -17,18 +17,21 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     var query = QueryController()
     var queryObjects = [PFObject]()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
             self.tableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.activityIndicator.stopAnimating()
         })
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         tableView.dataSource = self
         tableView.delegate = self
         

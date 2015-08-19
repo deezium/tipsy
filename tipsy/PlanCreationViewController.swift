@@ -24,6 +24,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     var selectedPlaceFormattedAddress = String()
     var plans = [PFObject]()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var tableView: UITableView!
    
@@ -62,7 +63,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBOutlet weak var postButton: UIButton!
     
     @IBAction func didTapPostButton(sender: AnyObject) {
-        
+
         let currentTime = NSDate()
         let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
         let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 24, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
@@ -96,7 +97,13 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         println("endDateString \(endDateString)")
 
 
-        if locationCell.locationLabel.text == "Where are you going?" {
+        if activityCell.messageLabel.text == "" {
+            let alert = UIAlertController(title: "Sorry!", message: "You didn't tell us what you're doing!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Whoops!", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        else if locationCell.locationLabel.text == "Where are you going?" {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make a plan without a location!", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -122,7 +129,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //        }
 
         else {
-        
+            postButton.enabled = false
+            activityIndicator.startAnimating()
+
             let activityIndexPath = NSIndexPath(forRow: 1, inSection: 0)
             let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
             println("activityCell \(activityCell.messageLabel.text)")
@@ -175,17 +184,15 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
                     currentInstallation.saveInBackground()
                     println("registered installation for pushes")
-                    
+                    self.activityIndicator.stopAnimating()
+                    self.postButton.enabled = true
                     self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
-//
-//                    let alert = UIAlertController(title: "Success", message: "Your plans have been shared!", preferredStyle: UIAlertControllerStyle.Alert)
-//                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//                    self.presentViewController(alert, animated: true, completion: nil)
-//                    activityCell.messageLabel.text = ""
            
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 }
                 else {
+                    self.activityIndicator.stopAnimating()
+                    self.postButton.enabled = true
                     let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
@@ -249,19 +256,22 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.presentViewController(alert, animated: true, completion: nil)
            
         }
-        else if planStartDate.isLaterThan(futureBoundTime) {
-            let alert = UIAlertController(title: "Sorry!", message: "We love your enthusiasm, but you can't make an event more than a week in advance.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
-        else if planEndDate.isLaterThan(lengthBound) {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
+//        else if planStartDate.isLaterThan(futureBoundTime) {
+//            let alert = UIAlertController(title: "Sorry!", message: "We love your enthusiasm, but you can't make an event more than a week in advance.", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//            
+//        }
+//        else if planEndDate.isLaterThan(lengthBound) {
+//            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
+//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+//            self.presentViewController(alert, animated: true, completion: nil)
+//            
+//        }
         else {
+            activityIndicator.startAnimating()
+            self.updateButton.enabled = false
+
             
             let objectId = plans.first?.objectId as String!
             println(objectId)
@@ -282,6 +292,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 (success, error) -> Void in
                 if success == true {
                     println("Success")
+                    self.activityIndicator.stopAnimating()
                     let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
                         Void in
@@ -290,12 +301,19 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                         }))
                     
                     self.presentViewController(alert, animated: true, completion: nil)
+                    self.updateButton.enabled = true
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 
     //                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else {
+                    self.activityIndicator.stopAnimating()
+                    self.updateButton.enabled = true
                     println("Update fail")
+                    let alert = UIAlertController(title: "Sorry!", message: "We had trouble updating your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+                    self.presentViewController(alert, animated: true, completion: nil)
+
                 }
             }
             
