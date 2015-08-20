@@ -212,7 +212,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="CQP-rh-t4v">
-                                <rect key="frame" x="-10" y="120" width="610" height="436"/>
+                                <rect key="frame" x="-10" y="120" width="610" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityNewCell" id="5tJ-My-aTz" customClass="ActivityNewCell" customModule="tipsy" customModuleProvider="target">
@@ -306,7 +306,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                             <outlet property="timeLabel" destination="YEL-uc-Xhg" id="VsM-k8-dgb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityHotCell" id="kxf-ku-YZh" customClass="ActivityHotCell" customModule="tipsy" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityHotCell" id="kxf-ku-YZh" customClass="ActivityHotCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kxf-ku-YZh" id="PgM-Yd-rbN">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -372,6 +372,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                     </state>
                                                     <connections>
                                                         <action selector="didTapCommentHeart:" destination="lra-bo-m7v" eventType="touchUpInside" id="TPC-iV-haT"/>
+                                                        <action selector="didTapHeart:" destination="YIt-U7-OVZ" eventType="touchUpInside" id="S3k-uG-qE2"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -379,6 +380,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                                 <constraint firstItem="QSN-cc-SqU" firstAttribute="leading" secondItem="oHg-w3-8UC" secondAttribute="trailing" constant="10" id="23u-D6-AkF"/>
                                                 <constraint firstItem="QSN-cc-SqU" firstAttribute="leading" secondItem="fUr-1C-FDA" secondAttribute="leading" id="4dJ-wj-S2D"/>
                                                 <constraint firstItem="oHg-w3-8UC" firstAttribute="leading" secondItem="PgM-Yd-rbN" secondAttribute="leading" constant="30" id="6XZ-lx-JCM"/>
+                                                <constraint firstItem="m5w-ta-uyP" firstAttribute="leading" secondItem="QSN-cc-SqU" secondAttribute="trailing" constant="30" id="Bcp-c7-tvC"/>
                                                 <constraint firstItem="QSN-cc-SqU" firstAttribute="top" secondItem="oHg-w3-8UC" secondAttribute="top" id="DSD-FP-i2C"/>
                                                 <constraint firstItem="eN2-es-y35" firstAttribute="top" secondItem="oHg-w3-8UC" secondAttribute="bottom" constant="5" id="HvM-3S-rIR"/>
                                                 <constraint firstAttribute="trailing" secondItem="m5w-ta-uyP" secondAttribute="trailing" constant="20" id="IpH-0s-ppv"/>
@@ -493,6 +495,10 @@ Join other people's plans or just comment on them to let them know how awesome /
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8wO-Rc-fdN">
+                                <rect key="frame" x="282" y="257" width="37" height="37"/>
+                                <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -500,6 +506,8 @@ Join other people's plans or just comment on them to let them know how awesome /
                             <constraint firstAttribute="bottom" secondItem="CQP-rh-t4v" secondAttribute="bottom" id="4xy-Im-Gcq"/>
                             <constraint firstItem="OZq-xi-VZg" firstAttribute="top" secondItem="ZhI-0J-j5l" secondAttribute="bottom" constant="20" id="AVg-vY-9F6"/>
                             <constraint firstItem="CQP-rh-t4v" firstAttribute="leading" secondItem="WzV-HA-dJO" secondAttribute="leading" constant="-20" id="Bng-X9-LMa"/>
+                            <constraint firstAttribute="centerX" secondItem="8wO-Rc-fdN" secondAttribute="centerX" id="Lgw-mh-rC1"/>
+                            <constraint firstAttribute="centerY" secondItem="8wO-Rc-fdN" secondAttribute="centerY" id="XPJ-bO-qMd"/>
                             <constraint firstAttribute="centerX" secondItem="OZq-xi-VZg" secondAttribute="centerX" id="fFg-rY-dwM"/>
                             <constraint firstItem="CQP-rh-t4v" firstAttribute="top" secondItem="OZq-xi-VZg" secondAttribute="bottom" constant="20" id="s1O-Am-mhX"/>
                         </constraints>
@@ -507,6 +515,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                     <tabBarItem key="tabBarItem" title="Activity" image="Online.png" id="jfy-LV-q5I"/>
                     <navigationItem key="navigationItem" title="Activity" id="BKy-oB-v1H"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8wO-Rc-fdN" id="6TN-TW-UVZ"/>
                         <outlet property="segmentedControl" destination="OZq-xi-VZg" id="Yea-Ya-91u"/>
                         <outlet property="tableView" destination="CQP-rh-t4v" id="Iss-LU-6FY"/>
                         <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailsFromActivity" id="Jto-Zv-t2p"/>
@@ -2969,8 +2978,8 @@ Location search powered by Google.</string>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Jto-Zv-t2p"/>
         <segue reference="urZ-Y9-YSI"/>
         <segue reference="j3I-Q1-oYJ"/>
-        <segue reference="MUB-pR-8Ix"/>
     </inferredMetricsTieBreakers>
 </document>

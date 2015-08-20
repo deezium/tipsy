@@ -234,11 +234,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tipsy/QueryController.swift"
-            timestampString = "461708869.109114"
+            timestampString = "461733357.259459"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "queryAttendingUsersForPlan(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -581,6 +581,22 @@
             startingLineNumber = "29"
             endingLineNumber = "29"
             landmarkName = "tableView(_:cellForRowAtIndexPath:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "tipsy/QueryController.swift"
+            timestampString = "461733357.259459"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "queryNewPlansForActivity(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

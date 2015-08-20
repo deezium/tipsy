@@ -155,20 +155,37 @@ class QueryController {
         
     }
     
-    func queryNewPlansForActivity(point: PFGeoPoint) {
+
+
+    func queryHotPlansForActivity(point: PFGeoPoint) {
         var query = PFQuery(className: "Plan")
+        let currentTime = NSDate()
         
         println("newQueriedPoint \(point)")
-
+        
         query.includeKey("creatingUser")
-//        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
-        query.orderByDescending("createdAt")
+        //        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
+        query.whereKey("endTime", greaterThanOrEqualTo: currentTime)
+        query.orderByDescending("heartCount")
         query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
     }
 
+    func queryNewPlansForActivity(point: PFGeoPoint) {
+        var query = PFQuery(className: "Plan")
+        
+        println("newQueriedPoint \(point)")
+        
+        query.includeKey("creatingUser")
+        //        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
+        query.orderByDescending("createdAt")
+        query.limit = 40
+        
+        var objects = query.findObjects() as! [PFObject]
+        self.delegate!.didReceiveSecondQueryResults!(objects)
+    }
     
     func queryOngoingPlansForActivity(point: PFGeoPoint) {
         var query = PFQuery(className: "Plan")
@@ -184,7 +201,7 @@ class QueryController {
         
         
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveSecondQueryResults!(objects)
+        self.delegate!.didReceiveThirdQueryResults!(objects)
     }
     
     func queryAttendingUsersForPlan(plan: PFObject) {

@@ -164,10 +164,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
         
-        if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("profileImage") == nil) {
+        if (PFUser.currentUser() != nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil) {
                 println("has access token")
-                let pictureRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture?type=large&redirect=false", parameters: nil)
+                let pictureRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture?width=100&height=100&redirect=false", parameters: nil)
                 pictureRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
                         println("OOPS")
@@ -177,7 +177,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                         let pictureString = result["data"]!["url"] as! String
                         let pictureURL = NSURL(string: pictureString)
                         let pictureData = NSData(contentsOfURL: pictureURL!)
-                        println(pictureData)
+                        println("pictureData \(pictureData)")
                         var pictureFile = PFFile(data: pictureData!)
                         PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
                         PFUser.currentUser()?.saveInBackground()

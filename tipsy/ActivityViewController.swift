@@ -16,6 +16,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var query = QueryController()
     var newQueryObjects = [PFObject]()
@@ -36,12 +37,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
         query.queryNewPlansForActivity(point)
         query.queryOngoingPlansForActivity(point)
+        query.queryHotPlansForActivity(point)
         self.refreshControl.endRefreshing()
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.startAnimating()
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -72,6 +75,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         query.delegate = self
+        query.queryHotPlansForActivity(point)
         query.queryNewPlansForActivity(point)
         query.queryOngoingPlansForActivity(point)
         
@@ -79,8 +83,10 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
-            self.newQueryObjects = objects
-            
+            self.hotQueryObjects = objects
+            self.tableView.reloadData()
+
+            self.activityIndicator.stopAnimating()
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
@@ -88,7 +94,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
     func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
-            self.ongoingQueryObjects = objects
+            self.newQueryObjects = objects
             
             //            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
             //
@@ -100,6 +106,15 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         })
     }
 
+    func didReceiveThirdQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.ongoingQueryObjects = objects
+            
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+    
     
     @IBAction func didChangeSegment(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
@@ -139,8 +154,55 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         if segmentedControl.selectedSegmentIndex == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("ActivityHotCell") as! ActivityHotCell
             
+            let queryObject = hotQueryObjects[indexPath.row]
             
+            let user = queryObject.objectForKey("creatingUser") as! PFUser
+            let fullname = user.objectForKey("fullname") as? String
+            let firstname = fullname?.componentsSeparatedByString(" ")[0]
+            
+            let message = queryObject.objectForKey("message") as? String
+            let createdAt = queryObject.createdAt
+            let placeName = queryObject.objectForKey("googlePlaceName") as? String
+            let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
+            let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
+            let heartCount = queryObject.objectForKey("heartCount") as? Int
+            
+            var dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "MMM d, hh:mm a"
+            
+            
+            let timeAgo = createdAt!.shortTimeAgoSinceNow()
+            
+            var placeLabel: String?
+            
+            if let placeName = placeName {
+                placeLabel = placeName
+            }
+            
+            
+            
+            println("heartCount \(heartCount)")
+            
+            
+            if let postImage = user.objectForKey("profileImage") as? PFFile {
+                println("postImage \(postImage)")
+                let imageData = postImage.getData()
+                let image = UIImage(data: imageData!)
+                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                cell.profileButton.tag = indexPath.row
+                
+            }
+            
+            cell.nameLabel.text = firstname
+            cell.messageLabel.text = message
+            cell.locationLabel.text = placeName
+            cell.heartButton.setTitle(heartCount?.description, forState: UIControlState.Normal)
 
+            
+            if (indexPath.row == newQueryObjects.count - 1) {
+                println("reached bottom")
+            }
             
             finalCell = cell
         }
@@ -324,5 +386,90 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
     }
 
+    
+    @IBAction func didTapHeart(sender: AnyObject) {
+        
+        let heartButton: UIButton = sender as! UIButton
+        
+        let cell = heartButton.superview?.superview as! ActivityHotCell
+        
+        
+        //        println(cell)
+        
+        let index = self.tableView.indexPathForCell(cell)!
+        
+        var plan: PFObject
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            plan = hotQueryObjects[index.row]
+        }
+        else if segmentedControl.selectedSegmentIndex == 1 {
+            plan = newQueryObjects[index.row]
+        }
+        else  {
+            plan = ongoingQueryObjects[index.row]
+        }
+        
+        //        println("selectedPlan \(plan)")
+        
+        var heartState = Bool()
+        
+        let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
+        
+        if let hearts = heartingUsers {
+            println("dem hearts \(hearts)")
+            println("dat user \(currentUser!.objectId!)")
+            if contains(hearts, currentUser!.objectId!) {
+                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
+                heartState = true
+            }
+            else {
+                heartState = false
+            }
+        }
+        
+        if heartState == false {
+            plan.addUniqueObject(currentUser!.objectId!, forKey: "heartingUsers")
+            
+            heartState = !heartState
+            
+            let originalHeartingUserCount = heartingUsers?.count ?? 0
+            
+            let newHeartingUserCount = originalHeartingUserCount + 1
+            
+            let newHeartingUserCountString = String(newHeartingUserCount)
+            
+            cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
+            println("hearted! \(heartState)")
+            
+        }
+        else {
+            plan.removeObject(currentUser!.objectId!, forKey: "heartingUsers")
+            
+            heartState = !heartState
+            
+            let originalHeartingUserCount = heartingUsers?.count ?? 0
+            
+            let newHeartingUserCount = originalHeartingUserCount - 1
+            
+            let newHeartingUserCountString = String(newHeartingUserCount)
+            
+            cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+            cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
+            println("unhearted! \(heartState)")
+        }
+        
+        
+        plan.saveInBackgroundWithBlock {
+            (success,error) -> Void in
+            if success == true {
+                println("Success")
+            }
+            else {
+                println("error \(error)")
+            }
+        }
+    }
     
 }
