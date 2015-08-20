@@ -38,8 +38,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     let kDateKey  = "date"  // key for obtaining the data source item's date value
     
     // keep track of which rows have date cells
-    let kDateStartRow = 2
-    let kDateEndRow   = 3
+    let kDateStartRow = 3
+    let kDateEndRow   = 4
     
     let kDateCellID       = "dateCell";       // the cells with the start or end date
     let kDatePickerCellID = "DatePickerCell"; // the cell containing the date picker
@@ -68,17 +68,17 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
 //        let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 24, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
         
-        let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
-        let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
-        println("locationCell \(locationCell.locationLabel.text)")
-        
         let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
         println("activityCell \(activityCell.messageLabel.text)")
         
+        let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
+        let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
+        println("locationCell \(locationCell.locationLabel.text)")
         
         
-        let startDateIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        
+        let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
         
@@ -87,7 +87,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
         
-        let endDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+        let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
@@ -141,8 +141,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             println("activityCell \(activityCell.messageLabel.text)")
 
 
+            let visibilityIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+            let visibilityCell = self.tableView.cellForRowAtIndexPath(visibilityIndexPath) as! PlanCreationVisibilityCell
+
             
-            let startDateIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+            let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
             let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
             let startDateString = startDateCell?.detailTextLabel?.text as String!
             
@@ -151,7 +154,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
 
             
-            let endDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+            let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
             let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
             let endDateString = endDateCell?.detailTextLabel?.text as String!
             
@@ -160,7 +163,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             
             println("endDateString \(endDateString)")
         
-        
+            var visibilityStatus = 0
+            
+            if visibilityCell.visibilityControl.selectedSegmentIndex == 1 {
+                visibilityStatus = 1
+            }
         
             let planObject = PFObject(className: "Plan")
             planObject.setObject(planStartDate, forKey: "startTime")
@@ -171,6 +178,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
             planObject.setObject(activityCell.messageLabel.text, forKey: "message")
             planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
+            planObject.setObject(visibilityStatus, forKey: "visibility")
             
             let ACL = PFACL()
             ACL.setPublicReadAccess(true)
@@ -216,17 +224,20 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let currentTime = NSDate()
             
         
+        let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
+        let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
+        println("activityCell \(activityCell.messageLabel.text)")
+
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
         println("locationCell \(locationCell.locationLabel.text)")
 
-        let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
-        let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-        println("activityCell \(activityCell.messageLabel.text)")
+        
+        let visibilityIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        let visibilityCell = self.tableView.cellForRowAtIndexPath(visibilityIndexPath) as! PlanCreationVisibilityCell
         
         
-        
-        let startDateIndexPath = NSIndexPath(forRow: 2, inSection: 0)
+        let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
         
@@ -235,7 +246,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
         
-        let endDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
+        let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
@@ -279,6 +290,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.updateButton.enabled = false
 
             
+            var visibilityStatus = 0
+            
+            if visibilityCell.visibilityControl.selectedSegmentIndex == 1 {
+                visibilityStatus = 1
+            }
+            
             let objectId = plans.first?.objectId as String!
             println(objectId)
             let planObject = PFObject(withoutDataWithClassName: "Plan", objectId: objectId)
@@ -290,6 +307,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
             planObject.setObject(activityCell.messageLabel.text, forKey: "message")
             planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
+            planObject.setObject(visibilityStatus, forKey: "visibility")
 
 
         
@@ -351,29 +369,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     }
     
     
-    func timeValidation() -> Bool {
-        let currentTime = NSDate()
-        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 48, toDate: currentTime, options: NSCalendarOptions.WrapComponents)
-//        if startTime.date.isEarlierThan(currentTime) {
-//            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans in the past!", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            return false
-//        }
-//        if endTime.date.isEarlierThan(startTime.date) {
-//            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            return false
-//        }
-////        if futureBoundTime!.isEarlierThan(startTime.date) {
-//            let alert = UIAlertController(title: "Sorry!", message: "You can't make plans more than 48 hours in the future!", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//        }
-        return true
-    }
-    
     func dismissKeyboard(){
         println("dismissKeyboard called")
         tableView.endEditing(true)
@@ -396,9 +391,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         // setup our data source
         let itemOne = [kTitleKey : ""]
         let itemTwo = [kTitleKey : ""]
-        let itemThree = [kTitleKey : "Start Date", kDateKey : NSDate()]
-        let itemFour = [kTitleKey : "End Date", kDateKey : NSDate()]
-        dataArray = [itemOne, itemTwo, itemThree, itemFour]
+        let itemThree = [kTitleKey : ""]
+        let itemFour = [kTitleKey : "Start Date", kDateKey : NSDate()]
+        let itemFive = [kTitleKey : "End Date", kDateKey : NSDate()]
+        dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
         
         dateFormatter.dateStyle = .ShortStyle // show short-style date format
         dateFormatter.timeStyle = .ShortStyle
@@ -523,6 +519,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             cell = tempcell
         }
         
+        if indexPath.row == 2 {
+            var tempcell = tableView.dequeueReusableCellWithIdentifier("VisibilityCell") as! PlanCreationVisibilityCell
+            cell = tempcell
+        }
+        
         // if we have a date picker open whose cell is above the cell we want to update,
         // then we have one more cell than the model allows
         //
@@ -545,10 +546,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 let planEndTime = plan?.objectForKey("endTime") as! NSDate
 
                 
-                if indexPath.row == 2 {
+                if indexPath.row == 3 {
                     cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(planStartTime) as String?
                 }
-                if indexPath.row == 3 {
+                if indexPath.row == 4 {
                     cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(planEndTime) as String?
                 }
 

@@ -1434,7 +1434,7 @@ Location search powered by Google.</string>
                                                 <constraint firstItem="1m7-bX-w7H" firstAttribute="leading" secondItem="zz1-Uc-FZK" secondAttribute="leading" constant="30" id="QTx-X1-nHQ"/>
                                                 <constraint firstAttribute="centerY" secondItem="1m7-bX-w7H" secondAttribute="centerY" id="VMH-LI-Bbv"/>
                                                 <constraint firstAttribute="trailing" secondItem="hY2-eT-iQn" secondAttribute="trailing" constant="30" id="ngE-UI-x1g"/>
-                                                <constraint firstItem="1m7-bX-w7H" firstAttribute="centerY" secondItem="hY2-eT-iQn" secondAttribute="centerY" constant="3" id="tA0-z1-xXY"/>
+                                                <constraint firstItem="1m7-bX-w7H" firstAttribute="centerY" secondItem="hY2-eT-iQn" secondAttribute="centerY" id="tA0-z1-xXY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1498,7 +1498,7 @@ Location search powered by Google.</string>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="dateCell" textLabel="C6S-Ji-UWQ" detailTextLabel="no4-Ik-9eh" rowHeight="30" style="IBUITableViewCellStyleValue1" id="6db-bv-zyD">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="dateCell" textLabel="C6S-Ji-UWQ" detailTextLabel="no4-Ik-9eh" rowHeight="24" style="IBUITableViewCellStyleValue1" id="6db-bv-zyD">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6db-bv-zyD" id="8qU-ds-FnI">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1518,6 +1518,44 @@ Location search powered by Google.</string>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="VisibilityCell" rowHeight="80" id="dSc-FA-rNU" customClass="PlanCreationVisibilityCell" customModule="tipsy" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSc-FA-rNU" id="OZW-6x-uEd">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Visibility" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3k-Xe-g3a">
+                                                    <rect key="frame" x="25" y="29" width="52" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                                    <color key="textColor" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IvP-SS-yUV">
+                                                    <rect key="frame" x="465" y="26" width="123" height="29"/>
+                                                    <segments>
+                                                        <segment title="" image="Globe.png"/>
+                                                        <segment title="" image="UserGroup.png"/>
+                                                    </segments>
+                                                    <color key="tintColor" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="IvP-SS-yUV" secondAttribute="centerY" id="7AR-B5-DcA"/>
+                                                <constraint firstAttribute="trailing" secondItem="IvP-SS-yUV" secondAttribute="trailing" constant="15" id="F8u-Zf-YwI"/>
+                                                <constraint firstAttribute="centerX" secondItem="IvP-SS-yUV" secondAttribute="centerX" id="MTh-gE-V0U"/>
+                                                <constraint firstItem="B3k-Xe-g3a" firstAttribute="leading" secondItem="OZW-6x-uEd" secondAttribute="leading" constant="15" id="gC0-8q-aqz"/>
+                                                <constraint firstAttribute="centerY" secondItem="B3k-Xe-g3a" secondAttribute="centerY" id="ie7-2r-8e1"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="MTh-gE-V0U"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="visibilityControl" destination="IvP-SS-yUV" id="zUp-f5-QwE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="default">
@@ -2965,6 +3003,7 @@ Location search powered by Google.</string>
         <image name="GenderNeutralUser-100.png" width="100" height="100"/>
         <image name="GenderNeutralUser.png" width="25" height="25"/>
         <image name="Geo-fence-50.png" width="50" height="50"/>
+        <image name="Globe.png" width="25" height="25"/>
         <image name="Like.png" width="25" height="25"/>
         <image name="Map-25.png" width="25" height="25"/>
         <image name="Meeting.png" width="25" height="25"/>
@@ -2974,6 +3013,7 @@ Location search powered by Google.</string>
         <image name="Pen-white.png" width="25" height="25"/>
         <image name="Pen.png" width="25" height="25"/>
         <image name="Public-50.png" width="50" height="50"/>
+        <image name="UserGroup.png" width="25" height="25"/>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
