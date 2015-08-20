@@ -632,6 +632,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         println(startTime)
         println(endTime)
 
+        let currentTime = NSDate()
+        
+        if currentTime.isEarlierThan(endTime) && currentTime.isLaterThan(startTime) {
+            cell.happeningNowBadge.hidden = false
+        }
         
         let fullTimeString = "\(startTimeString) to \(endTimeString)"
 

@@ -31,6 +31,7 @@ class PlanFeedCell: UITableViewCell {
     @IBOutlet weak var profileImageButton: UIButton!
     
     
+    @IBOutlet weak var happeningNowBadge: UILabel!
     
     
 }

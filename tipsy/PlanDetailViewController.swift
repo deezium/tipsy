@@ -63,6 +63,15 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         })
     }
     
+    func dismissKeyboard(){
+        println("dismissKeyboard called")
+        commentEntry.endEditing(true)
+    }
+
+    func configureTableView() {
+        commentTable.rowHeight = UITableViewAutomaticDimension
+        commentTable.estimatedRowHeight = 70.0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,6 +101,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             }
         }
     
+        configureTableView()
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+
 
         let plan = planObjects.first
         let creatingUser = plan!.objectForKey("creatingUser") as! PFObject
@@ -431,6 +446,30 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
     
     
+    @IBAction func didTapInviteButton(sender: AnyObject) {
+        
+        let plan = planObjects.first!
+        let message = plan.objectForKey("message") as? String
+        let creatingUser = plan.objectForKey("creatingUser") as! PFUser
+        
+        var textToShare = "Hey, I just planned \(message!) on Tipsy. Check it out!"
+        
+        if (currentUser != creatingUser) {
+            let creatingUserName = creatingUser.objectForKey("fullname") as? String
+            let firstname = creatingUserName?.componentsSeparatedByString(" ")[0]
+            textToShare = "Hey, \(firstname!) just posted \(message!) on Tipsy. Check it out!"
+
+        }
+        
+        
+        if let website = NSURL(string: "http://www.everybodygettipsy.com/") {
+            let objectsToShare = [textToShare, website]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
+        
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(queryObjects.count)
@@ -694,6 +733,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
     }
+    
+    func tableViewScrollToBottom() {
+        let lastRow = queryObjects.count + 3
+        let indexPath = NSIndexPath(forRow: lastRow, inSection: 0)
+        commentTable.scrollToRowAtIndexPath(indexPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+    }
 
     
     @IBAction func didTapPostButton(sender: AnyObject) {
@@ -740,12 +785,21 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                             println("comment not added to plan")
                         }
                     }
-                    self.activityIndicator.stopAnimating()
+                    
                     let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
+
+                    let plan = self.planObjects.first
+                    self.query.queryComments(plan!)
+                    
+                    self.activityIndicator.stopAnimating()
+                    
                     self.commentEntry.text = ""
                     self.postButton.enabled = true
+                    self.commentEntry.endEditing(true)
+                    self.tableViewScrollToBottom()
+
                     NSNotificationCenter.defaultCenter().postNotificationName(commentMadeNotificationKey, object: self)
                 }
                 else {

@@ -13,6 +13,7 @@ class PlanDetailInteractionCell: UITableViewCell {
     
     @IBOutlet weak var heartButton: UIButton!
     
+    @IBOutlet weak var inviteButton: UIButton!
     
     @IBOutlet weak var joinButton: UIButton!
     

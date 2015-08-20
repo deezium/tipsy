@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import DateTools
 
-class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
+class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -22,15 +22,58 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     var hotQueryObjects = [PFObject]()
     var ongoingQueryObjects = [PFObject]()
     
+    var newQueryPage = 0
+    
+    let locationManager = CLLocationManager()
+    var refreshControl = UIRefreshControl()
+    let currentUser = PFUser.currentUser()
+    var currentLocation = CLLocation()
+
+    func refreshPosts() {
+        var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+        
+        
+        let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+        query.queryNewPlansForActivity(point)
+        query.queryOngoingPlansForActivity(point)
+        self.refreshControl.endRefreshing()
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
         
+        refreshControl.tintColor = UIColor.whiteColor()
+        refreshControl.backgroundColor = UIColor(red:15/255, green: 65/255, blue: 79/255, alpha: 1)
+        refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl)
+
+        
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .NotDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+        
+        if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
+            self.currentLocation = locationManager.location
+            println("queriedLocation \(currentLocation)")
+        }
+
+        var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+
+
+        let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+        
+        
         query.delegate = self
-        query.queryNewPlansForActivity()
-        query.queryOngoingPlansForActivity()
+        query.queryNewPlansForActivity(point)
+        query.queryOngoingPlansForActivity(point)
         
     }
     
@@ -38,11 +81,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         dispatch_async(dispatch_get_main_queue(), {
             self.newQueryObjects = objects
             
-//            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
-//            
-//            
-//            let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
-//            
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
@@ -152,6 +190,10 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             cell.timeLabel.text = timeAgo
 
             
+            if (indexPath.row == newQueryObjects.count - 1) {
+                println("reached bottom")
+            }
+            
             finalCell = cell
         }
 
@@ -201,6 +243,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             cell.nameLabel.text = firstname
             cell.messageLabel.text = message
             cell.locationLabel.text = placeName
+            
+            if (indexPath.row == ongoingQueryObjects.count - 1) {
+                println("reached bottom")
+            }
+
 
         finalCell = cell
         }

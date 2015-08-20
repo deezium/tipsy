@@ -559,6 +559,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         println(startTime)
         println(endTime)
         
+        let currentTime = NSDate()
+        
+        if currentTime.isEarlierThan(endTime) && currentTime.isLaterThan(startTime) {
+            cell.happeningNowBadge.hidden = false
+        }
+
         
         let fullTimeString = "\(startTimeString) to \(endTimeString)"
         
@@ -616,59 +622,5 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     }
 
     
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//
-//        var queryObject: PFObject
-//        let cell = tableView.dequeueReusableCellWithIdentifier("PlanProfileCell") as! PlanProfileCell
-//        
-//        if segmentedControl.selectedSegmentIndex == 0 {
-//            queryObject = upcomingPlans[indexPath.row]
-//            cell.editButton.hidden = false
-//            cell.checkboxImage.hidden = true
-//        }
-//        else {
-//            queryObject = pastPlans[indexPath.row]
-//            cell.editButton.hidden = true
-//            cell.checkboxImage.hidden = false
-//        }
-//        
-//        
-//        let user = queryObject.objectForKey("creatingUser") as! PFUser
-//        let username = user.objectForKey("fullname") as? String
-//        let message = queryObject.objectForKey("message") as? String
-//        let startTime = queryObject.objectForKey("startTime") as? NSDate
-//        let endTime = queryObject.objectForKey("endTime") as? NSDate
-//        let placeName = queryObject.objectForKey("googlePlaceName") as? String
-//        let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
-//        let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
-//        var placeLabel: String?
-//        var addressLabel: String?
-//        
-//        if let placeName = placeName {
-//            placeLabel = placeName
-//        }
-//        
-//        if let shortAddress = shortAddress {
-//            addressLabel = shortAddress
-//        }
-//
-//        var dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "MMM d, hh:mm a"
-//        
-//        let startTimeString = dateFormatter.stringFromDate(startTime!)
-//        let endTimeString = dateFormatter.stringFromDate(endTime!)
-//
-//        cell.startTime.text = startTimeString
-//        cell.endTime.text = endTimeString
-//        cell.location.text = placeLabel
-//        cell.addressLabel.text = shortAddress
-//        cell.editButton.tag = indexPath.row
-//
-//        if let message = message {
-//            cell.message.text = message
-//        }
-//        
-//        return cell
-//    }
     
 }

@@ -65,8 +65,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBAction func didTapPostButton(sender: AnyObject) {
 
         let currentTime = NSDate()
-        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
-        let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 24, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
+//        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
+//        let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 24, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
         
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
@@ -93,8 +93,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
         
-        
         println("endDateString \(endDateString)")
+
+        let lengthBound = planStartDate.dateByAddingHours(24)
+        
+        println("planEndDate \(planEndDate)")
+        println("lengthBound \(lengthBound)")
 
 
         if activityCell.messageLabel.text == "" {
@@ -121,12 +125,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //            self.presentViewController(alert, animated: true, completion: nil)
 //            
 //        }
-//        else if planEndDate.isLaterThan(lengthBound) {
-//            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            
-//        }
+        else if planEndDate.isLaterThan(lengthBound) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
 
         else {
             postButton.enabled = false
@@ -210,8 +214,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     
     @IBAction func didTapUpdateButton(sender: AnyObject) {
         let currentTime = NSDate()
-        let futureBoundTime = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
-        let lengthBound = NSCalendar.currentCalendar().dateByAddingUnit(NSCalendarUnit.CalendarUnitHour, value: 168, toDate: currentTime, options: NSCalendarOptions.WrapComponents) as NSDate!
             
         
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
@@ -239,7 +241,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
         
+        let lengthBound = planStartDate.dateByAddingHours(24)
         
+        println("planEndDate \(planEndDate)")
+        println("lengthBound \(lengthBound)")
+
         println("endDateString \(endDateString)")
         
         if locationCell.locationLabel.text == "Where are you going?" {
@@ -262,12 +268,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //            self.presentViewController(alert, animated: true, completion: nil)
 //            
 //        }
-//        else if planEndDate.isLaterThan(lengthBound) {
-//            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            
-//        }
+        else if planEndDate.isLaterThan(lengthBound) {
+            let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
         else {
             activityIndicator.startAnimating()
             self.updateButton.enabled = false
@@ -369,15 +375,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     }
     
     func dismissKeyboard(){
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         println("dismissKeyboard called")
-//        let activityIndexPath = NSIndexPath(forRow: 1, inSection: 0)
-//        let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-//        
-//        activityCell.subviews.first?.endEditing()
-        
-
-//        activityLabel.endEditing(false)
+        tableView.endEditing(true)
     }
     
     
@@ -390,8 +389,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         tableView.dataSource = self
 
         
-//        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-//        self.view.addGestureRecognizer(tap)
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        tap.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(tap)
 
         // setup our data source
         let itemOne = [kTitleKey : ""]

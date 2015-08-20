@@ -745,20 +745,9 @@ Location search powered by Google.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMD-Ir-zFY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Coming soon!" translatesAutoresizingMaskIntoConstraints="NO" id="QMD-Ir-zFY">
                                 <rect key="frame" x="0.0" y="44" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Question one?
-
-Answer one.
-
-Question two?
-
-Answer two.
-
-Question three?
-
-Answer three.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
@@ -963,7 +952,7 @@ Answer three.</string>
                                                                 <action selector="didTapHeart:" destination="vFn-9h-QqO" eventType="touchUpInside" id="PVh-Y6-dWt"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOv-pq-ohS">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOv-pq-ohS">
                                                             <rect key="frame" x="251" y="9" width="40" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ypz-a1-kbL"/>
@@ -1077,15 +1066,21 @@ Answer three.</string>
                                                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htd-E0-ZJk">
-                                                    <rect key="frame" x="519" y="51" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htd-E0-ZJk">
+                                                    <rect key="frame" x="299" y="59" width="40" height="21"/>
+                                                    <color key="backgroundColor" red="0.42352941179999998" green="0.57647058819999997" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="Sez-oc-cCI"/>
+                                                        <constraint firstAttribute="height" constant="25" id="p2U-v3-d7Q"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="3Fz-1i-wAB" firstAttribute="top" secondItem="Qba-80-eCT" secondAttribute="bottom" constant="5" id="1Sx-25-zxm"/>
+                                                <constraint firstItem="htd-E0-ZJk" firstAttribute="leading" secondItem="p5h-g3-L2U" secondAttribute="trailing" constant="10" id="6HP-aC-nDP"/>
                                                 <constraint firstAttribute="trailing" secondItem="3Fz-1i-wAB" secondAttribute="trailing" constant="30" id="7gc-DI-OL0"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="top" constant="10" id="CJc-bI-ovY"/>
                                                 <constraint firstItem="mRI-lt-esJ" firstAttribute="leading" secondItem="5mQ-fU-iJY" secondAttribute="trailing" constant="10" id="DkZ-84-jUY"/>
@@ -1097,6 +1092,7 @@ Answer three.</string>
                                                 <constraint firstItem="5mQ-fU-iJY" firstAttribute="top" secondItem="zIh-tE-jSa" secondAttribute="topMargin" constant="10" id="Rx8-v7-7LM"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="leading" secondItem="Qba-80-eCT" secondAttribute="leading" id="TgY-NR-N3l"/>
                                                 <constraint firstAttribute="bottom" secondItem="3Fz-1i-wAB" secondAttribute="bottom" id="To4-f4-XDY"/>
+                                                <constraint firstItem="p5h-g3-L2U" firstAttribute="centerY" secondItem="htd-E0-ZJk" secondAttribute="centerY" id="bCK-Pp-Xw7"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="leading" secondItem="p5h-g3-L2U" secondAttribute="leading" id="bWe-VZ-JuN"/>
                                                 <constraint firstItem="Qba-80-eCT" firstAttribute="centerX" secondItem="5mQ-fU-iJY" secondAttribute="centerX" id="cme-7e-cq5"/>
                                                 <constraint firstItem="uTY-aw-uPo" firstAttribute="top" secondItem="mRI-lt-esJ" secondAttribute="bottom" constant="5" id="cyo-Na-VDK"/>
@@ -1106,6 +1102,7 @@ Answer three.</string>
                                                 <constraint firstAttribute="trailing" secondItem="mRI-lt-esJ" secondAttribute="trailing" constant="30" id="nW2-aR-WhA"/>
                                                 <constraint firstItem="3Fz-1i-wAB" firstAttribute="leading" secondItem="zIh-tE-jSa" secondAttribute="leading" constant="30" id="nqK-kg-HJE"/>
                                                 <constraint firstItem="5mQ-fU-iJY" firstAttribute="leading" secondItem="zIh-tE-jSa" secondAttribute="leading" constant="30" id="vIF-ap-THj"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="htd-E0-ZJk" secondAttribute="trailing" priority="999" constant="30" id="wWL-UD-ehb"/>
                                                 <constraint firstAttribute="trailing" secondItem="p5h-g3-L2U" secondAttribute="trailing" constant="30" id="wd0-Pa-tJN"/>
                                             </constraints>
                                             <variation key="default">
@@ -1115,12 +1112,14 @@ Answer three.</string>
                                                     <exclude reference="Qn9-CQ-HJo"/>
                                                     <exclude reference="fug-T8-eur"/>
                                                     <exclude reference="TgY-NR-N3l"/>
+                                                    <exclude reference="wd0-Pa-tJN"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentButton" destination="kOv-pq-ohS" id="9Mk-C3-KTU"/>
                                             <outlet property="fullTime" destination="p5h-g3-L2U" id="fxd-bK-rx7"/>
+                                            <outlet property="happeningNowBadge" destination="htd-E0-ZJk" id="aCa-gk-V3z"/>
                                             <outlet property="heartButton" destination="eek-ON-HhP" id="tiC-Ne-hmf"/>
                                             <outlet property="joinButton" destination="zd7-SJ-RBo" id="Ff7-bO-UAT"/>
                                             <outlet property="location" destination="uTY-aw-uPo" id="fsx-9p-ytZ"/>
@@ -1217,7 +1216,7 @@ Answer three.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57X-93-bfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-648" y="701"/>
+            <point key="canvasLocation" x="-572" y="233"/>
         </scene>
         <!--Item-->
         <scene sceneID="buY-VR-VTt">
@@ -1600,10 +1599,10 @@ Answer three.</string>
                         <viewControllerLayoutGuide type="bottom" id="nxN-yi-Cpr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hov-U6-FBE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XjY-sV-jvL">
+                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjY-sV-jvL">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
@@ -1904,12 +1903,6 @@ Answer three.</string>
                                                     <color key="textColor" red="0.058823529409999999" green="0.25490196079999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0z-hZ-B7Y">
-                                                    <rect key="frame" x="101" y="57" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fi4-Ta-bcM">
                                                     <rect key="frame" x="8" y="110" width="584" height="40"/>
                                                     <subviews>
@@ -1928,7 +1921,7 @@ Answer three.</string>
                                                                 <action selector="didTapHeartButton:" destination="oRv-B1-WtN" eventType="touchUpInside" id="uOd-y0-49i"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjl-nJ-vd4">
+                                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjl-nJ-vd4">
                                                             <rect key="frame" x="251" y="9" width="40" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="s8I-C6-Qzk"/>
@@ -2037,6 +2030,23 @@ Answer three.</string>
                                                         <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwC-Ge-htn">
+                                                    <rect key="frame" x="186" y="61" width="40" height="21"/>
+                                                    <color key="backgroundColor" red="0.42352941179999998" green="0.57647058819999997" blue="0.62352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="aSt-nX-iSG"/>
+                                                        <constraint firstAttribute="height" constant="25" id="hPA-EA-A0e"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0z-hZ-B7Y">
+                                                    <rect key="frame" x="101" y="57" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Fi4-Ta-bcM" secondAttribute="trailing" constant="30" id="17R-AI-0yE"/>
@@ -2044,6 +2054,7 @@ Answer three.</string>
                                                 <constraint firstItem="80s-H6-6fI" firstAttribute="leading" secondItem="BNh-q9-feO" secondAttribute="trailing" constant="10" id="G0a-wX-nxi"/>
                                                 <constraint firstItem="dSM-Bh-6Gm" firstAttribute="top" secondItem="BNh-q9-feO" secondAttribute="bottom" constant="5" id="Jne-11-qGk"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pf3-Oe-7ub" secondAttribute="trailing" constant="30" id="Nuq-HK-4OC"/>
+                                                <constraint firstItem="uwC-Ge-htn" firstAttribute="centerY" secondItem="h0z-hZ-B7Y" secondAttribute="centerY" id="OVw-Fd-Odf"/>
                                                 <constraint firstAttribute="bottom" secondItem="Fi4-Ta-bcM" secondAttribute="bottom" id="UO4-ss-lrs"/>
                                                 <constraint firstItem="80s-H6-6fI" firstAttribute="top" secondItem="EFs-lG-ilO" secondAttribute="top" constant="10" id="V95-gm-Tdu"/>
                                                 <constraint firstItem="Pf3-Oe-7ub" firstAttribute="leading" secondItem="h0z-hZ-B7Y" secondAttribute="leading" id="XwL-rQ-a9j"/>
@@ -2053,20 +2064,24 @@ Answer three.</string>
                                                 <constraint firstAttribute="trailing" secondItem="h0z-hZ-B7Y" secondAttribute="trailing" constant="30" id="iaf-zY-lZD"/>
                                                 <constraint firstItem="Pf3-Oe-7ub" firstAttribute="top" secondItem="80s-H6-6fI" secondAttribute="bottom" constant="5" id="kYU-cc-fpH"/>
                                                 <constraint firstItem="BNh-q9-feO" firstAttribute="leading" secondItem="EFs-lG-ilO" secondAttribute="leading" constant="30" id="o1U-bp-gNQ"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uwC-Ge-htn" secondAttribute="trailing" priority="999" constant="30" id="s2l-Vs-nxj"/>
                                                 <constraint firstItem="h0z-hZ-B7Y" firstAttribute="top" secondItem="Pf3-Oe-7ub" secondAttribute="bottom" constant="5" id="uls-dP-j2b"/>
                                                 <constraint firstItem="80s-H6-6fI" firstAttribute="leading" secondItem="Pf3-Oe-7ub" secondAttribute="leading" id="v20-il-Zk4"/>
                                                 <constraint firstItem="Pf3-Oe-7ub" firstAttribute="top" secondItem="80s-H6-6fI" secondAttribute="bottom" constant="30" id="vje-Sg-Cmb"/>
+                                                <constraint firstItem="uwC-Ge-htn" firstAttribute="leading" secondItem="h0z-hZ-B7Y" secondAttribute="trailing" constant="10" id="wgp-iz-2Dk"/>
                                                 <constraint firstAttribute="trailing" secondItem="80s-H6-6fI" secondAttribute="trailing" constant="30" id="z6V-4l-4a9"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="vje-Sg-Cmb"/>
+                                                    <exclude reference="iaf-zY-lZD"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentButton" destination="hjl-nJ-vd4" id="dGX-yX-tJi"/>
                                             <outlet property="fullTime" destination="h0z-hZ-B7Y" id="ERm-58-mjy"/>
+                                            <outlet property="happeningNowBadge" destination="uwC-Ge-htn" id="ReZ-0U-6Cf"/>
                                             <outlet property="heartButton" destination="sYw-mm-9zF" id="69t-4s-fjs"/>
                                             <outlet property="joinButton" destination="RXk-17-lGf" id="LN5-SG-bQj"/>
                                             <outlet property="location" destination="Pf3-Oe-7ub" id="1gH-KL-gET"/>
@@ -2378,6 +2393,7 @@ Answer three.</string>
                                                 <constraint firstItem="5m7-K0-ZmC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="lMa-uJ-R3b" secondAttribute="trailing" priority="999" constant="10" id="hPf-ud-oeZ"/>
                                                 <constraint firstItem="lMa-uJ-R3b" firstAttribute="leading" relation="lessThanOrEqual" secondItem="plK-4z-3sL" secondAttribute="trailing" priority="999" constant="10" id="he9-6j-zjj"/>
                                                 <constraint firstItem="btP-bM-VsR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="5m7-K0-ZmC" secondAttribute="trailing" priority="999" constant="10" id="nfb-zG-faz"/>
+                                                <constraint firstAttribute="bottom" secondItem="bjV-8e-hdA" secondAttribute="bottom" constant="5" id="qeT-6f-Cts"/>
                                                 <constraint firstItem="plK-4z-3sL" firstAttribute="leading" relation="lessThanOrEqual" secondItem="XCV-kL-Af3" secondAttribute="trailing" priority="999" constant="10" id="tPP-HK-vTc"/>
                                                 <constraint firstItem="xFD-Js-DYI" firstAttribute="centerY" secondItem="73y-jB-ZPD" secondAttribute="centerY" id="ylg-u0-hOZ"/>
                                                 <constraint firstItem="S7h-L6-iAN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="btP-bM-VsR" secondAttribute="trailing" constant="10" id="zFc-qA-0oj"/>
@@ -2439,6 +2455,11 @@ Answer three.</string>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="dq4-UC-ygx"/>
+                                                        </mask>
+                                                    </variation>
                                                 </textView>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a10-zy-Pkm">
                                                     <rect key="frame" x="26" y="12" width="40" height="40"/>
@@ -2458,11 +2479,14 @@ Answer three.</string>
                                                 <constraint firstItem="a10-zy-Pkm" firstAttribute="leading" secondItem="eTT-BA-iaT" secondAttribute="leading" constant="30" id="Iyd-CW-qkI"/>
                                                 <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="top" id="JOT-hZ-yJA"/>
                                                 <constraint firstAttribute="trailing" secondItem="zbU-bs-L2U" secondAttribute="trailing" constant="30" id="Kld-du-ewX"/>
+                                                <constraint firstAttribute="bottom" secondItem="QKB-mt-yKE" secondAttribute="bottom" constant="5" id="Wbb-fv-lfr"/>
                                                 <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="a10-zy-Pkm" secondAttribute="top" id="YJ8-89-SUF"/>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="B7V-Qi-09F" secondAttribute="leading" constant="-20" id="ZjW-Wd-Wzv"/>
+                                                <constraint firstAttribute="bottom" secondItem="LhV-8A-tcx" secondAttribute="bottom" constant="10" id="aNw-dN-HvS"/>
                                                 <constraint firstItem="a10-zy-Pkm" firstAttribute="top" secondItem="eTT-BA-iaT" secondAttribute="top" constant="10" id="ahZ-DS-CJS"/>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="trailing" secondItem="B7V-Qi-09F" secondAttribute="trailing" constant="-15" id="jDC-h5-GvB"/>
                                                 <constraint firstItem="B7V-Qi-09F" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="bottom" id="l0r-hn-UpD"/>
+                                                <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="eTT-BA-iaT" secondAttribute="top" constant="10" id="lYn-lq-Vd1"/>
                                                 <constraint firstItem="QKB-mt-yKE" firstAttribute="top" secondItem="a10-zy-Pkm" secondAttribute="bottom" id="mbb-X1-LiE"/>
                                                 <constraint firstItem="QKB-mt-yKE" firstAttribute="centerX" secondItem="a10-zy-Pkm" secondAttribute="centerX" id="mm1-AE-EUO"/>
                                             </constraints>
@@ -2493,13 +2517,16 @@ Answer three.</string>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q8K-SC-T3e">
-                                                    <rect key="frame" x="287" y="15" width="42" height="20"/>
+                                                    <rect key="frame" x="167" y="21" width="42" height="20"/>
                                                 </view>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nR4-p5-B9s">
-                                                    <rect key="frame" x="497" y="11" width="42" height="24"/>
+                                                    <rect key="frame" x="376" y="11" width="42" height="24"/>
+                                                </view>
+                                                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-qm-WeW">
+                                                    <rect key="frame" x="527" y="11" width="42" height="24"/>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeU-fD-qO9">
-                                                    <rect key="frame" x="140" y="10" width="80" height="25"/>
+                                                    <rect key="frame" x="79" y="16" width="80" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="a7a-Qc-0Ib"/>
                                                     </constraints>
@@ -2513,7 +2540,7 @@ Answer three.</string>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuh-eM-E6K">
-                                                    <rect key="frame" x="388" y="10" width="40" height="25"/>
+                                                    <rect key="frame" x="288" y="16" width="40" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="tzL-HN-01h"/>
                                                     </constraints>
@@ -2526,26 +2553,47 @@ Answer three.</string>
                                                         <action selector="didTapJoinButton:" destination="lra-bo-m7v" eventType="touchUpInside" id="223-oG-YHr"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q43-Vy-j4j">
+                                                    <rect key="frame" x="442" y="16" width="71" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="cfE-0k-1on"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal" title=" Invite" image="Message.png">
+                                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="didTapInviteButton:" destination="lra-bo-m7v" eventType="touchUpInside" id="SCK-q3-JBh"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="nR4-p5-B9s" firstAttribute="width" secondItem="cpY-qm-WeW" secondAttribute="width" id="2Zc-P0-4Ha"/>
                                                 <constraint firstItem="NOL-Zj-c5g" firstAttribute="width" secondItem="q8K-SC-T3e" secondAttribute="width" id="2xe-Kb-Tg1"/>
                                                 <constraint firstItem="uuh-eM-E6K" firstAttribute="leading" relation="lessThanOrEqual" secondItem="q8K-SC-T3e" secondAttribute="trailing" priority="999" constant="10" id="3Gc-kY-V8D"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="nR4-p5-B9s" secondAttribute="centerY" id="5lG-x8-aQp"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="leading" relation="lessThanOrEqual" secondItem="NOL-Zj-c5g" secondAttribute="trailing" constant="10" id="Ii8-dc-mvu"/>
-                                                <constraint firstItem="nR4-p5-B9s" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uuh-eM-E6K" secondAttribute="trailing" constant="10" id="Jbv-uy-zfT"/>
+                                                <constraint firstItem="Q43-Vy-j4j" firstAttribute="centerY" secondItem="DeU-fD-qO9" secondAttribute="centerY" id="J9I-Dz-o6n"/>
+                                                <constraint firstItem="nR4-p5-B9s" firstAttribute="leading" relation="lessThanOrEqual" secondItem="uuh-eM-E6K" secondAttribute="trailing" priority="999" constant="10" id="Jbv-uy-zfT"/>
+                                                <constraint firstItem="cpY-qm-WeW" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Q43-Vy-j4j" secondAttribute="trailing" constant="10" id="RH4-Vi-1h2"/>
                                                 <constraint firstItem="NOL-Zj-c5g" firstAttribute="width" secondItem="nR4-p5-B9s" secondAttribute="width" id="SO4-Eq-5Hr"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="q8K-SC-T3e" secondAttribute="centerY" id="aF5-bw-oBt"/>
                                                 <constraint firstAttribute="trailing" secondItem="nR4-p5-B9s" secondAttribute="trailing" constant="30" id="azU-aE-gh0"/>
+                                                <constraint firstItem="nR4-p5-B9s" firstAttribute="centerY" secondItem="cpY-qm-WeW" secondAttribute="centerY" id="b52-6M-7oU"/>
+                                                <constraint firstItem="Q43-Vy-j4j" firstAttribute="leading" relation="lessThanOrEqual" secondItem="nR4-p5-B9s" secondAttribute="trailing" priority="999" constant="10" id="c1g-Tb-bCq"/>
                                                 <constraint firstAttribute="centerY" secondItem="NOL-Zj-c5g" secondAttribute="centerY" id="eAU-xC-MCu"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="uuh-eM-E6K" secondAttribute="centerY" id="hlr-GP-pfu"/>
                                                 <constraint firstItem="q8K-SC-T3e" firstAttribute="leading" relation="lessThanOrEqual" secondItem="DeU-fD-qO9" secondAttribute="trailing" priority="999" constant="10" id="kAw-ap-9ZP"/>
                                                 <constraint firstItem="nR4-p5-B9s" firstAttribute="width" secondItem="NOL-Zj-c5g" secondAttribute="width" id="llf-GM-HiA"/>
                                                 <constraint firstItem="NOL-Zj-c5g" firstAttribute="leading" secondItem="QBd-cb-Ea8" secondAttribute="leading" constant="30" id="sKI-aQ-x5v"/>
                                                 <constraint firstItem="nR4-p5-B9s" firstAttribute="width" secondItem="q8K-SC-T3e" secondAttribute="width" id="vJ4-Jb-yDy"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="cpY-qm-WeW" secondAttribute="trailing" constant="30" id="xRR-eN-LTl"/>
                                                 <constraint firstItem="DeU-fD-qO9" firstAttribute="centerY" secondItem="NOL-Zj-c5g" secondAttribute="centerY" id="zH8-xg-P7S"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="azU-aE-gh0"/>
                                                     <exclude reference="llf-GM-HiA"/>
                                                     <exclude reference="vJ4-Jb-yDy"/>
                                                 </mask>
@@ -2553,6 +2601,7 @@ Answer three.</string>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="heartButton" destination="DeU-fD-qO9" id="G7m-eZ-AXI"/>
+                                            <outlet property="inviteButton" destination="Q43-Vy-j4j" id="V0m-xk-viJ"/>
                                             <outlet property="joinButton" destination="uuh-eM-E6K" id="zIb-o7-lmc"/>
                                         </connections>
                                     </tableViewCell>
@@ -2911,6 +2960,7 @@ Answer three.</string>
         <image name="Map-25.png" width="25" height="25"/>
         <image name="Meeting.png" width="25" height="25"/>
         <image name="Menu.png" width="25" height="25"/>
+        <image name="Message.png" width="25" height="25"/>
         <image name="Online.png" width="25" height="25"/>
         <image name="Pen-white.png" width="25" height="25"/>
         <image name="Pen.png" width="25" height="25"/>
@@ -2919,8 +2969,8 @@ Answer three.</string>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jto-Zv-t2p"/>
-        <segue reference="VIb-lG-h26"/>
+        <segue reference="urZ-Y9-YSI"/>
         <segue reference="j3I-Q1-oYJ"/>
+        <segue reference="MUB-pR-8Ix"/>
     </inferredMetricsTieBreakers>
 </document>
