@@ -754,9 +754,16 @@ Location search powered by Google.</string>
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="Coming soon!" translatesAutoresizingMaskIntoConstraints="NO" id="QMD-Ir-zFY">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMD-Ir-zFY">
                                 <rect key="frame" x="0.0" y="44" width="600" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">How is the Friend Feed on Tipsy constructed?
+
+Tipsy uses your Facebook friends list to put together a calendar of the events your friends have planned on Tipsy.
+
+What is the Activity view?
+
+The Activity view contains all public events around you, as well as all plans made by friends near your location.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
