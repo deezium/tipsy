@@ -429,13 +429,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 queryObject = ongoingQueryObjects[index.row]
             }
 
-            
-            //            if segmentedControl.selectedSegmentIndex == 0 {
-            //                queryObject = upcomingPlans[index.row]
-            //            }
-            //            else {
-            //                queryObject = pastPlans[index.row]
-            //            }
             selectedPlans.append(queryObject)
             println("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
