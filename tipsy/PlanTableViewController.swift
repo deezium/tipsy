@@ -147,6 +147,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
+
         
 
         
@@ -252,6 +254,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             (success,error) -> Void in
             if success == true {
                 println("Success")
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+
             }
             else {
                 println("error \(error)")
@@ -330,6 +334,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+
 
             }
             else {

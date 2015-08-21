@@ -81,6 +81,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
         query.delegate = self
         query.queryUserIdsForFriends()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
+
 
         
     }
@@ -485,6 +488,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             (success,error) -> Void in
             if success == true {
                 println("Success")
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+
             }
             else {
                 println("error \(error)")

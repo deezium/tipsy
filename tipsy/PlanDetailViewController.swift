@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 
 let commentMadeNotificationKey = "commentMadeNotificationKey"
+let planInteractedNotificationKey = "planInteractedNotificationKey"
 
 class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, UITextFieldDelegate {
     
@@ -172,6 +173,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshComments", name: commentMadeNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
 
 
         
@@ -279,6 +281,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             (success,error) -> Void in
             if success == true {
                 println("Success")
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+
             }
             else {
                 println("error \(error)")
@@ -358,6 +362,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             (success,error) -> Void in
             if success == true {
                 println("Success")
+
             }
             else {
                 println("error \(error)")
@@ -436,6 +441,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+
 
             }
             else {

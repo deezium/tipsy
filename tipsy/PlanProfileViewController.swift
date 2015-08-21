@@ -201,6 +201,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
+
 
         
     }
@@ -282,6 +284,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             (success,error) -> Void in
             if success == true {
                 println("Success")
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+
             }
             else {
                 println("error \(error)")
@@ -360,6 +364,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
+
+                NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
 
                 println("Plan save success")
             }
