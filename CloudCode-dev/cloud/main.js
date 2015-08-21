@@ -6,171 +6,67 @@ Parse.Cloud.define("hello", function(request, response) {
 });
 
 
-
-
 Parse.Cloud.afterSave("Plan", function(request){
+
+//	var updateInfo = request.object.op('attendingUsers');
+//	console.log("update attending users returns" + updateInfo);
+
 	var heartArray = request.object.get('heartingUsers');
 	var heartCount = heartArray.length;
 	console.log(heartArray);
 	console.log(heartCount);
 	request.object.set('heartCount', heartCount);
 	request.object.save();
-});
-
-// Parse.Cloud.afterSave("Plan", function(request){
-
-// 	if (!request.object.existed()) {
-// 		var planMessage = request.object.get('message');
-// 		var planCreatingUser = request.object.get('creatingUser');
-// 		var userId = planCreatingUser.id;
-
-// 		var pushQuery = new Parse.Query(Parse.Installation);
-// 		pushQuery.equalTo('channels', 'global');
-// 		pushQuery.notEqualTo('user', planCreatingUser);
-
-// 		var userQuery = new Parse.Query(Parse.User);
-// 		userQuery.equalTo('objectId', userId);
-
-// 		var username = [];
-
-// 		userQuery.find({
-// 			success: function(users) {
-// 				var user = users[0];
-// 				fullname = user.get("fullname");
-// 				username.push(fullname);
-// 				firstname = username[0].split(" ")[0]
-
-// 				Parse.Push.send({
-// 					where: pushQuery,
-// 					data: {
-// 						alert: firstname + " just planned " + planMessage + "!"
-// 					}
-// 				}, {
-// 					success: function() {
-// 						print("success")
-// 					},
-// 					error: function(error) {
-// 						print("error")
-// 					}
-// 				});
-
-// 			},
-// 			error: function(error) {
-// 				console.log("error");
-// 			}
-// 		});
-// 	};
-
-// // 	if (request.object.get('attendingUsers')) {
-// // 		var newAttendee = request.object.get('attendingUsers');
-// // 		var userId = newAttendee[newAttendee.length-1];
-
-// // 		console.log("user " + userId);
-
-// // 		var planMessage = request.object.get('message');
-// // 		var planId = request.object.id;
-
-// // 		console.log("plan " + planId);
-// // 		console.log("planMessage " + planMessage);
 
 
-// // 		var pushQuery = new Parse.Query(Parse.Installation);
-// // 		pushQuery.equalTo('channels', 'join-'+planId);
-// // //		pushQuery.notEqualTo('user', planCreatingUser);
 
-// // 		var userQuery = new Parse.Query(Parse.User);
-// // 		userQuery.equalTo('objectId', userId);
+	if (!request.object.existed()) {
+		var planMessage = request.object.get('message');
+		var planCreatingUser = request.object.get('creatingUser');
+		var userId = planCreatingUser.id;
 
-// // 		var username = [];
+		var pushQuery = new Parse.Query(Parse.Installation);
+		pushQuery.equalTo('channels', 'global');
+		pushQuery.notEqualTo('user', planCreatingUser);
 
-// // 		userQuery.find({
-// // 			success: function(users) {
-// // 				var user = users[0];
-// // 				fullname = user.get("fullname");
-// // 				username.push(fullname);
-// // 				firstname = username[0].split(" ")[0]
+		var userQuery = new Parse.Query(Parse.User);
+		userQuery.equalTo('objectId', userId);
 
-// // 				Parse.Push.send({
-// // 					where: pushQuery,
-// // 					data: {
-// // 						alert: "Attendee list changed for " + planMessage + "!"
-// // 					}
-// // 				}, {
-// // 					success: function() {
-// // 						console.log("success");
-// // 					},
-// // 					error: function(error) {
-// // 						console.log("error");
-// // 					}
-// // 				});
+		var username = [];
 
-// // 			},
-// // 			error: function(error) {
-// // 				console.log("error");
-// // 			}
-// // 		});
+		userQuery.find({
+			success: function(users) {
+				var user = users[0];
+				fullname = user.get("fullname");
+				username.push(fullname);
+				firstname = username[0].split(" ")[0]
 
-// // 	};
-// });
+				Parse.Push.send({
+					where: pushQuery,
+					data: {
+						alert: firstname + " just planned " + planMessage + "!"
+					}
+				}, {
+					success: function() {
+						console.log("success");
+					},
+					error: function(error) {
+						console.log("error");
+					}
+				});
 
-// Parse.Cloud.afterSave("Comment", function(request){
+			},
+			error: function(error) {
+				console.log("error");
+			}
+		});
+	};
 
-// 	if (!request.object.existed()) {
-// 		var planCommentingUser = request.object.get('commentingUser');
-// 		var userId = planCommentingUser.id;
-
-// 		var commentedPlan = request.object.get('commentedPlan');
-// 		var planId = commentedPlan.id;
-
-// 		var pushQuery = new Parse.Query(Parse.Installation);
-
-// 		var allChannel = "all-" + planId;
-// 		var commentChannel = "comments-" + planId;
-// 		pushQuery.equalTo('channels', allChannel);
-// 		pushQuery.equalTo('channels', commentChannel);
-// 		pushQuery.notEqualTo('user', planCommentingUser);
-
-// 		var planQuery = new Parse.Query("Plan");
-// 		planQuery.equalTo('objectId', planId);
-
-
-// 		planQuery.find({
-// 			success: function(plans) {
-// 				var plan = plans[0];
-// 				message = plan.get("message");
-
-// 				Parse.Push.send({
-// 					where: pushQuery,
-// 					data: {
-// 						alert: "New comment on " + message
-// 					}
-// 				}, {
-// 					success: function() {
-// 						console.log("success");
-// 					},
-// 					error: function(error) {
-// 						console.log("error");
-// 					}
-// 				});
-
-// 			},
-// 			error: function(error) {
-// 				console.log("error");
-// 			}
-// 		});
-
-// 	};
-// });
-
-// Parse.Cloud.beforeSave("Plan", function(request){
-// 	//if (request.original.get('objects')) {
+// 	if (request.object.get('attendingUsers')) {
 // 		var newAttendee = request.object.get('attendingUsers');
 // 		var userId = newAttendee[newAttendee.length-1];
 
 // 		console.log("user " + userId);
-
-// 		var objects = request.original.update;
-// 		console.log("retrieved objects" + objects);
 
 // 		var planMessage = request.object.get('message');
 // 		var planId = request.object.id;
@@ -198,7 +94,7 @@ Parse.Cloud.afterSave("Plan", function(request){
 // 				Parse.Push.send({
 // 					where: pushQuery,
 // 					data: {
-// 						alert: firstname + " just joined " + planMessage + "!"
+// 						alert: "Attendee list changed for " + planMessage + "!"
 // 					}
 // 				}, {
 // 					success: function() {
@@ -215,6 +111,133 @@ Parse.Cloud.afterSave("Plan", function(request){
 // 			}
 // 		});
 
-// //	};
+// 	};
+});
 
-// });
+Parse.Cloud.afterSave("Comment", function(request){
+
+	if (!request.object.existed()) {
+		var planCommentingUser = request.object.get('commentingUser');
+		var userId = planCommentingUser.id;
+
+		var commentedPlan = request.object.get('commentedPlan');
+		var planId = commentedPlan.id;
+
+
+		var allChannel = "all-" + planId;
+		var commentChannel = "comments-" + planId;
+		var joinChannel = "comments-" + planId;
+
+		var allQuery = new Parse.Query(Parse.Installation);
+		allQuery.equalTo('channels', allChannel);
+//		allQuery.notEqualTo('user', planCommentingUser);
+		
+
+		var commentQuery = new Parse.Query(Parse.Installation);
+		commentQuery.equalTo('channels', commentChannel);
+//		commentQuery.notEqualTo('user', planCommentingUser);
+
+		var joinQuery = new Parse.Query(Parse.Installation);
+		joinQuery.equalTo('channels', joinChannel);
+//		commentQuery.notEqualTo('user', planCommentingUser);
+
+		var pushQuery = Parse.Query.or(allQuery, commentQuery, joinQuery);
+
+		var planQuery = new Parse.Query("Plan");
+		planQuery.equalTo('objectId', planId);
+
+
+		planQuery.find({
+			success: function(plans) {
+				var plan = plans[0];
+				message = plan.get("message");
+
+				Parse.Push.send({
+					where: pushQuery,
+					data: {
+						alert: "New comment on " + message
+					}
+				}, {
+					success: function() {
+						console.log("success");
+					},
+					error: function(error) {
+						console.log("error");
+					}
+				});
+
+			},
+			error: function(error) {
+				console.log("error");
+			}
+		});
+
+	};
+});
+
+Parse.Cloud.beforeSave("Plan", function(request){
+//		var newAttendee = request.object.get('attendingUsers');
+
+	var updateType = request.object.op('attendingUsers').toJSON()["__op"];
+	console.log("updateType returns " + updateType);
+
+	var updateUser = request.object.op('attendingUsers').objects();
+	console.log("updateUser returns "+ updateUser);
+
+
+	var userId = updateUser;
+
+	console.log("found a new attendee");
+
+	console.log("user " + userId);
+
+	var planMessage = request.object.get('message');
+	var planId = request.object.id;
+
+	console.log("plan " + planId);
+	console.log("planMessage " + planMessage);
+
+
+	var pushQuery = new Parse.Query(Parse.Installation);
+	pushQuery.equalTo('channels', 'all-'+planId);
+//		pushQuery.notEqualTo('user', planCreatingUser);
+
+	var userQuery = new Parse.Query(Parse.User);
+	userQuery.equalTo('objectId', userId);
+
+	var username = [];
+
+	console.log("about to run query");
+
+	userQuery.find({
+		success: function(users) {
+			var user = users[0];
+			fullname = user.get("fullname");
+			username.push(fullname);
+			firstname = username[0].split(" ")[0]
+
+			Parse.Push.send({
+				where: pushQuery,
+				data: {
+					alert: firstname + " just joined " + planMessage + "!"
+				}
+			}, {
+				success: function() {
+					console.log("success");
+				},
+				error: function(error) {
+					console.log("error");
+				}
+			});
+
+		},
+		error: function(error) {
+			console.log("error " + error);
+		}
+	});
+
+
+
+
+
+});
