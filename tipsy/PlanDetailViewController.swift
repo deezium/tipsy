@@ -541,7 +541,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 
             }
             
-            cell?.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            if heartingUsers?.count == 0 {
+                cell?.heartButton.setTitle("0", forState: UIControlState.Normal)
+            }
+            else {
+                cell?.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            }
+
             
             if (attendanceState == true) {
                 cell?.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
@@ -677,8 +683,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 
             }
             
-            cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
-            
+            if heartingUsers?.count == 0 {
+                cell.heartButton.setTitle("0", forState: UIControlState.Normal)
+            }
+            else {
+                cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            }
+
 
             
             finalCell = cell

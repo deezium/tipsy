@@ -604,7 +604,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
         if heartingUsers?.count == 0 {
-            cell.heartButton.setTitle("", forState: UIControlState.Normal)
+            cell.heartButton.setTitle("0", forState: UIControlState.Normal)
         }
         else {
             cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)

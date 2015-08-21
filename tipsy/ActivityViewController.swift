@@ -222,7 +222,13 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             cell.nameLabel.text = firstname
             cell.messageLabel.text = message
             cell.locationLabel.text = placeName
-            cell.heartButton.setTitle(heartCount?.description, forState: UIControlState.Normal)
+            
+            if heartCount == 0 {
+                cell.heartButton.setTitle("0", forState: UIControlState.Normal)
+            }
+            else {
+                cell.heartButton.setTitle(heartCount?.description, forState: UIControlState.Normal)
+            }
 
             
             if (indexPath.row == newQueryObjects.count - 1) {
