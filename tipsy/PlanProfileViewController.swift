@@ -208,6 +208,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     }
     
     func refreshPosts() {
+        println("profile refreshPosts called")
         query.queryProfilePlans("creatingUser", userId: self.user!.objectId!, friends: self.userFriendsQueryObjects)
     }
 

@@ -134,7 +134,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
-            sleep(1)
+            sleep(2)
             self.currentLocation = locationManager.location
             println("queriedLocation \(currentLocation)")
         }
@@ -601,7 +601,13 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         }
 
-        cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+        if heartingUsers?.count == 0 {
+            cell.heartButton.setTitle("", forState: UIControlState.Normal)
+        }
+        else {
+            cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            
+        }
 
         if (attendanceState == true) {
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)

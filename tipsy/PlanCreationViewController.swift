@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 import GoogleMaps
+import Darwin
 
 let planMadeNotificationKey = "planMadeNotificationKey"
 
@@ -418,8 +419,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            self.currentLocation = locationManager.location
-            println(currentLocation)
+            self.locationManager.startUpdatingLocation()
+          //  sleep(5)
+          //  self.currentLocation = locationManager.location
+
+          //  println(currentLocation)
         }
         
         
@@ -518,8 +522,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            self.currentLocation = locationManager.location
-            println(currentLocation)
+     //       self.currentLocation = locationManager.location
+     //       println(currentLocation)
         }
     }
 
