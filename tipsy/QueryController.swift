@@ -86,22 +86,34 @@ class QueryController {
         }
         
         println("fuck")
-        var query = PFQuery(className: "Plan")
+        var createdPlans = PFQuery(className: "Plan")
         
         var pointer = PFObject(withoutDataWithClassName: "_User", objectId: userId)
         
         if (filter != "") {
-            query.whereKey(filter, equalTo: pointer)
+            createdPlans.whereKey(filter, equalTo: pointer)
         }
         
         let currentDate = NSDate()
         
         if !contains(friendsIdArray, userId) {
             println("boo you're not friends")
-            query.whereKey("visibility", notEqualTo: 1)
+            createdPlans.whereKey("visibility", notEqualTo: 1)
             
         }
         
+        
+        var query: PFQuery
+        
+        if currentUser.objectId == userId {
+            var joinedPlans = PFQuery(className: "Plan")
+            joinedPlans.whereKey("attendingUsers", equalTo: currentUser.objectId!)
+            query = PFQuery.orQueryWithSubqueries([createdPlans, joinedPlans])
+        }
+        else {
+            query = createdPlans
+        }
+
         
         query.includeKey("heartedPlan")
         query.includeKey("creatingUser")

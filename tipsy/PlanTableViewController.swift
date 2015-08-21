@@ -101,6 +101,14 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     
+    override func viewWillDisappear(animated: Bool) {
+        activityIndicator.startAnimating()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        activityIndicator.stopAnimating()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

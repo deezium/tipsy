@@ -219,6 +219,13 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //        self.tableView.endEditing(true)
 //    }
     
+    override func viewWillDisappear(animated: Bool) {
+        activityIndicator.startAnimating()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        activityIndicator.stopAnimating()
+    }
     
     @IBAction func didTapUpdateButton(sender: AnyObject) {
         let currentTime = NSDate()

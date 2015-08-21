@@ -155,6 +155,14 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         println("profileUpcomingPlans \(upcomingPlans)")
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        activityIndicator.startAnimating()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        activityIndicator.stopAnimating()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()

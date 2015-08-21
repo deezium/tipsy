@@ -40,6 +40,13 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         self.refreshControl.endRefreshing()
     }
 
+    override func viewWillDisappear(animated: Bool) {
+        activityIndicator.startAnimating()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        activityIndicator.stopAnimating()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

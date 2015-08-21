@@ -398,7 +398,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                                             <outlet property="profileButton" destination="oHg-w3-8UC" id="s4X-UW-uAl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityOngoingCell" id="kTp-Vp-zno" customClass="ActivityOngoingCell" customModule="tipsy" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ActivityOngoingCell" id="kTp-Vp-zno" customClass="ActivityOngoingCell" customModule="tipsy" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTp-Vp-zno" id="zyW-vr-CJ7">
                                             <autoresizingMask key="autoresizingMask"/>
