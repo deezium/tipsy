@@ -160,9 +160,13 @@ class QueryController {
     
 
 
-    func queryHotPlansForActivity(point: PFGeoPoint) {
+    func queryHotPlansForActivity(friends: [PFObject], point: PFGeoPoint) {
         let currentUser = PFUser.currentUser()!
         
+ 
+        var friendPlans = PFQuery(className: "Plan")
+        friendPlans.whereKey("creatingUser", containedIn: friends as [AnyObject])
+
         
         var visiblePlans = PFQuery(className: "Plan")
         visiblePlans.whereKey("visibility", notEqualTo: 1)
@@ -170,7 +174,7 @@ class QueryController {
         var currentUserPlans = PFQuery(className: "Plan")
         currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
 
-        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans])
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans, friendPlans])
 
         let currentTime = NSDate()
         
@@ -183,16 +187,18 @@ class QueryController {
         query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveQueryResults(objects)
+        self.delegate!.didReceiveSecondQueryResults!(objects)
     }
 
-    func queryNewPlansForActivity(point: PFGeoPoint) {
+    func queryNewPlansForActivity(friends: [PFObject], point: PFGeoPoint) {
         let currentUser = PFUser.currentUser()!
         
         println("newQueriedPoint \(point)")
         
         //        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
         
+        var friendPlans = PFQuery(className: "Plan")
+        friendPlans.whereKey("creatingUser", containedIn: friends as [AnyObject])
         
         var visiblePlans = PFQuery(className: "Plan")
         visiblePlans.whereKey("visibility", notEqualTo: 1)
@@ -200,20 +206,22 @@ class QueryController {
         var currentUserPlans = PFQuery(className: "Plan")
         currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
         
-        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans])
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans, friendPlans])
 
         query.includeKey("creatingUser")
         query.orderByDescending("createdAt")
         query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveSecondQueryResults!(objects)
+        self.delegate!.didReceiveThirdQueryResults!(objects)
     }
     
-    func queryOngoingPlansForActivity(point: PFGeoPoint) {
+    func queryOngoingPlansForActivity(friends: [PFObject], point: PFGeoPoint) {
 
         let currentUser = PFUser.currentUser()!
         
+        var friendPlans = PFQuery(className: "Plan")
+        friendPlans.whereKey("creatingUser", containedIn: friends as [AnyObject])
         
         var visiblePlans = PFQuery(className: "Plan")
         visiblePlans.whereKey("visibility", notEqualTo: 1)
@@ -221,7 +229,7 @@ class QueryController {
         var currentUserPlans = PFQuery(className: "Plan")
         currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
         
-        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans])
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans, friendPlans])
         
         let currentTime = NSDate()
         
@@ -236,7 +244,7 @@ class QueryController {
         
         
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveThirdQueryResults!(objects)
+        self.delegate!.didReceiveFourthQueryResults!(objects)
     }
     
     func queryAttendingUsersForPlan(plan: PFObject) {

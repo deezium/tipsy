@@ -22,7 +22,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     var newQueryObjects = [PFObject]()
     var hotQueryObjects = [PFObject]()
     var ongoingQueryObjects = [PFObject]()
-    
+    var userFriendsQueryObjects = [PFObject]()
+
     var newQueryPage = 0
     
     let locationManager = CLLocationManager()
@@ -35,9 +36,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
-        query.queryNewPlansForActivity(point)
-        query.queryOngoingPlansForActivity(point)
-        query.queryHotPlansForActivity(point)
+        query.queryUserIdsForFriends()
         self.refreshControl.endRefreshing()
     }
 
@@ -75,13 +74,33 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         query.delegate = self
-        query.queryHotPlansForActivity(point)
-        query.queryNewPlansForActivity(point)
-        query.queryOngoingPlansForActivity(point)
+        query.queryUserIdsForFriends()
+
         
     }
     
     func didReceiveQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.userFriendsQueryObjects = objects
+            self.userFriendsQueryObjects.append(self.currentUser!)
+            //self.createFriendIdArrays(objects)
+            
+            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+            
+            
+            let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+            
+            self.query.queryHotPlansForActivity(self.userFriendsQueryObjects, point: point)
+            self.query.queryNewPlansForActivity(self.userFriendsQueryObjects, point: point)
+            self.query.queryOngoingPlansForActivity(self.userFriendsQueryObjects, point: point)
+            
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+
+    
+    func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.hotQueryObjects = objects
             self.tableView.reloadData()
@@ -92,21 +111,16 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         })
     }
 
-    func didReceiveSecondQueryResults(objects: [PFObject]) {
+    func didReceiveThirdQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.newQueryObjects = objects
             
-            //            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
-            //
-            //
-            //            let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
-            //
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
 
-    func didReceiveThirdQueryResults(objects: [PFObject]) {
+    func didReceiveFourthQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.ongoingQueryObjects = objects
             
