@@ -58,7 +58,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.backgroundColor = UIColor(red:15/255, green: 65/255, blue: 79/255, alpha: 1)
         refreshControl.addTarget(self, action: "refreshPosts", forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl)
-
         
         locationManager.delegate = self
         if CLLocationManager.authorizationStatus() == .NotDetermined {

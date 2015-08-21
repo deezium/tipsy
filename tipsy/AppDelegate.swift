@@ -26,8 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics()])
         GMSServices.provideAPIKey(googleMapsApiKey)
         
-        Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
-      //  PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
+        // DEVELOPMENT DATABASE KEY
+        
+        Parse.setApplicationId("GmfZQGE8InioR7PvkyPFv3SZamsFNm4jJ3c6qbPu", clientKey: "UxLUds7UwHmVnc9OxNhVXtRRd5Q9jVzeAg3cdO51")
+        
+        
+        // PRODUCTION DATABASE KEY
+        
+//        Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
+      
+        
+        //  PFAnalytics.trackAppOpenedWithLaunchOptionsInBackground(launchOptions, block: nil)
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
 //        if (PFUser.currentUser() != nil) {

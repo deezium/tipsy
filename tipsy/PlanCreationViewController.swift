@@ -543,8 +543,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             selectedPlaceId = plan?.objectForKey("googlePlaceId") as! String
             selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
             selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
+            selectedPlaceGeoPoint = plan?.objectForKey("googlePlaceCoordinate") as! PFGeoPoint
        
-            let activityLabel = plan?.objectForKey("message") as? String
             
             
             postButton.hidden = true
@@ -617,6 +617,13 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         if indexPath.row == 2 {
             var tempcell = tableView.dequeueReusableCellWithIdentifier("VisibilityCell") as! PlanCreationVisibilityCell
+            if plans.count != 0 {
+                let visibilityStatus = plans.first?.objectForKey("visibility") as? Int
+                
+                if let visibilityStatus = visibilityStatus {
+                    tempcell.visibilityControl.selectedSegmentIndex = visibilityStatus
+                }
+            }
             cell = tempcell
         }
         
