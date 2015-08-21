@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "_default": {
+      "link": "tipsy-dev"
+    },
+    "tipsy-dev": {
+      "applicationId": "GmfZQGE8InioR7PvkyPFv3SZamsFNm4jJ3c6qbPu",
+      "masterKey": "0bDRyMJKDsSAatW40F3lxXrXSuJa9Chthy4kTqHe"
+    }
+  }
+}

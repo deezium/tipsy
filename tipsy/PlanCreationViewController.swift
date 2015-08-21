@@ -547,10 +547,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             let plan = plans.first
             let planStartTime = plan?.objectForKey("startTime") as! NSDate
             let planEndTime = plan?.objectForKey("endTime") as! NSDate
-            selectedPlaceId = plan?.objectForKey("googlePlaceId") as! String
-            selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
-            selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
-            selectedPlaceGeoPoint = plan?.objectForKey("googlePlaceCoordinate") as! PFGeoPoint
        
             
             
