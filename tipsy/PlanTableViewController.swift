@@ -486,10 +486,30 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func didTapUserProfileImage(sender: UIButton!) {
-
+        //var user: PFUser
         var queryObject: PFObject
         
+        let tag = sender.tag
+        let section = sender.tag / 100
+        let row = sender.tag % 100
+        
+        let sectionItems = self.getSectionItems(section)
+        
+        queryObject = sectionItems[row]
+
+        let user = queryObject.objectForKey("creatingUser") as? PFUser
+        
+        println(user)
+        println(tag)
+        println(row)
+        println(section)
+        
         println("profile image tapped!")
+        
+        let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
+        profileViewController.user = user
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -579,6 +599,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             let testImage = UIImage(named: "Map-50.png") as UIImage!
             
             cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+            cell.profileImageButton.tag = (indexPath.section)*100 + indexPath.row
+            cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
         }
         
         
