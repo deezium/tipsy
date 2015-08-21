@@ -153,9 +153,9 @@ Join other people's plans or just comment on them to let them know how awesome /
                         </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
+                        <segue destination="7rz-t6-mqc" kind="relationship" relationship="viewControllers" id="3BD-ao-2J4"/>
                         <segue destination="CdG-Z1-J45" kind="relationship" relationship="viewControllers" id="RRo-gm-MjH"/>
                         <segue destination="phy-OA-mJt" kind="relationship" relationship="viewControllers" id="NSk-ja-vIf"/>
-                        <segue destination="7rz-t6-mqc" kind="relationship" relationship="viewControllers" id="3BD-ao-2J4"/>
                         <segue destination="gIf-aX-bON" kind="relationship" relationship="viewControllers" id="EXd-J8-40k"/>
                         <segue destination="HBz-x7-ieJ" kind="relationship" relationship="viewControllers" id="ouO-5f-INy"/>
                     </connections>
