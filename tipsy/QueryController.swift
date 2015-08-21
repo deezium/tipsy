@@ -14,6 +14,9 @@ import Foundation
     optional func didReceiveSecondQueryResults(objects: [PFObject])
     
     optional func didReceiveThirdQueryResults(objects: [PFObject])
+    
+    optional func didReceiveFourthQueryResults(objects: [PFObject])
+
 }
 
 class QueryController {
@@ -158,7 +161,17 @@ class QueryController {
 
 
     func queryHotPlansForActivity(point: PFGeoPoint) {
-        var query = PFQuery(className: "Plan")
+        let currentUser = PFUser.currentUser()!
+        
+        
+        var visiblePlans = PFQuery(className: "Plan")
+        visiblePlans.whereKey("visibility", notEqualTo: 1)
+        
+        var currentUserPlans = PFQuery(className: "Plan")
+        currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
+
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans])
+
         let currentTime = NSDate()
         
         println("newQueriedPoint \(point)")
@@ -174,12 +187,22 @@ class QueryController {
     }
 
     func queryNewPlansForActivity(point: PFGeoPoint) {
-        var query = PFQuery(className: "Plan")
+        let currentUser = PFUser.currentUser()!
         
         println("newQueriedPoint \(point)")
         
-        query.includeKey("creatingUser")
         //        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
+        
+        
+        var visiblePlans = PFQuery(className: "Plan")
+        visiblePlans.whereKey("visibility", notEqualTo: 1)
+        
+        var currentUserPlans = PFQuery(className: "Plan")
+        currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
+        
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans])
+
+        query.includeKey("creatingUser")
         query.orderByDescending("createdAt")
         query.limit = 40
         
@@ -188,9 +211,21 @@ class QueryController {
     }
     
     func queryOngoingPlansForActivity(point: PFGeoPoint) {
-        var query = PFQuery(className: "Plan")
+
+        let currentUser = PFUser.currentUser()!
+        
+        
+        var visiblePlans = PFQuery(className: "Plan")
+        visiblePlans.whereKey("visibility", notEqualTo: 1)
+        
+        var currentUserPlans = PFQuery(className: "Plan")
+        currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
+        
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans])
+        
         let currentTime = NSDate()
         
+        println("queriedCurrentTime \(currentTime)")
         println("ongoingQueriedPoint \(point)")
         
         query.includeKey("creatingUser")
