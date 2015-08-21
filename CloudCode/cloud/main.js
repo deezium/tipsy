@@ -9,9 +9,16 @@ Parse.Cloud.define("hello", function(request, response) {
 Parse.Cloud.afterSave("Plan", function(request){
 
 	var heartArray = request.object.get('heartingUsers');
-	var heartCount = heartArray.length;
-	console.log(heartArray);
-	console.log(heartCount);
+	if (typeof heartArray != 'undefined') {
+		var heartCount = heartArray.length;
+	}
+	else {
+		var heartCount = 0;
+	};
+
+	console.log("heartArray"+heartArray);
+	console.log("heartCount"+heartCount);
+
 	request.object.set('heartCount', heartCount);
 	request.object.save();
 
