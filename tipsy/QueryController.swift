@@ -76,7 +76,14 @@ class QueryController {
         
     }
     
-    func queryProfilePlans(filter: String, userId: String) {
+    func queryProfilePlans(filter: String, userId: String, friends: [PFObject]) {
+        
+        let currentUser = PFUser.currentUser()!
+        
+        var friendsIdArray = [String]()
+        for friend in friends {
+            friendsIdArray.append(friend.objectId!)
+        }
         
         println("fuck")
         var query = PFQuery(className: "Plan")
@@ -89,13 +96,20 @@ class QueryController {
         
         let currentDate = NSDate()
         
+        if !contains(friendsIdArray, userId) {
+            println("boo you're not friends")
+            query.whereKey("visibility", notEqualTo: 1)
+            
+        }
+        
+        
         query.includeKey("heartedPlan")
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
         query.limit = 20
         
         var objects = query.findObjects() as! [PFObject]
-        self.delegate!.didReceiveQueryResults(objects)
+        self.delegate!.didReceiveSecondQueryResults!(objects)
         
         println(objects)
         
@@ -171,10 +185,7 @@ class QueryController {
         var visiblePlans = PFQuery(className: "Plan")
         visiblePlans.whereKey("visibility", notEqualTo: 1)
         
-        var currentUserPlans = PFQuery(className: "Plan")
-        currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
-
-        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans, friendPlans])
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, friendPlans])
 
         let currentTime = NSDate()
         
@@ -203,10 +214,7 @@ class QueryController {
         var visiblePlans = PFQuery(className: "Plan")
         visiblePlans.whereKey("visibility", notEqualTo: 1)
         
-        var currentUserPlans = PFQuery(className: "Plan")
-        currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
-        
-        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans, friendPlans])
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, friendPlans])
 
         query.includeKey("creatingUser")
         query.orderByDescending("createdAt")
@@ -226,10 +234,7 @@ class QueryController {
         var visiblePlans = PFQuery(className: "Plan")
         visiblePlans.whereKey("visibility", notEqualTo: 1)
         
-        var currentUserPlans = PFQuery(className: "Plan")
-        currentUserPlans.whereKey("creatingUser", equalTo: currentUser)
-        
-        var query = PFQuery.orQueryWithSubqueries([visiblePlans, currentUserPlans, friendPlans])
+        var query = PFQuery.orQueryWithSubqueries([visiblePlans, friendPlans])
         
         let currentTime = NSDate()
         

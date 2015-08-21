@@ -49,9 +49,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     var pastPlansOriginal = [PFObject]()
     var upcomingPlans = [PFObject]()
     var upcomingPlansOriginal = [PFObject]()
+    var userFriendsQueryObjects = [PFObject]()
 
  
-    func didReceiveQueryResults(objects: [PFObject]) {
+    func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
             self.createPlanArrays(objects)
@@ -63,6 +64,20 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         })
     }
     
+    func didReceiveQueryResults(objects: [PFObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            self.userFriendsQueryObjects = objects
+            self.userFriendsQueryObjects.append(self.currentUser!)
+            //self.createFriendIdArrays(objects)
+            
+            
+            self.query.queryProfilePlans("creatingUser", userId: self.user!.objectId!, friends: self.userFriendsQueryObjects)
+            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+        })
+    }
+
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ShowDetail" {
             let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
@@ -70,14 +85,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             var selectedPlans = [PFObject]()
 
             
-//            if let selectedRow = sender as? UITableViewCell {
-//                let index = selectedRow[indexPath.row]
-//                let selectedPlan = upcomingPlans[index]
-//                selectedPlans.append(selectedPlan)
-//                planCreationViewController.plans = selectedPlans
-//                println(planCreationViewController.plans)
-//            }
-//            
             
             if let selectedEditButton = sender as? UIButton {
             
@@ -154,7 +161,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
      
         
         query.delegate = self
-        query.queryProfilePlans("creatingUser", userId: user!.objectId!)
+        query.queryUserIdsForFriends()
+
 
         self.username.text = user!.objectForKey("fullname") as? String
         
@@ -190,7 +198,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     }
     
     func refreshPosts() {
-        query.queryProfilePlans("creatingUser", userId: user!.objectId!)
+        query.queryProfilePlans("creatingUser", userId: self.user!.objectId!, friends: self.userFriendsQueryObjects)
     }
 
     
