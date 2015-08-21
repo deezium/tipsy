@@ -420,10 +420,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
-          //  sleep(5)
-          //  self.currentLocation = locationManager.location
-
-          //  println(currentLocation)
+            if (locationManager.location != nil) {
+                self.currentLocation = locationManager.location
+            }
+            println(currentLocation)
         }
         
         
@@ -522,8 +522,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-     //       self.currentLocation = locationManager.location
-     //       println(currentLocation)
+
+            if (locationManager.location != nil) {
+                self.currentLocation = locationManager.location
+            }
+            println(currentLocation)
         }
     }
 
