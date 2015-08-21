@@ -25,7 +25,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         searchBar.delegate = self
         
         locationSearchResults.hidden = true
