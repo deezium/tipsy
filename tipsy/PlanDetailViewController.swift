@@ -477,6 +477,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
     }
+
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println(queryObjects.count)
@@ -653,8 +654,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 let imageData = postImage.getData()
                 let image = UIImage(data: imageData!)
                 cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
-               // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                cell.profileImageButton.tag = indexPath.row
+                cell.profileImageButton.tag = indexPath.row-3+100
+                cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                 
             }
             
@@ -714,8 +715,17 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
         }
-        else {
+        else if (sender.tag < 100) {
             attendee = attendeeQueryObjects[sender.tag-1] as? PFUser
+            println("user picture tapped! \(attendee)")
+            let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
+            profileViewController.user = attendee
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+
+        }
+        else {
+            let object = queryObjects[sender.tag-100] as? PFObject
+            attendee = object?.objectForKey("commentingUser") as? PFUser
             println("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
