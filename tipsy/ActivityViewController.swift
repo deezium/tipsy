@@ -64,7 +64,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
-            self.currentLocation = locationManager.location
+            if (locationManager.location != nil) {
+                self.currentLocation = locationManager.location
+            }
             println("queriedLocation \(currentLocation)")
         }
 

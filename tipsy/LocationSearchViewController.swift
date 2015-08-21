@@ -40,7 +40,10 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            self.currentLocation = locationManager.location
+            self.locationManager.startUpdatingLocation()
+            if (locationManager.location != nil) {
+                self.currentLocation = locationManager.location
+            }
             println(currentLocation)
         }
 

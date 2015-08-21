@@ -126,8 +126,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
-            sleep(1)
-            self.currentLocation = locationManager.location
+            
+            if (locationManager.location != nil) {
+                self.currentLocation = locationManager.location
+            }
             println("queriedLocation \(currentLocation)")
         }
         
