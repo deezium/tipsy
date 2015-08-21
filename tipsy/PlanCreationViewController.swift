@@ -463,6 +463,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         if (PFUser.currentUser() != nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil ) {
                 var friendsArray = [String]()
+                PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
+                PFUser.currentUser()?.saveInBackground()
                 let userFriendsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/friends", parameters: nil)
                 userFriendsRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
