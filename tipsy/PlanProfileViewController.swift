@@ -79,6 +79,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "ShowDetail" {
             let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
             

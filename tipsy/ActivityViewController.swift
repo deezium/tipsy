@@ -155,7 +155,28 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         self.tableView.reloadData()
     }
     
-    
+    func didTapUserProfileImage(sender: UIButton!) {
+        var user: PFUser?
+        
+        if segmentedControl.selectedSegmentIndex == 0 {
+            let object = hotQueryObjects[sender.tag]
+            user = object.objectForKey("creatingUser") as? PFUser
+        }
+        else if segmentedControl.selectedSegmentIndex == 1 {
+            let object = newQueryObjects[sender.tag]
+            user = object.objectForKey("creatingUser") as? PFUser
+        }
+        else if segmentedControl.selectedSegmentIndex == 2 {
+            let object = ongoingQueryObjects[sender.tag]
+            user = object.objectForKey("creatingUser") as? PFUser
+        }
+
+        let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
+        profileViewController.user = user
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+        
+        
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segmentedControl.selectedSegmentIndex == 0 {
@@ -216,6 +237,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.profileButton.setImage(image, forState: UIControlState.Normal)
                 // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                 cell.profileButton.tag = indexPath.row
+                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+
                 
             }
             
@@ -274,6 +297,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.profileButton.setImage(image, forState: UIControlState.Normal)
                 // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                 cell.profileButton.tag = indexPath.row
+                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+
                 
             }
 
@@ -330,6 +355,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 cell.profileButton.setImage(image, forState: UIControlState.Normal)
                 // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                 cell.profileButton.tag = indexPath.row
+                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+
                 
             }
             
