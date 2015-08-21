@@ -118,19 +118,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
-//    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-//        let installation = PFInstallation.currentInstallation()
-//        installation.setDeviceTokenFromData(deviceToken)
-//        installation.saveInBackground()
-//    }
-//    
-//    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
-//        if error.code == 3010 {
-//            println("Push notifications are not supported in the iOS Simulator.")
-//        } else {
-//            println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
-//        }
-//    }
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let installation = PFInstallation.currentInstallation()
+        installation.setDeviceTokenFromData(deviceToken)
+        installation.saveInBackground()
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        if error.code == 3010 {
+            println("Push notifications are not supported in the iOS Simulator.")
+        } else {
+            println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+        }
+    }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         PFPush.handlePush(userInfo)
