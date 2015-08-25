@@ -67,6 +67,7 @@
 		3339CE5E1B43D389001C222C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */; };
 		3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */; };
 		3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */; };
+		333CF3301B8C58D80011ACC1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */; };
 		334D1A751B71A41C00E5D025 /* PlanCreationTableDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */; };
 		334D1A7C1B71EFD900E5D025 /* PlanDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */; };
 		334D1A7E1B71F04700E5D025 /* PlanDetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */; };
@@ -297,6 +298,7 @@
 		3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinAnnotation.swift; path = ../CheckinAnnotation.swift; sourceTree = "<group>"; };
 		3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinAnnotationView.swift; sourceTree = "<group>"; };
+		333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationTableDateCell.swift; sourceTree = "<group>"; };
 		334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailHeaderCell.swift; sourceTree = "<group>"; };
 		334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailAddressCell.swift; sourceTree = "<group>"; };
@@ -586,6 +588,7 @@
 				338EAAA81B5E295500E63FC7 /* PlanTableViewController.swift */,
 				332476DE1B4C7D8D00CF0881 /* TabBarController.swift */,
 				338EAAB81B5FAE3D00E63FC7 /* WelcomeViewController.swift */,
+				333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				3339CDD31B3B832D001C222C /* LocationViewController.swift in Sources */,
 				33F385F41B5495300008AFF7 /* AttractionAnnotation.swift in Sources */,
 				3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */,
+				333CF3301B8C58D80011ACC1 /* AboutViewController.swift in Sources */,
 				3339CDF61B424B7D001C222C /* ModelManager.swift in Sources */,
 				3339CE161B424EE6001C222C /* FMDatabasePool.m in Sources */,
 				33A0E8B21B83D8720021A8D0 /* MoreTableCell.swift in Sources */,

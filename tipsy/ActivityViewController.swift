@@ -50,6 +50,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.saveFacebookData()
+        
+        
         activityIndicator.startAnimating()
         tableView.dataSource = self
         tableView.delegate = self
@@ -60,6 +63,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.addSubview(refreshControl)
         
         locationManager.delegate = self
+        
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -85,10 +89,129 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         query.queryUserIdsForFriends()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
-
-
         
     }
+    
+    
+    func locationManager(manager: CLLocationManager!,
+        didChangeAuthorizationStatus status: CLAuthorizationStatus)
+    {
+        if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
+            self.locationManager.delegate = self
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            
+            if (locationManager.location != nil) {
+                self.currentLocation = locationManager.location
+            }
+            println(currentLocation)
+        }
+    }
+
+    
+    func saveFacebookData() {
+        if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("fullname") == nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
+                println("has access token")
+                let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+                graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("OOPS")
+                    }
+                    else {
+                        println(result["name"])
+                        PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
+            
+        }
+        
+        if (PFUser.currentUser() != nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
+                println("has access token")
+                let pictureRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture?width=100&height=100&redirect=false", parameters: nil)
+                pictureRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("OOPS")
+                    }
+                    else {
+                        println(result["data"]!["url"])
+                        let pictureString = result["data"]!["url"] as! String
+                        let pictureURL = NSURL(string: pictureString)
+                        let pictureData = NSData(contentsOfURL: pictureURL!)
+                        println("pictureData \(pictureData)")
+                        var pictureFile = PFFile(data: pictureData!)
+                        PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
+            
+        }
+        
+        if (PFUser.currentUser() != nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil ) {
+                var friendsArray = [String]()
+                PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
+                PFUser.currentUser()?.saveInBackground()
+                let userFriendsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/friends", parameters: nil)
+                userFriendsRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("Oops, friend fetch failed")
+                    }
+                    else {
+                        println(result["data"]![0]["id"])
+                        let resultArray = result.objectForKey("data") as! NSArray
+                        println(resultArray)
+                        for i in resultArray {
+                            var id = i.objectForKey("id") as! String
+                            friendsArray.append(id)
+                        }
+                        PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+            }
+        }
+        
+        if (PFUser.currentUser() != nil) {
+            if (FBSDKAccessToken.currentAccessToken() != nil) {
+                let userIDRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+                userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("Oops, id fetch failed")
+                    }
+                    else {
+                        println("idrequest")
+                        println(result["id"])
+                        
+                        PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
+                        PFUser.currentUser()?.saveInBackground()
+                    }
+                })
+                
+                let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
+                userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("Oops, id fetch failed")
+                    }
+                    else {
+                        println("emailrequest")
+                        println(result["email"])
+                        
+                        if (result["email"] != nil) {
+                            PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
+                            PFUser.currentUser()?.saveInBackground()
+                        }
+                        
+                    }
+                })
+                
+            }
+        }
+    }
+
     
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {

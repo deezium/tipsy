@@ -85,6 +85,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         commentEntry.delegate = self
         
+        self.navigationController?.navigationItem.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "Avenir Book", size: 15)!], forState: UIControlState.Normal)
+        
         profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
         profileImageButton.imageView!.clipsToBounds = true
         
