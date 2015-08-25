@@ -197,6 +197,14 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
                     currentInstallation.saveInBackground()
                     println("registered installation for pushes")
+                    
+                    self.selectedPlaceName = ""
+                    activityCell.messageLabel.text = ""
+                    locationCell.locationLabel.text = "Where are you going?"
+                    startDateCell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(NSDate())
+                    endDateCell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(NSDate())
+
+                        
                     self.activityIndicator.stopAnimating()
                     self.postButton.enabled = true
                     self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
@@ -324,6 +332,14 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 (success, error) -> Void in
                 if success == true {
                     println("Success")
+                    
+                    activityCell.messageLabel.text = ""
+                    locationCell.locationLabel.text = "Where are you going?"
+                    startDateCell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(NSDate())
+                    endDateCell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(NSDate())
+                    self.selectedPlaceName = ""
+                    
+
                     self.activityIndicator.stopAnimating()
                     let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
@@ -331,6 +347,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                             self.dismissViewControllerAnimated(true, completion: nil)
                         
                         }))
+                    
+                    
                     
                     self.presentViewController(alert, animated: true, completion: nil)
                     self.updateButton.enabled = true
@@ -511,6 +529,24 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                         PFUser.currentUser()?.saveInBackground()
                     }
                 })
+                
+                let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
+                userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        println("Oops, id fetch failed")
+                    }
+                    else {
+                        println("emailrequest")
+                        println(result["email"])
+                        
+                        if (result["email"] != nil) {
+                            PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
+                            PFUser.currentUser()?.saveInBackground()
+                        }
+                        
+                    }
+                })
+                
             }
         }
     }
@@ -647,11 +683,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if plans.count != 0 {
                 
                 let plan = plans.first
+                cell?.textLabel?.text = itemData[kTitleKey] as? String
             
                 let planStartTime = plan?.objectForKey("startTime") as! NSDate
                 let planEndTime = plan?.objectForKey("endTime") as! NSDate
 
-                
                 if indexPath.row == 3 {
                     cell?.detailTextLabel?.text = self.dateFormatter.stringFromDate(planStartTime) as String?
                 }

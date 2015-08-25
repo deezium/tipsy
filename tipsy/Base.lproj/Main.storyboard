@@ -1266,7 +1266,7 @@ The Activity view contains all public events around you, as well as all plans ma
                         <viewControllerLayoutGuide type="bottom" id="EE7-Pb-Sfn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="N1O-WU-tKc">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5a-Wm-FdK">
@@ -1571,7 +1571,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                     </mask>
                                 </variation>
                             </tableView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LuG-M8-FoA">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LuG-M8-FoA">
                                 <rect key="frame" x="281" y="257" width="37" height="37"/>
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -1653,10 +1653,10 @@ The Activity view contains all public events around you, as well as all plans ma
                         <viewControllerLayoutGuide type="bottom" id="nxN-yi-Cpr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hov-U6-FBE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjY-sV-jvL">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="XjY-sV-jvL">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </searchBar>
@@ -1738,7 +1738,7 @@ The Activity view contains all public events around you, as well as all plans ma
                         <viewControllerLayoutGuide type="bottom" id="Ea1-5r-MiZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="l4c-tv-F11">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fdg-G8-muh">
@@ -2210,7 +2210,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                     </mask>
                                 </variation>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LaB-B3-yYo">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LaB-B3-yYo">
                                 <rect key="frame" x="282" y="257" width="37" height="37"/>
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
@@ -2529,7 +2529,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                             <constraints>
                                                 <constraint firstItem="zbU-bs-L2U" firstAttribute="centerX" secondItem="B7V-Qi-09F" secondAttribute="centerX" id="4zu-HY-jNj"/>
                                                 <constraint firstItem="LhV-8A-tcx" firstAttribute="leading" secondItem="a10-zy-Pkm" secondAttribute="trailing" constant="10" id="BQV-Og-M71"/>
-                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="LhV-8A-tcx" secondAttribute="trailing" constant="10" id="Dn2-ca-AuX"/>
+                                                <constraint firstItem="zbU-bs-L2U" firstAttribute="leading" secondItem="LhV-8A-tcx" secondAttribute="trailing" constant="20" id="Dn2-ca-AuX"/>
                                                 <constraint firstItem="a10-zy-Pkm" firstAttribute="leading" secondItem="eTT-BA-iaT" secondAttribute="leading" constant="30" id="Iyd-CW-qkI"/>
                                                 <constraint firstItem="LhV-8A-tcx" firstAttribute="top" secondItem="zbU-bs-L2U" secondAttribute="top" id="JOT-hZ-yJA"/>
                                                 <constraint firstAttribute="trailing" secondItem="zbU-bs-L2U" secondAttribute="trailing" constant="30" id="Kld-du-ewX"/>
@@ -2834,10 +2834,10 @@ The Activity view contains all public events around you, as well as all plans ma
                         <viewControllerLayoutGuide type="bottom" id="Ri2-mj-YBW"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="FvI-9I-9IQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell us what's awesome about you!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell us what's awesome about you!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
                                 <rect key="frame" x="0.0" y="64" width="600" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -3026,7 +3026,7 @@ The Activity view contains all public events around you, as well as all plans ma
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Jto-Zv-t2p"/>
-        <segue reference="urZ-Y9-YSI"/>
+        <segue reference="Tyd-4d-APj"/>
         <segue reference="j3I-Q1-oYJ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -33,5 +33,14 @@ class PlanFeedCell: UITableViewCell {
     
     @IBOutlet weak var happeningNowBadge: UILabel!
     
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
+        profileImageButton.imageView!.clipsToBounds = true
+    }
+    
+
+    
     
 }

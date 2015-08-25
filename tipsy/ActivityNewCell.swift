@@ -20,5 +20,10 @@ class ActivityNewCell: UITableViewCell {
     
     @IBOutlet weak var timeLabel: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileButton.imageView!.layer.cornerRadius = profileButton.imageView!.frame.size.width / 2
+        profileButton.imageView!.clipsToBounds = true
+    }
     
 }

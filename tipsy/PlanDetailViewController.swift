@@ -85,6 +85,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         commentEntry.delegate = self
         
+        profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
+        profileImageButton.imageView!.clipsToBounds = true
         
         if (CLLocationManager.locationServicesEnabled()) {
             self.locationManager.delegate = self
@@ -684,6 +686,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 
             }
             
+            println("comment hearting users \(heartingUsers)")
             if heartingUsers?.count == 0 {
                 cell.heartButton.setTitle("0", forState: UIControlState.Normal)
             }

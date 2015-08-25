@@ -24,4 +24,23 @@ class PlanDetailAttendingCell: UITableViewCell {
     
     @IBOutlet weak var fifthAttendee: UIButton!
     
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        firstAttendee.imageView!.layer.cornerRadius = firstAttendee.imageView!.frame.size.width / 2
+        firstAttendee.imageView!.clipsToBounds = true
+
+        secondAttendee.imageView!.layer.cornerRadius = secondAttendee.imageView!.frame.size.width / 2
+        secondAttendee.imageView!.clipsToBounds = true
+
+        thirdAttendee.imageView!.layer.cornerRadius = thirdAttendee.imageView!.frame.size.width / 2
+        thirdAttendee.imageView!.clipsToBounds = true
+    
+        fourthAttendee.imageView!.layer.cornerRadius = fourthAttendee.imageView!.frame.size.width / 2
+        fourthAttendee.imageView!.clipsToBounds = true
+    
+        fifthAttendee.imageView!.layer.cornerRadius = fifthAttendee.imageView!.frame.size.width / 2
+        fifthAttendee.imageView!.clipsToBounds = true
+    
+    }
 }

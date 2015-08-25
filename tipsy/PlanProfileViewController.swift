@@ -182,6 +182,9 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
         }
         
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.clipsToBounds = true
+        
         if let about = user!.objectForKey("about") as? String {
             aboutLabel.text = "About me: " + about
         }

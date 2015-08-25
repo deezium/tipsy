@@ -19,5 +19,11 @@ class ActivityOngoingCell: UITableViewCell {
     @IBOutlet weak var profileButton: UIButton!
     
     @IBOutlet weak var nameLabel: UILabel!
+   
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileButton.imageView!.layer.cornerRadius = profileButton.imageView!.frame.size.width / 2
+        profileButton.imageView!.clipsToBounds = true
+    }
     
 }
