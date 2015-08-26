@@ -701,7 +701,7 @@ Join other people's plans or just comment on them to let them know how awesome /
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYj-VF-R7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37" y="2382"/>
+            <point key="canvasLocation" x="765" y="1162"/>
         </scene>
         <!--About-->
         <scene sceneID="bfP-TY-fF6">
@@ -3031,7 +3031,7 @@ The Activity view contains all public events around you, as well as all plans ma
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E9u-ti-heE"/>
-        <segue reference="urZ-Y9-YSI"/>
         <segue reference="Jto-Zv-t2p"/>
+        <segue reference="Tyd-4d-APj"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -765,6 +765,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
         }
         
+//        if segue.identifier == "ShowFullAttendees" {
+//            
+//            let attendeeViewController = segue.destinationViewController as! MyFriendsViewController
+//            
+//            attendeeViewController.queryObjects = attendeeQueryObjects
+//        }
+        
     }
     
     func tableViewScrollToBottom() {

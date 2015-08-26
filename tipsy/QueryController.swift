@@ -166,14 +166,14 @@ class QueryController {
         let currentDate = NSDate()
         
         println("friends being queried \(friends)")
-        println("queriedPoint \(point)")
+        println("friendsqueriedPoint \(point)")
         
-        let newPoint = PFGeoPoint(latitude: 37.790027, longitude: -122.3975)
+//        let newPoint = PFGeoPoint(latitude: 37.790027, longitude: -122.3975)
         
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
         query.whereKey("creatingUser", containedIn: friends as [AnyObject])
-//        query.whereKey("googlePlaceCoordinate", nearGeoPoint: newPoint, withinMiles: 20.0)
+        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 20.0)
         query.limit = 40
         
         var objects = query.findObjects() as? [PFObject]
@@ -202,9 +202,9 @@ class QueryController {
         let currentTime = NSDate()
         
         println("newQueriedPoint \(point)")
+        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 10.0)
         
         query.includeKey("creatingUser")
-        //        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
         query.whereKey("endTime", greaterThanOrEqualTo: currentTime)
         query.orderByDescending("heartCount")
         query.limit = 40
@@ -216,9 +216,6 @@ class QueryController {
     func queryNewPlansForActivity(friends: [PFObject], point: PFGeoPoint) {
         let currentUser = PFUser.currentUser()!
         
-        println("newQueriedPoint \(point)")
-        
-        //        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
         
         var friendPlans = PFQuery(className: "Plan")
         friendPlans.whereKey("creatingUser", containedIn: friends as [AnyObject])
@@ -227,6 +224,9 @@ class QueryController {
         visiblePlans.whereKey("visibility", notEqualTo: 1)
         
         var query = PFQuery.orQueryWithSubqueries([visiblePlans, friendPlans])
+
+        println("newQueriedPoint \(point)")
+        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 10.0)
 
         query.includeKey("creatingUser")
         query.orderByDescending("createdAt")
@@ -252,11 +252,11 @@ class QueryController {
         
         println("queriedCurrentTime \(currentTime)")
         println("ongoingQueriedPoint \(point)")
+        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 10.0)
         
         query.includeKey("creatingUser")
         query.whereKey("endTime", greaterThanOrEqualTo: currentTime)
         query.whereKey("startTime", lessThanOrEqualTo: currentTime)
-//        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinRadians: 1.0)
         query.orderByDescending("startTime")
         
         

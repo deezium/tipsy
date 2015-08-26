@@ -17,7 +17,7 @@ class AboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.text = "Tipsy is made and distributed by Tipsy, LLC, based in San Francisco, California.\r\n\nIcons made by Icons8 (http://www.icons8.com/) and distributed under Creative Commons License.\r\n\nLocation search powered by Google.\r\n\nVersion number: \(version!)"
+        textView.text = "Tipsy is made and distributed by Debarshi Chaudhuri, based in San Francisco, California.\r\n\nIcons made by Icons8 (http://www.icons8.com/) and distributed under Creative Commons License.\r\n\nLocation search powered by Google.\r\n\nVersion number: \(version!)"
         
     }
     

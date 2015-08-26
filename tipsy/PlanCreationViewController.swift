@@ -372,6 +372,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
     }
     
+    
     @IBAction func didTapDeleteButton(sender: AnyObject) {
         
         let plan = plans.first
@@ -381,9 +382,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             {
                 Void in
                 plan?.deleteInBackground()
-                self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
+  
+                self.navigationController?.popToRootViewControllerAnimated(true)
+                
+//                self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
                 NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
-//                self.dismissViewControllerAnimated(true, completion: nil)
 
             }
         )
