@@ -1,4 +1,5 @@
 PODS:
+  - Amplitude-iOS (3.0.0)
   - Crashlytics (3.0.11)
   - DateTools (1.6.1)
   - Fabric (1.2.8):
@@ -13,6 +14,7 @@ PODS:
   - SwiftAddressBook (0.4.3)
 
 DEPENDENCIES:
+  - Amplitude-iOS (~> 3.0)
   - Crashlytics
   - DateTools
   - Fabric
@@ -30,6 +32,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/stephencelis/SQLite.swift.git
 
 SPEC CHECKSUMS:
+  Amplitude-iOS: 07875b822c2c935ea7f8021830d375ed4d812d31
   Crashlytics: 1eef152dd21c1f2f9d9dbe115e637c77c6ffcc8e
   DateTools: 9bcc89e4f2f9004d8a7a2bd1b49269cf78968e65
   Fabric: a9eabe53915e9f1db55a84dd2838737928675878

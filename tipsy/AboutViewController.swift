@@ -12,12 +12,14 @@ class AboutViewController: UIViewController {
     
     let version: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
     
+    let user = PFUser.currentUser()
+    
     @IBOutlet weak var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.text = "Tipsy is made and distributed by Debarshi Chaudhuri, based in San Francisco, California.\r\n\nIcons made by Icons8 (http://www.icons8.com/) and distributed under Creative Commons License.\r\n\nLocation search powered by Google.\r\n\nVersion number: \(version!)"
+        textView.text = "Tipsy is made and distributed by a small team of developers based in San Francisco, California.\r\n\nShout out to Icons8 (http://www.icons8.com/) for providing us with icons distributed under the Creative Commons License.\r\n\nAnd another shout out to Google for powering our location search.\r\n\nVersion number: \(version!)\r\n\nUser ID: \(user!.objectId!)"
         
     }
     

@@ -54,10 +54,14 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         let planCreationViewController = self.navigationController?.viewControllers[n-1] as! PlanCreationViewController
         
         self.navigationController?.navigationBar.backItem
-        planCreationViewController.selectedPlaceId = selectedPlaceId
-        planCreationViewController.selectedPlaceName = selectedPlaceName
-        planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
-        planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
+        
+        if selectedPlaceId != "" {
+            planCreationViewController.selectedPlaceId = selectedPlaceId
+            planCreationViewController.selectedPlaceName = selectedPlaceName
+            planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
+            planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
+            
+        }
 
         println("selectedPlaceForSegue \(selectedPlaceName)")
 

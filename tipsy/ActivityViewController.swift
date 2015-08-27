@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 import DateTools
+import Amplitude_iOS
 
-class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
+class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate, UITabBarControllerDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -88,9 +89,13 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         query.delegate = self
         query.queryUserIdsForFriends()
         
+        Amplitude.instance().setUserId(PFUser.currentUser()?.objectId)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
         
     }
+    
+
     
     
     func locationManager(manager: CLLocationManager!,

@@ -116,7 +116,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
         else if planEndDate.isEarlierThan(planStartDate) {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Whoops!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             
         }
@@ -214,7 +214,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 else {
                     self.activityIndicator.stopAnimating()
                     self.postButton.enabled = true
-                    let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Sorry!", message: "Ope, we had trouble posting your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
@@ -275,7 +275,15 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
         println("endDateString \(endDateString)")
         
-        if locationCell.locationLabel.text == "Where are you going?" {
+        
+        
+        if activityCell.messageLabel.text == "" {
+            let alert = UIAlertController(title: "Sorry!", message: "You didn't tell us what you're doing!", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Whoops!", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        else if locationCell.locationLabel.text == "Where are you going?" {
             
             self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
             let alert = UIAlertController(title: "Sorry!", message: "You can't make a plan without a location!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -285,7 +293,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
         else if planEndDate.isEarlierThan(planStartDate) {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make plans that end before they start!", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
+            alert.addAction(UIAlertAction(title: "Whoops!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
            
         }
@@ -341,16 +349,18 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     
 
                     self.activityIndicator.stopAnimating()
-                    let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-                        Void in
-                            self.dismissViewControllerAnimated(true, completion: nil)
-                        
-                        }))
-                    
-                    
-                    
-                    self.presentViewController(alert, animated: true, completion: nil)
+                    self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
+
+//                    let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+//                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
+//                        Void in
+//                            self.dismissViewControllerAnimated(true, completion: nil)
+//                        
+//                        }))
+//                    
+//                    
+//                    
+//                    self.presentViewController(alert, animated: true, completion: nil)
                     self.updateButton.enabled = true
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 
@@ -360,7 +370,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     self.activityIndicator.stopAnimating()
                     self.updateButton.enabled = true
                     println("Update fail")
-                    let alert = UIAlertController(title: "Sorry!", message: "We had trouble updating your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Sorry!", message: "Ope, we had trouble updating your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
 
@@ -376,9 +386,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     @IBAction func didTapDeleteButton(sender: AnyObject) {
         
         let plan = plans.first
-        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this plan?", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-        let confirmAction = UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler:
+        let alert = UIAlertController(title: "Delete", message: "Just checking- are you sure you want to delete this plan?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancelAction = UIAlertAction(title: "Nope", style: UIAlertActionStyle.Cancel, handler: nil)
+        let confirmAction = UIAlertAction(title: "Yup!", style: UIAlertActionStyle.Default, handler:
             {
                 Void in
                 plan?.deleteInBackground()
@@ -511,12 +521,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     }
     
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if let location = locations.first as? CLLocation {
-            println("your current location is \(currentLocation)")
-            locationManager.stopUpdatingLocation()
-        }
-    }
+//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        if let location = locations.first as? CLLocation {
+//            println("your current location is \(currentLocation)")
+//            locationManager.stopUpdatingLocation()
+//        }
+//    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?

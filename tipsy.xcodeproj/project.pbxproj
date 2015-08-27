@@ -68,6 +68,7 @@
 		3339CE601B44ACDB001C222C /* CheckinAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */; };
 		3339CE621B47D89C001C222C /* CheckinAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */; };
 		333CF3301B8C58D80011ACC1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */; };
+		333CF3321B8E9B940011ACC1 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF3311B8E9B940011ACC1 /* FAQViewController.swift */; };
 		334D1A751B71A41C00E5D025 /* PlanCreationTableDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */; };
 		334D1A7C1B71EFD900E5D025 /* PlanDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */; };
 		334D1A7E1B71F04700E5D025 /* PlanDetailAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */; };
@@ -299,6 +300,7 @@
 		3339CE5F1B44ACDB001C222C /* CheckinAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckinAnnotation.swift; path = ../CheckinAnnotation.swift; sourceTree = "<group>"; };
 		3339CE611B47D89C001C222C /* CheckinAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinAnnotationView.swift; sourceTree = "<group>"; };
 		333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		333CF3311B8E9B940011ACC1 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		334D1A741B71A41C00E5D025 /* PlanCreationTableDateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationTableDateCell.swift; sourceTree = "<group>"; };
 		334D1A7B1B71EFD900E5D025 /* PlanDetailHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailHeaderCell.swift; sourceTree = "<group>"; };
 		334D1A7D1B71F04700E5D025 /* PlanDetailAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanDetailAddressCell.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 		334D1A791B71D49900E5D025 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				333CF3311B8E9B940011ACC1 /* FAQViewController.swift */,
 				33F020251B8456F50090C91D /* ActivityViewController.swift */,
 				33A0E8AF1B83D7150021A8D0 /* MoreViewController.swift */,
 				33A0E8EB1B8402E30021A8D0 /* MyFriendsViewController.swift */,
@@ -1178,6 +1181,7 @@
 				33A0E8B21B83D8720021A8D0 /* MoreTableCell.swift in Sources */,
 				332476DD1B4B5CA300CF0881 /* FeedViewController.swift in Sources */,
 				33F020281B8463B10090C91D /* ActivityHeaderCell.swift in Sources */,
+				333CF3321B8E9B940011ACC1 /* FAQViewController.swift in Sources */,
 				33F020481B8654CA0090C91D /* PlanCreationVisibilityCell.swift in Sources */,
 				336344981B3283F800DF3D90 /* ViewController.swift in Sources */,
 				3339CE121B424EE6001C222C /* FMDatabase.m in Sources */,

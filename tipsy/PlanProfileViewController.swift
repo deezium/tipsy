@@ -189,7 +189,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             aboutLabel.text = "About me: " + about
         }
         else {
-            aboutLabel.text = "About me: Well, I'm very awesome."
+            aboutLabel.text = "About me: I'm awesome, duh."
         }
         
         self.planTableView!.delegate = self

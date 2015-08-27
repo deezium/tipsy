@@ -46,7 +46,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
             (success, error) -> Void in
             if success == true {
                 
-                let alert = UIAlertController(title: "Success", message: "Your profile has been updated!", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Great success!", message: "Your profile has been updated and is now much more awesome.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
                 //self.aboutField.text = ""
@@ -54,7 +54,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
 //                NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
             }
             else {
-                let alert = UIAlertController(title: "Sorry!", message: "We had trouble updating your profile.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Sorry!", message: "Well eff, we had trouble updating your profile.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }

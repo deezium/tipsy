@@ -173,7 +173,7 @@ class QueryController {
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
         query.whereKey("creatingUser", containedIn: friends as [AnyObject])
-        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 20.0)
+        query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 40.0)
         query.limit = 40
         
         var objects = query.findObjects() as? [PFObject]

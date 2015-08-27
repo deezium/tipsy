@@ -83,7 +83,7 @@
                                 <rect key="frame" x="246" y="444" width="109" height="43"/>
                                 <color key="backgroundColor" red="0.058823529411764705" green="0.25490196078431371" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="109" id="JYG-cg-ILY"/>
+                                    <constraint firstAttribute="width" constant="110" id="JYG-cg-ILY"/>
                                     <constraint firstAttribute="height" constant="40" id="ukS-WN-IxA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
@@ -96,33 +96,38 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unq-Au-9zu">
-                                <rect key="frame" x="16" y="20" width="821" height="325"/>
+                                <rect key="frame" x="16" y="20" width="568" height="416"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="5mY-If-uWc"/>
                                 </constraints>
-                                <string key="text">Tipsy lets you see what people are up to around you and lets you easily share your plans with others.
+                                <mutableString key="text">Welcome to Tipsy!
 
-Here's how it works:
+You are one of Tipsy's very first users.  We're excited to have you join us!
 
-Enter your plans for the next couple of days on the Plan tab.
+Tipsy is a new way for you to engage with your local community.  We believe that the best moments are those that bring people together, and we've built Tipsy to help you bring together the people around you.
 
-See what your friends are up to using the Friend Feed.
+You can use Tipsy to broadcast your plans to your friends or other members of Tipsy, see what your friends in your area are up to, or check out events made by others around you.
 
-Join other people's plans or just comment on them to let them know how awesome / hilarious / sad their plans are!</string>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
+We hope you enjoy using Tipsy!</mutableString>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5mY-If-uWc"/>
+                                    </mask>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941176470588" green="0.57647058823529407" blue="0.62352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6v8-Yv-ih0" firstAttribute="top" secondItem="Zyb-sm-JUX" secondAttribute="bottom" constant="390" id="C7v-cE-bMt"/>
-                            <constraint firstItem="6v8-Yv-ih0" firstAttribute="top" secondItem="Zyb-sm-JUX" secondAttribute="bottom" constant="70" id="ENE-R7-hlr"/>
+                            <constraint firstItem="6v8-Yv-ih0" firstAttribute="top" secondItem="Zyb-sm-JUX" secondAttribute="bottom" constant="40" id="ENE-R7-hlr"/>
                             <constraint firstItem="Zyb-sm-JUX" firstAttribute="top" secondItem="unq-Au-9zu" secondAttribute="bottom" constant="10" id="N4N-Sp-z21"/>
-                            <constraint firstAttribute="centerX" secondItem="unq-Au-9zu" secondAttribute="centerX" constant="-0.5" id="T3C-Kq-YIu"/>
+                            <constraint firstAttribute="centerX" secondItem="unq-Au-9zu" secondAttribute="centerX" id="T3C-Kq-YIu"/>
                             <constraint firstAttribute="trailing" secondItem="unq-Au-9zu" secondAttribute="trailing" constant="20" id="Vra-M0-RgX"/>
                             <constraint firstItem="unq-Au-9zu" firstAttribute="leading" secondItem="pXe-G1-Lt4" secondAttribute="leading" constant="20" id="Z2O-cT-emf"/>
-                            <constraint firstAttribute="centerX" secondItem="Zyb-sm-JUX" secondAttribute="centerX" constant="-0.5" id="dcI-8q-1us"/>
+                            <constraint firstAttribute="centerX" secondItem="Zyb-sm-JUX" secondAttribute="centerX" id="dcI-8q-1us"/>
                             <constraint firstItem="unq-Au-9zu" firstAttribute="top" secondItem="DYu-S2-CTy" secondAttribute="bottom" constant="20" id="yVO-no-W8T"/>
                         </constraints>
                         <variation key="default">
@@ -748,7 +753,7 @@ Location search powered by Google.</string>
         <!--FAQ-->
         <scene sceneID="XMw-vt-1gr">
             <objects>
-                <viewController id="5LK-EO-PU9" sceneMemberID="viewController">
+                <viewController id="5LK-EO-PU9" customClass="FAQViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="v08-k1-m4z"/>
                         <viewControllerLayoutGuide type="bottom" id="uBh-T4-33b"/>
@@ -781,6 +786,9 @@ The Activity view contains all public events around you, as well as all plans ma
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="FAQ" id="nyD-Oz-2rR"/>
+                    <connections>
+                        <outlet property="textView" destination="QMD-Ir-zFY" id="iaU-NO-5Vr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFd-nZ-4P5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2692,7 +2700,7 @@ The Activity view contains all public events around you, as well as all plans ma
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UGX-sd-LVV">
                                 <rect key="frame" x="0.0" y="500" width="600" height="51"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3k6-rw-YKO">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a comment..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3k6-rw-YKO">
                                         <rect key="frame" x="8" y="8" width="538" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="4PY-GD-77r"/>

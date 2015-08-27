@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-tipsy-Amplitude-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-tipsy-DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3A9C4ED93E34DE595C52A40B</key>
+		<key>04DCA3B8FFD2D1AD141D7D5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6DA41D40C4DC98A5B874B562</key>
+		<key>478170EB2C9649E3B9B359E0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BE5CE98BB8CF08C7F4A7A0C1</key>
+		<key>8AA469B4E1844AEB29BBA7AB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F6BCCF88CD01530A1AC42993</key>
+		<key>AB36CE384506F4389DD2BFF9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DF82054BC9EDCB43C8A9D834</key>
 		<dict>
 			<key>primary</key>
 			<true/>

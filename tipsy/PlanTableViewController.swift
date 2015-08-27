@@ -168,12 +168,12 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if let location = locations.first as? CLLocation {
-            println("your current location is \(location)")
-            locationManager.stopUpdatingLocation()
-        }
-    }
+//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        if let location = locations.first as? CLLocation {
+//            println("your current location is \(location)")
+//            locationManager.stopUpdatingLocation()
+//        }
+//    }
     
     func refreshPosts() {
         var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate

@@ -9,6 +9,7 @@ target 'tipsy' do
 	pod 'GoogleMaps' 
 	pod 'Fabric'
 	pod 'Crashlytics'
+	pod 'Amplitude-iOS', '~> 3.0'
 
 end
 

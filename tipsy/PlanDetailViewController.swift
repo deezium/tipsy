@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import Amplitude_iOS
 
 let commentMadeNotificationKey = "commentMadeNotificationKey"
 let planInteractedNotificationKey = "planInteractedNotificationKey"
@@ -99,12 +100,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         
-        func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-            if let location = locations.first as? CLLocation {
+//        func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//            if let location = locations.first as? CLLocation {
 //                mapView.camera=GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-                self.locationManager.stopUpdatingLocation()
-            }
-        }
+//                self.locationManager.stopUpdatingLocation()
+//            }
+//        }
     
         configureTableView()
         
@@ -162,9 +163,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             let planCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             
-//            mapView.camera=GMSCameraPosition(target: planCoordinate, zoom: 15, bearing: 0, viewingAngle: 0)
- //           var marker = GMSMarker(position: planCoordinate)
-  //          marker.map = self.mapView
 
         }
         
@@ -178,7 +176,11 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshComments", name: commentMadeNotificationKey, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
-
+        
+        var viewedPlanDetailProperties = NSDictionary(object: planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+        
+        
+        Amplitude.instance().logEvent("viewedPlanDetail", withEventProperties: viewedPlanDetailProperties)
 
         
     }
@@ -784,7 +786,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     @IBAction func didTapPostButton(sender: AnyObject) {
         
         if commentEntry.text == "" {
-            let alert = UIAlertController(title: "Sorry!", message: "You can't post a blank comment!", preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Sorry!", message: "You can't post a blank comment!  Say something wonderful.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Gotcha!", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
 
@@ -826,7 +828,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                         }
                     }
                     
-                    let alert = UIAlertController(title: "Success", message: "Comment posted!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Great success!", message: "Your comment has been posted!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
 
@@ -845,7 +847,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 else {
                     self.activityIndicator.stopAnimating()
                     self.postButton.enabled = true
-                    let alert = UIAlertController(title: "Sorry!", message: "We had trouble posting your comment.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
+                    let alert = UIAlertController(title: "Sorry!", message: "Ope, we had trouble posting your comment.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
                     

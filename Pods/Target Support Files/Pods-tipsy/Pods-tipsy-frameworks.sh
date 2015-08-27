@@ -48,11 +48,13 @@ code_sign() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework 'Amplitude_iOS.framework'
   install_framework 'DateTools.framework'
   install_framework 'SQLite.framework'
   install_framework 'SwiftAddressBook.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework 'Amplitude_iOS.framework'
   install_framework 'DateTools.framework'
   install_framework 'SQLite.framework'
   install_framework 'SwiftAddressBook.framework'
