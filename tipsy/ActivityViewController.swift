@@ -11,7 +11,7 @@ import UIKit
 import DateTools
 import Amplitude_iOS
 
-class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate, UITabBarControllerDelegate {
+class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -123,7 +123,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         println("OOPS")
                     }
                     else {
-                        println(result["name"])
+                        println("me fetch result \(result)")
                         PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
                         PFUser.currentUser()?.saveInBackground()
                     }
@@ -131,6 +131,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
         }
+                
         
         if (PFUser.currentUser() != nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil) {

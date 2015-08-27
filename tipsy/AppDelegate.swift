@@ -12,12 +12,25 @@ import Crashlytics
 import Amplitude_iOS
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
    // var storyboard: UIStoryboard?
     
     let googleMapsApiKey = "AIzaSyDrlwN6ie4HlBZENulJ7pbHs3dOZfSqMtM"
+    
+
+    
+//    let tabBarC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
+    
+//    let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
+
+//    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+//        
+//        if viewController == tabBarC.isKindOfClass(UINavigationController) {
+//            viewController.navigationController?.popToRootViewControllerAnimated(true)
+//        }
+//    }
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -81,12 +94,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
 //            application.registerForRemoteNotificationTypes(types)
 //        }
+
+        let installation = PFInstallation.currentInstallation()
         
-//        application.applicationIconBadgeNumber = 0
+        application.applicationIconBadgeNumber = installation.badge
+        
+        println("badge number \(installation.badge)")
+        
+        installation.setObject(0, forKey: "badge")
+        
+        installation.saveInBackground()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        
         
         if (PFUser.currentUser() != nil) {
             let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
@@ -98,6 +117,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            self.window?.rootViewController = welcomeViewController
             
             self.window?.rootViewController? = tabBarController
+            
+    
         }
         
         if (PFUser.currentUser() != nil) {
@@ -114,6 +135,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         }
 
+        
+        
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

@@ -409,7 +409,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         
-        if attendanceState == false {
+        if (plan.objectForKey("creatingUser")?.objectId == PFUser.currentUser()?.objectId) {
+            cell.joinButton.hidden = true
+        }
+        else if attendanceState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
             //currentUser?.addUniqueObject(plan.objectId!, forKey: "attendedPlans")
 
@@ -498,7 +501,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
             let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
             
-            cell?.addressLabel.text = placeAddress
+            let formattedAddressSlice = placeAddress!.componentsSeparatedByString(", ")[0..<3]
+
+            let formattedAddress = formattedAddressSlice[0] + ", " + formattedAddressSlice[1] + ", " + formattedAddressSlice[2]
+            
+
+            
+            cell?.addressLabel.text = formattedAddress
             
             
 //            let shortAddressLabel = shortAddress[0]

@@ -310,6 +310,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let plan = sectionItems[index.row]
         
+        
         var attendanceState = Bool()
         
         let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
@@ -664,7 +665,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
 
-        if (attendanceState == true) {
+        if (queryObject.objectForKey("creatingUser")?.objectId == PFUser.currentUser()?.objectId) {
+            cell.joinButton.hidden = true
+        }
+        else if (attendanceState == true) {
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
 

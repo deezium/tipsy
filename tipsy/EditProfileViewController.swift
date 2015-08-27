@@ -20,7 +20,9 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         aboutField.delegate = self
+    
     }
+    
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

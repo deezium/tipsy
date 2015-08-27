@@ -682,13 +682,13 @@ We hope you enjoy using Tipsy!</mutableString>
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It looks like you don't have any friends on Tipsy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bO-z2-IiV">
-                                <rect key="frame" x="115.5" y="364" width="368.5" height="20.5"/>
+                                <rect key="frame" x="116" y="364" width="369" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Invite some of your friends to join you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVI-bI-gEf">
-                                <rect key="frame" x="153.5" y="433.5" width="292.5" height="20.5"/>
+                                <rect key="frame" x="154" y="434" width="293" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -711,7 +711,7 @@ We hope you enjoy using Tipsy!</mutableString>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pv1-HM-9gl">
-                                <rect key="frame" x="185" y="306" width="230" height="49.5"/>
+                                <rect key="frame" x="185" y="306" width="230" height="50"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1252,7 +1252,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It looks like none of your friends have upcoming events in the area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyv-I3-am7">
-                                <rect key="frame" x="116" y="386" width="448" height="20.5"/>
+                                <rect key="frame" x="116" y="386" width="448" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -1275,10 +1275,10 @@ The Activity view contains all public events around you, as well as all plans ma
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="8BX-fG-m1O">
-                                <rect key="frame" x="185" y="328" width="230" height="49.5"/>
+                                <rect key="frame" x="185" y="328" width="230" height="50"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Check out the Activity feed or invite some of your friends to join you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8y-4t-W4K">
-                                <rect key="frame" x="69" y="444" width="461" height="20.5"/>
+                                <rect key="frame" x="69" y="444" width="461" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -2950,7 +2950,7 @@ The Activity view contains all public events around you, as well as all plans ma
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tell us what's awesome about you!" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I'm awesome because... (max 100 characters)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
                                 <rect key="frame" x="0.0" y="64" width="600" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
@@ -3139,8 +3139,8 @@ The Activity view contains all public events around you, as well as all plans ma
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VIb-lG-h26"/>
-        <segue reference="5YK-eT-8Z7"/>
         <segue reference="E9u-ti-heE"/>
+        <segue reference="urZ-Y9-YSI"/>
+        <segue reference="MUB-pR-8Ix"/>
     </inferredMetricsTieBreakers>
 </document>
