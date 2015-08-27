@@ -14,6 +14,16 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     let currentUser = PFUser.currentUser()!
     
+    @IBOutlet weak var tipsyTurtle: UIImageView!
+    
+    
+    @IBOutlet weak var noFriendsLabel: UILabel!
+    
+    @IBOutlet weak var inviteLabel: UILabel!
+    
+    
+    @IBOutlet weak var inviteButton: UIButton!
+    
     var query = QueryController()
     var queryObjects = [PFObject]()
     
@@ -25,18 +35,49 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tableView.reloadData()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             self.activityIndicator.stopAnimating()
+            
+            if self.queryObjects.count == 0 {
+                self.tableView.hidden = true
+                self.noFriendsLabel.hidden = false
+                self.inviteLabel.hidden = false
+                self.inviteButton.hidden = false
+                self.tipsyTurtle.hidden = false
+                println("you have no friends wa wa")
+            }
         })
     }
 
     
+    @IBAction func didTapInvite(sender: AnyObject) {
+        
+        var textToShare = "Are you getting Tipsy?"
+        
+        if let website = NSURL(string: "http://www.everybodygettipsy.com/") {
+            let objectsToShare = [textToShare, website]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
+
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        noFriendsLabel.hidden = true
+        inviteLabel.hidden = true
+        inviteButton.hidden = true
+        tipsyTurtle.hidden = true
+        
         activityIndicator.startAnimating()
         tableView.dataSource = self
         tableView.delegate = self
         
         query.delegate = self
         query.queryUserIdsForFriends()
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

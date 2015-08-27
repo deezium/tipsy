@@ -34,6 +34,28 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var friendIdArray = [String]()
     
     
+    @IBOutlet weak var tipsyTurtle: UIImageView!
+    
+    
+    @IBOutlet weak var noFriendsLabel: UILabel!
+    
+    @IBOutlet weak var inviteLabel: UILabel!
+    
+    @IBOutlet weak var inviteButton: UIButton!
+    
+    
+    @IBAction func didTapInvite(sender: AnyObject) {
+        
+        var textToShare = "Are you getting Tipsy?"
+        
+        if let website = NSURL(string: "http://www.everybodygettipsy.com/") {
+            let objectsToShare = [textToShare, website]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
+    }
+    
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.userFriendsQueryObjects = objects
@@ -58,6 +80,12 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.createPlanArrays(objects)
             self.createTableSections()
             self.planTableView!.reloadData()
+            
+            self.planTableView!.hidden = true
+            self.noFriendsLabel.hidden = false
+            self.inviteLabel.hidden = false
+            self.inviteButton.hidden = false
+            self.tipsyTurtle.hidden = false
             
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -152,7 +180,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
 
         
-
+        self.inviteButton.hidden = true
+        self.inviteLabel.hidden = true
+        self.noFriendsLabel.hidden = true
+        self.tipsyTurtle.hidden = true
         
     }
     
