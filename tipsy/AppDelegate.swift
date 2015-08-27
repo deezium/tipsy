@@ -21,17 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
 
     
-//    let tabBarC = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
-    
-//    let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabViewController") as! UITabBarController
-
-//    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-//        
-//        if viewController == tabBarC.isKindOfClass(UINavigationController) {
-//            viewController.navigationController?.popToRootViewControllerAnimated(true)
-//        }
-//    }
-    
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

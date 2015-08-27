@@ -9,11 +9,24 @@
 import Foundation
 import UIKit
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
+        
+        println("tabbar view loaded")
      
+    }
+    
+    
+
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+
+        if let newViewController = viewController as? UINavigationController {
+            newViewController.popToRootViewControllerAnimated(false)
+            
+        }
     }
 }

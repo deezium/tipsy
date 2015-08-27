@@ -144,7 +144,7 @@ We hope you enjoy using Tipsy!</mutableString>
         <!--Tab Bar Controller-->
         <scene sceneID="xUl-xy-NEe">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" id="YNR-Lo-PPY" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" id="YNR-Lo-PPY" customClass="TabBarController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="X1f-T3-7Ve">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

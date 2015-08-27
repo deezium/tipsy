@@ -501,9 +501,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
             let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
             
-            let formattedAddressSlice = placeAddress!.componentsSeparatedByString(", ")[0..<3]
+            let formattedAddressSlice = placeAddress?.componentsSeparatedByString(", ")[0..<3]
 
-            let formattedAddress = formattedAddressSlice[0] + ", " + formattedAddressSlice[1] + ", " + formattedAddressSlice[2]
+            let formattedAddress = formattedAddressSlice![0] + ", " + formattedAddressSlice![1] + ", " + formattedAddressSlice![2]
             
 
             
