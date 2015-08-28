@@ -81,11 +81,13 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.createTableSections()
             self.planTableView!.reloadData()
             
-            self.planTableView!.hidden = true
-            self.noFriendsLabel.hidden = false
-            self.inviteLabel.hidden = false
-            self.inviteButton.hidden = false
-            self.tipsyTurtle.hidden = false
+            if self.queryObjects.count == 0 {
+                self.planTableView!.hidden = true
+                self.noFriendsLabel.hidden = false
+                self.inviteLabel.hidden = false
+                self.inviteButton.hidden = false
+                self.tipsyTurtle.hidden = false
+            }
             
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
