@@ -164,6 +164,18 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         activityIndicator.stopAnimating()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        user!.fetchInBackground()
+        
+        if let about = user!.objectForKey("about") as? String {
+            aboutLabel.text = "About me: " + about
+        }
+        else {
+            aboutLabel.text = "About me: I'm awesome, duh."
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
@@ -631,7 +643,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         }
         
         if (queryObject.objectForKey("creatingUser")?.objectId == PFUser.currentUser()?.objectId) {
-    //        cell.joinButton.hidden = true
+            cell.joinButton.hidden = true
         }
         else if (attendanceState == true) {
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)

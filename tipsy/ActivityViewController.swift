@@ -49,9 +49,21 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         activityIndicator.stopAnimating()
     }
     
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+        
+        self.currentLocation = manager.location
+        println("didUpdateLocations currentLocation \(self.currentLocation)")
+        
+  //      query.queryUserIdsForFriends()
+  }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.saveFacebookData()
+        
+        segmentedControl.selectedSegmentIndex = 1
         
         
         activityIndicator.startAnimating()
@@ -64,6 +76,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.addSubview(refreshControl)
         
         locationManager.delegate = self
+        query.delegate = self
         
         if CLLocationManager.authorizationStatus() == .NotDetermined {
             locationManager.requestWhenInUseAuthorization()
@@ -76,7 +89,10 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             self.locationManager.startUpdatingLocation()
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location
+                println("locationManager not nil \(self.currentLocation)")
             }
+            
+            query.queryUserIdsForFriends()
             println("queriedLocation \(currentLocation)")
         }
 
@@ -86,16 +102,33 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
         
         
-        query.delegate = self
-        query.queryUserIdsForFriends()
+//        query.queryUserIdsForFriends()
         
         Amplitude.instance().setUserId(PFUser.currentUser()?.objectId)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
         
+        self.setUserLocation()
+        
     }
     
-
+    
+    func setUserLocation() {
+        if (locationManager.location != nil) {
+            
+            let locValue = locationManager.location.coordinate
+            
+            let latestLocation = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
+            
+            PFUser.currentUser()?.setObject(latestLocation, forKey: "latestLocation")
+            PFInstallation.currentInstallation().setObject(latestLocation, forKey: "latestLocation")
+            
+            PFUser.currentUser()?.saveInBackground()
+            PFInstallation.currentInstallation().saveInBackground()
+        }
+        
+        
+    }
     
     
     func locationManager(manager: CLLocationManager!,
@@ -104,11 +137,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            self.locationManager.startUpdatingLocation()
+
             
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location
             }
-            println(currentLocation)
+            println("didChangeAuthorizationStatus \(currentLocation)")
+            query.queryUserIdsForFriends()
         }
     }
 
@@ -243,7 +279,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.hotQueryObjects = objects
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
 
             self.activityIndicator.stopAnimating()
             
@@ -254,6 +290,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func didReceiveThirdQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.newQueryObjects = objects
+            self.tableView.reloadData()
+            
             
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false

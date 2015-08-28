@@ -608,6 +608,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                 cell.firstAttendee.tag = 0
                 
+                cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
+                cell.firstAttendee.clipsToBounds = true
+                
             }
             
             for (index, image) in enumerate(attendeeImageArray) {
@@ -615,22 +618,37 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                     cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
                     cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                     cell.secondAttendee.tag = index+1
+                    
+                    cell.secondAttendee.layer.cornerRadius = cell.secondAttendee.frame.size.width / 2
+                    cell.secondAttendee.clipsToBounds = true
+
                 }
                 if index == 1 {
                     cell.thirdAttendee.setImage(image, forState: UIControlState.Normal)
                     cell.thirdAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                     cell.thirdAttendee.tag = index+1
 
+                    cell.thirdAttendee.layer.cornerRadius = cell.thirdAttendee.frame.size.width / 2
+                    cell.thirdAttendee.clipsToBounds = true
+
                 }
                 if index == 2 {
                     cell.fourthAttendee.setImage(image, forState: UIControlState.Normal)
                     cell.fourthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                     cell.fourthAttendee.tag = index+1
+
+                    cell.fourthAttendee.layer.cornerRadius = cell.fourthAttendee.frame.size.width / 2
+                    cell.fourthAttendee.clipsToBounds = true
+
                 }
                 if index == 3 {
                     cell.fifthAttendee.setImage(image, forState: UIControlState.Normal)
                     cell.fifthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
                     cell.fifthAttendee.tag = index+1
+
+                    cell.fifthAttendee.layer.cornerRadius = cell.fifthAttendee.frame.size.width / 2
+                    cell.fifthAttendee.clipsToBounds = true
+
                 }
 
             }

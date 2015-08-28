@@ -250,16 +250,16 @@ Parse.Cloud.afterSave("Comment", function(request){
 
 		var allQuery = new Parse.Query(Parse.Installation);
 		allQuery.equalTo('channels', allChannel);
-//		allQuery.notEqualTo('user', planCommentingUser);
+		allQuery.notEqualTo('user', planCommentingUser);
 		
 
 		var commentQuery = new Parse.Query(Parse.Installation);
 		commentQuery.equalTo('channels', commentChannel);
-//		commentQuery.notEqualTo('user', planCommentingUser);
+		commentQuery.notEqualTo('user', planCommentingUser);
 
 		var joinQuery = new Parse.Query(Parse.Installation);
 		joinQuery.equalTo('channels', joinChannel);
-//		commentQuery.notEqualTo('user', planCommentingUser);
+		commentQuery.notEqualTo('user', planCommentingUser);
 
 		var pushQuery = Parse.Query.or(allQuery, commentQuery, joinQuery);
 

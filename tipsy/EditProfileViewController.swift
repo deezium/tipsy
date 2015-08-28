@@ -34,8 +34,8 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
         let n = self.navigationController?.viewControllers?.count as Int!
         let profileViewController = self.navigationController?.viewControllers[n-1] as! PlanProfileViewController
         
-        self.navigationController?.navigationBar.backItem
-        profileViewController.aboutLabel.text = aboutField.text
+//        self.navigationController?.navigationBar.backItem
+//        profileViewController.aboutLabel.text = aboutField.text
     }
 
     
@@ -51,9 +51,8 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
                 let alert = UIAlertController(title: "Great success!", message: "Your profile has been updated and is now much more awesome.", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
-                //self.aboutField.text = ""
-    
-//                NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+                self.aboutField.text = ""
+                
             }
             else {
                 let alert = UIAlertController(title: "Sorry!", message: "Well eff, we had trouble updating your profile.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)

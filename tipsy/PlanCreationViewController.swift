@@ -528,6 +528,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 //        }
 //    }
     
+
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         
