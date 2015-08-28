@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Amplitude_iOS
 
 class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
@@ -23,6 +24,10 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     }
     
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("profileEditViewed")
+        
+    }
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -52,6 +57,8 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
                 self.aboutField.text = ""
+                
+                Amplitude.instance().logEvent("profileEdited")
                 
             }
             else {

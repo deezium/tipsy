@@ -11,6 +11,7 @@ import UIKit
 import CoreLocation
 import GoogleMaps
 import Darwin
+import Amplitude_iOS
 
 let planMadeNotificationKey = "planMadeNotificationKey"
 
@@ -210,6 +211,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
            
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
+                    
+                    var postedPlanDetailProperties = NSDictionary(object: planObject.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                    Amplitude.instance().logEvent("planPosted", withEventProperties: postedPlanDetailProperties)
+
                 }
                 else {
                     self.activityIndicator.stopAnimating()
@@ -364,6 +369,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     self.updateButton.enabled = true
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 
+                    var updatedPlanDetailProperties = NSDictionary(object: planObject.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                    Amplitude.instance().logEvent("planUpdated", withEventProperties: updatedPlanDetailProperties)
+
+                    
     //                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else {
@@ -474,6 +483,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             }
             println(currentLocation)
         }
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("planCreateViewed")
+        
     }
 
 

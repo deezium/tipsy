@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Amplitude_iOS
 
 class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
     
@@ -60,6 +61,11 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("myFriendsViewed")
+
     }
     
     

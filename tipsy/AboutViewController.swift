@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Amplitude_iOS
 
 class AboutViewController: UIViewController {
     
@@ -22,5 +23,11 @@ class AboutViewController: UIViewController {
         textView.text = "Tipsy is made and distributed by a small team of developers based in San Francisco, California.\r\n\nShout out to Icons8 (http://www.icons8.com/) for providing us with icons distributed under the Creative Commons License.\r\n\nAnd another shout out to Google for powering our location search.\r\n\nVersion number: \(version!)\r\n\nUser ID: \(user!.objectId!)"
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("aboutViewed")
+        
+    }
+    
     
 }

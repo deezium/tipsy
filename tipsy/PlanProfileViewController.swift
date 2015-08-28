@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Amplitude_iOS
 
 class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITableViewDataSource, UITableViewDelegate {
     
@@ -32,8 +33,14 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         switch segmentedControl.selectedSegmentIndex {
             case 0:
                 println("upcoming")
+                var viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
+                
+                Amplitude.instance().logEvent("profileUpcomingPlansViewed", withEventProperties: viewedProfileProperties)
             case 1:
                 println("past")
+                var viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
+
+                Amplitude.instance().logEvent("profilePastPlansViewed", withEventProperties: viewedProfileProperties)
             default:
                 break;
         }
@@ -174,6 +181,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             aboutLabel.text = "About me: I'm awesome, duh."
         }
         
+        var viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
+        
+        
+        Amplitude.instance().logEvent("profileViewed", withEventProperties: viewedProfileProperties)
+        
+        
     }
     
     override func viewDidLoad() {
@@ -302,6 +315,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             if success == true {
                 println("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+                
+                var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
 
             }
             else {
@@ -385,6 +402,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
 
                 println("Plan save success")
+                
+                var joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                
+                Amplitude.instance().logEvent("planJoined", withEventProperties: joinedPlanProperties)
+
             }
             else {
                 println("Plan save error \(error)")

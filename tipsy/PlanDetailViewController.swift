@@ -177,12 +177,15 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshComments", name: commentMadeNotificationKey, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planInteractedNotificationKey, object: nil)
         
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         var viewedPlanDetailProperties = NSDictionary(object: planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
         
         
-        Amplitude.instance().logEvent("viewedPlanDetail", withEventProperties: viewedPlanDetailProperties)
+        Amplitude.instance().logEvent("planDetailViewed", withEventProperties: viewedPlanDetailProperties)
 
-        
     }
     
     deinit {
@@ -288,6 +291,11 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             if success == true {
                 println("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+                
+                var heartedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                
+                Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
 
             }
             else {
@@ -368,6 +376,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             (success,error) -> Void in
             if success == true {
                 println("Success")
+                let heartedCommentProperties = NSDictionary(object: comment.objectId!, forKey: "commentId") as? [NSObject : AnyObject]
+                
+                
+                Amplitude.instance().logEvent("commentHearted", withEventProperties: heartedCommentProperties)
 
             }
             else {
@@ -451,6 +463,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+                
+                var joinedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                
+                Amplitude.instance().logEvent("planJoined", withEventProperties: joinedPlanProperties)
+
 
 
             }
@@ -484,6 +502,11 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             self.presentViewController(activityVC, animated: true, completion: nil)
         }
+        
+        let inviteProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+        
+        
+        Amplitude.instance().logEvent("inviteTapped", withEventProperties: inviteProperties)
         
     }
 
@@ -870,6 +893,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                     self.tableViewScrollToBottom()
 
                     NSNotificationCenter.defaultCenter().postNotificationName(commentMadeNotificationKey, object: self)
+                    
+                    var postedCommentProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                    Amplitude.instance().logEvent("planCommented", withEventProperties: postedCommentProperties)
+
                 }
                 else {
                     self.activityIndicator.stopAnimating()

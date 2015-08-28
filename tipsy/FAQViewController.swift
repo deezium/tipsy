@@ -7,12 +7,18 @@
 //
 
 import Foundation
+import Amplitude_iOS
 
 class FAQViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
 
     
+    
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("faqViewed")
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

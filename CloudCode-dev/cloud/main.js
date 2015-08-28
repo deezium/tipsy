@@ -6,6 +6,36 @@ Parse.Cloud.define("hello", function(request, response) {
 });
 
 
+Parse.Cloud.afterSave(Parse.User, function(request) {
+
+	facebookFriends = request.object.get('friendsUsingTipsy');
+
+	var friendLookupQuery = new Parse.Query(Parse.User);
+	friendLookupQuery.containedIn("facebookID", facebookFriends);
+
+	userArray = [];
+
+	friendLookupQuery.find({
+		success: function(users) {
+			// probably want to loop through users and append user ids
+
+			for (i = 0; i < users.length; i++) {
+				userArray.push(users[i].id);
+			};
+
+			console.log(userArray);
+		},
+		error: function(error) {
+			console.log("friend lookup error");
+		}
+	});
+
+	request.object.set('tipsyFriendsUsingTipsy', userArray);
+	request.object.save();
+
+
+});
+
 Parse.Cloud.afterSave("Plan", function(request){
 
 	// Send push for new heart
@@ -31,7 +61,6 @@ Parse.Cloud.afterSave("Plan", function(request){
 		var heartPushQuery = new Parse.Query(Parse.Installation);
 		heartPushQuery.equalTo('channels', 'all-'+planId);
 		heartPushQuery.notEqualTo('user', planCreatingUser);
-
 
 		var heartUserQuery = new Parse.Query(Parse.User);
 		heartUserQuery.equalTo('objectId', userId);
@@ -143,13 +172,20 @@ Parse.Cloud.afterSave("Plan", function(request){
 		var planMessage = request.object.get('message');
 		var planCreatingUser = request.object.get('creatingUser');
 		var userId = planCreatingUser.id;
+		var planLocation = request.object.get('googlePlaceCoordinate');
+
+		console.log(planLocation);
 
 		var pushQuery = new Parse.Query(Parse.Installation);
 		pushQuery.equalTo('channels', 'global');
-		pushQuery.notEqualTo('user', planCreatingUser);
+//		pushQuery.notEqualTo('user', planCreatingUser);
+		pushQuery.withinMiles('latestLocation', planLocation, 20);
+
+// pushQuery plan creating user in array of installation friends
 
 		var userQuery = new Parse.Query(Parse.User);
 		userQuery.equalTo('objectId', userId);
+
 
 		var username = [];
 

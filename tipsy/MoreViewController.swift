@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Amplitude_iOS
 
 class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -18,6 +19,12 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("aboutViewed")
+        
+    }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

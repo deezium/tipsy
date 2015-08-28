@@ -9,6 +9,7 @@
 import Foundation
 import Darwin
 import UIKit
+import Amplitude_iOS
 
 class PlanTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
  
@@ -137,6 +138,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidDisappear(animated: Bool) {
         activityIndicator.stopAnimating()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        Amplitude.instance().logEvent("friendFeedViewed")
+        
     }
     
     override func viewDidLoad() {
@@ -290,6 +296,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             if success == true {
                 println("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+                
+                var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
+
 
             }
             else {
@@ -371,6 +382,12 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+                
+                var joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                
+                Amplitude.instance().logEvent("planJoined", withEventProperties: joinedPlanProperties)
+
 
 
             }

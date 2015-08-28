@@ -848,7 +848,7 @@ The Activity view contains all public events around you, as well as all plans ma
         <!--Feedback-->
         <scene sceneID="d8I-mQ-JzE">
             <objects>
-                <viewController id="Tng-P5-do9" sceneMemberID="viewController">
+                <viewController id="Tng-P5-do9" customClass="FeedbackViewController" customModule="tipsy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XDL-Jd-x1G"/>
                         <viewControllerLayoutGuide type="bottom" id="W77-gR-SWh"/>

@@ -186,6 +186,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         var pictureFile = PFFile(data: pictureData!)
                         PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
                         PFUser.currentUser()?.saveInBackground()
+                        println("facebook profile picture saved")
                     }
                 })
             }
@@ -210,7 +211,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                             var id = i.objectForKey("id") as! String
                             friendsArray.append(id)
                         }
+                        
                         PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
+                        PFInstallation.currentInstallation().setObject(friendsArray, forKey: "friendsUsingTipsy")
+                        
+                        PFInstallation.currentInstallation().saveInBackground()
                         PFUser.currentUser()?.saveInBackground()
                     }
                 })
@@ -312,10 +317,16 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             println("hot")
+            Amplitude.instance().logEvent("activityFeedViewedHot")
+            
         case 1:
             println("new")
+            Amplitude.instance().logEvent("activityFeedViewedNew")
+
         case 2:
             println("ongoing")
+            Amplitude.instance().logEvent("activityFeedViewedOngoing")
+
         default:
             break;
         }
@@ -572,6 +583,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("ShowPlanDetailsFromActivity", sender: nil)
+        
+//        activityIndicator.startAnimating()
     }
 
     
@@ -684,6 +697,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             if success == true {
                 println("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
+                
+                var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                
+                Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
+
 
             }
             else {
