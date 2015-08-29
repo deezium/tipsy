@@ -21,7 +21,7 @@ class MoreViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func viewDidAppear(animated: Bool) {
-        Amplitude.instance().logEvent("aboutViewed")
+        Amplitude.instance().logEvent("moreViewed")
         
     }
     

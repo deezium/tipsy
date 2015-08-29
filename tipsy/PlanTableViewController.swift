@@ -55,6 +55,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             self.presentViewController(activityVC, animated: true, completion: nil)
         }
+        
+        Amplitude.instance().logEvent("tipsyInviteTapped")
     }
     
     func didReceiveQueryResults(objects: [PFObject]) {
@@ -257,6 +259,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 heartState = false
             }
         }
+        
         
         if heartState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "heartingUsers")
@@ -677,7 +680,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
 
         if heartingUsers?.count == 0 {
-            cell.heartButton.setTitle("0", forState: UIControlState.Normal)
+            cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
         }
         else {
             cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)

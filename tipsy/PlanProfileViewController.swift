@@ -289,6 +289,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             let newHeartingUserCountString = String(newHeartingUserCount)
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
             println("hearted! \(heartState)")
             
@@ -659,7 +660,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
         }
         if heartingUsers?.count == 0 {
-            cell.heartButton.setTitle("0", forState: UIControlState.Normal)
+            cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
         }
         else {
             cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)

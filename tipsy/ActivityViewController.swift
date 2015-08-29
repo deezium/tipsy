@@ -394,6 +394,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             var dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "MMM d, hh:mm a"
             
+            var heartState: Bool? = false
             
             let timeAgo = createdAt!.shortTimeAgoSinceNow()
             
@@ -424,8 +425,28 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             cell.messageLabel.text = message
             cell.locationLabel.text = placeName
             
+            let heartingUsers = queryObject.objectForKey("heartingUsers") as? [String]
+            let countHeartingUsers = heartingUsers?.count
+            
+            if let hearts = heartingUsers {
+                println("dem hearts \(hearts)")
+                println("dat user \(currentUser!.objectId!)")
+                if contains(hearts, currentUser!.objectId!) {
+                    heartState = true
+                }
+            }
+            
+            if (heartState == true) {
+                cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            }
+            else {
+                cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+                
+            }
+            
+            
             if heartCount == 0 {
-                cell.heartButton.setTitle("0", forState: UIControlState.Normal)
+                cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
             }
             else {
                 cell.heartButton.setTitle(heartCount?.description, forState: UIControlState.Normal)

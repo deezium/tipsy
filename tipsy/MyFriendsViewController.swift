@@ -60,6 +60,8 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
             self.presentViewController(activityVC, animated: true, completion: nil)
         }
 
+        Amplitude.instance().logEvent("tipsyInviteTapped")
+
         
     }
     

@@ -148,6 +148,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             profileImageButton.setImage(image, forState: UIControlState.Normal)
             profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
+            profileImageButton.imageView!.clipsToBounds = true
 
             
         }
@@ -421,9 +424,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         
-        if (plan.objectForKey("creatingUser")?.objectId == PFUser.currentUser()?.objectId) {
-            cell.joinButton.hidden = true
-        }
         else if attendanceState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
             //currentUser?.addUniqueObject(plan.objectId!, forKey: "attendedPlans")
@@ -506,7 +506,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let inviteProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
         
         
-        Amplitude.instance().logEvent("inviteTapped", withEventProperties: inviteProperties)
+        Amplitude.instance().logEvent("planInviteTapped", withEventProperties: inviteProperties)
         
     }
 
@@ -572,6 +572,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 }
             }
             
+            if (plan.objectForKey("creatingUser")?.objectId == PFUser.currentUser()?.objectId) {
+                cell?.joinButton.hidden = true
+            }
+            
             if (heartState == true) {
                 cell?.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             }
@@ -581,7 +585,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             }
             
             if heartingUsers?.count == 0 {
-                cell?.heartButton.setTitle("0", forState: UIControlState.Normal)
+                cell?.heartButton.setTitle(" ", forState: UIControlState.Normal)
             }
             else {
                 cell?.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
@@ -705,7 +709,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let commentBody = commentObject.objectForKey("body") as? String
             
             
-            
             if let postImage = user.objectForKey("profileImage") as? PFFile {
                 let imageData = postImage.getData()
                 let image = UIImage(data: imageData!)
@@ -742,7 +745,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             println("comment hearting users \(heartingUsers)")
             if heartingUsers?.count == 0 {
-                cell.heartButton.setTitle("0", forState: UIControlState.Normal)
+                cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
+                //cell.heartButton.titleLabel?.hidden = true
+                
             }
             else {
                 cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
@@ -759,6 +764,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         return finalCell!
 
     }
+    
+    
     
     func didTapUserProfileImage(sender: UIButton!) {
         var attendee: PFUser?
