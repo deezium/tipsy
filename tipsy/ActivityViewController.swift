@@ -37,7 +37,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
         
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
-        query.queryUserIdsForFriends()
+        self.query.queryHotPlansForActivity(self.userFriendsQueryObjects, point: point)
+        self.query.queryNewPlansForActivity(self.userFriendsQueryObjects, point: point)
+        self.query.queryOngoingPlansForActivity(self.userFriendsQueryObjects, point: point)
         self.refreshControl.endRefreshing()
     }
 
@@ -82,6 +84,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             locationManager.requestWhenInUseAuthorization()
         }
         
+        if CLLocationManager.authorizationStatus() == .Denied {
+            tableView.hidden = true
+            segmentedControl.hidden = true
+            activityIndicator.stopAnimating()
+        }
         
         if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
@@ -284,7 +291,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.hotQueryObjects = objects
-//            self.tableView.reloadData()
+            self.tableView.reloadData()
 
             self.activityIndicator.stopAnimating()
             
@@ -306,6 +313,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func didReceiveFourthQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.ongoingQueryObjects = objects
+            self.tableView.reloadData()
             
             
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
@@ -411,12 +419,30 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
                 println("postImage \(postImage)")
-                let imageData = postImage.getData()
-                let image = UIImage(data: imageData!)
-                cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                cell.profileButton.tag = indexPath.row
-                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                let oldImageData = postImage.getData()
+                
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                            // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            cell.profileButton.tag = indexPath.row
+                            cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            
+                        }
+                    }
+                    else {
+                        println("image retrieval error")
+                    }
+                })
+                
+//                let image = UIImage(data: imageData!)
+//                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+//                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                cell.profileButton.tag = indexPath.row
+//                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
 
                 
             }
@@ -491,12 +517,23 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
                 println("postImage \(postImage)")
-                let imageData = postImage.getData()
-                let image = UIImage(data: imageData!)
-                cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                cell.profileButton.tag = indexPath.row
-                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                            // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            cell.profileButton.tag = indexPath.row
+                            cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            
+                        }
+                    }
+                    else {
+                        println("image retrieval error")
+                    }
+                })
 
                 
             }
@@ -549,13 +586,31 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
                 println("postImage \(postImage)")
-                let imageData = postImage.getData()
-                let image = UIImage(data: imageData!)
-                cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                cell.profileButton.tag = indexPath.row
-                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-
+                //                let oldImageData = postImage.getData()
+                
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                            // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            cell.profileButton.tag = indexPath.row
+                            cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            
+                        }
+                    }
+                    else {
+                        println("image retrieval error")
+                    }
+                })
+                
+                //                let image = UIImage(data: imageData!)
+                //                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                //                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                //                cell.profileButton.tag = indexPath.row
+                //                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                
                 
             }
             
@@ -606,6 +661,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         performSegueWithIdentifier("ShowPlanDetailsFromActivity", sender: nil)
         
 //        activityIndicator.startAnimating()
+    }
+    
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        activityIndicator.startAnimating()
+        return indexPath
+        
     }
 
     

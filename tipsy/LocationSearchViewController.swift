@@ -60,6 +60,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
             planCreationViewController.selectedPlaceName = selectedPlaceName
             planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
             planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
+            planCreationViewController.locationChanged = true
             
         }
 

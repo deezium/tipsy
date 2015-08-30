@@ -143,15 +143,25 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         timeLabel.text = "\(startTimeString) to \(endTimeString)"
         
         if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
-            let imageData = postImage.getData()
-            let image = UIImage(data: imageData!)
             
-            profileImageButton.setImage(image, forState: UIControlState.Normal)
-            profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+            postImage.getDataInBackgroundWithBlock({
+                (imageData,error) -> Void in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let image = UIImage(data: imageData!)
+                        self.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                        self.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                        
+                        self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.imageView!.frame.size.width / 2
+                        self.profileImageButton.imageView!.clipsToBounds = true
+                        
+                    }
+                }
+                else {
+                    println("image retrieval error")
+                }
+            })
             
-            profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
-            profileImageButton.imageView!.clipsToBounds = true
-
             
         }
 
@@ -524,13 +534,19 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
             let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
             
-            let formattedAddressSlice = placeAddress?.componentsSeparatedByString(", ")[0..<3]
-
-            let formattedAddress = formattedAddressSlice![0] + ", " + formattedAddressSlice![1] + ", " + formattedAddressSlice![2]
+            println("first planobject \(planObjects.first)")
             
-
-            
-            cell?.addressLabel.text = formattedAddress
+            if placeAddress != "" {
+                let formattedAddressSlice = placeAddress!.componentsSeparatedByString(", ")[0..<3]
+                
+                let formattedAddress = formattedAddressSlice[0] + ", " + formattedAddressSlice[1] + ", " + formattedAddressSlice[2]
+                
+                
+                
+                cell?.addressLabel.text = formattedAddress
+                
+            }
+                
             
             
 //            let shortAddressLabel = shortAddress[0]
@@ -620,23 +636,53 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             for attendee in attendeeQueryObjects {
                 if let postImage = attendee.objectForKey("profileImage") as? PFFile {
-                    let imageData = postImage.getData()
-                    let image = UIImage(data: imageData!)
-                    attendeeImageArray.append(image!)
+
+                    postImage.getDataInBackgroundWithBlock({
+                        (imageData,error) -> Void in
+                        if error == nil {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let image = UIImage(data: imageData!)
+                                self.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                                self.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                                
+                                self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.imageView!.frame.size.width / 2
+                                self.profileImageButton.imageView!.clipsToBounds = true
+                                attendeeImageArray.append(image!)
+                                
+                            }
+                        }
+                        else {
+                            println("image retrieval error")
+                        }
+                    })
+                    
+                    
                 }
             }
             
             println("first attendee \(attendeeImageArray.first)")
             
             if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
-                let imageData = postImage.getData()
-                let image = UIImage(data: imageData!)
-                cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
-                cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                cell.firstAttendee.tag = 0
                 
-                cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
-                cell.firstAttendee.clipsToBounds = true
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
+                            cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            cell.firstAttendee.tag = 0
+                            
+                            cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
+                            cell.firstAttendee.clipsToBounds = true
+                            
+                        }
+                    }
+                    else {
+                        println("image retrieval error")
+                    }
+                })
+
                 
             }
             
@@ -710,11 +756,23 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                let imageData = postImage.getData()
-                let image = UIImage(data: imageData!)
-                cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
-                cell.profileImageButton.tag = indexPath.row-3+100
-                cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                            cell.profileImageButton.tag = indexPath.row-3+100
+                            cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            
+                        }
+                    }
+                    else {
+                        println("image retrieval error")
+                    }
+                })
+
                 
             }
             

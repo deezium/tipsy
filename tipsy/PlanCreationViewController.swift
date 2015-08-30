@@ -53,6 +53,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     var dataArray: [[String: AnyObject]] = []
     var dateFormatter = NSDateFormatter()
     
+    var locationChanged = false
+    
     // keep track which indexPath points to the cell with UIDatePicker
     var datePickerIndexPath: NSIndexPath?
     
@@ -400,7 +402,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let confirmAction = UIAlertAction(title: "Yup!", style: UIAlertActionStyle.Default, handler:
             {
                 Void in
+                var deletedPlanDetailProperties = NSDictionary(object: plan!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                Amplitude.instance().logEvent("planDeleted", withEventProperties: deletedPlanDetailProperties)
                 plan?.deleteInBackground()
+
   
                 self.navigationController?.popToRootViewControllerAnimated(true)
                 
@@ -501,17 +506,38 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
         println("dese plans \(plans)")
         
-        if plans.count != 0 {
+        if (plans.count != 0 && locationChanged == false) {
             println("hay plans")
             let plan = plans.first
             let planStartTime = plan?.objectForKey("startTime") as! NSDate
             let planEndTime = plan?.objectForKey("endTime") as! NSDate
+            self.selectedPlaceId = plan?.objectForKey("googlePlaceId") as! String
+            self.selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
+            self.selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
+            self.selectedPlaceGeoPoint = plan?.objectForKey("googlePlaceCoordinate") as! PFGeoPoint
+            
+            println(plan)
+            println(self.selectedPlaceId)
        
             
             
             postButton.hidden = true
             updateButton.hidden = false
             deleteButton.hidden = false
+        }
+        else if (plans.count != 0 && locationChanged == true){
+            let plan = plans.first
+            let planStartTime = plan?.objectForKey("startTime") as! NSDate
+            let planEndTime = plan?.objectForKey("endTime") as! NSDate
+            if selectedPlaceName != "" {
+                let indexPath = NSIndexPath(forRow: 1, inSection: 0)
+                let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
+                println(cell.locationLabel)
+                
+                cell.locationLabel.text = selectedPlaceName
+                
+            }
+            
         }
         else {
             updateButton.hidden = true

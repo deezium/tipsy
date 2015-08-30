@@ -84,7 +84,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.createTableSections()
             self.planTableView!.reloadData()
             
-            if self.queryObjects.count == 0 {
+            println("friend feed results \(self.queryObjects)")
+            
+            if self.upcomingPlans.count == 0 {
                 self.planTableView!.hidden = true
                 self.noFriendsLabel.hidden = false
                 self.inviteLabel.hidden = false
@@ -648,13 +650,25 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         
         if let postImage = user.objectForKey("profileImage") as? PFFile {
-            let imageData = postImage.getData()
-            let image = UIImage(data: imageData!)
-            let testImage = UIImage(named: "Map-50.png") as UIImage!
             
-            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
-            cell.profileImageButton.tag = (indexPath.section)*100 + indexPath.row
-            cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+            postImage.getDataInBackgroundWithBlock({
+                (imageData,error) -> Void in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let image = UIImage(data: imageData!)
+                        let testImage = UIImage(named: "Map-50.png") as UIImage!
+                        
+                        cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                        cell.profileImageButton.tag = (indexPath.section)*100 + indexPath.row
+                        cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    }
+                }
+                else {
+                    println("image retrieval error")
+                }
+            })
+            
+            
         }
         
         
@@ -662,8 +676,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let firstname = fullname?.componentsSeparatedByString(" ")[0]
         
         cell.name.text = firstname
-//        cell.startTime.text = startTimeString
-//        cell.endTime.text = endTimeString
         cell.fullTime.text = fullTimeString
         cell.location.text = placeLabel
         

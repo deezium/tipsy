@@ -201,9 +201,19 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         self.username.text = user!.objectForKey("fullname") as? String
         
         if let profileImage = user!.objectForKey("profileImage") as? PFFile {
-            let imageData = profileImage.getData()
-            let image = UIImage(data: imageData!)
-            self.profileImage.image = image
+            
+            profileImage.getDataInBackgroundWithBlock({
+                (imageData,error) -> Void in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let image = UIImage(data: imageData!)
+                        self.profileImage.image = image
+                    }
+                }
+                else {
+                    println("image retrieval error")
+                }
+            })
             
         }
         
@@ -633,10 +643,20 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         
         if let postImage = user.objectForKey("profileImage") as? PFFile {
-            let imageData = postImage.getData()
-            let image = UIImage(data: imageData!)
-            let testImage = UIImage(named: "Map-50.png") as UIImage!
-            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+            
+            postImage.getDataInBackgroundWithBlock({
+                (imageData,error) -> Void in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let image = UIImage(data: imageData!)
+                        cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                    }
+                }
+                else {
+                    println("image retrieval error")
+                }
+            })
+
             
         }
         

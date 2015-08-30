@@ -100,7 +100,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="5mY-If-uWc"/>
                                 </constraints>
-                                <mutableString key="text">Welcome to Tipsy!
+                                <string key="text">Welcome to Tipsy!
 
 You are one of Tipsy's very first users.  We're excited to have you join us!
 
@@ -108,7 +108,7 @@ Tipsy is a new way for you to engage with your local community.  We believe that
 
 You can use Tipsy to broadcast your plans to your friends or other members of Tipsy, see what your friends in your area are up to, or check out events made by others around you.
 
-We hope you enjoy using Tipsy!</mutableString>
+We hope you enjoy using Tipsy!</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2437,8 +2437,8 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0CV-23-mDl" id="PHR-At-2U4">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pic-Xe-q20">
-                                                    <rect key="frame" x="30" y="8" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nearby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pic-Xe-q20">
+                                                    <rect key="frame" x="30" y="8" width="43" height="21"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -3140,7 +3140,7 @@ The Activity view contains all public events around you, as well as all plans ma
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E9u-ti-heE"/>
-        <segue reference="urZ-Y9-YSI"/>
         <segue reference="MUB-pR-8Ix"/>
+        <segue reference="Tyd-4d-APj"/>
     </inferredMetricsTieBreakers>
 </document>
