@@ -405,8 +405,29 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 let commentsChannel = "comments-" + plan.objectId!
                 
                 let currentInstallation = PFInstallation.currentInstallation()
+                
+                let currentChannels = currentInstallation.objectForKey("channels") as? [String]
+                
+//                if contains(currentChannels!, joinChannel) {
+//                    currentInstallation.removeObject(joinChannel, forKey: "channels")
+//                }
+//                else {
+//                    currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
+//                }
+                
+//                if currentInstallation.objectForKey("channels") != nil {
+//                    currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
+//                    currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
+//                }
+//                else {
+//                    currentInstallation.setObject(joinChannel, forKey: "channels")
+//                    currentInstallation.setObject(commentsChannel, forKey: "channels")
+//                }
+
                 currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
                 currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
+
+                
                 currentInstallation.saveInBackground()
                 println("registered installation for pushes")
 
@@ -687,7 +708,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         }
         
         if (queryObject.objectForKey("creatingUser")?.objectId == PFUser.currentUser()?.objectId) {
-            cell.joinButton.hidden = true
+  //          cell.joinButton.hidden = true
         }
         else if (attendanceState == true) {
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
