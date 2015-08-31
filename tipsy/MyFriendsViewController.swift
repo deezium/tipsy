@@ -99,9 +99,19 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
         let friendName = friend.objectForKey("fullname") as! String
         
         if let profileImage = friend.objectForKey("profileImage") as? PFFile {
-            let imageData = profileImage.getData()
-            let image = UIImage(data: imageData!)
-            cell.profilePicture.image = image
+            
+            profileImage.getDataInBackgroundWithBlock({
+                (imageData,error) -> Void in
+                if error == nil {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        let image = UIImage(data: imageData!)
+                        cell.profilePicture.image = image
+                    }
+                }
+                else {
+                    println("image retrieval error")
+                }
+            })
             
         }
         

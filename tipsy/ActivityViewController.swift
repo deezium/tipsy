@@ -13,6 +13,10 @@ import Amplitude_iOS
 
 class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
     
+    @IBOutlet weak var tipsyTurtle: UIImageView!
+    
+    @IBOutlet weak var locationLabel: UILabel!
+    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBOutlet weak var tableView: UITableView!
@@ -43,13 +47,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         self.refreshControl.endRefreshing()
     }
 
-    override func viewWillDisappear(animated: Bool) {
-        activityIndicator.startAnimating()
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        activityIndicator.stopAnimating()
-    }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         var locValue:CLLocationCoordinate2D = manager.location.coordinate
@@ -84,11 +81,13 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             locationManager.requestWhenInUseAuthorization()
         }
         
-        if CLLocationManager.authorizationStatus() == .Denied {
-            tableView.hidden = true
-            segmentedControl.hidden = true
-            activityIndicator.stopAnimating()
-        }
+//        if CLLocationManager.authorizationStatus() == .Denied {
+//            activityIndicator.stopAnimating()
+//            tableView.hidden = true
+//            segmentedControl.hidden = true
+//            tipsyTurtle.hidden = false
+//            locationLabel.hidden = false
+//        }
         
         if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
@@ -152,6 +151,13 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             }
             println("didChangeAuthorizationStatus \(currentLocation)")
             query.queryUserIdsForFriends()
+        }
+        else if status == .Denied {
+            activityIndicator.stopAnimating()
+            tableView.hidden = true
+            segmentedControl.hidden = true
+            tipsyTurtle.hidden = false
+            locationLabel.hidden = false
         }
     }
 
@@ -660,14 +666,17 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("ShowPlanDetailsFromActivity", sender: nil)
         
-//        activityIndicator.startAnimating()
     }
     
-    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        activityIndicator.startAnimating()
-        return indexPath
-        
-    }
+//    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        activityIndicator.startAnimating()
+//        return indexPath
+//        
+//    }
+//    
+//    override func viewDidDisappear(animated: Bool) {
+//        activityIndicator.stopAnimating()
+//    }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

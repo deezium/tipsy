@@ -636,26 +636,28 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             for attendee in attendeeQueryObjects {
                 if let postImage = attendee.objectForKey("profileImage") as? PFFile {
-
-                    postImage.getDataInBackgroundWithBlock({
-                        (imageData,error) -> Void in
-                        if error == nil {
-                            dispatch_async(dispatch_get_main_queue()) {
-                                let image = UIImage(data: imageData!)
-                                self.profileImageButton.setImage(image, forState: UIControlState.Normal)
-                                self.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                                
-                                self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.imageView!.frame.size.width / 2
-                                self.profileImageButton.imageView!.clipsToBounds = true
-                                attendeeImageArray.append(image!)
-                                
-                            }
-                        }
-                        else {
-                            println("image retrieval error")
-                        }
-                    })
                     
+                    let imageData = postImage.getData()
+                    let image = UIImage(data: imageData!)
+                    attendeeImageArray.append(image!)
+                    
+//                    postImage.getDataInBackgroundWithBlock({
+//                        (imageData,error) -> Void in
+//                        if error == nil {
+//                            dispatch_async(dispatch_get_main_queue(), {
+//                                let image = UIImage(data: imageData!)
+//                                attendeeImageArray.append(image!)
+//
+//                                
+//                            })
+//                        }
+//                        else {
+//                            println("image retrieval error")
+//                        }
+//                    })
+                    
+                    println("attendeeQueryObjects \(attendeeQueryObjects)")
+                    println("attendeeImageArray \(attendeeImageArray)")
                     
                 }
             }

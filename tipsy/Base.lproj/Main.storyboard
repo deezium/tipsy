@@ -504,31 +504,49 @@ We hope you enjoy using Tipsy!</string>
                                 <rect key="frame" x="282" y="257" width="37" height="37"/>
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="4UY-iE-WoS">
+                                <rect key="frame" x="180" y="452" width="230" height="50"/>
+                            </imageView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZH-De-C29">
+                                <rect key="frame" x="111" y="510" width="932" height="21"/>
+                                <string key="text">Tipsy is much more fun when we can use your location!  Please go to Settings -&gt; Privacy -&gt; Location Services and enable Location for Tipsy.</string>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YZH-De-C29" firstAttribute="leading" secondItem="WzV-HA-dJO" secondAttribute="leading" constant="20" id="2IC-z4-ktl"/>
                             <constraint firstAttribute="trailing" secondItem="CQP-rh-t4v" secondAttribute="trailing" constant="-20" id="3HM-Sq-KOd"/>
                             <constraint firstAttribute="bottom" secondItem="CQP-rh-t4v" secondAttribute="bottom" id="4xy-Im-Gcq"/>
                             <constraint firstItem="OZq-xi-VZg" firstAttribute="top" secondItem="ZhI-0J-j5l" secondAttribute="bottom" constant="20" id="AVg-vY-9F6"/>
                             <constraint firstItem="CQP-rh-t4v" firstAttribute="leading" secondItem="WzV-HA-dJO" secondAttribute="leading" constant="-20" id="Bng-X9-LMa"/>
                             <constraint firstAttribute="centerX" secondItem="8wO-Rc-fdN" secondAttribute="centerX" id="Lgw-mh-rC1"/>
+                            <constraint firstAttribute="centerX" secondItem="4UY-iE-WoS" secondAttribute="centerX" id="SmM-eq-3uW"/>
+                            <constraint firstItem="4UY-iE-WoS" firstAttribute="top" secondItem="ZhI-0J-j5l" secondAttribute="bottom" constant="30" id="Wkn-OH-HtE"/>
                             <constraint firstAttribute="centerY" secondItem="8wO-Rc-fdN" secondAttribute="centerY" id="XPJ-bO-qMd"/>
+                            <constraint firstAttribute="trailing" secondItem="YZH-De-C29" secondAttribute="trailing" constant="20" id="aaa-6l-azi"/>
+                            <constraint firstItem="9EE-rF-oNX" firstAttribute="top" secondItem="YZH-De-C29" secondAttribute="bottom" constant="30" id="bYR-Mf-FBr"/>
                             <constraint firstAttribute="centerX" secondItem="OZq-xi-VZg" secondAttribute="centerX" id="fFg-rY-dwM"/>
                             <constraint firstItem="CQP-rh-t4v" firstAttribute="top" secondItem="OZq-xi-VZg" secondAttribute="bottom" constant="20" id="s1O-Am-mhX"/>
+                            <constraint firstItem="YZH-De-C29" firstAttribute="top" secondItem="4UY-iE-WoS" secondAttribute="bottom" constant="30" id="v3m-rk-7jb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Activity" image="Online.png" id="jfy-LV-q5I"/>
                     <navigationItem key="navigationItem" title="Activity" id="BKy-oB-v1H"/>
                     <connections>
                         <outlet property="activityIndicator" destination="8wO-Rc-fdN" id="6TN-TW-UVZ"/>
+                        <outlet property="locationLabel" destination="YZH-De-C29" id="lHe-Jy-wgA"/>
                         <outlet property="segmentedControl" destination="OZq-xi-VZg" id="Yea-Ya-91u"/>
                         <outlet property="tableView" destination="CQP-rh-t4v" id="Iss-LU-6FY"/>
+                        <outlet property="tipsyTurtle" destination="4UY-iE-WoS" id="oJW-jm-V3s"/>
                         <segue destination="lra-bo-m7v" kind="show" identifier="ShowPlanDetailsFromActivity" id="Jto-Zv-t2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8X5-nD-hrZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1671" y="116"/>
+            <point key="canvasLocation" x="123" y="1162"/>
         </scene>
         <!--Item-->
         <scene sceneID="KpN-Ln-eo8">
@@ -2936,7 +2954,7 @@ The Activity view contains all public events around you, as well as all plans ma
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nFM-go-7Uj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="50" y="1126"/>
+            <point key="canvasLocation" x="56" y="2015"/>
         </scene>
         <!--Edit Profile-->
         <scene sceneID="GpA-P8-AP6">
@@ -3139,8 +3157,8 @@ The Activity view contains all public events around you, as well as all plans ma
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E9u-ti-heE"/>
-        <segue reference="MUB-pR-8Ix"/>
+        <segue reference="Jto-Zv-t2p"/>
         <segue reference="Tyd-4d-APj"/>
+        <segue reference="E9u-ti-heE"/>
     </inferredMetricsTieBreakers>
 </document>
