@@ -173,8 +173,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     else {
                         println("me fetch result \(result)")
-                        PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
-                        PFUser.currentUser()?.saveInBackground()
+                        
+                        if result["name"] != nil {
+                            PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
+                            PFUser.currentUser()?.saveInBackground()
+                        }
                     }
                 })
             }
@@ -191,15 +194,25 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         println("OOPS")
                     }
                     else {
-                        println(result["data"]!["url"])
-                        let pictureString = result["data"]!["url"] as! String
-                        let pictureURL = NSURL(string: pictureString)
-                        let pictureData = NSData(contentsOfURL: pictureURL!)
-                        println("pictureData \(pictureData)")
-                        var pictureFile = PFFile(data: pictureData!)
-                        PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
-                        PFUser.currentUser()?.saveInBackground()
-                        println("facebook profile picture saved")
+                        println(result["data"]?["url"])
+                        if let pictureString = result["data"]?["url"] as? String {
+                            let pictureURL = NSURL(string: pictureString) as NSURL?
+                            
+                            if pictureURL != nil {
+                                let pictureData = NSData(contentsOfURL: pictureURL!)
+                                println("pictureData \(pictureData)")
+                                
+                                if pictureData != nil {
+                                    var pictureFile = PFFile(data: pictureData!)
+                                    PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
+                                    PFUser.currentUser()?.saveInBackground()
+                                    println("facebook profile picture saved")
+                                    
+                                }
+                            }
+                            
+                        }
+                        
                     }
                 })
             }
@@ -217,12 +230,18 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         println("Oops, friend fetch failed")
                     }
                     else {
-                        println(result["data"]![0]["id"])
-                        let resultArray = result.objectForKey("data") as! NSArray
-                        println(resultArray)
-                        for i in resultArray {
-                            var id = i.objectForKey("id") as! String
-                            friendsArray.append(id)
+                        
+                        
+                        println(result?["data"]?[0]["id"])
+                        
+                        if let resultArray = result.objectForKey("data") as? NSArray {
+                            println("facebook id data \(result)")
+                            for i in resultArray {
+                                if let id = i.objectForKey("id") as? String {
+                                    friendsArray.append(id)                                    
+                                }
+                            }
+                            
                         }
                         
                         PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
@@ -246,8 +265,10 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         println("idrequest")
                         println(result["id"])
                         
-                        PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
-                        PFUser.currentUser()?.saveInBackground()
+                        if (result["id"] != nil) {
+                            PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
+                            PFUser.currentUser()?.saveInBackground()
+                        }
                     }
                 })
                 
