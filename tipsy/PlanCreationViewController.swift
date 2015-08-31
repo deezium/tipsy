@@ -892,13 +892,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
         
-        println("picker at row 0 \(indexPathHasPicker(NSIndexPath(forRow: 0, inSection: 0)))")
-        println("picker at row 1 \(indexPathHasPicker(NSIndexPath(forRow: 1, inSection: 0)))")
-        println("picker at row 2 \(indexPathHasPicker(NSIndexPath(forRow: 2, inSection: 0)))")
-        println("picker at row 3 \(indexPathHasPicker(NSIndexPath(forRow: 3, inSection: 0)))")
-        println("picker at row 4 \(indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)))")
-        println("picker at row 5 \(indexPathHasPicker(NSIndexPath(forRow: 5, inSection: 0)))")
-        println("picker at row 6 \(indexPathHasPicker(NSIndexPath(forRow: 6, inSection: 0)))")
     }
     
     
