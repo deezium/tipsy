@@ -1,6 +1,10 @@
 
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
+
+Parse.Cloud.useMasterKey();
+
+
 Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
@@ -8,30 +12,61 @@ Parse.Cloud.define("hello", function(request, response) {
 
 Parse.Cloud.afterSave(Parse.User, function(request) {
 
-	facebookFriends = request.object.get('friendsUsingTipsy');
+	var userId = request.object.id;
+	console.log("userID " + userId);
+
+	var user = new Parse.User();
+	user.id = userId;
+
+	console.log("user " + user);
+
+	var facebookFriends = request.object.get('friendsUsingTipsy');
 
 	var friendLookupQuery = new Parse.Query(Parse.User);
 	friendLookupQuery.containedIn("facebookID", facebookFriends);
 
-	userArray = [];
+	var installationLookupQuery = new Parse.Query(Parse.Installation);
+	installationLookupQuery.equalTo("user", user);
+
+	var userArray = [];
+	var installationArray = [];
 
 	friendLookupQuery.find({
 		success: function(users) {
-			// probably want to loop through users and append user ids
 
 			for (i = 0; i < users.length; i++) {
+				console.log("user i " + i);
+				console.log("user id to push " + users[i].id);
 				userArray.push(users[i].id);
 			};
 
-			console.log(userArray);
+			request.object.set('tipsyFriendsUsingTipsy', userArray);
+			request.object.save();
+
+			console.log("userArray after id push" + userArray);
+
+			installationLookupQuery.find({
+				success: function(installations) {
+					for(i = 0; i < installations.length; i++) {
+						console.log(installations[i]);
+						console.log("userArray to append to installation " + userArray);
+						installations[i].set('tipsyFriendsUsingTipsy', userArray);
+						installations[i].save();
+						console.log(installations[i]);
+					};
+				},
+				error: function(error) {
+					console.log("installations save error");
+				}
+			});
+
 		},
 		error: function(error) {
 			console.log("friend lookup error");
 		}
 	});
 
-	request.object.set('tipsyFriendsUsingTipsy', userArray);
-	request.object.save();
+//	console.log(userArray);
 
 
 });
@@ -60,7 +95,7 @@ Parse.Cloud.afterSave("Plan", function(request){
 
 		var heartPushQuery = new Parse.Query(Parse.Installation);
 		heartPushQuery.equalTo('channels', 'all-'+planId);
-//		heartPushQuery.notEqualTo('user', planCreatingUser);
+		heartPushQuery.notEqualTo('user', planCreatingUser);
 
 		var heartUserQuery = new Parse.Query(Parse.User);
 		heartUserQuery.equalTo('objectId', userId);
@@ -179,7 +214,8 @@ Parse.Cloud.afterSave("Plan", function(request){
 
 		var pushQuery = new Parse.Query(Parse.Installation);
 		pushQuery.equalTo('channels', 'global');
-//		pushQuery.notEqualTo('user', planCreatingUser);
+		pushQuery.notEqualTo('user', planCreatingUser);
+		pushQuery.equalTo('tipsyFriendsUsingTipsy', userId);
 		pushQuery.withinMiles('latestLocation', planLocation, 20);
 
 // pushQuery plan creating user in array of installation friends
