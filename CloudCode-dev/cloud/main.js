@@ -60,7 +60,7 @@ Parse.Cloud.afterSave("Plan", function(request){
 
 		var heartPushQuery = new Parse.Query(Parse.Installation);
 		heartPushQuery.equalTo('channels', 'all-'+planId);
-		heartPushQuery.notEqualTo('user', planCreatingUser);
+//		heartPushQuery.notEqualTo('user', planCreatingUser);
 
 		var heartUserQuery = new Parse.Query(Parse.User);
 		heartUserQuery.equalTo('objectId', userId);
@@ -77,7 +77,8 @@ Parse.Cloud.afterSave("Plan", function(request){
 				Parse.Push.send({
 					where: heartPushQuery,
 					data: {
-						alert: firstname + " just liked " + planMessage + "!"
+						alert: firstname + " just liked " + planMessage + "!",
+						badge: "Increment"
 					}
 				}, {
 					success: function() {
@@ -199,7 +200,8 @@ Parse.Cloud.afterSave("Plan", function(request){
 				Parse.Push.send({
 					where: pushQuery,
 					data: {
-						alert: firstname + " just planned " + planMessage + "!"
+						alert: firstname + " just planned " + planMessage + "!",
+						badge: "Increment"
 					}
 				}, {
 					success: function() {
@@ -311,7 +313,8 @@ Parse.Cloud.afterSave("Comment", function(request){
 				Parse.Push.send({
 					where: pushQuery,
 					data: {
-						alert: "New comment on " + message
+						alert: "New comment on " + message,
+						badge: "Increment"
 					}
 				}, {
 					success: function() {
