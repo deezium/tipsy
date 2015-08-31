@@ -90,15 +90,25 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
+        var endDateIndexPath = NSIndexPath()
         
-        let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+        
+        if indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)) {
+            println("bumped up end date index path")
+            endDateIndexPath = NSIndexPath(forRow: 5, inSection: 0)
+        }
+        else {
+            println("did not bump up end date index path")
+            endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+        }
+        
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
+        println("endDateString \(endDateString)")
+        
         let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
         
-        println("endDateString \(endDateString)")
-
         let lengthBound = planStartDate.dateByAddingHours(24)
         
         println("planEndDate \(planEndDate)")
@@ -157,8 +167,18 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             
             let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
 
+            var endDateIndexPath = NSIndexPath()
             
-            let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+
+            if indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)) {
+                println("bumped up end date index path")
+                endDateIndexPath = NSIndexPath(forRow: 5, inSection: 0)
+            }
+            else {
+                println("did not bump up end date index path")
+                endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+            }
+            
             let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
             let endDateString = endDateCell?.detailTextLabel?.text as String!
             
@@ -268,8 +288,18 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
+        var endDateIndexPath = NSIndexPath()
         
-        let endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+        
+        if indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)) {
+            println("bumped up end date index path")
+            endDateIndexPath = NSIndexPath(forRow: 5, inSection: 0)
+        }
+        else {
+            println("did not bump up end date index path")
+            endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
+        }
+
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
@@ -861,6 +891,14 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
+        
+        println("picker at row 0 \(indexPathHasPicker(NSIndexPath(forRow: 0, inSection: 0)))")
+        println("picker at row 1 \(indexPathHasPicker(NSIndexPath(forRow: 1, inSection: 0)))")
+        println("picker at row 2 \(indexPathHasPicker(NSIndexPath(forRow: 2, inSection: 0)))")
+        println("picker at row 3 \(indexPathHasPicker(NSIndexPath(forRow: 3, inSection: 0)))")
+        println("picker at row 4 \(indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)))")
+        println("picker at row 5 \(indexPathHasPicker(NSIndexPath(forRow: 5, inSection: 0)))")
+        println("picker at row 6 \(indexPathHasPicker(NSIndexPath(forRow: 6, inSection: 0)))")
     }
     
     

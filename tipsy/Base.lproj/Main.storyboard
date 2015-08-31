@@ -1361,7 +1361,7 @@ The Activity view contains all public events around you, as well as all plans ma
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57X-93-bfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1387" y="1162"/>
+            <point key="canvasLocation" x="1353" y="178"/>
         </scene>
         <!--Item-->
         <scene sceneID="buY-VR-VTt">
@@ -2968,8 +2968,11 @@ The Activity view contains all public events around you, as well as all plans ma
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I'm awesome because... (max 100 characters)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I'm awesome because... (max 100 characters)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
+                                <rect key="frame" x="0.0" y="64" width="600" height="267"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zm3-l5-Q4P"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textField>
@@ -2990,23 +2993,27 @@ The Activity view contains all public events around you, as well as all plans ma
                                     <action selector="didTapSaveButton:" destination="ZeH-Dc-3xZ" eventType="touchUpInside" id="xtx-wu-drC"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="More stuff coming soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-Iy-Snz">
-                                <rect key="frame" x="207" y="303" width="187" height="21"/>
-                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-Zw-yvx">
+                                <rect key="frame" x="185" y="275" width="230" height="50"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="OSN-Iy-Snz" secondAttribute="centerY" constant="-37" id="1UP-LI-Nb3"/>
                             <constraint firstItem="8dA-Vl-Me1" firstAttribute="leading" secondItem="FvI-9I-9IQ" secondAttribute="leading" id="1ZT-Nz-dK0"/>
                             <constraint firstAttribute="trailing" secondItem="8dA-Vl-Me1" secondAttribute="trailing" id="CWq-9c-0fj"/>
+                            <constraint firstItem="Ooh-Zw-yvx" firstAttribute="top" secondItem="Hsg-KF-6ie" secondAttribute="bottom" constant="211" id="CZo-63-6Gf"/>
                             <constraint firstAttribute="centerX" secondItem="0o0-Ch-dyN" secondAttribute="centerX" id="Gff-oj-Lp1"/>
-                            <constraint firstAttribute="centerX" secondItem="OSN-Iy-Snz" secondAttribute="centerX" id="ci5-94-AA4"/>
+                            <constraint firstItem="Ooh-Zw-yvx" firstAttribute="top" secondItem="8dA-Vl-Me1" secondAttribute="bottom" constant="30" id="aZa-o5-F1o"/>
                             <constraint firstItem="8dA-Vl-Me1" firstAttribute="top" secondItem="Hsg-KF-6ie" secondAttribute="bottom" id="hTM-es-olk"/>
+                            <constraint firstItem="0o0-Ch-dyN" firstAttribute="top" secondItem="Ooh-Zw-yvx" secondAttribute="bottom" constant="30" id="nDK-0I-MSO"/>
                             <constraint firstItem="Ri2-mj-YBW" firstAttribute="top" secondItem="0o0-Ch-dyN" secondAttribute="bottom" constant="20" id="pon-3B-01k"/>
+                            <constraint firstAttribute="centerX" secondItem="Ooh-Zw-yvx" secondAttribute="centerX" id="rWz-eK-OgC"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="CZo-63-6Gf"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="l4F-D1-wTr"/>
                     <connections>
@@ -3157,8 +3164,8 @@ The Activity view contains all public events around you, as well as all plans ma
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Jto-Zv-t2p"/>
-        <segue reference="Tyd-4d-APj"/>
+        <segue reference="5YK-eT-8Z7"/>
+        <segue reference="VIb-lG-h26"/>
         <segue reference="E9u-ti-heE"/>
     </inferredMetricsTieBreakers>
 </document>
