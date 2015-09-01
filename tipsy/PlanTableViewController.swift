@@ -35,7 +35,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     var friendIdArray = [String]()
     
     
-    @IBOutlet weak var tipsyTurtle: UIImageView!
     
     
     @IBOutlet weak var noFriendsLabel: UILabel!
@@ -91,7 +90,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.noFriendsLabel.hidden = false
                 self.inviteLabel.hidden = false
                 self.inviteButton.hidden = false
-                self.tipsyTurtle.hidden = false
             }
             
             self.activityIndicator.stopAnimating()
@@ -195,7 +193,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.inviteButton.hidden = true
         self.inviteLabel.hidden = true
         self.noFriendsLabel.hidden = true
-        self.tipsyTurtle.hidden = true
         
     }
     

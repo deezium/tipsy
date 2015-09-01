@@ -699,13 +699,13 @@ We hope you enjoy using Tipsy!</string>
                                 <rect key="frame" x="281" y="257" width="37" height="37"/>
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It looks like you don't have any friends on Tipsy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bO-z2-IiV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="It looks like you don't have any friends on Tipsy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bO-z2-IiV">
                                 <rect key="frame" x="116" y="364" width="369" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Invite some of your friends to join you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVI-bI-gEf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Invite some of your friends to join you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVI-bI-gEf">
                                 <rect key="frame" x="154" y="434" width="293" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -728,15 +728,11 @@ We hope you enjoy using Tipsy!</string>
                                     <action selector="didTapInvite:" destination="YUp-Vy-5fX" eventType="touchUpInside" id="OxZ-8t-hLb"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="Pv1-HM-9gl">
-                                <rect key="frame" x="185" y="306" width="230" height="50"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MVI-bI-gEf" firstAttribute="leading" secondItem="BBh-Hm-guc" secondAttribute="leading" constant="20" id="1v8-Zm-QsR"/>
                             <constraint firstAttribute="centerY" secondItem="lpq-yx-cCc" secondAttribute="centerY" id="52H-I1-kx0"/>
-                            <constraint firstItem="Pv1-HM-9gl" firstAttribute="top" secondItem="S9b-S5-Fih" secondAttribute="bottom" constant="30" id="ANW-Hr-Q7g"/>
                             <constraint firstItem="0Ji-MX-8R9" firstAttribute="top" secondItem="MVI-bI-gEf" secondAttribute="bottom" constant="30" id="BPY-xP-lkT"/>
                             <constraint firstItem="MVI-bI-gEf" firstAttribute="top" secondItem="2bO-z2-IiV" secondAttribute="bottom" constant="30" id="ByP-Vz-AZz"/>
                             <constraint firstAttribute="trailing" secondItem="Dnh-Gi-Uwk" secondAttribute="trailing" constant="-20" id="E3f-Sp-vuZ"/>
@@ -745,11 +741,9 @@ We hope you enjoy using Tipsy!</string>
                             <constraint firstAttribute="centerX" secondItem="MVI-bI-gEf" secondAttribute="centerX" id="ebY-Wv-URW"/>
                             <constraint firstItem="Dnh-Gi-Uwk" firstAttribute="leading" secondItem="BBh-Hm-guc" secondAttribute="leading" constant="-20" id="eeu-Yh-MsN"/>
                             <constraint firstItem="xhH-Np-3nx" firstAttribute="top" secondItem="0Ji-MX-8R9" secondAttribute="bottom" constant="30" id="gPd-jc-DZe"/>
-                            <constraint firstItem="2bO-z2-IiV" firstAttribute="top" secondItem="Pv1-HM-9gl" secondAttribute="bottom" constant="30" id="gp5-zj-g9W"/>
                             <constraint firstItem="2bO-z2-IiV" firstAttribute="top" secondItem="S9b-S5-Fih" secondAttribute="bottom" constant="300" id="j7v-we-KWM"/>
                             <constraint firstAttribute="centerX" secondItem="0Ji-MX-8R9" secondAttribute="centerX" id="lsk-gY-X6c"/>
                             <constraint firstItem="Dnh-Gi-Uwk" firstAttribute="top" secondItem="S9b-S5-Fih" secondAttribute="bottom" constant="-65" id="m3Q-rZ-UCa"/>
-                            <constraint firstAttribute="centerX" secondItem="Pv1-HM-9gl" secondAttribute="centerX" id="nRk-kL-VDj"/>
                             <constraint firstAttribute="trailing" secondItem="MVI-bI-gEf" secondAttribute="trailing" constant="20" id="nSJ-dF-rvI"/>
                             <constraint firstAttribute="trailing" secondItem="2bO-z2-IiV" secondAttribute="trailing" constant="20" id="y2V-gS-F5p"/>
                             <constraint firstAttribute="bottom" secondItem="Dnh-Gi-Uwk" secondAttribute="bottom" id="y4u-pO-ZBF"/>
@@ -770,7 +764,6 @@ We hope you enjoy using Tipsy!</string>
                         <outlet property="inviteLabel" destination="MVI-bI-gEf" id="hi3-dm-qMO"/>
                         <outlet property="noFriendsLabel" destination="2bO-z2-IiV" id="lMh-W8-AFk"/>
                         <outlet property="tableView" destination="Dnh-Gi-Uwk" id="PEe-ln-NKh"/>
-                        <outlet property="tipsyTurtle" destination="Pv1-HM-9gl" id="Grv-lc-XoS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYj-VF-R7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1269,7 +1262,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                 <rect key="frame" x="281" y="257" width="37" height="37"/>
                                 <color key="color" red="0.2666666667" green="0.46274509800000002" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="It looks like none of your friends have upcoming events in the area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyv-I3-am7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="It looks like none of your friends have upcoming events in the area." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eyv-I3-am7">
                                 <rect key="frame" x="116" y="386" width="448" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1292,10 +1285,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                     <action selector="didTapInvite:" destination="vFn-9h-QqO" eventType="touchUpInside" id="VgZ-Pk-kbc"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="8BX-fG-m1O">
-                                <rect key="frame" x="185" y="328" width="230" height="50"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Check out the Activity feed or invite some of your friends to join you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8y-4t-W4K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Check out the Activity feed or invite some of your friends to join you!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y8y-4t-W4K">
                                 <rect key="frame" x="69" y="444" width="461" height="21"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1309,7 +1299,6 @@ The Activity view contains all public events around you, as well as all plans ma
                             <constraint firstAttribute="centerY" secondItem="k78-XR-afI" secondAttribute="centerY" constant="-247.5" id="JZT-Kv-tqz"/>
                             <constraint firstItem="y8y-4t-W4K" firstAttribute="top" secondItem="Eyv-I3-am7" secondAttribute="bottom" constant="30" id="P86-kz-sdQ"/>
                             <constraint firstAttribute="bottom" secondItem="puL-aa-VKn" secondAttribute="bottom" id="RYv-6t-JBD"/>
-                            <constraint firstAttribute="centerX" secondItem="8BX-fG-m1O" secondAttribute="centerX" id="ShH-Wd-BiW"/>
                             <constraint firstAttribute="trailing" secondItem="y8y-4t-W4K" secondAttribute="trailing" constant="20" id="Sv5-8S-8WN"/>
                             <constraint firstAttribute="trailing" secondItem="puL-aa-VKn" secondAttribute="trailing" constant="-20" id="UnK-OI-GYl"/>
                             <constraint firstAttribute="centerX" secondItem="puL-aa-VKn" secondAttribute="centerX" id="bmU-oC-sCL"/>
@@ -1318,13 +1307,11 @@ The Activity view contains all public events around you, as well as all plans ma
                             <constraint firstAttribute="centerX" secondItem="k78-XR-afI" secondAttribute="centerX" id="mkv-kc-2tO"/>
                             <constraint firstAttribute="centerY" secondItem="1F0-2e-X0i" secondAttribute="centerY" id="p6b-LJ-xhK"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="2oi-4j-mJF" secondAttribute="top" id="qnV-ji-dk4"/>
-                            <constraint firstItem="8BX-fG-m1O" firstAttribute="top" secondItem="z1U-cv-PjY" secondAttribute="bottom" constant="30" id="qoX-nN-Kha"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="z1U-cv-PjY" secondAttribute="bottom" constant="-65" id="rbz-Qf-C50"/>
                             <constraint firstAttribute="centerX" secondItem="1F0-2e-X0i" secondAttribute="centerX" id="rvQ-H1-q3C"/>
                             <constraint firstItem="puL-aa-VKn" firstAttribute="top" secondItem="z1U-cv-PjY" secondAttribute="bottom" id="sV8-Jd-Pqm"/>
                             <constraint firstItem="kut-pQ-wxs" firstAttribute="top" secondItem="k78-XR-afI" secondAttribute="bottom" constant="30" id="ttd-bc-4WF"/>
                             <constraint firstAttribute="trailing" secondItem="Eyv-I3-am7" secondAttribute="trailing" constant="20" id="u1H-65-cgN"/>
-                            <constraint firstItem="Eyv-I3-am7" firstAttribute="top" secondItem="8BX-fG-m1O" secondAttribute="bottom" constant="30" id="vJp-Kn-83B"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -1356,7 +1343,6 @@ The Activity view contains all public events around you, as well as all plans ma
                         <outlet property="inviteLabel" destination="y8y-4t-W4K" id="8i1-qO-ydR"/>
                         <outlet property="noFriendsLabel" destination="Eyv-I3-am7" id="gdv-tH-fFF"/>
                         <outlet property="planTableView" destination="puL-aa-VKn" id="GC9-UC-5mQ"/>
-                        <outlet property="tipsyTurtle" destination="8BX-fG-m1O" id="vhY-8C-oHa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="57X-93-bfR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2968,8 +2954,8 @@ The Activity view contains all public events around you, as well as all plans ma
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I'm awesome because... (max 100 characters)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
-                                <rect key="frame" x="0.0" y="64" width="600" height="267"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="I'm awesome because... (max 100 characters)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8dA-Vl-Me1">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zm3-l5-Q4P"/>
                                 </constraints>
@@ -2993,8 +2979,17 @@ The Activity view contains all public events around you, as well as all plans ma
                                     <action selector="didTapSaveButton:" destination="ZeH-Dc-3xZ" eventType="touchUpInside" id="xtx-wu-drC"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="GenderNeutralUser-100.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-Zw-yvx">
-                                <rect key="frame" x="185" y="275" width="230" height="50"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="blackOutlinev2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ooh-Zw-yvx">
+                                <rect key="frame" x="185" y="115" width="247" height="324"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="JHp-6R-kpx"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="324" id="yId-hf-9ze"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yId-hf-9ze"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3160,12 +3155,13 @@ The Activity view contains all public events around you, as well as all plans ma
         <image name="Pen.png" width="25" height="25"/>
         <image name="Public-50.png" width="50" height="50"/>
         <image name="UserGroup.png" width="25" height="25"/>
+        <image name="blackOutlinev2.png" width="980" height="1306"/>
         <image name="login_with_fb_208x51.png" width="208" height="51"/>
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5YK-eT-8Z7"/>
         <segue reference="VIb-lG-h26"/>
         <segue reference="E9u-ti-heE"/>
+        <segue reference="5YK-eT-8Z7"/>
     </inferredMetricsTieBreakers>
 </document>

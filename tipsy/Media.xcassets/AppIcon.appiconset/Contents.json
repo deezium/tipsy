@@ -85,27 +85,23 @@
       "scale" : "2x"
     },
     {
-      "size" : "72x72",
       "idiom" : "ipad",
-      "filename" : "appicon-72.png",
+      "size" : "72x72",
       "scale" : "1x"
     },
     {
-      "size" : "72x72",
       "idiom" : "ipad",
-      "filename" : "appicon-72@2x.png",
+      "size" : "72x72",
       "scale" : "2x"
     },
     {
-      "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "appicon-76.png",
+      "size" : "76x76",
       "scale" : "1x"
     },
     {
-      "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "appicon-76@2x.png",
+      "size" : "76x76",
       "scale" : "2x"
     },
     {

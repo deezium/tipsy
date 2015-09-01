@@ -15,7 +15,6 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var tableView: UITableView!
     let currentUser = PFUser.currentUser()!
     
-    @IBOutlet weak var tipsyTurtle: UIImageView!
     
     
     @IBOutlet weak var noFriendsLabel: UILabel!
@@ -42,7 +41,6 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.noFriendsLabel.hidden = false
                 self.inviteLabel.hidden = false
                 self.inviteButton.hidden = false
-                self.tipsyTurtle.hidden = false
                 println("you have no friends wa wa")
             }
         })
@@ -77,7 +75,6 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
         noFriendsLabel.hidden = true
         inviteLabel.hidden = true
         inviteButton.hidden = true
-        tipsyTurtle.hidden = true
         
         activityIndicator.startAnimating()
         tableView.dataSource = self
