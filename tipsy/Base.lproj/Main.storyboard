@@ -100,7 +100,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="5mY-If-uWc"/>
                                 </constraints>
-                                <string key="text">Welcome to Tipsy!
+                                <mutableString key="text">Welcome to Tipsy!
 
 You are one of Tipsy's very first users.  We're excited to have you join us!
 
@@ -108,7 +108,7 @@ Tipsy is a new way for you to engage with your local community.  We believe that
 
 You can use Tipsy to broadcast your plans to your friends or other members of Tipsy, see what your friends in your area are up to, or check out events made by others around you.
 
-We hope you enjoy using Tipsy!</string>
+We hope you enjoy using Tipsy!</mutableString>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
