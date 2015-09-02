@@ -233,6 +233,7 @@ class QueryController {
         query.limit = 40
         
         var objects = query.findObjects() as! [PFObject]
+        println("new plans \(objects)")
         self.delegate!.didReceiveThirdQueryResults!(objects)
     }
     

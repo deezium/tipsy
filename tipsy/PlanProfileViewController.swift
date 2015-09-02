@@ -173,6 +173,10 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     
     override func viewDidAppear(animated: Bool) {
         user!.fetchInBackground()
+        activityIndicator.startAnimating()
+        query.delegate = self
+        query.queryUserIdsForFriends()
+
         
         if let about = user!.objectForKey("about") as? String {
             aboutLabel.text = "About me: " + about
@@ -191,11 +195,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
-     
-        
-        query.delegate = self
-        query.queryUserIdsForFriends()
 
 
         self.username.text = user!.objectForKey("fullname") as? String

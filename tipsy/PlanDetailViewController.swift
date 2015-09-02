@@ -179,10 +179,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
         }
         
-        query.delegate = self
-        query.queryComments(plan!)
-        query.queryAttendingUsersForPlan(plan!)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHidden:"), name:UIKeyboardWillHideNotification, object: nil);
 
@@ -194,6 +190,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
     
     override func viewDidAppear(animated: Bool) {
+        
+        let plan = planObjects.first
+        
+        query.delegate = self
+        query.queryComments(plan!)
+        query.queryAttendingUsersForPlan(plan!)
+        
         var viewedPlanDetailProperties = NSDictionary(object: planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
         
         
@@ -434,7 +437,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         
-        else if attendanceState == false {
+        if attendanceState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
             //currentUser?.addUniqueObject(plan.objectId!, forKey: "attendedPlans")
 
