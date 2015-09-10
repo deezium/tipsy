@@ -39,7 +39,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.locationManager.requestWhenInUseAuthorization()
         
         if (CLLocationManager.locationServicesEnabled()) {
-            println("location services enabled")
+            print("location services enabled")
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             //locationManager.requestWhenInUseAuthorization()
@@ -61,13 +61,13 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
   //      println("locationManager \(manager.location)")
         let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         
-        self.currentLocation = manager.location
+        self.currentLocation = manager.location!
     //    println("currentLocation \(self.currentLocation)")
         locationManager.stopUpdatingLocation()
         //        self.addCheckinPins()
@@ -83,9 +83,9 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func queryForAllPostsNearLocation(currentLocation: CLLocation, withNearbyDistance nearbyDistance: CLLocationAccuracy) -> [PFObject] {
         
 //        println("fuck my balls did this work \(currentLocation)")
-        var locValue:CLLocationCoordinate2D = currentLocation.coordinate
+        let locValue:CLLocationCoordinate2D = currentLocation.coordinate
         
-        var query = PFQuery(className: "CheckIn")
+        let query = PFQuery(className: "CheckIn")
         
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
         
@@ -95,7 +95,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         query.limit = 20
         var checkins: NSMutableArray = []
         
-        var objects = query.findObjects() as! [PFObject]
+        let objects = query.findObjects() as! [PFObject]
  
  //       println(objects)
         
@@ -109,7 +109,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //        println(objects.count)
 //        return objects.count
         
-        println(queryObjects.count)
+        print(queryObjects.count)
         return queryObjects.count
     }
     

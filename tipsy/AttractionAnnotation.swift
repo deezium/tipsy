@@ -18,8 +18,8 @@ enum AttractionType: Int {
 
 class AttractionAnnotation: NSObject, MKAnnotation {
   var coordinate: CLLocationCoordinate2D
-  var title: String
-  var subtitle: String
+  var title: String?
+  var subtitle: String?
   var type: AttractionType
   
   init(coordinate: CLLocationCoordinate2D, title: String, subtitle: String, type: AttractionType) {

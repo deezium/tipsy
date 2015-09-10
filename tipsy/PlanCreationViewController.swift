@@ -74,11 +74,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-        println("activityCell \(activityCell.messageLabel.text)")
+        print("activityCell \(activityCell.messageLabel.text)")
         
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
-        println("locationCell \(locationCell.locationLabel.text)")
+        print("locationCell \(locationCell.locationLabel.text)")
         
         
         
@@ -86,7 +86,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
         
-        println("startDateString \(startDateString)")
+        print("startDateString \(startDateString)")
         
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
@@ -94,25 +94,25 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         
         if indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)) {
-            println("bumped up end date index path")
+            print("bumped up end date index path")
             endDateIndexPath = NSIndexPath(forRow: 5, inSection: 0)
         }
         else {
-            println("did not bump up end date index path")
+            print("did not bump up end date index path")
             endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
         }
         
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
-        println("endDateString \(endDateString)")
+        print("endDateString \(endDateString)")
         
         let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
         
         let lengthBound = planStartDate.dateByAddingHours(24)
         
-        println("planEndDate \(planEndDate)")
-        println("lengthBound \(lengthBound)")
+        print("planEndDate \(planEndDate)")
+        print("lengthBound \(lengthBound)")
 
 
         if activityCell.messageLabel.text == "" {
@@ -152,7 +152,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
             let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
             let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-            println("activityCell \(activityCell.messageLabel.text)")
+            print("activityCell \(activityCell.messageLabel.text)")
 
 
             let visibilityIndexPath = NSIndexPath(forRow: 2, inSection: 0)
@@ -163,7 +163,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
             let startDateString = startDateCell?.detailTextLabel?.text as String!
             
-            println("startDateString \(startDateString)")
+            print("startDateString \(startDateString)")
             
             let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
 
@@ -171,11 +171,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             
 
             if indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)) {
-                println("bumped up end date index path")
+                print("bumped up end date index path")
                 endDateIndexPath = NSIndexPath(forRow: 5, inSection: 0)
             }
             else {
-                println("did not bump up end date index path")
+                print("did not bump up end date index path")
                 endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
             }
             
@@ -185,7 +185,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
 
             
-            println("endDateString \(endDateString)")
+            print("endDateString \(endDateString)")
         
             var visibilityStatus = 0
             
@@ -200,7 +200,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-            planObject.setObject(activityCell.messageLabel.text, forKey: "message")
+            planObject.setObject(activityCell.messageLabel.text!, forKey: "message")
             planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
             planObject.setObject(visibilityStatus, forKey: "visibility")
             
@@ -212,14 +212,14 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.saveInBackgroundWithBlock {
                 (success, error) -> Void in
                 if success == true {
-                    println("Success \(planObject.objectId)")
+                    print("Success \(planObject.objectId)")
                     
                     let pushChannel = "all-" + planObject.objectId!
                     
                     let currentInstallation = PFInstallation.currentInstallation()
                     currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
                     currentInstallation.saveInBackground()
-                    println("registered installation for pushes")
+                    print("registered installation for pushes")
                     
                     self.selectedPlaceName = ""
                     activityCell.messageLabel.text = ""
@@ -269,11 +269,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-        println("activityCell \(activityCell.messageLabel.text)")
+        print("activityCell \(activityCell.messageLabel.text)")
 
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
-        println("locationCell \(locationCell.locationLabel.text)")
+        print("locationCell \(locationCell.locationLabel.text)")
 
         
         let visibilityIndexPath = NSIndexPath(forRow: 2, inSection: 0)
@@ -284,7 +284,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
         
-        println("startDateString \(startDateString)")
+        print("startDateString \(startDateString)")
         
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
@@ -292,11 +292,11 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         
         if indexPathHasPicker(NSIndexPath(forRow: 4, inSection: 0)) {
-            println("bumped up end date index path")
+            print("bumped up end date index path")
             endDateIndexPath = NSIndexPath(forRow: 5, inSection: 0)
         }
         else {
-            println("did not bump up end date index path")
+            print("did not bump up end date index path")
             endDateIndexPath = NSIndexPath(forRow: 4, inSection: 0)
         }
 
@@ -307,10 +307,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let lengthBound = planStartDate.dateByAddingHours(24)
         
-        println("planEndDate \(planEndDate)")
-        println("lengthBound \(lengthBound)")
+        print("planEndDate \(planEndDate)")
+        print("lengthBound \(lengthBound)")
 
-        println("endDateString \(endDateString)")
+        print("endDateString \(endDateString)")
         
         
         
@@ -358,7 +358,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             }
             
             let objectId = plans.first?.objectId as String!
-            println(objectId)
+            print(objectId)
             let planObject = PFObject(withoutDataWithClassName: "Plan", objectId: objectId)
             planObject.setObject(planStartDate, forKey: "startTime")
             planObject.setObject(planEndDate, forKey: "endTime")
@@ -366,7 +366,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.setObject(selectedPlaceId, forKey: "googlePlaceId")
             planObject.setObject(selectedPlaceName, forKey: "googlePlaceName")
             planObject.setObject(selectedPlaceFormattedAddress, forKey: "googlePlaceFormattedAddress")
-            planObject.setObject(activityCell.messageLabel.text, forKey: "message")
+            planObject.setObject(activityCell.messageLabel.text!, forKey: "message")
             planObject.setObject(selectedPlaceGeoPoint, forKey: "googlePlaceCoordinate")
             planObject.setObject(visibilityStatus, forKey: "visibility")
 
@@ -376,7 +376,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.saveInBackgroundWithBlock {
                 (success, error) -> Void in
                 if success == true {
-                    println("Success")
+                    print("Success")
                     
                     activityCell.messageLabel.text = ""
                     locationCell.locationLabel.text = "Where are you going?"
@@ -410,7 +410,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                 else {
                     self.activityIndicator.stopAnimating()
                     self.updateButton.enabled = true
-                    println("Update fail")
+                    print("Update fail")
                     let alert = UIAlertController(title: "Sorry!", message: "Ope, we had trouble updating your plan.  Please try again!", preferredStyle: UIAlertControllerStyle.Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                     self.presentViewController(alert, animated: true, completion: nil)
@@ -453,7 +453,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     
     
     func dismissKeyboard(){
-        println("dismissKeyboard called")
+        print("dismissKeyboard called")
         tableView.endEditing(true)
     }
     
@@ -496,9 +496,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
             if (locationManager.location != nil) {
-                self.currentLocation = locationManager.location
+                self.currentLocation = locationManager.location!
             }
-            println(currentLocation)
+            print(currentLocation)
         }
         
         
@@ -506,7 +506,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     
 
     
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
@@ -514,9 +514,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
 
             if (locationManager.location != nil) {
-                self.currentLocation = locationManager.location
+                self.currentLocation = locationManager.location!
             }
-            println(currentLocation)
+            print(currentLocation)
         }
     }
 
@@ -534,10 +534,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         tableView.dataSource = self
         
 
-        println("dese plans \(plans)")
+        print("dese plans \(plans)")
         
         if (plans.count != 0 && locationChanged == false) {
-            println("hay plans")
+            print("hay plans")
             let plan = plans.first
             let planStartTime = plan?.objectForKey("startTime") as! NSDate
             let planEndTime = plan?.objectForKey("endTime") as! NSDate
@@ -546,8 +546,8 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
             self.selectedPlaceGeoPoint = plan?.objectForKey("googlePlaceCoordinate") as! PFGeoPoint
             
-            println(plan)
-            println(self.selectedPlaceId)
+            print(plan)
+            print(self.selectedPlaceId)
        
             
             
@@ -562,7 +562,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if selectedPlaceName != "" {
                 let indexPath = NSIndexPath(forRow: 1, inSection: 0)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
-                println(cell.locationLabel)
+                print(cell.locationLabel)
                 
                 cell.locationLabel.text = selectedPlaceName
                 
@@ -576,7 +576,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if selectedPlaceName != "" {
                 let indexPath = NSIndexPath(forRow: 1, inSection: 0)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
-                println(cell.locationLabel)
+                print(cell.locationLabel)
                 
                 cell.locationLabel.text = selectedPlaceName
                 
@@ -584,7 +584,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
         }
         
-        println("selectedPlace \(selectedPlaceName)")
+        print("selectedPlace \(selectedPlaceName)")
         
 
         
@@ -613,13 +613,13 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             cellID = kDateCellID       // the start/end date cells
         }
         
-        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell!
         
 //        if indexPath.row == 0 {
 //            cell = tableView.dequeueReusableCellWithIdentifier("PlanCreationDividerCell") as! PlanCreationDividerCell
 //        }
         if indexPath.row == 0 {
-            var tempcell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
+            let tempcell = tableView.dequeueReusableCellWithIdentifier("PlanCreationActivityCell") as! PlanCreationActivityCell
             if plans.count != 0 {
                 tempcell.messageLabel.text = plans.first?.objectForKey("message") as? String
             }
@@ -628,7 +628,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             cell = tempcell
         }
         if indexPath.row == 1 {
-           var tempcell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
+           let tempcell = tableView.dequeueReusableCellWithIdentifier("PlanCreationLocationCell") as! PlanCreationLocationCell
             if plans.count != 0 {
                 tempcell.locationLabel.text = plans.first?.objectForKey("googlePlaceName") as? String
             }
@@ -636,7 +636,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         }
         
         if indexPath.row == 2 {
-            var tempcell = tableView.dequeueReusableCellWithIdentifier("VisibilityCell") as! PlanCreationVisibilityCell
+            let tempcell = tableView.dequeueReusableCellWithIdentifier("VisibilityCell") as! PlanCreationVisibilityCell
             if plans.count != 0 {
                 let visibilityStatus = plans.first?.objectForKey("visibility") as? Int
                 
@@ -820,7 +820,7 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             before = datePickerIndexPath?.row < indexPath.row
         }
         
-        var sameCellClicked = (datePickerIndexPath?.row == indexPath.row + 1)
+        let sameCellClicked = (datePickerIndexPath?.row == indexPath.row + 1)
         
         // remove any date picker cell if it exists
         if self.hasInlineDatePicker() {
@@ -913,10 +913,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             targetedCellIndexPath = NSIndexPath(forRow: datePickerIndexPath!.row - 1, inSection: 0)
         } else {
             // external date picker: update the current "selected" cell's date
-            targetedCellIndexPath = tableView.indexPathForSelectedRow()!
+            targetedCellIndexPath = tableView.indexPathForSelectedRow!
         }
         
-        var cell = tableView.cellForRowAtIndexPath(targetedCellIndexPath!)
+        let cell = tableView.cellForRowAtIndexPath(targetedCellIndexPath!)
         let targetedDatePicker = sender
         
         // update our data model

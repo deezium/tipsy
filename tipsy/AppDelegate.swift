@@ -74,13 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             }
         }
         if application.respondsToSelector("registerUserNotificationSettings:") {
-            let userNotificationTypes = UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound
+            let userNotificationTypes: UIUserNotificationType = [UIUserNotificationType.Alert, UIUserNotificationType.Badge, UIUserNotificationType.Sound]
             let settings = UIUserNotificationSettings(forTypes: userNotificationTypes, categories: nil)
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
-            println("app registered for push notifications")
+            print("app registered for push notifications")
         } else {
-            let types = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
+            let types: UIRemoteNotificationType = [UIRemoteNotificationType.Badge, UIRemoteNotificationType.Alert, UIRemoteNotificationType.Sound]
             application.registerForRemoteNotificationTypes(types)
         }
 
@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
 //        application.applicationIconBadgeNumber = installation.badge
         
-        println("badge number \(installation.badge)")
+        print("badge number \(installation.badge)")
         
         installation.setObject(0, forKey: "badge")
         
@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             
             tabBarController.selectedIndex = 0
             
-            let welcomeViewController = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewController") as! UIViewController
+            let welcomeViewController = storyboard.instantiateViewControllerWithIdentifier("WelcomeViewController") 
             
 //            self.window?.rootViewController = welcomeViewController
             
@@ -117,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                 currentInstallation["user"] = PFUser.currentUser()
                 currentInstallation.addUniqueObject("global", forKey: "channels")
                 currentInstallation.saveInBackground()
-                println("registered installation for pushes")
+                print("registered installation for pushes")
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "registeredForGlobalPushNotifications")
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
@@ -137,7 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     
-    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
@@ -149,9 +149,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
         if error.code == 3010 {
-            println("Push notifications are not supported in the iOS Simulator.")
+            print("Push notifications are not supported in the iOS Simulator.")
         } else {
-            println("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
+            print("application:didFailToRegisterForRemoteNotificationsWithError: %@", error)
         }
     }
     

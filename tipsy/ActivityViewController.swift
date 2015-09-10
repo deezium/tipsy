@@ -37,7 +37,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     var currentLocation = CLLocation()
 
     func refreshPosts() {
-        var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+        let locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
         
         
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
@@ -48,11 +48,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     }
 
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        var locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
-        self.currentLocation = manager.location
-        println("didUpdateLocations currentLocation \(self.currentLocation)")
+        self.currentLocation = manager.location!
+        print("didUpdateLocations currentLocation \(self.currentLocation)")
         
   //      query.queryUserIdsForFriends()
   }
@@ -94,12 +94,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
             if (locationManager.location != nil) {
-                self.currentLocation = locationManager.location
-                println("locationManager not nil \(self.currentLocation)")
+                self.currentLocation = locationManager.location!
+                print("locationManager not nil \(self.currentLocation)")
             }
             
             query.queryUserIdsForFriends()
-            println("queriedLocation \(currentLocation)")
+            print("queriedLocation \(currentLocation)")
         }
 
         var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
@@ -122,7 +122,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func setUserLocation() {
         if (locationManager.location != nil) {
             
-            let locValue = locationManager.location.coordinate
+            let locValue = locationManager.location!.coordinate
             
             let latestLocation = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
             
@@ -137,7 +137,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
@@ -147,9 +147,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
             
             if (locationManager.location != nil) {
-                self.currentLocation = locationManager.location
+                self.currentLocation = locationManager.location!
             }
-            println("didChangeAuthorizationStatus \(currentLocation)")
+            print("didChangeAuthorizationStatus \(currentLocation)")
             query.queryUserIdsForFriends()
         }
         else if status == .Denied {
@@ -165,14 +165,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func saveFacebookData() {
         if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("fullname") == nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil) {
-                println("has access token")
+                print("has access token")
                 let graphRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
                 graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        println("OOPS")
+                        print("OOPS")
                     }
                     else {
-                        println("me fetch result \(result)")
+                        print("me fetch result \(result)")
                         
                         if result["name"] != nil {
                             PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
@@ -187,26 +187,26 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         
         if (PFUser.currentUser() != nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil) {
-                println("has access token")
+                print("has access token")
                 let pictureRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/picture?width=100&height=100&redirect=false", parameters: nil)
                 pictureRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        println("OOPS")
+                        print("OOPS")
                     }
                     else {
-                        println(result["data"]?["url"])
+                        print(result["data"]?["url"])
                         if let pictureString = result["data"]?["url"] as? String {
                             let pictureURL = NSURL(string: pictureString) as NSURL?
                             
                             if pictureURL != nil {
                                 let pictureData = NSData(contentsOfURL: pictureURL!)
-                                println("pictureData \(pictureData)")
+                                print("pictureData \(pictureData)")
                                 
                                 if pictureData != nil {
-                                    var pictureFile = PFFile(data: pictureData!)
+                                    let pictureFile = PFFile(data: pictureData!)
                                     PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
                                     PFUser.currentUser()?.saveInBackground()
-                                    println("facebook profile picture saved")
+                                    print("facebook profile picture saved")
                                     
                                 }
                             }
@@ -227,15 +227,15 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 let userFriendsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/friends", parameters: nil)
                 userFriendsRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        println("Oops, friend fetch failed")
+                        print("Oops, friend fetch failed")
                     }
                     else {
                         
                         
-                        println(result?["data"]?[0]["id"])
+                        print(result?["data"]?[0]["id"])
                         
                         if let resultArray = result.objectForKey("data") as? NSArray {
-                            println("facebook id data \(result)")
+                            print("facebook id data \(result)")
                             for i in resultArray {
                                 if let id = i.objectForKey("id") as? String {
                                     friendsArray.append(id)                                    
@@ -259,11 +259,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 let userIDRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
                 userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        println("Oops, id fetch failed")
+                        print("Oops, id fetch failed")
                     }
                     else {
-                        println("idrequest")
-                        println(result["id"])
+                        print("idrequest")
+                        print(result["id"])
                         
                         if (result["id"] != nil) {
                             PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
@@ -275,11 +275,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
                 userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        println("Oops, id fetch failed")
+                        print("Oops, id fetch failed")
                     }
                     else {
-                        println("emailrequest")
-                        println(result["email"])
+                        print("emailrequest")
+                        print(result["email"])
                         
                         if (result["email"] != nil) {
                             PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
@@ -300,7 +300,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             self.userFriendsQueryObjects.append(self.currentUser!)
             //self.createFriendIdArrays(objects)
             
-            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+            let locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
             
             
             let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
@@ -351,15 +351,15 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didChangeSegment(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            println("hot")
+            print("hot")
             Amplitude.instance().logEvent("activityFeedViewedHot")
             
         case 1:
-            println("new")
+            print("new")
             Amplitude.instance().logEvent("activityFeedViewedNew")
 
         case 2:
-            println("ongoing")
+            print("ongoing")
             Amplitude.instance().logEvent("activityFeedViewedOngoing")
 
         default:
@@ -441,11 +441,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             
             
-            println("heartCount \(heartCount)")
+            print("heartCount \(heartCount)")
             
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                println("postImage \(postImage)")
+                print("postImage \(postImage)")
 //                let oldImageData = postImage.getData()
                 
                 postImage.getDataInBackgroundWithBlock({
@@ -461,7 +461,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         }
                     }
                     else {
-                        println("image retrieval error")
+                        print("image retrieval error")
                     }
                 })
                 
@@ -482,9 +482,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             let countHeartingUsers = heartingUsers?.count
             
             if let hearts = heartingUsers {
-                println("dem hearts \(hearts)")
-                println("dat user \(currentUser!.objectId!)")
-                if contains(hearts, currentUser!.objectId!) {
+                print("dem hearts \(hearts)")
+                print("dat user \(currentUser!.objectId!)")
+                if hearts.contains((currentUser!.objectId!)) {
                     heartState = true
                 }
             }
@@ -507,7 +507,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
             
             if (indexPath.row == newQueryObjects.count - 1) {
-                println("reached bottom")
+                print("reached bottom")
             }
             
             finalCell = cell
@@ -543,7 +543,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                println("postImage \(postImage)")
+                print("postImage \(postImage)")
                 
                 postImage.getDataInBackgroundWithBlock({
                     (imageData,error) -> Void in
@@ -558,7 +558,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         }
                     }
                     else {
-                        println("image retrieval error")
+                        print("image retrieval error")
                     }
                 })
 
@@ -572,7 +572,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
             
             if (indexPath.row == newQueryObjects.count - 1) {
-                println("reached bottom")
+                print("reached bottom")
             }
             
             finalCell = cell
@@ -612,7 +612,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                println("postImage \(postImage)")
+                print("postImage \(postImage)")
                 //                let oldImageData = postImage.getData()
                 
                 postImage.getDataInBackgroundWithBlock({
@@ -628,7 +628,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         }
                     }
                     else {
-                        println("image retrieval error")
+                        print("image retrieval error")
                     }
                 })
                 
@@ -646,7 +646,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             cell.locationLabel.text = placeName
             
             if (indexPath.row == ongoingQueryObjects.count - 1) {
-                println("reached bottom")
+                print("reached bottom")
             }
 
 
@@ -707,7 +707,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             let planDetailViewController = segue.destinationViewController as! PlanDetailViewController
             
-            let index = self.tableView.indexPathForSelectedRow()!
+            let index = self.tableView.indexPathForSelectedRow!
         
             var queryObject: PFObject
             
@@ -722,7 +722,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             }
 
             selectedPlans.append(queryObject)
-            println("selected plan \(selectedPlans)")
+            print("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
         }
         
@@ -760,9 +760,9 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            println("dem hearts \(hearts)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(hearts, currentUser!.objectId!) {
+            print("dem hearts \(hearts)")
+            print("dat user \(currentUser!.objectId!)")
+            if hearts.contains((currentUser!.objectId!)) {
                 //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
@@ -784,7 +784,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("hearted! \(heartState)")
+            print("hearted! \(heartState)")
             
         }
         else {
@@ -800,14 +800,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("unhearted! \(heartState)")
+            print("unhearted! \(heartState)")
         }
         
         
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Success")
+                print("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
                 var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
@@ -817,7 +817,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
             }
             else {
-                println("error \(error)")
+                print("error \(error)")
             }
         }
     }

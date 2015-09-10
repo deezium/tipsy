@@ -14,9 +14,9 @@ class ModelManager {
     var database: FMDatabase? = nil
     
     class var instance: ModelManager {
-        sharedInstance.database = FMDatabase(path: Util.getPath("tipsy.sqlite"))
-        var path = Util.getPath("tipsy.sqlite")
-        println("path: \(path)")
+//        sharedInstance.database = FMDatabase(path: Util.getPath("tipsy.sqlite"))
+//        let path = Util.getPath("tipsy.sqlite")
+//        print("path: \(path)")
         return sharedInstance
     }
     

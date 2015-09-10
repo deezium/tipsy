@@ -66,7 +66,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
     
     func dismissKeyboard(){
-        println("dismissKeyboard called")
+        print("dismissKeyboard called")
         commentEntry.endEditing(true)
     }
 
@@ -109,7 +109,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
         configureTableView()
         
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         tap.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tap)
 
@@ -123,7 +123,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let endTime = plan!.objectForKey("endTime") as? NSDate
         let placeName = plan!.objectForKey("googlePlaceName") as? String
 
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMM d, hh:mm a"
         
         let startTimeString = dateFormatter.stringFromDate(startTime!)
@@ -158,7 +158,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                     }
                 }
                 else {
-                    println("image retrieval error")
+                    print("image retrieval error")
                 }
             })
             
@@ -210,7 +210,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     func keyboardWasShown(notification: NSNotification) {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
 
         UIView.animateWithDuration(1, animations: { () -> Void in
             self.bottomConstraint.constant = keyboardFrame.size.height - 50
@@ -258,9 +258,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            println("dem hearts \(hearts)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(hearts, currentUser!.objectId!) {
+            print("dem hearts \(hearts)")
+            print("dat user \(currentUser!.objectId!)")
+            if hearts.contains((currentUser!.objectId!)) {
                 //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
@@ -282,7 +282,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("hearted! \(heartState)")
+            print("hearted! \(heartState)")
             
         }
         else {
@@ -298,14 +298,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("unhearted! \(heartState)")
+            print("unhearted! \(heartState)")
         }
         
         
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Success")
+                print("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
                 var heartedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
@@ -315,7 +315,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
             }
             else {
-                println("error \(error)")
+                print("error \(error)")
             }
         }
 
@@ -324,7 +324,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     
     @IBAction func didTapCommentHeart(sender: AnyObject) {
-        println("Comment hearted!")
+        print("Comment hearted!")
         
         let heartButton: UIButton = sender as! UIButton
         
@@ -344,9 +344,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let heartingUsers = comment.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            println("dem hearts \(hearts)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(hearts, currentUser!.objectId!) {
+            print("dem hearts \(hearts)")
+            print("dat user \(currentUser!.objectId!)")
+            if hearts.contains((currentUser!.objectId!)) {
                 //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
@@ -368,7 +368,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("hearted! \(heartState)")
+            print("hearted! \(heartState)")
             
         }
         else {
@@ -384,14 +384,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("unhearted! \(heartState)")
+            print("unhearted! \(heartState)")
         }
         
         
         comment.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Success")
+                print("Success")
                 let heartedCommentProperties = NSDictionary(object: comment.objectId!, forKey: "commentId") as? [NSObject : AnyObject]
                 
                 
@@ -399,7 +399,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
             }
             else {
-                println("error \(error)")
+                print("error \(error)")
             }
         }
         
@@ -425,9 +425,9 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
         
         if let attendees = attendingUsers {
-            println("dem attendees \(attendees)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(attendees, currentUser!.objectId!) {
+            print("dem attendees \(attendees)")
+            print("dat user \(currentUser!.objectId!)")
+            if attendees.contains((currentUser!.objectId!)) {
                 //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 attendanceState = true
             }
@@ -446,7 +446,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
-            println("joined! \(attendanceState)")
+            print("joined! \(attendanceState)")
             
         }
         else {
@@ -459,14 +459,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
-            println("left! \(attendanceState)")
+            print("left! \(attendanceState)")
         }
         
         
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Success")
+                print("Success")
                 let joinChannel = "join-" + plan.objectId!
                 let commentsChannel = "comments-" + plan.objectId!
                 
@@ -474,7 +474,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
                 currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
                 currentInstallation.saveInBackground()
-                println("registered installation for pushes")
+                print("registered installation for pushes")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
                 var joinedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
@@ -486,7 +486,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
             }
             else {
-                println("error \(error)")
+                print("error \(error)")
             }
         }
 
@@ -525,7 +525,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println(queryObjects.count)
+        print(queryObjects.count)
         return queryObjects.count + 3
     }
  
@@ -537,12 +537,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
             let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
             
-            println("first planobject \(planObjects.first)")
+            print("first planobject \(planObjects.first)")
             
             if placeAddress != "" {
                 let formattedAddressSlice = placeAddress!.componentsSeparatedByString(", ")[0..<3]
                 
-                let formattedAddress = formattedAddressSlice[0] + ", " + formattedAddressSlice[1] + ", " + formattedAddressSlice[2]
+                let formattedAddress = formattedAddressSlice[formattedAddressSlice.startIndex] + ", " + formattedAddressSlice[formattedAddressSlice.startIndex + 1] + ", " + formattedAddressSlice[formattedAddressSlice.startIndex + 2]
                 
                 
                 
@@ -569,10 +569,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let countHeartingUsers = heartingUsers?.count
             
             if let hearts = heartingUsers {
-                println("dem hearts \(hearts)")
-                println("dat user \(currentUser!.objectId!)")
-                if contains(hearts, currentUser!.objectId!) {
-                    println ("plan \(plan.objectId) is hearted by \(currentUser!.objectId!)")
+                print("dem hearts \(hearts)")
+                print("dat user \(currentUser!.objectId!)")
+                if hearts.contains((currentUser!.objectId!)) {
+                    print ("plan \(plan.objectId) is hearted by \(currentUser!.objectId!)")
                     heartState = true
                 }
             }
@@ -583,10 +583,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let countAttendingUsers = attendingUsers?.count
             
             if let attendees = attendingUsers {
-                println("dem hearts \(attendees)")
-                println("dat user \(currentUser!.objectId!)")
-                if contains(attendees, currentUser!.objectId!) {
-                    println ("plan \(plan.objectId) is being attended by \(currentUser!.objectId!)")
+                print("dem hearts \(attendees)")
+                print("dat user \(currentUser!.objectId!)")
+                if attendees.contains((currentUser!.objectId!)) {
+                    print ("plan \(plan.objectId) is being attended by \(currentUser!.objectId!)")
                     attendanceState = true
                 }
             }
@@ -659,13 +659,13 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 //                        }
 //                    })
                     
-                    println("attendeeQueryObjects \(attendeeQueryObjects)")
-                    println("attendeeImageArray \(attendeeImageArray)")
+                    print("attendeeQueryObjects \(attendeeQueryObjects)")
+                    print("attendeeImageArray \(attendeeImageArray)")
                     
                 }
             }
             
-            println("first attendee \(attendeeImageArray.first)")
+            print("first attendee \(attendeeImageArray.first)")
             
             if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
                 
@@ -684,14 +684,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                         }
                     }
                     else {
-                        println("image retrieval error")
+                        print("image retrieval error")
                     }
                 })
 
                 
             }
             
-            for (index, image) in enumerate(attendeeImageArray) {
+            for (index, image) in attendeeImageArray.enumerate() {
                 if index == 0 {
                     cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
                     cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -774,7 +774,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                         }
                     }
                     else {
-                        println("image retrieval error")
+                        print("image retrieval error")
                     }
                 })
 
@@ -790,10 +790,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let countHeartingUsers = heartingUsers?.count
             
             if let hearts = heartingUsers {
-                println("dem hearts \(hearts)")
-                println("dat user \(currentUser!.objectId!)")
-                if contains(hearts, currentUser!.objectId!) {
-                    println ("plan \(commentObject.objectId) is hearted by \(currentUser!.objectId!)")
+                print("dem hearts \(hearts)")
+                print("dat user \(currentUser!.objectId!)")
+                if hearts.contains((currentUser!.objectId!)) {
+                    print ("plan \(commentObject.objectId) is hearted by \(currentUser!.objectId!)")
                     heartState = true
                 }
             }
@@ -806,7 +806,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 
             }
             
-            println("comment hearting users \(heartingUsers)")
+            print("comment hearting users \(heartingUsers)")
             if heartingUsers?.count == 0 {
                 cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
                 //cell.heartButton.titleLabel?.hidden = true
@@ -837,14 +837,14 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         if (sender.tag == 0) {
             attendee = planObjects.first?.objectForKey("creatingUser") as? PFUser
-            println("user picture tapped! \(attendee)")
+            print("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
         }
         else if (sender.tag < 100) {
             attendee = attendeeQueryObjects[sender.tag-1] as? PFUser
-            println("user picture tapped! \(attendee)")
+            print("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
@@ -853,7 +853,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         else {
             let object = queryObjects[sender.tag-100] as? PFObject
             attendee = object?.objectForKey("commentingUser") as? PFUser
-            println("user picture tapped! \(attendee)")
+            print("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
@@ -862,7 +862,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
 
@@ -916,7 +916,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             activityIndicator.startAnimating()
             postButton.enabled = false
             let commentObject = PFObject(className: "Comment")
-            commentObject.setObject(commentEntry.text, forKey: "body")
+            commentObject.setObject(commentEntry.text!, forKey: "body")
             commentObject.setObject(PFUser.currentUser()!, forKey: "commentingUser")
             commentObject.setObject(planObjects.first!, forKey: "commentedPlan")
             
@@ -929,22 +929,22 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             commentObject.saveInBackgroundWithBlock {
                 (success, error) -> Void in
                 if success == true {
-                    println("Success")
+                    print("Success")
                     
                     let pushChannel = "comments-" + self.planObjects.first!.objectId!
                     let currentInstallation = PFInstallation.currentInstallation()
                     currentInstallation.addUniqueObject(pushChannel, forKey: "channels")
                     currentInstallation.saveInBackground()
-                    println("registered installation for pushes")
+                    print("registered installation for pushes")
                     
                     self.planObjects.first?.addObject(commentObject.objectId!, forKey: "comments")
                     self.planObjects.first?.saveInBackgroundWithBlock {
                         (success, error) -> Void in
                         if success == true {
-                            println("comment added to plan")
+                            print("comment added to plan")
                         }
                         else {
-                            println("comment not added to plan")
+                            print("comment not added to plan")
                         }
                     }
                     

@@ -11,31 +11,31 @@ import Foundation
 class CheckinCallout: UIView {
     
     override func drawRect(rect: CGRect) {
-        println("my rectangle dis big \(rect)")
-        var path = UIBezierPath(rect: rect)
+        print("my rectangle dis big \(rect)")
+        let path = UIBezierPath(rect: rect)
         UIColor.whiteColor().setFill()
         path.fill()
         
-        var imageView = UIImageView(frame: CGRectMake(10, 10, 180, 100))
+        let imageView = UIImageView(frame: CGRectMake(10, 10, 180, 100))
 //        imageView.layer.borderColor = UIColor.blackColor() as! CGColor
 //        imageView.layer.borderWidth = 1.0
         imageView.image = UIImage(named: "Edit-25")
         self.addSubview(imageView)
         
-        var nameLabel = UILabel(frame: CGRectMake(10,130,130,20))
+        let nameLabel = UILabel(frame: CGRectMake(10,130,130,20))
         nameLabel.textAlignment = NSTextAlignment.Left
         nameLabel.font = UIFont(name: nameLabel.font.fontName, size: 15)
         nameLabel.text = "Test Name"
         self.addSubview(nameLabel)
         
-        var timeLabel = UILabel(frame: CGRectMake(140, 130, 50, 20))
+        let timeLabel = UILabel(frame: CGRectMake(140, 130, 50, 20))
         timeLabel.textAlignment = NSTextAlignment.Left
         timeLabel.textColor = UIColor.grayColor()
         timeLabel.font = UIFont(name: timeLabel.font.fontName, size: 11)
         timeLabel.text = "3d ago"
         self.addSubview(timeLabel)
 
-        var messageLabel = UILabel(frame: CGRectMake(10, 150, 180, 40))
+        let messageLabel = UILabel(frame: CGRectMake(10, 150, 180, 40))
         messageLabel.textAlignment = NSTextAlignment.Left
         messageLabel.font = UIFont(name: messageLabel.font.fontName, size: 11)
         messageLabel.numberOfLines = 0
@@ -46,12 +46,12 @@ class CheckinCallout: UIView {
     
     
     
-    override func hitTest(var point: CGPoint, withEvent event: UIEvent?) -> UIView? {
+    override func hitTest(point: CGPoint, withEvent event: UIEvent?) -> UIView? {
         let viewPoint = superview?.convertPoint(point, toView: self) ?? point
         
         let isInsideView = pointInside(viewPoint, withEvent: event)
         
-        var view = super.hitTest(viewPoint, withEvent: event)
+        let view = super.hitTest(viewPoint, withEvent: event)
         
         return view
     }

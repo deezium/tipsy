@@ -17,8 +17,8 @@ enum CheckinType: Int {
 
 class CheckinAnnotation: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
-    var title: String
-    var subtitle: String
+    var title: String?
+    var subtitle: String?
     //var image: UIImage
     var type: CheckinType
     var posterImage: UIImage

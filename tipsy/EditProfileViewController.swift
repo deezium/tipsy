@@ -46,7 +46,7 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didTapSaveButton(sender: AnyObject) {
         
-        currentUser.setObject(aboutField.text, forKey: "about")
+        currentUser.setObject(aboutField.text!, forKey: "about")
         
         
         currentUser.saveInBackgroundWithBlock {

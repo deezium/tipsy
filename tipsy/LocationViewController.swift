@@ -35,7 +35,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
-            println("objects received")
+            print("objects received")
             self.addQueryControllerCheckinPins(self.queryObjects)
             self.mapView.reloadInputViews()
         })
@@ -75,7 +75,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         query.queryPosts("")
         
         if (CLLocationManager.locationServicesEnabled()) {
-            println("location services enabled")
+            print("location services enabled")
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             //locationManager.requestWhenInUseAuthorization()
@@ -99,31 +99,31 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
     }
 
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
-        println("locationManager \(manager.location)")
+        print("locationManager \(manager.location!)")
         let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
         
         self.mapView.setRegion(region, animated: true)
         
-        self.currentLocation = manager.location
-        println("currentLocation \(self.currentLocation)")
+        self.currentLocation = manager.location!
+        print("currentLocation \(self.currentLocation)")
         locationManager.stopUpdatingLocation()
         
         //self.queryForAllPostsNearLocation(currentLocation, withNearbyDistance: 1)
     }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error while updating location " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error while updating location " + error.localizedDescription)
     }
     
-    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {
+    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager) {
         
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         
         if (annotation is MKUserLocation) {
             return nil
@@ -132,7 +132,7 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         if (annotation is CheckinAnnotation) {
             let checkinView = CheckinAnnotationView(annotation: annotation, reuseIdentifier: "checkin")
             let newAnnotation = annotation as! CheckinAnnotation
-            println(newAnnotation.posterImage)
+            print(newAnnotation.posterImage)
             
             //checkinView.canShowCallout = true // toggle default checkin annotation
 
@@ -151,16 +151,16 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, MKMap
         return nil
     }
     
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if let mapPin = view as? CheckinAnnotationView {
             updatePinPosition(mapPin)
         }
     }
     
-    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
         if let mapPin = view as? CheckinAnnotationView {
             if mapPin.preventDeselection {
-                mapView.selectAnnotation(view.annotation, animated: false)
+                mapView.selectAnnotation(view.annotation!, animated: false)
             }
         }
     }

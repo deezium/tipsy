@@ -17,23 +17,23 @@ class InitialViewController: UIViewController {
     
     @IBAction func didTapFacebookLogin(sender: AnyObject) {
         
-        var permissions = ["public_profile", "email", "user_friends"]
+        let permissions = ["public_profile", "email", "user_friends"]
         
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {(user: PFUser?, error: NSError?) -> Void in
             if let user = user {
                 
                 if user.isNew {
-                    println("Successful sign up!")
+                    print("Successful sign up!")
                     self.performSegueWithIdentifier("loggedInSegue", sender: nil)
                 }
                 else {
-                    println("User already logged in!")
-                    println(user)
+                    print("User already logged in!")
+                    print(user)
                     self.performSegueWithIdentifier("loggedInSegue", sender: nil)
                 }
             }
             else {
-                println("Oh noes! Login cancelled!")
+                print("Oh noes! Login cancelled!")
             }
             })
     }

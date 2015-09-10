@@ -34,7 +34,7 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
             imagePicker.delegate = self
             
             imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-            imagePicker.mediaTypes = [kUTTypeImage as NSString]
+            imagePicker.mediaTypes = [kUTTypeImage as String]
             imagePicker.allowsEditing = false
             self.presentViewController(imagePicker, animated: true, completion: nil)
             
@@ -47,7 +47,7 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
         self.locationManager.requestWhenInUseAuthorization()
         
         if (CLLocationManager.locationServicesEnabled()) {
-            println("checkin location services enabled")
+            print("checkin location services enabled")
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             //locationManager.requestWhenInUseAuthorization()
@@ -55,11 +55,11 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
             mapView.showsUserLocation = true
         }
         
-        println("yay loaded!")
+        print("yay loaded!")
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        println(image)
+        print(image)
         imageView!.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -68,53 +68,53 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var locValue:CLLocationCoordinate2D = manager.location.coordinate
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
-        println("locations = \(locValue.latitude) \(locValue.longitude)")
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
         let center = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.mapView.setRegion(region, animated: false)
-        self.currentLocation = manager.location
+        self.currentLocation = manager.location!
         
-        var locationLat = currentLocation.coordinate.latitude
-        var locationLong = currentLocation.coordinate.longitude
+        let locationLat = currentLocation.coordinate.latitude
+        let locationLong = currentLocation.coordinate.longitude
         
-        println("locations = \(locationLat) \(locationLong) \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
+        print("locations = \(locationLat) \(locationLong) \(currentLocation.coordinate.latitude) \(currentLocation.coordinate.longitude)")
         locationManager.stopUpdatingLocation()
     }
     
 
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        println("Error while updating location " + error.localizedDescription)
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error while updating location " + error.localizedDescription)
     }
     
-    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager!) {
+    func locationManagerDidPauseLocationUpdates(manager: CLLocationManager) {
         
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         message.endEditing(true)
     }
     
     @IBAction func checkinButtonPressed(sender: AnyObject) {
-        var locValue:CLLocationCoordinate2D = self.locationManager.location.coordinate
+        var locValue:CLLocationCoordinate2D = self.locationManager.location!.coordinate
     
         let user = PFUser.currentUser()
         
         let currentPoint = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
         
         let checkInObject = PFObject(className: "CheckIn")
-        checkInObject.setObject(message.text, forKey: "message")
+        checkInObject.setObject(message.text!, forKey: "message")
         checkInObject.setObject(currentPoint, forKey: "location")
         checkInObject.setObject(user!, forKey: "creatingUser")
         
         if let image = imageView!.image as UIImage? {
             let image = imageView!.image
-            let imageData = UIImageJPEGRepresentation(image, 1)
-            let imageParseFile: PFFile = PFFile(data: imageData)
+            let imageData = UIImageJPEGRepresentation(image!, 1)
+            let imageParseFile: PFFile = PFFile(data: imageData!)
             checkInObject.setObject(imageParseFile, forKey: "image")
         }
         
@@ -126,13 +126,13 @@ class CheckInViewController: UIViewController, CLLocationManagerDelegate, UIImag
         checkInObject.saveInBackgroundWithBlock {
             (success, error) -> Void in
             if success == true {
-                println("Success")
+                print("Success")
                 let alert = UIAlertController(title: "Success", message: "Your message has been posted successfully!", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             else {
-                println("Fail")
+                print("Fail")
             }
         }
         

@@ -23,7 +23,7 @@ class CheckinAnnotationView: MKAnnotationView {
     }
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -31,7 +31,7 @@ class CheckinAnnotationView: MKAnnotationView {
         super.init(frame: frame)
     }
     
-    override init(annotation: MKAnnotation, reuseIdentifier: String) {
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         let checkinAnnotation = self.annotation as! CheckinAnnotation
         canShowCallout = false

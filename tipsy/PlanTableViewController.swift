@@ -64,7 +64,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.userFriendsQueryObjects.append(self.currentUser!)
             //self.createFriendIdArrays(objects)
             
-            var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+            let locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
             
             
             let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
@@ -83,7 +83,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.createTableSections()
             self.planTableView!.reloadData()
             
-            println("friend feed results \(self.queryObjects)")
+            print("friend feed results \(self.queryObjects)")
             
             if self.upcomingPlans.count == 0 {
                 self.planTableView!.hidden = true
@@ -101,11 +101,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func createFriendIdArrays(objects: [PFObject]) {
         for object in objects {
-            println("friend object \(object)")
+            print("friend object \(object)")
             let id = object.objectId
             friendIdArray.append(id!)
         }
-        println("friend id array \(friendIdArray)")
+        print("friend id array \(friendIdArray)")
     }
 
     
@@ -127,10 +127,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 pastPlansOriginal.append(object)
             }
         }
-        upcomingPlans = upcomingPlansOriginal.reverse()
+        upcomingPlans = Array(upcomingPlansOriginal.reverse())
         pastPlans = pastPlansOriginal
-        println("upcomingPlans \(upcomingPlans)")
-        println("pastPlansCount \(pastPlans.count)")
+        print("upcomingPlans \(upcomingPlans)")
+        print("pastPlansCount \(pastPlans.count)")
     }
     
     
@@ -174,9 +174,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.locationManager.startUpdatingLocation()
             
             if (locationManager.location != nil) {
-                self.currentLocation = locationManager.location
+                self.currentLocation = locationManager.location!
             }
-            println("queriedLocation \(currentLocation)")
+            print("queriedLocation \(currentLocation)")
         }
         
 //        if (CLLocationManager.locationServicesEnabled()) {
@@ -198,7 +198,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
 
     
-    func locationManager(manager: CLLocationManager!,
+    func locationManager(manager: CLLocationManager,
         didChangeAuthorizationStatus status: CLAuthorizationStatus)
     {
         if status == .AuthorizedAlways || status == .AuthorizedWhenInUse {
@@ -216,7 +216,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 //    }
     
     func refreshPosts() {
-        var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+        let locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
         
         
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
@@ -248,9 +248,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            println("dem hearts \(hearts)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(hearts, currentUser!.objectId!) {
+            print("dem hearts \(hearts)")
+            print("dat user \(currentUser!.objectId!)")
+            if hearts.contains((currentUser!.objectId!)) {
                 //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
@@ -273,7 +273,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("hearted! \(heartState)")
+            print("hearted! \(heartState)")
             
         }
         else {
@@ -289,14 +289,14 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            println("unhearted! \(heartState)")
+            print("unhearted! \(heartState)")
         }
         
         
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Success")
+                print("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
                 var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
@@ -306,7 +306,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
             }
             else {
-                println("error \(error)")
+                print("error \(error)")
             }
         }
     }
@@ -331,9 +331,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
         
         if let attendees = attendingUsers {
-            println("dem attendees \(attendees)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(attendees, currentUser!.objectId!) {
+            print("dem attendees \(attendees)")
+            print("dat user \(currentUser!.objectId!)")
+            if attendees.contains((currentUser!.objectId!)) {
                 //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 attendanceState = true
             }
@@ -352,12 +352,12 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
-            println("joined! \(attendanceState)")
+            print("joined! \(attendanceState)")
             
         }
         else {
             
-            println("attendanceToRemove \(plan.objectId!)")
+            print("attendanceToRemove \(plan.objectId!)")
             plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
             currentUser?.removeObject(plan.objectId!, forKey: "attendedPlans")
             
@@ -366,14 +366,14 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
-            println("left! \(attendanceState)")
+            print("left! \(attendanceState)")
         }
 
         
         plan.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("Plan save success")
+                print("Plan save success")
                 
                 let joinChannel = "join-" + plan.objectId!
                 let commentsChannel = "comments-" + plan.objectId!
@@ -382,7 +382,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 currentInstallation.addUniqueObject(joinChannel, forKey: "channels")
                 currentInstallation.addUniqueObject(commentsChannel, forKey: "channels")
                 currentInstallation.saveInBackground()
-                println("registered installation for pushes")
+                print("registered installation for pushes")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
                 var joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
@@ -394,17 +394,17 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
             }
             else {
-                println("Plan save error \(error)")
+                print("Plan save error \(error)")
             }
         }
 
         currentUser?.saveInBackgroundWithBlock {
             (success,error) -> Void in
             if success == true {
-                println("User save success")
+                print("User save success")
             }
             else {
-                println("User save error \(error)")
+                print("User save error \(error)")
             }
         }
 
@@ -419,7 +419,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let planDetailViewController = segue.destinationViewController as! PlanDetailViewController
             
-            let index = self.planTableView.indexPathForSelectedRow()!
+            let index = self.planTableView.indexPathForSelectedRow!
             
             
             let sectionItems = self.getSectionItems(index.section)
@@ -429,7 +429,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             queryObject = sectionItems[index.row]
             
             selectedPlans.append(queryObject)
-            println("selected plan \(selectedPlans)")
+            print("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
         }
         
@@ -444,7 +444,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         plansForSection = upcomingPlans
         let sections = NSSet(array: planTableHeaderArray)
         
-        println("plansForSection \(plansForSection)")
+        print("plansForSection \(plansForSection)")
         
         for object in plansForSection {
             let objectDate = object.objectForKey("startTime") as! NSDate
@@ -454,15 +454,15 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let dateString = df.stringFromDate(objectDate)
             
-            println("sections \(sections)")
+            print("sections \(sections)")
             
             
             
-            if !contains(planTableHeaderArray, dateString) {
+            if !planTableHeaderArray.contains(dateString) {
                 planTableHeaderArray.append(dateString)
             }
         }
-        println("planTableHeaderArrayCount \(planTableHeaderArray.count)")
+        print("planTableHeaderArrayCount \(planTableHeaderArray.count)")
 
     }
     
@@ -552,12 +552,12 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         let user = queryObject.objectForKey("creatingUser") as? PFUser
         
-        println(user)
-        println(tag)
-        println(row)
-        println(section)
+        print(user)
+        print(tag)
+        print(row)
+        print(section)
         
-        println("profile image tapped!")
+        print("profile image tapped!")
         
         let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
         profileViewController.user = user
@@ -596,10 +596,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let countHeartingUsers = heartingUsers?.count
         
         if let hearts = heartingUsers {
-            println("dem hearts \(hearts)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(hearts, currentUser!.objectId!) {
-                println ("plan \(queryObject.objectId) is hearted by \(currentUser!.objectId!)")
+            print("dem hearts \(hearts)")
+            print("dat user \(currentUser!.objectId!)")
+            if hearts.contains((currentUser!.objectId!)) {
+                print ("plan \(queryObject.objectId) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
         }
@@ -610,10 +610,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let countAttendingUsers = attendingUsers?.count
         
         if let attendees = attendingUsers {
-            println("dem hearts \(attendees)")
-            println("dat user \(currentUser!.objectId!)")
-            if contains(attendees, currentUser!.objectId!) {
-                println ("plan \(queryObject) is being attended by \(currentUser!.objectId!)")
+            print("dem hearts \(attendees)")
+            print("dat user \(currentUser!.objectId!)")
+            if attendees.contains((currentUser!.objectId!)) {
+                print ("plan \(queryObject) is being attended by \(currentUser!.objectId!)")
                 attendanceState = true
             }
         }
@@ -634,8 +634,8 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)
         
-        println(startTime)
-        println(endTime)
+        print(startTime)
+        print(endTime)
 
         let currentTime = NSDate()
         
@@ -661,7 +661,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
                 else {
-                    println("image retrieval error")
+                    print("image retrieval error")
                 }
             })
             

@@ -78,7 +78,7 @@ class FAQViewController: UIViewController {
         let questionSixBold = NSMutableAttributedString(string: questionSix, attributes: boldString)
         
         
-        var finalAttributedString = questionOneBold
+        let finalAttributedString = questionOneBold
 
         let attributedStringArray = [answerOneAttributed, questionTwoBold, answerTwoAttributed, questionThreeBold, answerThreeAttributed, questionFourBold, answerFourAttributed, questionFiveBold, answerFiveAttributed, questionSixBold, answerSixAttributed]
         

@@ -42,15 +42,15 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
             if (locationManager.location != nil) {
-                self.currentLocation = locationManager.location
+                self.currentLocation = locationManager.location!
             }
-            println(currentLocation)
+            print(currentLocation)
         }
 
     }
 
     override func viewWillDisappear(animated: Bool) {
-        let n = self.navigationController?.viewControllers?.count as Int!
+        let n = self.navigationController?.viewControllers.count as Int!
         let planCreationViewController = self.navigationController?.viewControllers[n-1] as! PlanCreationViewController
         
         self.navigationController?.navigationBar.backItem
@@ -64,9 +64,9 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
             
         }
 
-        println("selectedPlaceForSegue \(selectedPlaceName)")
+        print("selectedPlaceForSegue \(selectedPlaceName)")
 
-        println("planCreationViewController \(planCreationViewController)")
+        print("planCreationViewController \(planCreationViewController)")
     }
     
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -93,12 +93,12 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        println("selectedPlaceLocationSearch \(selectedPlaceName)")
+        print("selectedPlaceLocationSearch \(selectedPlaceName)")
     }
     
     
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     
@@ -109,7 +109,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let place = self.searchResultData[indexPath.row]
         let placeText = place.attributedFullText.string
-        println("row selected")
+        print("row selected")
 //        self.searchBar.text = placeText
         self.selectedPlaceId = place.placeID
         self.locationSearchResults.hidden = true
@@ -119,7 +119,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         
         placesClient.lookUpPlaceID(selectedPlaceId, callback: {(place, error) -> Void in
             if error != nil {
-                println("lookup place id query error")
+                print("lookup place id query error")
                 return
             }
             
@@ -142,7 +142,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
 
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PlaceAutocompleteCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("PlaceAutocompleteCell") as! UITableViewCell!
         let place = self.searchResultData[indexPath.row]
         
         cell.textLabel!.text = place.attributedFullText.string
@@ -154,16 +154,16 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText == "" {
             //self.places = []
-            println("aint nothin here")
+            print("aint nothin here")
             locationSearchResults.hidden = true
             self.searchResultData = [GMSAutocompletePrediction]()
             self.locationSearchResults.reloadData()
         }
         else {
             locationSearchResults.hidden = false
-            println("searching for \(searchText)")
+            print("searching for \(searchText)")
             let locValue = currentLocation.coordinate
-            println("location at \(locValue.latitude), \(locValue.longitude)")
+            print("location at \(locValue.latitude), \(locValue.longitude)")
             let northEast = CLLocationCoordinate2DMake(locValue.latitude + 1, locValue.longitude + 1)
             let southWest = CLLocationCoordinate2DMake(locValue.latitude - 1, locValue.longitude - 1)
             let bounds = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
@@ -173,14 +173,14 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
             placesClient.autocompleteQuery(searchText, bounds: bounds, filter: filter, callback: {
                 (results, error) -> Void in
                 if error != nil {
-                    println("Hay error \(error)")
+                    print("Hay error \(error)")
                     return
                 }
                 else {
                     self.searchResultData = [GMSAutocompletePrediction]()
                     for result in results as! [GMSAutocompletePrediction] {
                         self.searchResultData.append(result)
-                        println(result)
+                        print(result)
                     }
                     self.locationSearchResults.reloadData()
                 }

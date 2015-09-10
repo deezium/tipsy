@@ -17,17 +17,17 @@ class FacebookController {
             
             if ((error) != nil)
             {
-                println("Error: \(error)")
+                print("Error: \(error)")
             }
             else
             {
-                println("fetched user: \(result)")
+                print("fetched user: \(result)")
                 let userName : NSString = result.valueForKey("name") as! NSString
-                println("User name is: \(userName)")
+                print("User name is: \(userName)")
                 let userEmail : NSString = result.valueForKey("email") as! NSString
-                println("User email is: \(userEmail)")
+                print("User email is: \(userEmail)")
                 let userFirstName : NSString = result.valueForKey("first_name") as! NSString
-                println("User first name is: \(userFirstName)")
+                print("User first name is: \(userFirstName)")
             }
         })
     }

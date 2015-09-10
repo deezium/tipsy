@@ -23,11 +23,11 @@ class ProfileViewController: UIViewController {
         
         let filemgr = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let docsDir = dirPaths[0] as! String
+        let docsDir = dirPaths[0] 
         
-        databasePath = docsDir.stringByAppendingPathComponent("tipsy.db")
+//        databasePath = docsDir.stringByAppendingPathComponent("tipsy.db")
         
-        println(user)
+        print(user)
         
         let tipsyDB = FMDatabase(path: databasePath as String)
         
@@ -46,7 +46,7 @@ class ProfileViewController: UIViewController {
             tipsyDB.close()
         }
         else {
-            println("Error: \(tipsyDB.lastErrorMessage())")
+            print("Error: \(tipsyDB.lastErrorMessage())")
         }
         
     }

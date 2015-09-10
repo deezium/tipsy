@@ -16,7 +16,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewDidLoad()
         self.delegate = self
         
-        println("tabbar view loaded")
+        print("tabbar view loaded")
      
     }
     

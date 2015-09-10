@@ -71,7 +71,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func queryForAllPostsByUser(user: PFUser) -> [PFObject] {
         
-        var query = PFQuery(className: "CheckIn")
+        let query = PFQuery(className: "CheckIn")
         
         query.whereKey("creatingUser", equalTo: user)
         query.includeKey("creatingUser")
@@ -79,9 +79,9 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         query.limit = 20
         var checkins: NSMutableArray = []
         
-        var objects = query.findObjects() as! [PFObject]
+        let objects = query.findObjects() as! [PFObject]
         
-        println(objects)
+        print(objects)
         
         return objects
         
@@ -89,7 +89,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func drawLatestCheckin() {
         
-        var objects = queryForAllPostsByUser(user!)
+        let objects = queryForAllPostsByUser(user!)
         
         if let objects = objects as? [PFObject] {
             let object = objects[0]
@@ -100,7 +100,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             
             self.latestCheckin.setRegion(region, animated: true)
             
-            var checkinPin = MKPointAnnotation()
+            let checkinPin = MKPointAnnotation()
             checkinPin.coordinate = coordinate
             
             self.latestCheckin.removeAnnotation(checkinPin)
@@ -110,7 +110,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
         }
     }
     
-    func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView! {
         
         if (annotation is MKUserLocation) {
             return nil
@@ -124,7 +124,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
             pinView!.canShowCallout = true
             pinView!.animatesDrop = true
             pinView!.pinColor = .Purple
-            var label = UILabel(frame: CGRectMake(0,0,21,21))
+            let label = UILabel(frame: CGRectMake(0,0,21,21))
             label.text = "3h"
             //            pinView!.rightCalloutAccessoryView = label
             
@@ -146,7 +146,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
 //        var objects = queryForAllPostsByUser(user!)
 //        println(objects.count)
 //        return objects.count
-        println(queryObjects.count)
+        print(queryObjects.count)
         return queryObjects.count
     }
     

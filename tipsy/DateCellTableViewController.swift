@@ -167,7 +167,7 @@ class DateCellTableViewController: UIViewController {
             cellID = kDateCellID       // the start/end date cells
         }
         
-        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell
+        cell = tableView.dequeueReusableCellWithIdentifier(cellID) as? UITableViewCell!
     
         if indexPath.row == 0 {
             // we decide here that first cell in the table is not selectable (it's just an indicator)
@@ -233,7 +233,7 @@ class DateCellTableViewController: UIViewController {
             before = datePickerIndexPath?.row < indexPath.row
         }
         
-        var sameCellClicked = (datePickerIndexPath?.row == indexPath.row + 1)
+        let sameCellClicked = (datePickerIndexPath?.row == indexPath.row + 1)
         
         // remove any date picker cell if it exists
         if self.hasInlineDatePicker() {
@@ -325,10 +325,10 @@ class DateCellTableViewController: UIViewController {
             targetedCellIndexPath = NSIndexPath(forRow: datePickerIndexPath!.row - 1, inSection: 0)
         } else {
             // external date picker: update the current "selected" cell's date
-            targetedCellIndexPath = tableView.indexPathForSelectedRow()!
+            targetedCellIndexPath = tableView.indexPathForSelectedRow!
         }
         
-        var cell = tableView.cellForRowAtIndexPath(targetedCellIndexPath!)
+        let cell = tableView.cellForRowAtIndexPath(targetedCellIndexPath!)
         let targetedDatePicker = sender
         
         // update our data model

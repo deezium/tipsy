@@ -41,7 +41,7 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
                 self.noFriendsLabel.hidden = false
                 self.inviteLabel.hidden = false
                 self.inviteButton.hidden = false
-                println("you have no friends wa wa")
+                print("you have no friends wa wa")
             }
         })
     }
@@ -106,7 +106,7 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
                     }
                 }
                 else {
-                    println("image retrieval error")
+                    print("image retrieval error")
                 }
             })
             
@@ -126,7 +126,7 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let attendee = queryObjects[indexPath.row] as? PFUser
-        println("user picture tapped! \(attendee)")
+        print("user picture tapped! \(attendee)")
         let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
         profileViewController.user = attendee
         self.navigationController?.pushViewController(profileViewController, animated: true)

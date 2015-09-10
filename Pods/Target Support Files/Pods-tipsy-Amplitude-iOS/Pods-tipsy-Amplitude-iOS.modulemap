@@ -1,6 +1,0 @@
-framework module Amplitude_iOS {
-  umbrella header "Pods-tipsy-Amplitude-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}
