@@ -49,7 +49,7 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func didTapInvite(sender: AnyObject) {
         
-        var textToShare = "Are you getting Tipsy?"
+        let textToShare = "Are you getting Tipsy?"
         
         if let website = NSURL(string: "http://www.everybodygettipsy.com/") {
             let objectsToShare = [textToShare, website]
@@ -126,7 +126,6 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let attendee = queryObjects[indexPath.row] as? PFUser
-        print("user picture tapped! \(attendee)")
         let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
         profileViewController.user = attendee
         self.navigationController?.pushViewController(profileViewController, animated: true)

@@ -44,7 +44,6 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location!
             }
-            print(currentLocation)
         }
 
     }
@@ -64,36 +63,11 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
             
         }
 
-        print("selectedPlaceForSegue \(selectedPlaceName)")
-
-        print("planCreationViewController \(planCreationViewController)")
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        let n = self.navigationController?.viewControllers?.count as Int!
-//        let planCreationViewController = self.navigationController?.viewControllers[n-2] as! PlanCreationViewController
-//        
-//        self.navigationController?.navigationBar.backItem
-//        
-//        println("planCreationViewController"planCreationViewController)
-//        
-////        let navController = segue.destinationViewController as! UINavigationController
-////        let planCreationViewController = segue.destinationViewController as! PlanCreationViewController
-////        
-////        planCreationViewController.selectedPlaceId = selectedPlaceId
-////        planCreationViewController.selectedPlaceName = selectedPlaceName
-////        planCreationViewController.selectedPlaceGeoPoint = selectedPlaceGeoPoint
-////        planCreationViewController.selectedPlaceFormattedAddress = selectedPlaceFormattedAddress
-////        
-////        println("selectedPlaceForSegue \(selectedPlaceName)")
-//
-//    }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         
-        print("selectedPlaceLocationSearch \(selectedPlaceName)")
     }
     
     
@@ -108,14 +82,9 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let place = self.searchResultData[indexPath.row]
-        let placeText = place.attributedFullText.string
-        print("row selected")
-//        self.searchBar.text = placeText
         self.selectedPlaceId = place.placeID
         self.locationSearchResults.hidden = true
         
-        
-        //let placeId = "ChIJv2V798IJlR4Rq66ydZpHmt0"
         
         placesClient.lookUpPlaceID(selectedPlaceId, callback: {(place, error) -> Void in
             if error != nil {
@@ -128,8 +97,6 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
                 self.selectedPlaceFormattedAddress = place!.formattedAddress
                 
                 let selectedPlaceCoordinate = place!.coordinate
-                let longitude = selectedPlaceCoordinate.longitude
-                let latitude = selectedPlaceCoordinate.latitude
                 
                 self.selectedPlaceGeoPoint = PFGeoPoint(latitude: selectedPlaceCoordinate.latitude, longitude: selectedPlaceCoordinate.longitude)
                 let n = self.navigationController
@@ -161,9 +128,7 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         }
         else {
             locationSearchResults.hidden = false
-            print("searching for \(searchText)")
             let locValue = currentLocation.coordinate
-            print("location at \(locValue.latitude), \(locValue.longitude)")
             let northEast = CLLocationCoordinate2DMake(locValue.latitude + 1, locValue.longitude + 1)
             let southWest = CLLocationCoordinate2DMake(locValue.latitude - 1, locValue.longitude - 1)
             let bounds = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
@@ -180,7 +145,6 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
                     self.searchResultData = [GMSAutocompletePrediction]()
                     for result in results as! [GMSAutocompletePrediction] {
                         self.searchResultData.append(result)
-                        print(result)
                     }
                     self.locationSearchResults.reloadData()
                 }

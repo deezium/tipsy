@@ -83,8 +83,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.createTableSections()
             self.planTableView!.reloadData()
             
-            print("friend feed results \(self.queryObjects)")
-            
             if self.upcomingPlans.count == 0 {
                 self.planTableView!.hidden = true
                 self.noFriendsLabel.hidden = false
@@ -101,11 +99,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func createFriendIdArrays(objects: [PFObject]) {
         for object in objects {
-            print("friend object \(object)")
             let id = object.objectId
             friendIdArray.append(id!)
         }
-        print("friend id array \(friendIdArray)")
     }
 
     
@@ -129,8 +125,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         upcomingPlans = Array(upcomingPlansOriginal.reverse())
         pastPlans = pastPlansOriginal
-        print("upcomingPlans \(upcomingPlans)")
-        print("pastPlansCount \(pastPlans.count)")
     }
     
     
@@ -176,14 +170,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location!
             }
-            print("queriedLocation \(currentLocation)")
         }
-        
-//        if (CLLocationManager.locationServicesEnabled()) {
-//            self.locationManager.delegate = self
-//            self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-//            self.locationManager.startUpdatingLocation()
-//        }
 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPosts", name: planMadeNotificationKey, object: nil)
@@ -208,13 +195,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         }
     }
     
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        if let location = locations.first as? CLLocation {
-//            println("your current location is \(location)")
-//            locationManager.stopUpdatingLocation()
-//        }
-//    }
-    
     func refreshPosts() {
         let locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
         
@@ -231,27 +211,19 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let cell = heartButton.superview?.superview?.superview as! PlanFeedCell
         
-        
-//        println(cell)
-        
         let index = self.planTableView.indexPathForCell(cell)!
         
         
         let sectionItems = self.getSectionItems(index.section)
         
         let plan = sectionItems[index.row]
-
-//        println("selectedPlan \(plan)")
         
         var heartState = Bool()
         
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
             else {
@@ -273,7 +245,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("hearted! \(heartState)")
             
         }
         else {
@@ -289,7 +260,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("unhearted! \(heartState)")
         }
         
         
@@ -299,10 +269,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 print("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
-                var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                let heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                 
                 Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
-
 
             }
             else {
@@ -325,16 +294,12 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         let plan = sectionItems[index.row]
         
-        
         var attendanceState = Bool()
         
         let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
         
         if let attendees = attendingUsers {
-            print("dem attendees \(attendees)")
-            print("dat user \(currentUser!.objectId!)")
             if attendees.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 attendanceState = true
             }
             else {
@@ -352,21 +317,18 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
-            print("joined! \(attendanceState)")
             
         }
         else {
             
-            print("attendanceToRemove \(plan.objectId!)")
             plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
             currentUser?.removeObject(plan.objectId!, forKey: "attendedPlans")
             
             attendanceState = !attendanceState
-           
             
             cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
-            print("left! \(attendanceState)")
+           
         }
 
         
@@ -385,12 +347,9 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
                 print("registered installation for pushes")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
-                var joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
-                
+                let joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                 
                 Amplitude.instance().logEvent("planJoined", withEventProperties: joinedPlanProperties)
-
-
 
             }
             else {
@@ -429,7 +388,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             queryObject = sectionItems[index.row]
             
             selectedPlans.append(queryObject)
-            print("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
         }
         
@@ -444,8 +402,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         plansForSection = upcomingPlans
         let sections = NSSet(array: planTableHeaderArray)
         
-        print("plansForSection \(plansForSection)")
-        
         for object in plansForSection {
             let objectDate = object.objectForKey("startTime") as! NSDate
             
@@ -454,15 +410,10 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let dateString = df.stringFromDate(objectDate)
             
-            print("sections \(sections)")
-            
-            
-            
             if !planTableHeaderArray.contains(dateString) {
                 planTableHeaderArray.append(dateString)
             }
         }
-        print("planTableHeaderArrayCount \(planTableHeaderArray.count)")
 
     }
     
@@ -523,8 +474,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             
         }
         
-        
-    
         return headerCell
     }
     
@@ -539,7 +488,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
 
     func didTapUserProfileImage(sender: UIButton!) {
-        //var user: PFUser
         var queryObject: PFObject
         
         let tag = sender.tag
@@ -552,13 +500,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
 
         let user = queryObject.objectForKey("creatingUser") as? PFUser
         
-        print(user)
-        print(tag)
-        print(row)
-        print(section)
-        
-        print("profile image tapped!")
-        
         let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
         profileViewController.user = user
         self.navigationController?.pushViewController(profileViewController, animated: true)
@@ -568,7 +509,6 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var queryObject: PFObject
-        
         
         let sectionItems = self.getSectionItems(indexPath.section)
         
@@ -596,10 +536,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let countHeartingUsers = heartingUsers?.count
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                print ("plan \(queryObject.objectId) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
         }
@@ -610,10 +547,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
         let countAttendingUsers = attendingUsers?.count
         
         if let attendees = attendingUsers {
-            print("dem hearts \(attendees)")
-            print("dat user \(currentUser!.objectId!)")
             if attendees.contains((currentUser!.objectId!)) {
-                print ("plan \(queryObject) is being attended by \(currentUser!.objectId!)")
                 attendanceState = true
             }
         }
@@ -627,15 +561,11 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             placeLabel = placeName
         }
 
-        
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
         
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)
-        
-        print(startTime)
-        print(endTime)
 
         let currentTime = NSDate()
         

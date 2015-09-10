@@ -29,7 +29,6 @@ class QueryController {
     
     func queryPosts(filter: String) {
 
-            print("fuck")
         let query = PFQuery(className: "CheckIn")
         
         if (filter != "") {
@@ -42,36 +41,22 @@ class QueryController {
         let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
         
-        print(objects)
-        
-//        if let objects = objects {
-//        }
-        
-//        return objects
     }
     
     func queryPlans(filter: String) {
         
-        print("fuck")
         let query = PFQuery(className: "Plan")
-        let friendsArray = PFUser.currentUser()?.objectForKey("friendsUsingTipsy")
         
         if (filter != "") {
             query.whereKey(filter, equalTo: user)
         }
         
-        let currentDate = NSDate()
-        
-//        query.whereKey("endTime", greaterThanOrEqualTo: currentDate)
-//        query.whereKey("creatingUser", containedIn: friendsArray)
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
         query.limit = 40
         
         let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
-        
-        print(objects)
         
         
     }
@@ -85,7 +70,6 @@ class QueryController {
             friendsIdArray.append(friend.objectId!)
         }
         
-        print("fuck")
         let createdPlans = PFQuery(className: "Plan")
         
         let pointer = PFObject(withoutDataWithClassName: "_User", objectId: userId)
@@ -123,15 +107,12 @@ class QueryController {
         let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveSecondQueryResults!(objects)
         
-        print(objects)
         
         
     }
     
     func queryComments(plan: PFObject) {
         let query = PFQuery(className: "Comment")
-        
-        print("querying for plan \(plan)")
         
         query.includeKey("commentingUser")
         query.includeKey("commentedPlan")
@@ -140,8 +121,6 @@ class QueryController {
         
         let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
-        
-        print(objects)
     }
     
     
@@ -155,20 +134,11 @@ class QueryController {
         let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
         
-        print("friend users for \(currentUser) are \(objects)")
     }
     
     func queryPlansForFriends(friends: [PFObject], point: PFGeoPoint) {
         
         let query = PFQuery(className: "Plan")
-        let currentUser = PFUser.currentUser()
-        
-        let currentDate = NSDate()
-        
-        print("friends being queried \(friends)")
-        print("friendsqueriedPoint \(point)")
-        
-//        let newPoint = PFGeoPoint(latitude: 37.790027, longitude: -122.3975)
         
         query.includeKey("creatingUser")
         query.orderByDescending("startTime")
@@ -178,8 +148,6 @@ class QueryController {
         
         let objects = query.findObjects() as? [PFObject]
         self.delegate!.didReceiveSecondQueryResults!(objects!)
-        
-        print("plans for friends are \(objects)")
         
         
     }
@@ -201,7 +169,6 @@ class QueryController {
 
         let currentTime = NSDate()
         
-        print("newQueriedPoint \(point)")
         query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 10.0)
         
         query.includeKey("creatingUser")
@@ -225,7 +192,6 @@ class QueryController {
         
         let query = PFQuery.orQueryWithSubqueries([visiblePlans, friendPlans])
 
-        print("newQueriedPoint \(point)")
         query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 10.0)
 
         query.includeKey("creatingUser")
@@ -233,7 +199,6 @@ class QueryController {
         query.limit = 40
         
         let objects = query.findObjects() as! [PFObject]
-        print("new plans \(objects)")
         self.delegate!.didReceiveThirdQueryResults!(objects)
     }
     
@@ -251,8 +216,6 @@ class QueryController {
         
         let currentTime = NSDate()
         
-        print("queriedCurrentTime \(currentTime)")
-        print("ongoingQueriedPoint \(point)")
         query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 10.0)
         
         query.includeKey("creatingUser")
@@ -273,8 +236,6 @@ class QueryController {
         
         let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveSecondQueryResults!(objects)
-        
-        print("attending users for \(planId) are \(objects)")
         
     }
 

@@ -15,8 +15,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        
-        print("tabbar view loaded")
      
     }
     

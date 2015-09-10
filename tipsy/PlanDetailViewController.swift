@@ -245,23 +245,16 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         let cell = heartButton.superview?.superview as! PlanDetailInteractionCell
         
-        
-        //        println(cell)
-        
         let index = self.commentTable.indexPathForCell(cell)!
         
         let plan = planObjects.first!
-        //        println("selectedPlan \(plan)")
         
         var heartState = Bool()
         
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
             else {
@@ -282,7 +275,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("hearted! \(heartState)")
             
         }
         else {
@@ -298,7 +290,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("unhearted! \(heartState)")
         }
         
         
@@ -330,10 +321,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         let cell = heartButton.superview?.superview as! CommentCell
         
-        
-        //        println(cell)
-        
-        
         let index = self.commentTable.indexPathForCell(cell)!
         
         let comment = queryObjects[index.row-3]
@@ -344,10 +331,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let heartingUsers = comment.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
             else {
@@ -368,7 +352,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("hearted! \(heartState)")
             
         }
         else {
@@ -384,7 +367,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("unhearted! \(heartState)")
         }
         
         
@@ -425,10 +407,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
         
         if let attendees = attendingUsers {
-            print("dem attendees \(attendees)")
-            print("dat user \(currentUser!.objectId!)")
             if attendees.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 attendanceState = true
             }
             else {
@@ -439,19 +418,16 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         if attendanceState == false {
             plan.addUniqueObject(currentUser!.objectId!, forKey: "attendingUsers")
-            //currentUser?.addUniqueObject(plan.objectId!, forKey: "attendedPlans")
 
             attendanceState = !attendanceState
             
             
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
-            print("joined! \(attendanceState)")
             
         }
         else {
             plan.removeObject(currentUser!.objectId!, forKey: "attendingUsers")
-            //currentUser?.removeObject(plan.objectId!, forKey: "attendedPlans")
             
             
             attendanceState = !attendanceState
@@ -459,7 +435,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
-            print("left! \(attendanceState)")
         }
         
         
@@ -477,12 +452,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 print("registered installation for pushes")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
-                var joinedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                let joinedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                 
                 
                 Amplitude.instance().logEvent("planJoined", withEventProperties: joinedPlanProperties)
-
-
 
             }
             else {
@@ -525,7 +498,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(queryObjects.count)
         return queryObjects.count + 3
     }
  
@@ -534,25 +506,18 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         var finalCell: UITableViewCell?
         
         if indexPath.row == 0 {
-            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAddressCell") as? PlanDetailAddressCell
             let placeAddress = planObjects.first?.objectForKey("googlePlaceFormattedAddress") as? String
-            
-            print("first planobject \(planObjects.first)")
             
             if placeAddress != "" {
                 let formattedAddressSlice = placeAddress!.componentsSeparatedByString(", ")[0..<3]
                 
                 let formattedAddress = formattedAddressSlice[formattedAddressSlice.startIndex] + ", " + formattedAddressSlice[formattedAddressSlice.startIndex + 1] + ", " + formattedAddressSlice[formattedAddressSlice.startIndex + 2]
                 
-                
-                
                 cell?.addressLabel.text = formattedAddress
                 
             }
                 
-            
-            
-//            let shortAddressLabel = shortAddress[0]
             
             
             finalCell = cell
@@ -569,10 +534,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let countHeartingUsers = heartingUsers?.count
             
             if let hearts = heartingUsers {
-                print("dem hearts \(hearts)")
-                print("dat user \(currentUser!.objectId!)")
                 if hearts.contains((currentUser!.objectId!)) {
-                    print ("plan \(plan.objectId) is hearted by \(currentUser!.objectId!)")
                     heartState = true
                 }
             }
@@ -583,10 +545,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let countAttendingUsers = attendingUsers?.count
             
             if let attendees = attendingUsers {
-                print("dem hearts \(attendees)")
-                print("dat user \(currentUser!.objectId!)")
                 if attendees.contains((currentUser!.objectId!)) {
-                    print ("plan \(plan.objectId) is being attended by \(currentUser!.objectId!)")
                     attendanceState = true
                 }
             }
@@ -644,28 +603,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                     let image = UIImage(data: imageData!)
                     attendeeImageArray.append(image!)
                     
-//                    postImage.getDataInBackgroundWithBlock({
-//                        (imageData,error) -> Void in
-//                        if error == nil {
-//                            dispatch_async(dispatch_get_main_queue(), {
-//                                let image = UIImage(data: imageData!)
-//                                attendeeImageArray.append(image!)
-//
-//                                
-//                            })
-//                        }
-//                        else {
-//                            println("image retrieval error")
-//                        }
-//                    })
-                    
-                    print("attendeeQueryObjects \(attendeeQueryObjects)")
-                    print("attendeeImageArray \(attendeeImageArray)")
-                    
                 }
             }
-            
-            print("first attendee \(attendeeImageArray.first)")
             
             if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
                 
@@ -790,10 +729,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             let countHeartingUsers = heartingUsers?.count
             
             if let hearts = heartingUsers {
-                print("dem hearts \(hearts)")
-                print("dat user \(currentUser!.objectId!)")
                 if hearts.contains((currentUser!.objectId!)) {
-                    print ("plan \(commentObject.objectId) is hearted by \(currentUser!.objectId!)")
                     heartState = true
                 }
             }
@@ -806,7 +742,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 
             }
             
-            print("comment hearting users \(heartingUsers)")
             if heartingUsers?.count == 0 {
                 cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
                 //cell.heartButton.titleLabel?.hidden = true
@@ -837,14 +772,12 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         
         if (sender.tag == 0) {
             attendee = planObjects.first?.objectForKey("creatingUser") as? PFUser
-            print("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
         }
         else if (sender.tag < 100) {
             attendee = attendeeQueryObjects[sender.tag-1] as? PFUser
-            print("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
@@ -853,7 +786,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         else {
             let object = queryObjects[sender.tag-100] as? PFObject
             attendee = object?.objectForKey("commentingUser") as? PFUser
-            print("user picture tapped! \(attendee)")
             let profileViewController = self.storyboard!.instantiateViewControllerWithIdentifier("PlanProfileViewController") as! PlanProfileViewController
             profileViewController.user = attendee
             self.navigationController?.pushViewController(profileViewController, animated: true)
@@ -886,13 +818,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             planCreationViewController.plans = selectedPlans
             
         }
-        
-//        if segue.identifier == "ShowFullAttendees" {
-//            
-//            let attendeeViewController = segue.destinationViewController as! MyFriendsViewController
-//            
-//            attendeeViewController.queryObjects = attendeeQueryObjects
-//        }
         
     }
     

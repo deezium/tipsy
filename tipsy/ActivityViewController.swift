@@ -52,9 +52,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         var locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
         self.currentLocation = manager.location!
-        print("didUpdateLocations currentLocation \(self.currentLocation)")
-        
-  //      query.queryUserIdsForFriends()
   }
 
     
@@ -81,34 +78,22 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             locationManager.requestWhenInUseAuthorization()
         }
         
-//        if CLLocationManager.authorizationStatus() == .Denied {
-//            activityIndicator.stopAnimating()
-//            tableView.hidden = true
-//            segmentedControl.hidden = true
-//            tipsyTurtle.hidden = false
-//            locationLabel.hidden = false
-//        }
-        
         if CLLocationManager.authorizationStatus() == .AuthorizedAlways || CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
             self.locationManager.delegate = self
             self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             self.locationManager.startUpdatingLocation()
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location!
-                print("locationManager not nil \(self.currentLocation)")
             }
             
             query.queryUserIdsForFriends()
-            print("queriedLocation \(currentLocation)")
         }
 
-        var locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
+        let locValue:CLLocationCoordinate2D = self.currentLocation.coordinate
 
 
         let point = PFGeoPoint(latitude: locValue.latitude, longitude: locValue.longitude)
         
-        
-//        query.queryUserIdsForFriends()
         
         Amplitude.instance().setUserId(PFUser.currentUser()?.objectId)
         
@@ -149,7 +134,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location!
             }
-            print("didChangeAuthorizationStatus \(currentLocation)")
             query.queryUserIdsForFriends()
         }
         else if status == .Denied {
@@ -172,9 +156,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("OOPS")
                     }
                     else {
-                        print("me fetch result \(result)")
-                        
-                        if result["name"] != nil {
+                        if (result["name"] != nil) {
                             PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
                             PFUser.currentUser()?.saveInBackground()
                         }
@@ -194,13 +176,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("OOPS")
                     }
                     else {
-                        print(result["data"]?["url"])
                         if let pictureString = result["data"]?["url"] as? String {
                             let pictureURL = NSURL(string: pictureString) as NSURL?
                             
                             if pictureURL != nil {
                                 let pictureData = NSData(contentsOfURL: pictureURL!)
-                                print("pictureData \(pictureData)")
                                 
                                 if pictureData != nil {
                                     let pictureFile = PFFile(data: pictureData!)
@@ -231,11 +211,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     else {
                         
-                        
-                        print(result?["data"]?[0]["id"])
-                        
                         if let resultArray = result.objectForKey("data") as? NSArray {
-                            print("facebook id data \(result)")
                             for i in resultArray {
                                 if let id = i.objectForKey("id") as? String {
                                     friendsArray.append(id)                                    
@@ -262,8 +238,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("Oops, id fetch failed")
                     }
                     else {
-                        print("idrequest")
-                        print(result["id"])
                         
                         if (result["id"] != nil) {
                             PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
@@ -278,8 +252,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("Oops, id fetch failed")
                     }
                     else {
-                        print("emailrequest")
-                        print(result["email"])
                         
                         if (result["email"] != nil) {
                             PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
@@ -351,15 +323,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func didChangeSegment(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            print("hot")
             Amplitude.instance().logEvent("activityFeedViewedHot")
             
         case 1:
-            print("new")
             Amplitude.instance().logEvent("activityFeedViewedNew")
 
         case 2:
-            print("ongoing")
             Amplitude.instance().logEvent("activityFeedViewedOngoing")
 
         default:
@@ -439,13 +408,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 placeLabel = placeName
             }
             
-            
-            
-            print("heartCount \(heartCount)")
-            
-            
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                print("postImage \(postImage)")
 //                let oldImageData = postImage.getData()
                 
                 postImage.getDataInBackgroundWithBlock({
@@ -482,8 +445,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             let countHeartingUsers = heartingUsers?.count
             
             if let hearts = heartingUsers {
-                print("dem hearts \(hearts)")
-                print("dat user \(currentUser!.objectId!)")
                 if hearts.contains((currentUser!.objectId!)) {
                     heartState = true
                 }
@@ -528,7 +489,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             let placeAddress = queryObject.objectForKey("googlePlaceFormattedAddress") as? String
             let shortAddress = placeAddress?.componentsSeparatedByString(",")[0]
             
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "MMM d, hh:mm a"
             
 
@@ -543,7 +504,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                print("postImage \(postImage)")
                 
                 postImage.getDataInBackgroundWithBlock({
                     (imageData,error) -> Void in
@@ -612,8 +572,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             
             if let postImage = user.objectForKey("profileImage") as? PFFile {
-                print("postImage \(postImage)")
-                //                let oldImageData = postImage.getData()
                 
                 postImage.getDataInBackgroundWithBlock({
                     (imageData,error) -> Void in
@@ -631,14 +589,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("image retrieval error")
                     }
                 })
-                
-                //                let image = UIImage(data: imageData!)
-                //                cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                //                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                //                cell.profileButton.tag = indexPath.row
-                //                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                
-                
             }
             
             cell.nameLabel.text = firstname
@@ -722,7 +672,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             }
 
             selectedPlans.append(queryObject)
-            print("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
         }
         
@@ -735,9 +684,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
         let heartButton: UIButton = sender as! UIButton
         
         let cell = heartButton.superview?.superview as! ActivityHotCell
-        
-        
-        //        println(cell)
         
         let index = self.tableView.indexPathForCell(cell)!
         
@@ -753,17 +699,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             plan = ongoingQueryObjects[index.row]
         }
         
-        //        println("selectedPlan \(plan)")
-        
         var heartState = Bool()
         
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
             else {
@@ -784,7 +725,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("hearted! \(heartState)")
             
         }
         else {
@@ -800,7 +740,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("unhearted! \(heartState)")
         }
         
         

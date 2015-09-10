@@ -52,10 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         
         
-//        if (PFUser.currentUser() != nil) {
-//            println(PFUser.currentUser()?.objectForKey("username"))
-//        }
-        
         // Register for Push Notitications
 
         if application.applicationState != UIApplicationState.Background {
@@ -87,8 +83,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         let installation = PFInstallation.currentInstallation()
         
 //        application.applicationIconBadgeNumber = installation.badge
-        
-        print("badge number \(installation.badge)")
         
         installation.setObject(0, forKey: "badge")
         

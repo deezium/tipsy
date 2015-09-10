@@ -36,11 +36,6 @@ class EditProfileViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
-//        let n = self.navigationController?.viewControllers?.count as Int!
-//        let profileViewController = self.navigationController?.viewControllers[n-1] as! PlanProfileViewController
-        
-//        self.navigationController?.navigationBar.backItem
-//        profileViewController.aboutLabel.text = aboutField.text
     }
 
     

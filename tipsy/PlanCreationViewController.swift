@@ -74,19 +74,13 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-        print("activityCell \(activityCell.messageLabel.text)")
         
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
-        print("locationCell \(locationCell.locationLabel.text)")
-        
-        
         
         let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
-        
-        print("startDateString \(startDateString)")
         
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
@@ -105,14 +99,10 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let endDateCell = self.tableView.cellForRowAtIndexPath(endDateIndexPath) as UITableViewCell?
         let endDateString = endDateCell?.detailTextLabel?.text as String!
         
-        print("endDateString \(endDateString)")
-        
         let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
         
         let lengthBound = planStartDate.dateByAddingHours(24)
         
-        print("planEndDate \(planEndDate)")
-        print("lengthBound \(lengthBound)")
 
 
         if activityCell.messageLabel.text == "" {
@@ -152,8 +142,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
             let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
             let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-            print("activityCell \(activityCell.messageLabel.text)")
-
 
             let visibilityIndexPath = NSIndexPath(forRow: 2, inSection: 0)
             let visibilityCell = self.tableView.cellForRowAtIndexPath(visibilityIndexPath) as! PlanCreationVisibilityCell
@@ -162,8 +150,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
             let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
             let startDateString = startDateCell?.detailTextLabel?.text as String!
-            
-            print("startDateString \(startDateString)")
             
             let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
 
@@ -184,9 +170,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             
             let planEndDate = self.dateFormatter.dateFromString(endDateString) as NSDate!
 
-            
-            print("endDateString \(endDateString)")
-        
             var visibilityStatus = 0
             
             if visibilityCell.visibilityControl.selectedSegmentIndex == 1 {
@@ -212,7 +195,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             planObject.saveInBackgroundWithBlock {
                 (success, error) -> Void in
                 if success == true {
-                    print("Success \(planObject.objectId)")
                     
                     let pushChannel = "all-" + planObject.objectId!
                     
@@ -264,17 +246,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
     }
     
     @IBAction func didTapUpdateButton(sender: AnyObject) {
-        let currentTime = NSDate()
-            
         
         let activityIndexPath = NSIndexPath(forRow: 0, inSection: 0)
         let activityCell = self.tableView.cellForRowAtIndexPath(activityIndexPath) as! PlanCreationActivityCell
-        print("activityCell \(activityCell.messageLabel.text)")
-
+        
         let locationIndexPath = NSIndexPath(forRow: 1, inSection: 0)
         let locationCell = self.tableView.cellForRowAtIndexPath(locationIndexPath) as! PlanCreationLocationCell
-        print("locationCell \(locationCell.locationLabel.text)")
-
         
         let visibilityIndexPath = NSIndexPath(forRow: 2, inSection: 0)
         let visibilityCell = self.tableView.cellForRowAtIndexPath(visibilityIndexPath) as! PlanCreationVisibilityCell
@@ -283,8 +260,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         let startDateIndexPath = NSIndexPath(forRow: 3, inSection: 0)
         let startDateCell = self.tableView.cellForRowAtIndexPath(startDateIndexPath) as UITableViewCell?
         let startDateString = startDateCell?.detailTextLabel?.text as String!
-        
-        print("startDateString \(startDateString)")
         
         let planStartDate = self.dateFormatter.dateFromString(startDateString) as NSDate!
         
@@ -307,12 +282,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         
         let lengthBound = planStartDate.dateByAddingHours(24)
         
-        print("planEndDate \(planEndDate)")
-        print("lengthBound \(lengthBound)")
-
-        print("endDateString \(endDateString)")
-        
-        
         
         if activityCell.messageLabel.text == "" {
             let alert = UIAlertController(title: "Sorry!", message: "You didn't tell us what you're doing!", preferredStyle: UIAlertControllerStyle.Alert)
@@ -334,12 +303,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.presentViewController(alert, animated: true, completion: nil)
            
         }
-//        else if planStartDate.isLaterThan(futureBoundTime) {
-//            let alert = UIAlertController(title: "Sorry!", message: "We love your enthusiasm, but you can't make an event more than a week in advance.", preferredStyle: UIAlertControllerStyle.Alert)
-//            alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
-//            self.presentViewController(alert, animated: true, completion: nil)
-//            
-//        }
         else if planEndDate.isLaterThan(lengthBound) {
             let alert = UIAlertController(title: "Sorry!", message: "You can't make an event that lasts longer than 24 hours.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: nil))
@@ -358,7 +321,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             }
             
             let objectId = plans.first?.objectId as String!
-            print(objectId)
             let planObject = PFObject(withoutDataWithClassName: "Plan", objectId: objectId)
             planObject.setObject(planStartDate, forKey: "startTime")
             planObject.setObject(planEndDate, forKey: "endTime")
@@ -388,24 +350,12 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
                     self.activityIndicator.stopAnimating()
                     self.performSegueWithIdentifier("ShowProfileFromCreation", sender: nil)
 
-//                    let alert = UIAlertController(title: "Success", message: "Your plans have been updated!", preferredStyle: UIAlertControllerStyle.Alert)
-//                    alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.Default, handler: {
-//                        Void in
-//                            self.dismissViewControllerAnimated(true, completion: nil)
-//                        
-//                        }))
-//                    
-//                    
-//                    
-//                    self.presentViewController(alert, animated: true, completion: nil)
                     self.updateButton.enabled = true
                     NSNotificationCenter.defaultCenter().postNotificationName(planMadeNotificationKey, object: self)
                 
-                    var updatedPlanDetailProperties = NSDictionary(object: planObject.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                    let updatedPlanDetailProperties = NSDictionary(object: planObject.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                     Amplitude.instance().logEvent("planUpdated", withEventProperties: updatedPlanDetailProperties)
 
-                    
-    //                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
                 else {
                     self.activityIndicator.stopAnimating()
@@ -498,7 +448,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location!
             }
-            print(currentLocation)
         }
         
         
@@ -516,7 +465,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if (locationManager.location != nil) {
                 self.currentLocation = locationManager.location!
             }
-            print(currentLocation)
         }
     }
 
@@ -533,9 +481,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
         tableView.delegate = self
         tableView.dataSource = self
         
-
-        print("dese plans \(plans)")
-        
         if (plans.count != 0 && locationChanged == false) {
             print("hay plans")
             let plan = plans.first
@@ -545,10 +490,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             self.selectedPlaceName = plan?.objectForKey("googlePlaceName") as! String
             self.selectedPlaceFormattedAddress = plan?.objectForKey("googlePlaceFormattedAddress") as! String
             self.selectedPlaceGeoPoint = plan?.objectForKey("googlePlaceCoordinate") as! PFGeoPoint
-            
-            print(plan)
-            print(self.selectedPlaceId)
-       
             
             
             postButton.hidden = true
@@ -562,7 +503,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if selectedPlaceName != "" {
                 let indexPath = NSIndexPath(forRow: 1, inSection: 0)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
-                print(cell.locationLabel)
                 
                 cell.locationLabel.text = selectedPlaceName
                 
@@ -576,7 +516,6 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
             if selectedPlaceName != "" {
                 let indexPath = NSIndexPath(forRow: 1, inSection: 0)
                 let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! PlanCreationLocationCell
-                print(cell.locationLabel)
                 
                 cell.locationLabel.text = selectedPlaceName
                 
@@ -584,19 +523,9 @@ class PlanCreationViewController: UIViewController, CLLocationManagerDelegate, U
 
         }
         
-        print("selectedPlace \(selectedPlaceName)")
-        
 
         
     }
-    
-    
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        if let location = locations.first as? CLLocation {
-//            println("your current location is \(currentLocation)")
-//            locationManager.stopUpdatingLocation()
-//        }
-//    }
     
 
     

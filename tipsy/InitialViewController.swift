@@ -28,7 +28,6 @@ class InitialViewController: UIViewController {
                 }
                 else {
                     print("User already logged in!")
-                    print(user)
                     self.performSegueWithIdentifier("loggedInSegue", sender: nil)
                 }
             }
@@ -40,16 +39,5 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        var testObject = PFObject(className: "TestObject")
-//        testObject.setObject(2048, forKey: "score")
-//        testObject.saveInBackgroundWithBlock {
-//            (success, error) -> Void in
-//            if success == true {
-//                println("Success")
-//            }
-//            else {
-//                println("Fail")
-//            }
-//        }
     }
 }

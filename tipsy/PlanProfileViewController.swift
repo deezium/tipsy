@@ -32,13 +32,11 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
     @IBAction func didChangeSegment(sender: UISegmentedControl) {
         switch segmentedControl.selectedSegmentIndex {
             case 0:
-                print("upcoming")
-                var viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
+                let viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
                 
                 Amplitude.instance().logEvent("profileUpcomingPlansViewed", withEventProperties: viewedProfileProperties)
             case 1:
-                print("past")
-                var viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
+                let viewedProfileProperties = NSDictionary(object: user!.objectId!, forKey: "userId") as? [NSObject : AnyObject]
 
                 Amplitude.instance().logEvent("profilePastPlansViewed", withEventProperties: viewedProfileProperties)
             default:
@@ -75,7 +73,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         dispatch_async(dispatch_get_main_queue(), {
             self.userFriendsQueryObjects = objects
             self.userFriendsQueryObjects.append(self.currentUser!)
-            //self.createFriendIdArrays(objects)
             
             
             self.query.queryProfilePlans("creatingUser", userId: self.user!.objectId!, friends: self.userFriendsQueryObjects)
@@ -103,7 +100,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 
                 selectedPlans.append(selectedPlan)
                 planCreationViewController.plans = selectedPlans
-                print("pcvc plans\(planCreationViewController.plans)")
             }
             
         }
@@ -123,14 +119,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
             queryObject = sectionItems[index.row]
             
-            //            if segmentedControl.selectedSegmentIndex == 0 {
-            //                queryObject = upcomingPlans[index.row]
-            //            }
-            //            else {
-            //                queryObject = pastPlans[index.row]
-            //            }
             selectedPlans.append(queryObject)
-            print("selected plan \(selectedPlans)")
             planDetailViewController.planObjects = selectedPlans
         }
         
@@ -160,7 +149,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         upcomingPlans = Array(upcomingPlansOriginal.reverse())
 
         pastPlans = pastPlansOriginal
-        print("profileUpcomingPlans \(upcomingPlans)")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -257,9 +245,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         let cell = heartButton.superview?.superview?.superview as! PlanFeedCell
         
-        
-        //        println(cell)
-        
         let index = self.planTableView.indexPathForCell(cell)!
         
         
@@ -267,18 +252,12 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         let plan = sectionItems[index.row]
         
-        
-        //        println("selectedPlan \(plan)")
-        
         var heartState = Bool()
         
         let heartingUsers = plan.objectForKey("heartingUsers") as? [String]
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
             else {
@@ -300,7 +279,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
             
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("hearted! \(heartState)")
             
         }
         else {
@@ -316,7 +294,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
             cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
             cell.heartButton.setTitle(newHeartingUserCountString, forState: UIControlState.Normal)
-            print("unhearted! \(heartState)")
         }
         
         
@@ -326,7 +303,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
                 print("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
-                var heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                let heartedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                 
                 Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
 
@@ -360,10 +337,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         let attendingUsers = plan.objectForKey("attendingUsers") as? [String]
         
         if let attendees = attendingUsers {
-            print("dem attendees \(attendees)")
-            print("dat user \(currentUser!.objectId!)")
             if attendees.contains((currentUser!.objectId!)) {
-                //println ("plan \(queryObject) is hearted by \(currentUser!.objectId!)")
                 attendanceState = true
             }
             else {
@@ -381,7 +355,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
             cell.joinButton.setImage(UIImage(named: "GenderNeutralUserFilled.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Joined!", forState: UIControlState.Normal)
-            print("joined! \(attendanceState)")
             
         }
         else {
@@ -393,7 +366,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
             cell.joinButton.setImage(UIImage(named: "AddUser.png"), forState: UIControlState.Normal)
             cell.joinButton.setTitle("Join", forState: UIControlState.Normal)
-            print("left! \(attendanceState)")
+            
         }
         
         
@@ -432,9 +405,8 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
 
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
 
-                print("Plan save success")
                 
-                var joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                let joinedPlanProperties = NSDictionary(object: plan.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                 
                 
                 Amplitude.instance().logEvent("planJoined", withEventProperties: joinedPlanProperties)
@@ -475,8 +447,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         let sections = NSSet(array: planTableHeaderArray)
         
-        print("plansForSection \(plansForSection)")
-        
         for object in plansForSection {
             let objectDate = object.objectForKey("startTime") as! NSDate
             
@@ -485,15 +455,11 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             
             let dateString = df.stringFromDate(objectDate)
             
-            print("sections \(sections)")
-            
-            
             
             if !planTableHeaderArray.contains(dateString) {
                 planTableHeaderArray.append(dateString)
             }
         }
-        print("planTableHeaderArrayCount \(planTableHeaderArray.count)")
         
     }
     
@@ -579,13 +545,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         
         var queryObject: PFObject
         
-        //        if segmentedControl.selectedSegmentIndex == 0 {
-        //            queryObject = upcomingPlans[indexPath.row]
-        //        }
-        //        else {
-        //            queryObject = pastPlans[indexPath.row]
-        //        }
-        
         let sectionItems = self.getSectionItems(indexPath.section)
         
         queryObject = sectionItems[indexPath.row]
@@ -614,10 +573,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         let countHeartingUsers = heartingUsers?.count
         
         if let hearts = heartingUsers {
-            print("dem hearts \(hearts)")
-            print("dat user \(currentUser!.objectId!)")
             if hearts.contains((currentUser!.objectId!)) {
-                print ("plan \(queryObject.objectId) is hearted by \(currentUser!.objectId!)")
                 heartState = true
             }
         }
@@ -628,10 +584,7 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         let countAttendingUsers = attendingUsers?.count
         
         if let attendees = attendingUsers {
-            print("dem hearts \(attendees)")
-            print("dat user \(currentUser!.objectId!)")
             if attendees.contains((currentUser!.objectId!)) {
-                print ("plan \(queryObject) is being attended by \(currentUser!.objectId!)")
                 attendanceState = true
             }
         }
@@ -649,8 +602,6 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
         let startTimeString = dateFormatter.stringFromDate(startTime!)
         let endTimeString = dateFormatter.stringFromDate(endTime!)
         
-        print(startTime)
-        print(endTime)
         
         let currentTime = NSDate()
         
