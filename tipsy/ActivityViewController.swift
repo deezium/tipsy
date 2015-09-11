@@ -299,6 +299,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
     func didReceiveThirdQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.newQueryObjects = objects
+            print(self.newQueryObjects)
             self.tableView.reloadData()
             
             
