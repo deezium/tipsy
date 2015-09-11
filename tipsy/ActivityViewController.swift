@@ -413,26 +413,21 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 postImage.getDataInBackgroundWithBlock({
                     (imageData,error) -> Void in
                     if error == nil {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            let image = UIImage(data: imageData!)
-                            cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                            // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                            cell.profileButton.tag = indexPath.row
-                            cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                            
+                        if let imageData = imageData {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let image = UIImage(data: imageData)
+                                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                                cell.profileButton.tag = indexPath.row
+                                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                                
+                            }
                         }
                     }
                     else {
                         print("image retrieval error")
                     }
                 })
-                
-//                let image = UIImage(data: imageData!)
-//                cell.profileButton.setImage(image, forState: UIControlState.Normal)
-//                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                cell.profileButton.tag = indexPath.row
-//                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-
                 
             }
             
@@ -578,13 +573,15 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 postImage.getDataInBackgroundWithBlock({
                     (imageData,error) -> Void in
                     if error == nil {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            let image = UIImage(data: imageData!)
-                            cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                            // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                            cell.profileButton.tag = indexPath.row
-                            cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                            
+                        if let imageData = imageData {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let image = UIImage(data: imageData)
+                                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                                // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                                cell.profileButton.tag = indexPath.row
+                                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                                
+                            }
                         }
                     }
                     else {

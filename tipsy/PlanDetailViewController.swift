@@ -49,18 +49,23 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     func didReceiveQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
+            
+            print("comments received")
             self.queryObjects = objects
+            print(objects)
             self.commentTable!.reloadData()
-            self.activityIndicator.stopAnimating()
+//            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
 
     func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
+            print("attendees received")
             self.attendeeQueryObjects = objects
+            print(objects)
             self.commentTable!.reloadData()
-            self.activityIndicator.stopAnimating()
+//            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -77,7 +82,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.startAnimating()
+//        activityIndicator.startAnimating()
         self.commentTable.delegate = self
         self.commentTable.dataSource = self
         
@@ -100,13 +105,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         
-//        func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//            if let location = locations.first as? CLLocation {
-//                mapView.camera=GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-//                self.locationManager.stopUpdatingLocation()
-//            }
-//        }
-    
         configureTableView()
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
@@ -147,14 +145,16 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             postImage.getDataInBackgroundWithBlock({
                 (imageData,error) -> Void in
                 if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let image = UIImage(data: imageData!)
-                        self.profileImageButton.setImage(image, forState: UIControlState.Normal)
-                        self.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                        
-                        self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.imageView!.frame.size.width / 2
-                        self.profileImageButton.imageView!.clipsToBounds = true
-                        
+                    if let imageData = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData)
+                            self.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                            self.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            
+                            self.profileImageButton.imageView!.layer.cornerRadius = self.profileImageButton.imageView!.frame.size.width / 2
+                            self.profileImageButton.imageView!.clipsToBounds = true
+                            
+                        }
                     }
                 }
                 else {
@@ -197,7 +197,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         query.queryComments(plan!)
         query.queryAttendingUsersForPlan(plan!)
         
-        var viewedPlanDetailProperties = NSDictionary(object: planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+        let viewedPlanDetailProperties = NSDictionary(object: planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
         
         
         Amplitude.instance().logEvent("planDetailViewed", withEventProperties: viewedPlanDetailProperties)
@@ -219,7 +219,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
 
     func keyboardWasHidden(notification: NSNotification) {
         var info = notification.userInfo!
-        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
         UIView.animateWithDuration(1, animations: { () -> Void in
             self.bottomConstraint.constant = 0
@@ -596,99 +596,100 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             var attendeeImageArray = [UIImage?]()
             
-            for attendee in attendeeQueryObjects {
-                if let postImage = attendee.objectForKey("profileImage") as? PFFile {
-                    
-                    let imageData = postImage.getData()
-                    let image = UIImage(data: imageData!)
-                    attendeeImageArray.append(image!)
-                    
-                }
-            }
-            
-            if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
-                
-                postImage.getDataInBackgroundWithBlock({
-                    (imageData,error) -> Void in
-                    if error == nil {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            let image = UIImage(data: imageData!)
-                            cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
-                            cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                            cell.firstAttendee.tag = 0
-                            
-                            cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
-                            cell.firstAttendee.clipsToBounds = true
-                            
-                        }
-                    }
-                    else {
-                        print("image retrieval error")
-                    }
-                })
-
-                
-            }
-            
-            for (index, image) in attendeeImageArray.enumerate() {
-                if index == 0 {
-                    cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
-                    cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                    cell.secondAttendee.tag = index+1
-                    
-                    cell.secondAttendee.layer.cornerRadius = cell.secondAttendee.frame.size.width / 2
-                    cell.secondAttendee.clipsToBounds = true
-
-                }
-                if index == 1 {
-                    cell.thirdAttendee.setImage(image, forState: UIControlState.Normal)
-                    cell.thirdAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                    cell.thirdAttendee.tag = index+1
-
-                    cell.thirdAttendee.layer.cornerRadius = cell.thirdAttendee.frame.size.width / 2
-                    cell.thirdAttendee.clipsToBounds = true
-
-                }
-                if index == 2 {
-                    cell.fourthAttendee.setImage(image, forState: UIControlState.Normal)
-                    cell.fourthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                    cell.fourthAttendee.tag = index+1
-
-                    cell.fourthAttendee.layer.cornerRadius = cell.fourthAttendee.frame.size.width / 2
-                    cell.fourthAttendee.clipsToBounds = true
-
-                }
-                if index == 3 {
-                    cell.fifthAttendee.setImage(image, forState: UIControlState.Normal)
-                    cell.fifthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                    cell.fifthAttendee.tag = index+1
-
-                    cell.fifthAttendee.layer.cornerRadius = cell.fifthAttendee.frame.size.width / 2
-                    cell.fifthAttendee.clipsToBounds = true
-
-                }
-
-            }
-            
-//            if let attendee = attendeeImageArray[0] {
-//                cell.secondAttendee.image = attendeeImageArray[0]
+//            for attendee in attendeeQueryObjects {
+//                if let postImage = attendee.objectForKey("profileImage") as? PFFile {
+//                    
+//                    postImage.getDataInBackgroundWithBlock({
+//                        (imageData,error) -> Void in
+//                        if error == nil {
+//                            dispatch_async(dispatch_get_main_queue()) {
+//                                let image = UIImage(data: imageData!)
+//                                attendeeImageArray.append(image!)
+//                                
+//                            }
+//
+//                        }
+//                        else {
+//                            print("image retrieval error \(error)")
+//                        }
+//                    })
+//                    
+//                }
 //            }
-            
-//            cell.firstAttendee.image = attendeeImageArray[0]
+//            
+//            if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
+//                
+//                postImage.getDataInBackgroundWithBlock({
+//                    (imageData,error) -> Void in
+//                    if error == nil {
+//                        dispatch_async(dispatch_get_main_queue()) {
+//                            let image = UIImage(data: imageData!)
+//                            cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
+//                            cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                            cell.firstAttendee.tag = 0
+//                            
+//                            cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
+//                            cell.firstAttendee.clipsToBounds = true
+//                            
+//                        }
+//                            
+//                    }
+//                    else {
+//                        print("image retrieval error")
+//                    }
+//                })
+//
+//                
+//            }
+//            
+//            for (index, image) in attendeeImageArray.enumerate() {
+//                if index == 0 {
+//                    cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
+//                    cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                    cell.secondAttendee.tag = index+1
+//                    
+//                    cell.secondAttendee.layer.cornerRadius = cell.secondAttendee.frame.size.width / 2
+//                    cell.secondAttendee.clipsToBounds = true
+//
+//                }
+//                if index == 1 {
+//                    cell.thirdAttendee.setImage(image, forState: UIControlState.Normal)
+//                    cell.thirdAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                    cell.thirdAttendee.tag = index+1
+//
+//                    cell.thirdAttendee.layer.cornerRadius = cell.thirdAttendee.frame.size.width / 2
+//                    cell.thirdAttendee.clipsToBounds = true
+//
+//                }
+//                if index == 2 {
+//                    cell.fourthAttendee.setImage(image, forState: UIControlState.Normal)
+//                    cell.fourthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                    cell.fourthAttendee.tag = index+1
+//
+//                    cell.fourthAttendee.layer.cornerRadius = cell.fourthAttendee.frame.size.width / 2
+//                    cell.fourthAttendee.clipsToBounds = true
+//
+//                }
+//                if index == 3 {
+//                    cell.fifthAttendee.setImage(image, forState: UIControlState.Normal)
+//                    cell.fifthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+//                    cell.fifthAttendee.tag = index+1
+//
+//                    cell.fifthAttendee.layer.cornerRadius = cell.fifthAttendee.frame.size.width / 2
+//                    cell.fifthAttendee.clipsToBounds = true
+//
+//                }
+//
+//            }
             
             
             finalCell = cell
             
         }
         
-//        else if indexPath.row == 3 {
-//            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailHeaderCell") as? UITableViewCell
-//            finalCell = cell
-//            
-//        }
         
         else {
-            var cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
             let commentObject = queryObjects[indexPath.row-3]
             var heartState: Bool? = false
 
@@ -726,8 +727,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             cell.timeLabel.text = timeAgo
             
             let heartingUsers = commentObject.objectForKey("heartingUsers") as? [String]
-            let countHeartingUsers = heartingUsers?.count
-            
+
             if let hearts = heartingUsers {
                 if hearts.contains((currentUser!.objectId!)) {
                     heartState = true

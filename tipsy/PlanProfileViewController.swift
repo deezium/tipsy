@@ -192,9 +192,11 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             profileImage.getDataInBackgroundWithBlock({
                 (imageData,error) -> Void in
                 if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let image = UIImage(data: imageData!)
-                        self.profileImage.image = image
+                    if let imageData = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData)
+                            self.profileImage.image = image
+                        }
                     }
                 }
                 else {
@@ -618,9 +620,11 @@ class PlanProfileViewController: UIViewController, QueryControllerProtocol, UITa
             postImage.getDataInBackgroundWithBlock({
                 (imageData,error) -> Void in
                 if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let image = UIImage(data: imageData!)
-                        cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                    if let imageData = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData)
+                            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                        }
                     }
                 }
                 else {

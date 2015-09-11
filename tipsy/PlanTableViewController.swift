@@ -581,13 +581,15 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
             postImage.getDataInBackgroundWithBlock({
                 (imageData,error) -> Void in
                 if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let image = UIImage(data: imageData!)
-                        let testImage = UIImage(named: "Map-50.png") as UIImage!
-                        
-                        cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
-                        cell.profileImageButton.tag = (indexPath.section)*100 + indexPath.row
-                        cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    
+                    if let imageData = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData)
+                            
+                            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                            cell.profileImageButton.tag = (indexPath.section)*100 + indexPath.row
+                            cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                        }
                     }
                 }
                 else {

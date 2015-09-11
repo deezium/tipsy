@@ -100,9 +100,11 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
             profileImage.getDataInBackgroundWithBlock({
                 (imageData,error) -> Void in
                 if error == nil {
-                    dispatch_async(dispatch_get_main_queue()) {
-                        let image = UIImage(data: imageData!)
-                        cell.profilePicture.image = image
+                    if let imageData = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData)
+                            cell.profilePicture.image = image
+                        }
                     }
                 }
                 else {
