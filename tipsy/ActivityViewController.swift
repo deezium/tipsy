@@ -13,7 +13,6 @@ import Amplitude_iOS
 
 class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
     
-    @IBOutlet weak var tipsyTurtle: UIImageView!
     
     @IBOutlet weak var locationLabel: UILabel!
     
@@ -140,7 +139,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
             activityIndicator.stopAnimating()
             tableView.hidden = true
             segmentedControl.hidden = true
-            tipsyTurtle.hidden = false
             locationLabel.hidden = false
         }
     }
@@ -509,11 +507,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                     (imageData,error) -> Void in
                     if error == nil {
                         dispatch_async(dispatch_get_main_queue()) {
-                            let image = UIImage(data: imageData!)
-                            cell.profileButton.setImage(image, forState: UIControlState.Normal)
-                            // cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-                            cell.profileButton.tag = indexPath.row
-                            cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            if let imageData = imageData {
+                                let image = UIImage(data: imageData)
+                                cell.profileButton.setImage(image, forState: UIControlState.Normal)
+                                cell.profileButton.tag = indexPath.row
+                                cell.profileButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                                
+                            }
+                            
                             
                         }
                     }

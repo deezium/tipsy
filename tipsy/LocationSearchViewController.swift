@@ -142,11 +142,15 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
                     return
                 }
                 else {
-                    self.searchResultData = [GMSAutocompletePrediction]()
-                    for result in results as! [GMSAutocompletePrediction] {
-                        self.searchResultData.append(result)
+                    
+                    if let results = results {
+                        self.searchResultData = [GMSAutocompletePrediction]()
+                        for result in results as! [GMSAutocompletePrediction] {
+                            self.searchResultData.append(result)
+                        }
+                        self.locationSearchResults.reloadData()
+                        
                     }
-                    self.locationSearchResults.reloadData()
                 }
             })
         }
