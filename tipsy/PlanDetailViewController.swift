@@ -54,7 +54,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             self.queryObjects = objects
             print(objects)
             self.commentTable!.reloadData()
-//            self.activityIndicator.stopAnimating()
+            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -62,10 +62,10 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             print("attendees received")
-            self.attendeeQueryObjects = objects
-            print(objects)
-            self.commentTable!.reloadData()
-//            self.activityIndicator.stopAnimating()
+//            self.attendeeQueryObjects = objects
+//            print(objects)
+//            self.commentTable!.reloadData()
+            self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
@@ -82,7 +82,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         self.commentTable.delegate = self
         self.commentTable.dataSource = self
         
@@ -589,98 +589,104 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         else if indexPath.row == 2 {
-            var cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as! PlanDetailAttendingCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as! PlanDetailAttendingCell
             
             let plan = planObjects.first!
             let creatingUser = plan.objectForKey("creatingUser") as! PFObject
             
             var attendeeImageArray = [UIImage?]()
             
-//            for attendee in attendeeQueryObjects {
-//                if let postImage = attendee.objectForKey("profileImage") as? PFFile {
-//                    
-//                    postImage.getDataInBackgroundWithBlock({
-//                        (imageData,error) -> Void in
-//                        if error == nil {
-//                            dispatch_async(dispatch_get_main_queue()) {
-//                                let image = UIImage(data: imageData!)
-//                                attendeeImageArray.append(image!)
-//                                
-//                            }
-//
-//                        }
-//                        else {
-//                            print("image retrieval error \(error)")
-//                        }
-//                    })
-//                    
-//                }
-//            }
-//            
-//            if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
-//                
-//                postImage.getDataInBackgroundWithBlock({
-//                    (imageData,error) -> Void in
-//                    if error == nil {
-//                        dispatch_async(dispatch_get_main_queue()) {
-//                            let image = UIImage(data: imageData!)
-//                            cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
-//                            cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                            cell.firstAttendee.tag = 0
-//                            
-//                            cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
-//                            cell.firstAttendee.clipsToBounds = true
-//                            
-//                        }
-//                            
-//                    }
-//                    else {
-//                        print("image retrieval error")
-//                    }
-//                })
-//
-//                
-//            }
-//            
-//            for (index, image) in attendeeImageArray.enumerate() {
-//                if index == 0 {
-//                    cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
-//                    cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    cell.secondAttendee.tag = index+1
-//                    
-//                    cell.secondAttendee.layer.cornerRadius = cell.secondAttendee.frame.size.width / 2
-//                    cell.secondAttendee.clipsToBounds = true
-//
-//                }
-//                if index == 1 {
-//                    cell.thirdAttendee.setImage(image, forState: UIControlState.Normal)
-//                    cell.thirdAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    cell.thirdAttendee.tag = index+1
-//
-//                    cell.thirdAttendee.layer.cornerRadius = cell.thirdAttendee.frame.size.width / 2
-//                    cell.thirdAttendee.clipsToBounds = true
-//
-//                }
-//                if index == 2 {
-//                    cell.fourthAttendee.setImage(image, forState: UIControlState.Normal)
-//                    cell.fourthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    cell.fourthAttendee.tag = index+1
-//
-//                    cell.fourthAttendee.layer.cornerRadius = cell.fourthAttendee.frame.size.width / 2
-//                    cell.fourthAttendee.clipsToBounds = true
-//
-//                }
-//                if index == 3 {
-//                    cell.fifthAttendee.setImage(image, forState: UIControlState.Normal)
-//                    cell.fifthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                    cell.fifthAttendee.tag = index+1
-//
-//                    cell.fifthAttendee.layer.cornerRadius = cell.fifthAttendee.frame.size.width / 2
-//                    cell.fifthAttendee.clipsToBounds = true
-//
-//                }
-//
-//            }
+            print("attendees are \(attendeeQueryObjects)")
+            
+            for attendee in attendeeQueryObjects {
+                if let postImage = attendee.objectForKey("profileImage") as? PFFile {
+                    print("attendeeImage is \(postImage)")
+                    postImage.getDataInBackgroundWithBlock({
+                        (imageData,error) -> Void in
+                        if error == nil {
+                            print("got image data")
+                            dispatch_async(dispatch_get_main_queue()) {
+                                let image = UIImage(data: imageData!)
+                                attendeeImageArray.append(image!)
+                                print("dispatched queue")
+                                
+                            }
+
+                        }
+                        else {
+                            print("image retrieval error \(error)")
+                        }
+                    })
+                    
+                }
+                
+                
+            }
+            
+            if let postImage = creatingUser.objectForKey("profileImage") as? PFFile {
+                
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.firstAttendee.setImage(image, forState: UIControlState.Normal)
+                            cell.firstAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            cell.firstAttendee.tag = 0
+                            
+                            cell.firstAttendee.layer.cornerRadius = cell.firstAttendee.frame.size.width / 2
+                            cell.firstAttendee.clipsToBounds = true
+                            
+                        }
+                            
+                    }
+                    else {
+                        print("image retrieval error")
+                    }
+                })
+
+                
+            }
+            
+            for (index, image) in attendeeImageArray.enumerate() {
+                if index == 0 {
+                    cell.secondAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.secondAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.secondAttendee.tag = index+1
+                    
+                    cell.secondAttendee.layer.cornerRadius = cell.secondAttendee.frame.size.width / 2
+                    cell.secondAttendee.clipsToBounds = true
+
+                }
+                if index == 1 {
+                    cell.thirdAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.thirdAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.thirdAttendee.tag = index+1
+
+                    cell.thirdAttendee.layer.cornerRadius = cell.thirdAttendee.frame.size.width / 2
+                    cell.thirdAttendee.clipsToBounds = true
+
+                }
+                if index == 2 {
+                    cell.fourthAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.fourthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.fourthAttendee.tag = index+1
+
+                    cell.fourthAttendee.layer.cornerRadius = cell.fourthAttendee.frame.size.width / 2
+                    cell.fourthAttendee.clipsToBounds = true
+
+                }
+                if index == 3 {
+                    cell.fifthAttendee.setImage(image, forState: UIControlState.Normal)
+                    cell.fifthAttendee.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                    cell.fifthAttendee.tag = index+1
+
+                    cell.fifthAttendee.layer.cornerRadius = cell.fifthAttendee.frame.size.width / 2
+                    cell.fifthAttendee.clipsToBounds = true
+
+                }
+
+            }
             
             
             finalCell = cell
@@ -722,7 +728,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             }
             
             cell.nameLabel.text = firstname
-//            cell.messageLabel.text = commentBody
             cell.newCommentTextField.text = commentBody
             cell.timeLabel.text = timeAgo
             

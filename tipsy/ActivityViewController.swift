@@ -154,9 +154,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("OOPS")
                     }
                     else {
-                        if (result["name"] != nil) {
-                            PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
-                            PFUser.currentUser()?.saveInBackground()
+                        if let result = result {
+                            if (result["name"] != nil) {
+                                PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
+                                PFUser.currentUser()?.saveInBackground()
+                            }
+                            
                         }
                     }
                 })
@@ -174,19 +177,25 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("OOPS")
                     }
                     else {
-                        if let pictureString = result["data"]?["url"] as? String {
-                            let pictureURL = NSURL(string: pictureString) as NSURL?
-                            
-                            if pictureURL != nil {
-                                let pictureData = NSData(contentsOfURL: pictureURL!)
-                                
-                                if pictureData != nil {
-                                    let pictureFile = PFFile(data: pictureData!)
-                                    PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
-                                    PFUser.currentUser()?.saveInBackground()
-                                    print("facebook profile picture saved")
+                        if let result = result {
+                            if let resultData = result["data"] {
+                                if let pictureString = resultData["url"] as? String {
+                                    let pictureURL = NSURL(string: pictureString) as NSURL?
+                                    
+                                    if pictureURL != nil {
+                                        let pictureData = NSData(contentsOfURL: pictureURL!)
+                                        
+                                        if pictureData != nil {
+                                            let pictureFile = PFFile(data: pictureData!)
+                                            PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
+                                            PFUser.currentUser()?.saveInBackground()
+                                            print("facebook profile picture saved")
+                                            
+                                        }
+                                    }
                                     
                                 }
+                                
                             }
                             
                         }
@@ -208,12 +217,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("Oops, friend fetch failed")
                     }
                     else {
-                        
-                        if let resultArray = result.objectForKey("data") as? NSArray {
-                            for i in resultArray {
-                                if let id = i.objectForKey("id") as? String {
-                                    friendsArray.append(id)                                    
+                        if let result = result {
+                            if let resultArray = result.objectForKey("data") as? NSArray {
+                                for i in resultArray {
+                                    if let id = i.objectForKey("id") as? String {
+                                        friendsArray.append(id)
+                                    }
                                 }
+                                
                             }
                             
                         }
@@ -236,10 +247,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("Oops, id fetch failed")
                     }
                     else {
-                        
-                        if (result["id"] != nil) {
-                            PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
-                            PFUser.currentUser()?.saveInBackground()
+                        if let result = result {
+                            if (result["id"] != nil) {
+                                PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
+                                PFUser.currentUser()?.saveInBackground()
+                            }
                         }
                     }
                 })
@@ -250,12 +262,12 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                         print("Oops, id fetch failed")
                     }
                     else {
-                        
-                        if (result["email"] != nil) {
-                            PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
-                            PFUser.currentUser()?.saveInBackground()
+                        if let result = result {
+                            if (result["email"] != nil) {
+                                PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
+                                PFUser.currentUser()?.saveInBackground()
+                            }
                         }
-                        
                     }
                 })
                 

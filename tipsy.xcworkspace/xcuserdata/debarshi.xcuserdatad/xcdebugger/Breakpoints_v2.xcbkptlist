@@ -583,20 +583,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             symbolName = "warnBlockingOperationOnMainThread">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "warnBlockingOperationOnMainThread"
                   moduleName = "tipsy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/bkelley/src/ios-sdk-rel/Bolts-IOS/Bolts/Common/BFTask.m"
-                  timestampString = "463640767.112008"
+                  timestampString = "463652475.379268"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "18"
