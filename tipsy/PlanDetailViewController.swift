@@ -76,8 +76,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     }
 
     func configureTableView() {
-//        commentTable.rowHeight = UITableViewAutomaticDimension
-//        commentTable.estimatedRowHeight = 70.0
+        commentTable.rowHeight = UITableViewAutomaticDimension
+        commentTable.estimatedRowHeight = 70.0
     }
     
     override func viewDidLoad() {
@@ -683,79 +683,72 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
         }
         
         else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as? CommentCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as! CommentCell
+            let commentObject = queryObjects[indexPath.row-3]
+            var heartState: Bool? = false
 
-//          let cell = tableView.dequeueReusableCellWithIdentifier("PlanDetailAttendingCell") as? PlanDetailAttendingCell
+            let user = commentObject.objectForKey("commentingUser") as! PFUser
+            let fullname = user.objectForKey("fullname") as? String
+            let firstname = fullname?.componentsSeparatedByString(" ")[0]
+            let timeAgo = commentObject.createdAt!.shortTimeAgoSinceNow()
+            let commentBody = commentObject.objectForKey("body") as? String
+            
+            
+            if let postImage = user.objectForKey("profileImage") as? PFFile {
+                
+                postImage.getDataInBackgroundWithBlock({
+                    (imageData,error) -> Void in
+                    if error == nil {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: imageData!)
+                            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
+                            cell.profileImageButton.tag = indexPath.row-3+100
+                            cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
+                            
+                        }
+                    }
+                    else {
+                        print("image retrieval error")
+                    }
+                })
+
+                
+            }
+            
+            cell.nameLabel.text = firstname
+            cell.newCommentTextField.text = commentBody
+            cell.timeLabel.text = timeAgo
+            
+            let heartingUsers = commentObject.objectForKey("heartingUsers") as? [String]
+
+            if let hearts = heartingUsers {
+                if hearts.contains((currentUser!.objectId!)) {
+                    heartState = true
+                }
+            }
+            
+            if (heartState == true) {
+                cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
+            }
+            else {
+                cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
+                
+            }
+            
+            if heartingUsers?.count == 0 {
+                cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
+                //cell.heartButton.titleLabel?.hidden = true
+                
+            }
+            else {
+                cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
+            }
+
+
+            
             finalCell = cell
+            
         }
-
-//        else {
-//            let cell = tableView.dequeueReusableCellWithIdentifier("CommentCell") as? CommentCell
-//            let commentObject = queryObjects[indexPath.row-3]
-//            var heartState: Bool? = false
-//
-//            let user = commentObject.objectForKey("commentingUser") as! PFUser
-//            let fullname = user.objectForKey("fullname") as? String
-//            let firstname = fullname?.componentsSeparatedByString(" ")[0]
-//            let timeAgo = commentObject.createdAt!.shortTimeAgoSinceNow()
-//            let commentBody = commentObject.objectForKey("body") as? String
-//            
-//            
-//            if let postImage = user.objectForKey("profileImage") as? PFFile {
-//                
-//                postImage.getDataInBackgroundWithBlock({
-//                    (imageData,error) -> Void in
-//                    if error == nil {
-//                        dispatch_async(dispatch_get_main_queue()) {
-//                            let image = UIImage(data: imageData!)
-//                            cell.profileImageButton.setImage(image, forState: UIControlState.Normal)
-//                            cell.profileImageButton.tag = indexPath.row-3+100
-//                            cell.profileImageButton.addTarget(self, action: "didTapUserProfileImage:", forControlEvents: UIControlEvents.TouchUpInside)
-//                            
-//                        }
-//                    }
-//                    else {
-//                        print("image retrieval error")
-//                    }
-//                })
-//
-//                
-//            }
-//            
-//            cell.nameLabel.text = firstname
-//            cell.newCommentTextField.text = commentBody
-//            cell.timeLabel.text = timeAgo
-//            
-//            let heartingUsers = commentObject.objectForKey("heartingUsers") as? [String]
-//
-//            if let hearts = heartingUsers {
-//                if hearts.contains((currentUser!.objectId!)) {
-//                    heartState = true
-//                }
-//            }
-//            
-//            if (heartState == true) {
-//                cell.heartButton.setImage(UIImage(named: "LikeFilled.png"), forState: UIControlState.Normal)
-//            }
-//            else {
-//                cell.heartButton.setImage(UIImage(named: "Like.png"), forState: UIControlState.Normal)
-//                
-//            }
-//            
-//            if heartingUsers?.count == 0 {
-//                cell.heartButton.setTitle(" ", forState: UIControlState.Normal)
-//                //cell.heartButton.titleLabel?.hidden = true
-//                
-//            }
-//            else {
-//                cell.heartButton.setTitle(heartingUsers?.count.description, forState: UIControlState.Normal)
-//            }
-//
-//
-//            
-//            finalCell = cell
-//            
-//        }
         
 
         

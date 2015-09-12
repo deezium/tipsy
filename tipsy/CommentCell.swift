@@ -19,22 +19,22 @@ class CommentCell: UITableViewCell {
     @IBOutlet weak var newCommentTextField: UITextView!
     @IBOutlet weak var heartButton: UIButton!
  
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        newCommentTextField.editable = false
-        newCommentTextField.dataDetectorTypes = UIDataDetectorTypes.All
-        newCommentTextField.setContentOffset(CGPointZero, animated: false)
-    
-    }
-    
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
-        profileImageButton.imageView!.clipsToBounds = true
-    }
-
-    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        
+//        newCommentTextField.editable = false
+//        newCommentTextField.dataDetectorTypes = UIDataDetectorTypes.All
+//        newCommentTextField.setContentOffset(CGPointZero, animated: false)
+//    
+//    }
+//    
+//    
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        profileImageButton.imageView!.layer.cornerRadius = profileImageButton.imageView!.frame.size.width / 2
+//        profileImageButton.imageView!.clipsToBounds = true
+//    }
+//
+//    
     
 }

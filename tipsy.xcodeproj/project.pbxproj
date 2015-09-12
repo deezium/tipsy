@@ -175,6 +175,7 @@
 		33F020451B8652CA0090C91D /* UserGroup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F020421B8652CA0090C91D /* UserGroup@2x.png */; };
 		33F020461B8652CA0090C91D /* UserGroup@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F020431B8652CA0090C91D /* UserGroup@3x.png */; };
 		33F020481B8654CA0090C91D /* PlanCreationVisibilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F020471B8654CA0090C91D /* PlanCreationVisibilityCell.swift */; };
+		33F0ED9D1BA38E64008D8EB3 /* NewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0ED9C1BA38E63008D8EB3 /* NewCommentCell.swift */; settings = {ASSET_TAGS = (); }; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -411,6 +412,7 @@
 		33F020421B8652CA0090C91D /* UserGroup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UserGroup@2x.png"; path = "images/UserGroup@2x.png"; sourceTree = "<group>"; };
 		33F020431B8652CA0090C91D /* UserGroup@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "UserGroup@3x.png"; path = "images/UserGroup@3x.png"; sourceTree = "<group>"; };
 		33F020471B8654CA0090C91D /* PlanCreationVisibilityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanCreationVisibilityCell.swift; sourceTree = "<group>"; };
+		33F0ED9C1BA38E63008D8EB3 /* NewCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCommentCell.swift; sourceTree = "<group>"; };
 		33F385CF1B548E770008AFF7 /* DClinkedin.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DClinkedin.jpg; sourceTree = "<group>"; };
 		33F385E11B5494CD0008AFF7 /* firstaid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = firstaid.png; sourceTree = "<group>"; };
 		33F385E21B5494CD0008AFF7 /* firstaid@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "firstaid@2x.png"; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 		334D1A771B71D44900E5D025 /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
+				33F0ED9C1BA38E63008D8EB3 /* NewCommentCell.swift */,
 				33F020471B8654CA0090C91D /* PlanCreationVisibilityCell.swift */,
 				33A0E8E91B8402830021A8D0 /* MyFriendsCell.swift */,
 				334D1A811B7201E600E5D025 /* PlanDetailAttendingCell.swift */,
@@ -1141,6 +1144,7 @@
 			files = (
 				333CF3301B8C58D80011ACC1 /* AboutViewController.swift in Sources */,
 				3339CE161B424EE6001C222C /* FMDatabasePool.m in Sources */,
+				33F0ED9D1BA38E64008D8EB3 /* NewCommentCell.swift in Sources */,
 				33A0E8B21B83D8720021A8D0 /* MoreTableCell.swift in Sources */,
 				33F020281B8463B10090C91D /* ActivityHeaderCell.swift in Sources */,
 				333CF3321B8E9B940011ACC1 /* FAQViewController.swift in Sources */,

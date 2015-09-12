@@ -235,7 +235,7 @@ We hope you enjoy using Tipsy!</string>
                                         <rect key="frame" x="0.0" y="22" width="610" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5tJ-My-aTz" id="Vzl-PB-MBu">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPw-F1-gjP">
@@ -335,7 +335,7 @@ We hope you enjoy using Tipsy!</string>
                                         <rect key="frame" x="0.0" y="102" width="610" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kxf-ku-YZh" id="PgM-Yd-rbN">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUr-1C-FDA">
@@ -436,7 +436,7 @@ We hope you enjoy using Tipsy!</string>
                                         <rect key="frame" x="0.0" y="182" width="610" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTp-Vp-zno" id="zyW-vr-CJ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="message" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpU-Mq-Rrb">
@@ -516,7 +516,7 @@ We hope you enjoy using Tipsy!</string>
                                         <rect key="frame" x="0.0" y="262" width="610" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e4d-Fn-f5U" id="hJn-x0-P6f">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="headerLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7pL-LJ-C9a">
@@ -631,7 +631,7 @@ We hope you enjoy using Tipsy!</string>
                                         <rect key="frame" x="0.0" y="86" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LhH-lC-ZmU" id="4q9-ba-NrZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B68-Zk-74h">
@@ -714,7 +714,7 @@ We hope you enjoy using Tipsy!</string>
                                         <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ua3-ww-ptM" id="3QE-zJ-ehe">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zxF-Dq-WTW">
@@ -1056,7 +1056,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="86" width="621" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b9Z-Wk-vVj" id="zIh-tE-jSa">
-                                            <rect key="frame" x="0.0" y="0.0" width="621" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="621" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uTY-aw-uPo">
@@ -1309,7 +1309,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="236" width="621" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pkW-pd-hXZ" id="JdJ-qL-D3C">
-                                            <rect key="frame" x="0.0" y="0.0" width="621" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="621" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="headerLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZq-Gw-oow">
@@ -1549,7 +1549,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="22" width="610" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wzd-v8-7TR" id="Rhr-Xj-qFo">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="What are you up to?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FGq-SF-MTE">
@@ -1596,7 +1596,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="72" width="610" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mBj-Bo-N8R" id="fhP-hn-hgx">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Forward-50.png" translatesAutoresizingMaskIntoConstraints="NO" id="X6V-H2-bI4">
@@ -1653,7 +1653,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="122" width="610" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kl0-Tm-Edi" id="zz1-Uc-FZK">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1m7-bX-w7H">
@@ -1692,7 +1692,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="172" width="610" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ooc-DY-9qj" id="oad-wH-rrL">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="215.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="216"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="pZt-Iy-zMq">
@@ -1728,7 +1728,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="388" width="610" height="30"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aq8-C2-AGa" id="v9H-9H-TEc">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="29.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="30"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1790,7 +1790,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="472" width="610" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dSc-FA-rNU" id="OZW-6x-uEd">
-                                            <rect key="frame" x="0.0" y="0.0" width="610" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="610" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Visibility" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3k-Xe-g3a">
@@ -2050,7 +2050,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="22" width="600" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dbx-XX-6Yi" id="sZi-Nq-iOj">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="109.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="end" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vRr-Er-MAu">
@@ -2213,7 +2213,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="132" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qWG-Sm-wLd" id="EFs-lG-ilO">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf3-Oe-7ub">
@@ -2460,7 +2460,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="282" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cg5-s8-XZE" id="plH-nG-v19">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="headerLabel" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Of8-Qg-dRa">
@@ -2650,7 +2650,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="22" width="616" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0CV-23-mDl" id="PHR-At-2U4">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="32.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nearby" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pic-Xe-q20">
@@ -2677,7 +2677,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="55" width="616" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qc7-qS-tId" id="XND-V8-Rgi">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Attending" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1W-7l-wHz">
@@ -2818,7 +2818,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                         <rect key="frame" x="0.0" y="145" width="616" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ECH-P5-qj7" id="eTT-BA-iaT">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbU-bs-L2U">
@@ -2852,13 +2852,14 @@ The Activity view contains all public events around you, as well as all plans ma
                                                         <action selector="didTapCommentHeart:" destination="lra-bo-m7v" eventType="touchUpInside" id="O7G-pT-dVr"/>
                                                     </connections>
                                                 </button>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" text="message" translatesAutoresizingMaskIntoConstraints="NO" id="LhV-8A-tcx">
-                                                    <rect key="frame" x="72" y="12" width="308" height="45"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhV-8A-tcx">
+                                                    <rect key="frame" x="72" y="12" width="308" height="212"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="dq4-UC-ygx"/>
                                                     </constraints>
+                                                    <mutableString key="text">fuck ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
@@ -2908,18 +2909,83 @@ The Activity view contains all public events around you, as well as all plans ma
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="heartButton" destination="B7V-Qi-09F" id="tan-sh-frD"/>
-                                            <outlet property="nameLabel" destination="QKB-mt-yKE" id="21h-0H-fvt"/>
-                                            <outlet property="newCommentTextField" destination="LhV-8A-tcx" id="3KA-GK-8np"/>
-                                            <outlet property="profileImageButton" destination="a10-zy-Pkm" id="HfF-tp-gBr"/>
-                                            <outlet property="timeLabel" destination="zbU-bs-L2U" id="dfZ-bW-Shq"/>
+                                            <outlet property="heartButton" destination="B7V-Qi-09F" id="gGk-fB-ly0"/>
+                                            <outlet property="nameLabel" destination="QKB-mt-yKE" id="KnW-Hq-wme"/>
+                                            <outlet property="newCommentTextField" destination="LhV-8A-tcx" id="VEM-4l-LZi"/>
+                                            <outlet property="profileImageButton" destination="a10-zy-Pkm" id="csB-21-da6"/>
+                                            <outlet property="timeLabel" destination="zbU-bs-L2U" id="os8-c0-D9a"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewCommentCell" rowHeight="93" id="XQH-4q-ql5" customClass="NewCommentCell" customModule="tipsy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="235" width="616" height="93"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XQH-4q-ql5" id="3be-oi-aqj">
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="skv-1e-Ghg">
+                                                    <rect key="frame" x="37" y="66" width="43" height="14"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmB-YK-3hY">
+                                                    <rect key="frame" x="38" y="18" width="40" height="40"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="326-lv-qSb"/>
+                                                        <constraint firstAttribute="width" constant="40" id="bch-R8-ubQ"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lfh-UY-5y7">
+                                                    <rect key="frame" x="88" y="18" width="490" height="57"/>
+                                                    <animations/>
+                                                    <mutableString key="text">fuck ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="13"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="skv-1e-Ghg" firstAttribute="leading" secondItem="3be-oi-aqj" secondAttribute="leadingMargin" constant="24" id="2pj-5n-C5o"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="skv-1e-Ghg" secondAttribute="trailing" constant="533" id="9Dn-px-4bJ"/>
+                                                <constraint firstItem="skv-1e-Ghg" firstAttribute="top" secondItem="tmB-YK-3hY" secondAttribute="bottom" id="AGq-Dt-Ps2"/>
+                                                <constraint firstItem="skv-1e-Ghg" firstAttribute="top" secondItem="3be-oi-aqj" secondAttribute="topMargin" constant="34" id="MvK-6c-9bJ"/>
+                                                <constraint firstItem="skv-1e-Ghg" firstAttribute="leading" secondItem="3be-oi-aqj" secondAttribute="leadingMargin" constant="30" id="Rr4-sQ-gNV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lfh-UY-5y7" secondAttribute="bottom" constant="10" id="Wmr-G8-hD6"/>
+                                                <constraint firstItem="skv-1e-Ghg" firstAttribute="centerY" secondItem="3be-oi-aqj" secondAttribute="centerY" id="X22-s2-CGt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lfh-UY-5y7" secondAttribute="trailing" constant="30" id="cKi-in-7HU"/>
+                                                <constraint firstItem="skv-1e-Ghg" firstAttribute="centerX" secondItem="tmB-YK-3hY" secondAttribute="centerX" id="f9Y-Rv-lq1"/>
+                                                <constraint firstItem="lfh-UY-5y7" firstAttribute="leading" secondItem="tmB-YK-3hY" secondAttribute="trailing" constant="10" id="vf2-Qn-XXa"/>
+                                                <constraint firstItem="tmB-YK-3hY" firstAttribute="top" secondItem="3be-oi-aqj" secondAttribute="topMargin" constant="10" id="wKL-6m-n0d"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="skv-1e-Ghg" secondAttribute="bottom" constant="5" id="wr0-Sd-9fX"/>
+                                                <constraint firstItem="lfh-UY-5y7" firstAttribute="top" secondItem="3be-oi-aqj" secondAttribute="topMargin" constant="10" id="yOd-71-NgW"/>
+                                                <constraint firstItem="tmB-YK-3hY" firstAttribute="leading" secondItem="3be-oi-aqj" secondAttribute="leadingMargin" constant="30" id="zUe-OK-PzX"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2pj-5n-C5o"/>
+                                                    <exclude reference="9Dn-px-4bJ"/>
+                                                    <exclude reference="MvK-6c-9bJ"/>
+                                                    <exclude reference="Rr4-sQ-gNV"/>
+                                                    <exclude reference="X22-s2-CGt"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="name" destination="skv-1e-Ghg" id="FG9-h8-Fn0"/>
+                                            <outlet property="newCommentTextField" destination="lfh-UY-5y7" id="4TN-CP-Feh"/>
+                                            <outlet property="profileImageButton" destination="tmB-YK-3hY" id="XJE-9J-xcU"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanDetailInteractionCell" rowHeight="57" id="Cz7-oG-j73" customClass="PlanDetailInteractionCell" customModule="tipsy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="235" width="616" height="57"/>
+                                        <rect key="frame" x="0.0" y="328" width="616" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cz7-oG-j73" id="QBd-cb-Ea8">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="56.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NOL-Zj-c5g">
@@ -3027,10 +3093,10 @@ The Activity view contains all public events around you, as well as all plans ma
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlanDetailHeaderCell" rowHeight="93" id="LVs-kv-hc5">
-                                        <rect key="frame" x="0.0" y="292" width="616" height="93"/>
+                                        <rect key="frame" x="0.0" y="385" width="616" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LVs-kv-hc5" id="Omx-Ws-TDR">
-                                            <rect key="frame" x="0.0" y="0.0" width="616" height="92.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="616" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3365,7 +3431,7 @@ The Activity view contains all public events around you, as well as all plans ma
                                 <rect key="frame" x="0.0" y="66" width="600" height="216"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5vS-iM-p8T" id="lL5-FE-wje">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="215.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="mWb-Ve-aPx">
