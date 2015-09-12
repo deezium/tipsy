@@ -46,7 +46,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @IBAction func didTapInvite(sender: AnyObject) {
         
-        var textToShare = "Are you getting Tipsy?"
+        let textToShare = "Are you getting Tipsy?"
         
         if let website = NSURL(string: "http://www.everybodygettipsy.com/") {
             let objectsToShare = [textToShare, website]
@@ -79,6 +79,7 @@ class PlanTableViewController: UIViewController, UITableViewDelegate, UITableVie
     func didReceiveSecondQueryResults(objects: [PFObject]) {
         dispatch_async(dispatch_get_main_queue(), {
             self.queryObjects = objects
+            print("friend feed objects \(self.queryObjects)")
             self.createPlanArrays(objects)
             self.createTableSections()
             self.planTableView!.reloadData()
