@@ -65,7 +65,9 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         Amplitude.instance().logEvent("myFriendsViewed")
-
+        query.delegate = self
+        query.queryUserIdsForFriends()
+        
     }
     
     
@@ -80,8 +82,6 @@ class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.dataSource = self
         tableView.delegate = self
         
-        query.delegate = self
-        query.queryUserIdsForFriends()
         
     }
     
