@@ -299,7 +299,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 print("Success")
                 NSNotificationCenter.defaultCenter().postNotificationName(planInteractedNotificationKey, object: self)
                 
-                var heartedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
+                let heartedPlanProperties = NSDictionary(object: self.planObjects.first!.objectId!, forKey: "planId") as? [NSObject : AnyObject]
                 
                 
                 Amplitude.instance().logEvent("planHearted", withEventProperties: heartedPlanProperties)
@@ -596,12 +596,8 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             var attendeeImageArray = [UIImage?]()
             
-            print("attendees are \(attendeeQueryObjects)")
-            
             for attendee in attendeeQueryObjects {
                 if let postImage = attendee.objectForKey("profileImage") as? PFFile {
-                    print("attendeeImage is \(postImage)")
-                    
                     let imageData = postImage.getData()
                     let image = UIImage(data: imageData!)
                     attendeeImageArray.append(image!)
@@ -616,7 +612,6 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
                 postImage.getDataInBackgroundWithBlock({
                     (imageData,error) -> Void in
                     if error == nil {
-                        print("profileImage is \(postImage)")
                         dispatch_async(dispatch_get_main_queue()) {
                             let image = UIImage(data: imageData!)
                             cell.firstAttendee.setImage(image, forState: UIControlState.Normal)

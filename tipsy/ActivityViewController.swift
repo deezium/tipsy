@@ -211,6 +211,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 var friendsArray = [String]()
                 PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
                 PFUser.currentUser()?.saveInBackground()
+                
                 let userFriendsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/friends", parameters: nil)
                 userFriendsRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
@@ -228,7 +229,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                             }
                             
                         }
-                        
+                    
                         PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
                         PFInstallation.currentInstallation().setObject(friendsArray, forKey: "friendsUsingTipsy")
                         
