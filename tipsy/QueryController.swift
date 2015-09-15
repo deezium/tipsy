@@ -159,7 +159,12 @@ class QueryController {
     
     func queryUserIdsForFriends() {
         
-        let currentUserFriends = PFUser.currentUser()?.objectForKey("friendsUsingTipsy") as! NSArray
+        var currentUserFriends = NSArray()
+        
+        if let friends = PFUser.currentUser()?.objectForKey("friendsUsingTipsy") {
+            currentUserFriends = friends as! NSArray
+
+        }
         let query = PFUser.query()!
         query.whereKey("facebookID", containedIn: currentUserFriends as [AnyObject])
         query.orderByAscending("fullname")
