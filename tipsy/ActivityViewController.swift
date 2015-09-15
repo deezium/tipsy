@@ -147,7 +147,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
     
     func saveFacebookData() {
-        print("current user \(PFUser.currentUser())")
         if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("fullname") == nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil) {
                 print("has access token")
@@ -252,34 +251,29 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     else {
                         if let result = result {
-                            print(result)
                             if let idResult = result.objectForKey("id") {
                                 PFUser.currentUser()?.setObject(idResult, forKey: "facebookID")
-                                PFUser.currentUser()?.saveInBackground()
-                            }
-                            if let emailResult = result.objectForKey("email") {
-                                PFUser.currentUser()?.setObject(emailResult, forKey: "facebookEmail")
                                 PFUser.currentUser()?.saveInBackground()
                             }
                         }
                     }
                 })
                 
-//                let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
-//                userEmailRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-//                    if (error != nil) {
-//                        print("Oops, email fetch failed \(error)")
-//                    }
-//                    else {
-//                        if let result = result {
-//                            if let emailResult = result.objectForKey("email") {
-//                                print(emailResult)
-//                                PFUser.currentUser()?.setObject(emailResult, forKey: "facebookEmail")
-//                                PFUser.currentUser()?.saveInBackground()
-//                            }
-//                        }
-//                    }
-//                })
+                let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me?fields=email", parameters: nil)
+                userEmailRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                    if (error != nil) {
+                        print("Oops, email fetch failed \(error)")
+                    }
+                    else {
+                        if let result = result {
+                            if let emailResult = result.objectForKey("email") {
+                                print(emailResult)
+                                PFUser.currentUser()?.setObject(emailResult, forKey: "facebookEmail")
+                                PFUser.currentUser()?.saveInBackground()
+                            }
+                        }
+                    }
+                })
                 
             }
         }
