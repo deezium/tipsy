@@ -53,8 +53,6 @@
 		3339CE551B43D305001C222C /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE511B43D305001C222C /* FBSDKMessengerShareKit.framework */; };
 		3339CE561B43D305001C222C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE521B43D305001C222C /* FBSDKShareKit.framework */; };
 		3339CE591B43D352001C222C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE571B43D352001C222C /* Bolts.framework */; };
-		3339CE5A1B43D352001C222C /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE581B43D352001C222C /* Parse.framework */; };
-		3339CE5E1B43D389001C222C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */; };
 		333CF3301B8C58D80011ACC1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */; };
 		333CF3321B8E9B940011ACC1 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF3311B8E9B940011ACC1 /* FAQViewController.swift */; };
 		333CF3361B8ED8490011ACC1 /* Message-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 333CF3331B8ED8490011ACC1 /* Message-white.png */; };
@@ -272,8 +270,6 @@
 		3339CE511B43D305001C222C /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
 		3339CE521B43D305001C222C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3339CE571B43D352001C222C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		3339CE581B43D352001C222C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		333CF3311B8E9B940011ACC1 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
 		333CF3331B8ED8490011ACC1 /* Message-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Message-white.png"; path = "images/Message-white.png"; sourceTree = "<group>"; };
@@ -459,13 +455,11 @@
 				3339CE3A1B43A9AF001C222C /* libz.dylib in Frameworks */,
 				3339CE361B43A99E001C222C /* StoreKit.framework in Frameworks */,
 				3339CE341B43A999001C222C /* Security.framework in Frameworks */,
-				3339CE5A1B43D352001C222C /* Parse.framework in Frameworks */,
 				3339CE301B43A98A001C222C /* MobileCoreServices.framework in Frameworks */,
 				3339CE2E1B43A983001C222C /* CoreLocation.framework in Frameworks */,
 				3339CE561B43D305001C222C /* FBSDKShareKit.framework in Frameworks */,
 				3339CE2C1B43A97D001C222C /* CoreGraphics.framework in Frameworks */,
 				3339CE2A1B43A977001C222C /* CFNetwork.framework in Frameworks */,
-				3339CE5E1B43D389001C222C /* ParseFacebookUtilsV4.framework in Frameworks */,
 				3339CE591B43D352001C222C /* Bolts.framework in Frameworks */,
 				3339CE281B43A971001C222C /* AudioToolbox.framework in Frameworks */,
 				3339CDDF1B422C9B001C222C /* libsqlite3.dylib in Frameworks */,
@@ -840,7 +834,6 @@
 				338EAA831B5D6FC300E63FC7 /* CoreData.framework */,
 				338EAA7E1B5D6FBB00E63FC7 /* AVFoundation.framework */,
 				3339CE571B43D352001C222C /* Bolts.framework */,
-				3339CE581B43D352001C222C /* Parse.framework */,
 				3339CE4F1B43D305001C222C /* Bolts.framework */,
 				3339CE501B43D305001C222C /* FBSDKLoginKit.framework */,
 				3339CE511B43D305001C222C /* FBSDKMessengerShareKit.framework */,
@@ -849,7 +842,6 @@
 				3339CE3D1B43AD32001C222C /* Social.framework */,
 				3339CE3B1B43AD2D001C222C /* Accounts.framework */,
 				3339CE391B43A9AF001C222C /* libz.dylib */,
-				3339CE5D1B43D389001C222C /* ParseFacebookUtilsV4.framework */,
 				3339CE371B43A9A7001C222C /* SystemConfiguration.framework */,
 				3339CE351B43A99E001C222C /* StoreKit.framework */,
 				3339CE331B43A999001C222C /* Security.framework */,
