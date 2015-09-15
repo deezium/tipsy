@@ -259,13 +259,14 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 })
                 
                 let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
-                userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+                userEmailRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
                         print("Oops, id fetch failed")
                     }
                     else {
                         if let result = result {
                             if (result["email"] != nil) {
+                                print(result["email"])
                                 PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
                                 PFUser.currentUser()?.saveInBackground()
                             }

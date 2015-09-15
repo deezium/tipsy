@@ -39,7 +39,15 @@ class QueryController {
         query.orderByDescending("createdAt")
         query.limit = 20
         
-        let objects = query.findObjects() 
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects()
         self.delegate!.didReceiveQueryResults(objects)
         
     }
@@ -56,7 +64,15 @@ class QueryController {
         query.orderByDescending("startTime")
         query.limit = 40
         
-        let objects = query.findObjects() 
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects()
         self.delegate!.didReceiveQueryResults(objects)
         
         
@@ -105,7 +121,15 @@ class QueryController {
         query.orderByDescending("startTime")
         query.limit = 20
         
-        let objects = query.findObjects() as! [PFObject]
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveSecondQueryResults!(objects)
         
         
@@ -120,7 +144,15 @@ class QueryController {
         query.orderByAscending("createdAt")
         query.whereKey("commentedPlan", equalTo: plan)
         
-        let objects = query.findObjects() as! [PFObject]
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
     }
     
@@ -131,7 +163,16 @@ class QueryController {
         let query = PFUser.query()!
         query.whereKey("facebookID", containedIn: currentUserFriends as [AnyObject])
         query.orderByAscending("fullname")
-        let objects = query.findObjects() as! [PFObject]
+        
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveQueryResults(objects)
         
     }
@@ -145,9 +186,17 @@ class QueryController {
         query.whereKey("creatingUser", containedIn: friends as [AnyObject])
         query.whereKey("googlePlaceCoordinate", nearGeoPoint: point, withinMiles: 40.0)
         query.limit = 40
+  
+        var objects = [PFObject]()
         
-        let objects = query.findObjects() as? [PFObject]
-        self.delegate!.didReceiveSecondQueryResults!(objects!)
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as? [PFObject]
+        self.delegate!.didReceiveSecondQueryResults!(objects)
         
         
     }
@@ -176,7 +225,15 @@ class QueryController {
         query.orderByDescending("heartCount")
         query.limit = 40
         
-        let objects = query.findObjects() as! [PFObject]
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveSecondQueryResults!(objects)
     }
 
@@ -198,7 +255,15 @@ class QueryController {
         query.orderByDescending("createdAt")
         query.limit = 40
         
-        let objects = query.findObjects() as! [PFObject]
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveThirdQueryResults!(objects)
     }
     
@@ -225,7 +290,15 @@ class QueryController {
         query.limit = 40
         
         
-        let objects = query.findObjects() as! [PFObject]
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveFourthQueryResults!(objects)
     }
     
@@ -234,7 +307,15 @@ class QueryController {
         let planId = plan.objectId
         query.whereKey("attendedPlans", equalTo: planId!)
         
-        let objects = query.findObjects() as! [PFObject]
+        var objects = [PFObject]()
+        
+        do {
+            objects = try query.findObjects()
+        } catch _ {
+            print("fuck")
+        }
+        
+//        let objects = query.findObjects() as! [PFObject]
         self.delegate!.didReceiveSecondQueryResults!(objects)
         
     }

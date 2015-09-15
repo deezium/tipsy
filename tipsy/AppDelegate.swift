@@ -11,6 +11,7 @@ import Fabric
 import Crashlytics
 import Amplitude_iOS
 import Parse
+import ParseFacebookUtils
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
@@ -47,9 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
       
         Amplitude.instance().initializeApiKey("b7b0a552d87f1b49de41269d010e37f5")
         
-        
-        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
- 
+        PFFacebookUtils.initializeFacebook()
         
         
         

@@ -9,6 +9,10 @@ target 'tipsy' do
 	pod 'Crashlytics'
 	pod 'Amplitude-iOS'
     pod 'Parse'
+    pod 'ParseFacebookUtils'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
+    pod 'FBSDKShareKit'
 
 end
 

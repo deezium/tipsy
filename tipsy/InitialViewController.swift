@@ -8,6 +8,7 @@
 
 import Foundation
 import Parse
+import ParseFacebookUtils
 
 protocol InitialViewControllerDelegate {
     func initialViewControllerDidLogin(controller: InitialViewController)
@@ -20,7 +21,7 @@ class InitialViewController: UIViewController {
         
         let permissions = ["public_profile", "email", "user_friends"]
         
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {(user: PFUser?, error: NSError?) -> Void in
+        PFFacebookUtils.logInWithPermissions(permissions, block: {(user: PFUser?, error: NSError?) -> Void in
             if let user = user {
                 
                 if user.isNew {

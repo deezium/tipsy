@@ -55,11 +55,21 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-tipsy/Amplitude_iOS.framework'
   install_framework 'Pods-tipsy/Bolts.framework'
   install_framework 'Pods-tipsy/DateTools.framework'
+  install_framework 'Pods-tipsy/FBSDKCoreKit.framework'
+  install_framework 'Pods-tipsy/FBSDKLoginKit.framework'
+  install_framework 'Pods-tipsy/FBSDKShareKit.framework'
+  install_framework 'Pods-tipsy/FacebookSDK.framework'
   install_framework 'Pods-tipsy/Parse.framework'
+  install_framework 'Pods-tipsy/ParseFacebookUtils.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-tipsy/Amplitude_iOS.framework'
   install_framework 'Pods-tipsy/Bolts.framework'
   install_framework 'Pods-tipsy/DateTools.framework'
+  install_framework 'Pods-tipsy/FBSDKCoreKit.framework'
+  install_framework 'Pods-tipsy/FBSDKLoginKit.framework'
+  install_framework 'Pods-tipsy/FBSDKShareKit.framework'
+  install_framework 'Pods-tipsy/FacebookSDK.framework'
   install_framework 'Pods-tipsy/Parse.framework'
+  install_framework 'Pods-tipsy/ParseFacebookUtils.framework'
 fi

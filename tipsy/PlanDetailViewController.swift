@@ -599,7 +599,15 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             
             for attendee in attendeeQueryObjects {
                 if let postImage = attendee.objectForKey("profileImage") as? PFFile {
-                    let imageData = postImage.getData()
+                    var imageData = NSData()
+                    
+                    do {
+                        imageData = try postImage.getData()
+                    } catch _ {
+                        print("fuck")
+                    }
+                    
+//                    let imageData = postImage.getData()
                     let image = UIImage(data: imageData)
                     attendeeImageArray.append(image!)
                     

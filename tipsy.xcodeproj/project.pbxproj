@@ -47,11 +47,7 @@
 		3339CE3C1B43AD2D001C222C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE3B1B43AD2D001C222C /* Accounts.framework */; };
 		3339CE3E1B43AD32001C222C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE3D1B43AD32001C222C /* Social.framework */; };
 		3339CE441B43B084001C222C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3339CE431B43B084001C222C /* InitialViewController.swift */; };
-		3339CE4E1B43D2CA001C222C /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE4D1B43D2CA001C222C /* FBSDKCoreKit.framework */; };
 		3339CE531B43D305001C222C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE4F1B43D305001C222C /* Bolts.framework */; };
-		3339CE541B43D305001C222C /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE501B43D305001C222C /* FBSDKLoginKit.framework */; };
-		3339CE551B43D305001C222C /* FBSDKMessengerShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE511B43D305001C222C /* FBSDKMessengerShareKit.framework */; };
-		3339CE561B43D305001C222C /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE521B43D305001C222C /* FBSDKShareKit.framework */; };
 		3339CE591B43D352001C222C /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3339CE571B43D352001C222C /* Bolts.framework */; };
 		333CF3301B8C58D80011ACC1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */; };
 		333CF3321B8E9B940011ACC1 /* FAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CF3311B8E9B940011ACC1 /* FAQViewController.swift */; };
@@ -264,11 +260,7 @@
 		3339CE3B1B43AD2D001C222C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3339CE3D1B43AD32001C222C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3339CE431B43B084001C222C /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		3339CE4D1B43D2CA001C222C /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../../FacebookSDK/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		3339CE4F1B43D305001C222C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../../FacebookSDK/Bolts.framework; sourceTree = "<group>"; };
-		3339CE501B43D305001C222C /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../../FacebookSDK/FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		3339CE511B43D305001C222C /* FBSDKMessengerShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKMessengerShareKit.framework; path = ../../FacebookSDK/FBSDKMessengerShareKit.framework; sourceTree = "<group>"; };
-		3339CE521B43D305001C222C /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../../FacebookSDK/FBSDKShareKit.framework; sourceTree = "<group>"; };
 		3339CE571B43D352001C222C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		333CF32F1B8C58D80011ACC1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		333CF3311B8E9B940011ACC1 /* FAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQViewController.swift; sourceTree = "<group>"; };
@@ -447,17 +439,13 @@
 				338EAA861B5D6FDF00E63FC7 /* CoreText.framework in Frameworks */,
 				338EAA841B5D6FC300E63FC7 /* CoreData.framework in Frameworks */,
 				338EAA7F1B5D6FBB00E63FC7 /* AVFoundation.framework in Frameworks */,
-				3339CE541B43D305001C222C /* FBSDKLoginKit.framework in Frameworks */,
 				3339CE3E1B43AD32001C222C /* Social.framework in Frameworks */,
 				3339CE3C1B43AD2D001C222C /* Accounts.framework in Frameworks */,
-				3339CE4E1B43D2CA001C222C /* FBSDKCoreKit.framework in Frameworks */,
-				3339CE551B43D305001C222C /* FBSDKMessengerShareKit.framework in Frameworks */,
 				3339CE3A1B43A9AF001C222C /* libz.dylib in Frameworks */,
 				3339CE361B43A99E001C222C /* StoreKit.framework in Frameworks */,
 				3339CE341B43A999001C222C /* Security.framework in Frameworks */,
 				3339CE301B43A98A001C222C /* MobileCoreServices.framework in Frameworks */,
 				3339CE2E1B43A983001C222C /* CoreLocation.framework in Frameworks */,
-				3339CE561B43D305001C222C /* FBSDKShareKit.framework in Frameworks */,
 				3339CE2C1B43A97D001C222C /* CoreGraphics.framework in Frameworks */,
 				3339CE2A1B43A977001C222C /* CFNetwork.framework in Frameworks */,
 				3339CE591B43D352001C222C /* Bolts.framework in Frameworks */,
@@ -835,10 +823,6 @@
 				338EAA7E1B5D6FBB00E63FC7 /* AVFoundation.framework */,
 				3339CE571B43D352001C222C /* Bolts.framework */,
 				3339CE4F1B43D305001C222C /* Bolts.framework */,
-				3339CE501B43D305001C222C /* FBSDKLoginKit.framework */,
-				3339CE511B43D305001C222C /* FBSDKMessengerShareKit.framework */,
-				3339CE521B43D305001C222C /* FBSDKShareKit.framework */,
-				3339CE4D1B43D2CA001C222C /* FBSDKCoreKit.framework */,
 				3339CE3D1B43AD32001C222C /* Social.framework */,
 				3339CE3B1B43AD2D001C222C /* Accounts.framework */,
 				3339CE391B43A9AF001C222C /* libz.dylib */,
@@ -1225,6 +1209,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1273,6 +1258,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
