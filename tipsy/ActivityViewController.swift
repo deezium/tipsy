@@ -267,7 +267,6 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                     else {
                         if let result = result {
                             if let emailResult = result.objectForKey("email") {
-                                print(emailResult)
                                 PFUser.currentUser()?.setObject(emailResult, forKey: "facebookEmail")
                                 PFUser.currentUser()?.saveInBackground()
                             }

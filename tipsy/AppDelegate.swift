@@ -21,9 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     let googleMapsApiKey = "AIzaSyDrlwN6ie4HlBZENulJ7pbHs3dOZfSqMtM"
     
-
-    
-    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -37,16 +34,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         // DEVELOPMENT PARAMETERS
         
-        Parse.setApplicationId("GmfZQGE8InioR7PvkyPFv3SZamsFNm4jJ3c6qbPu", clientKey: "UxLUds7UwHmVnc9OxNhVXtRRd5Q9jVzeAg3cdO51")
-        
-        Amplitude.instance().initializeApiKey("648b71e9e12bc11948c0cad31d252028")
+//        Parse.setApplicationId("GmfZQGE8InioR7PvkyPFv3SZamsFNm4jJ3c6qbPu", clientKey: "UxLUds7UwHmVnc9OxNhVXtRRd5Q9jVzeAg3cdO51")
+//        
+//        Amplitude.instance().initializeApiKey("648b71e9e12bc11948c0cad31d252028")
 
         
         // PRODUCTION PARAMETERS
         
-//        Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
-//      
-//        Amplitude.instance().initializeApiKey("b7b0a552d87f1b49de41269d010e37f5")
+        Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
+      
+        Amplitude.instance().initializeApiKey("b7b0a552d87f1b49de41269d010e37f5")
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
