@@ -21,6 +21,8 @@ class InitialViewController: UIViewController {
         
         let permissions = ["public_profile", "email", "user_friends"]
         
+//        PFFacebookUtils.logInWithPermissionsInBackground(permissions)
+        
         PFFacebookUtils.logInWithPermissions(permissions, block: {(user: PFUser?, error: NSError?) -> Void in
             if let user = user {
                 
@@ -36,7 +38,7 @@ class InitialViewController: UIViewController {
             else {
                 print("Oh noes! Login cancelled!")
             }
-            })
+        })
     }
     override func viewDidLoad() {
         super.viewDidLoad()

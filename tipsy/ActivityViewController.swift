@@ -146,6 +146,7 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
 
     
     func saveFacebookData() {
+        print("current user \(PFUser.currentUser())")
         if (PFUser.currentUser() != nil && PFUser.currentUser()?.objectForKey("fullname") == nil) {
             if (FBSDKAccessToken.currentAccessToken() != nil) {
                 print("has access token")
@@ -156,8 +157,8 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                     }
                     else {
                         if let result = result {
-                            if (result["name"] != nil) {
-                                PFUser.currentUser()?.setObject(result["name"], forKey: "fullname")
+                            if let nameResult = result.objectForKey("name") {
+                                PFUser.currentUser()?.setObject(nameResult, forKey: "fullname")
                                 PFUser.currentUser()?.saveInBackground()
                             }
                             
@@ -183,11 +184,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                                 if let pictureString = resultData["url"] as? String {
                                     let pictureURL = NSURL(string: pictureString) as NSURL?
                                     
-                                    if pictureURL != nil {
-                                        let pictureData = NSData(contentsOfURL: pictureURL!)
+                                    if let pictureURL = pictureURL {
+                                        let pictureData = NSData(contentsOfURL: pictureURL)
                                         
-                                        if pictureData != nil {
-                                            let pictureFile = PFFile(data: pictureData!)
+                                        if let pictureData = pictureData {
+                                            let pictureFile = PFFile(data: pictureData)
                                             PFUser.currentUser()?.setObject(pictureFile, forKey: "profileImage")
                                             PFUser.currentUser()?.saveInBackground()
                                             print("facebook profile picture saved")
@@ -212,11 +213,11 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 var friendsArray = [String]()
                 PFUser.currentUser()?.setObject(friendsArray, forKey: "friendsUsingTipsy")
                 PFUser.currentUser()?.saveInBackground()
-                                
+                
                 let userFriendsRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/friends", parameters: nil)
                 userFriendsRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        print("Oops, friend fetch failed")
+                        print("Oops, friend fetch failed \(error)")
                     }
                     else {
                         if let result = result {
@@ -246,33 +247,38 @@ class ActivityViewController: UIViewController, UITableViewDelegate, UITableView
                 let userIDRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
                 userIDRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
                     if (error != nil) {
-                        print("Oops, id fetch failed")
+                        print("Oops, id fetch failed \(error)")
                     }
                     else {
                         if let result = result {
-                            if (result["id"] != nil) {
-                                PFUser.currentUser()?.setObject(result["id"], forKey: "facebookID")
+                            print(result)
+                            if let idResult = result.objectForKey("id") {
+                                PFUser.currentUser()?.setObject(idResult, forKey: "facebookID")
+                                PFUser.currentUser()?.saveInBackground()
+                            }
+                            if let emailResult = result.objectForKey("email") {
+                                PFUser.currentUser()?.setObject(emailResult, forKey: "facebookEmail")
                                 PFUser.currentUser()?.saveInBackground()
                             }
                         }
                     }
                 })
                 
-                let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
-                userEmailRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
-                    if (error != nil) {
-                        print("Oops, id fetch failed")
-                    }
-                    else {
-                        if let result = result {
-                            if (result["email"] != nil) {
-                                print(result["email"])
-                                PFUser.currentUser()?.setObject(result["email"], forKey: "facebookEmail")
-                                PFUser.currentUser()?.saveInBackground()
-                            }
-                        }
-                    }
-                })
+//                let userEmailRequest: FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me/email", parameters: nil)
+//                userEmailRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+//                    if (error != nil) {
+//                        print("Oops, email fetch failed \(error)")
+//                    }
+//                    else {
+//                        if let result = result {
+//                            if let emailResult = result.objectForKey("email") {
+//                                print(emailResult)
+//                                PFUser.currentUser()?.setObject(emailResult, forKey: "facebookEmail")
+//                                PFUser.currentUser()?.saveInBackground()
+//                            }
+//                        }
+//                    }
+//                })
                 
             }
         }
