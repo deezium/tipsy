@@ -369,6 +369,7 @@
 		33A0E8E21B83FABB0021A8D0 /* powered-by-google-on-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "powered-by-google-on-white@2x.png"; path = "images/powered-by-google-on-white@2x.png"; sourceTree = "<group>"; };
 		33A0E8E91B8402830021A8D0 /* MyFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsCell.swift; sourceTree = "<group>"; };
 		33A0E8EB1B8402E30021A8D0 /* MyFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyFriendsViewController.swift; sourceTree = "<group>"; };
+		33B4CB2A1BA7F006004AF910 /* AlphaTest32.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest32.mobileprovision; sourceTree = "<group>"; };
 		33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest4.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest6.mobileprovision; sourceTree = "<group>"; };
 		33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = AlphaTest7.mobileprovision; sourceTree = "<group>"; };
@@ -618,6 +619,7 @@
 				336D98161B74E058001F1BFD /* AlphaTest21.mobileprovision */,
 				33EAEC291B62F672009B3367 /* AlphaTest4.mobileprovision */,
 				33EAEC2A1B64CDE1009B3367 /* AlphaTest6.mobileprovision */,
+				33B4CB2A1BA7F006004AF910 /* AlphaTest32.mobileprovision */,
 				33EAEC2B1B65AC6D009B3367 /* AlphaTest7.mobileprovision */,
 				33EAEC2C1B66A4D8009B3367 /* AlphaTest8.mobileprovision */,
 				336D981A1B7910D3001F1BFD /* AlphaTest25.mobileprovision */,
