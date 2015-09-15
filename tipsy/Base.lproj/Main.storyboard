@@ -3516,8 +3516,8 @@ The Activity view contains all public events around you, as well as all plans ma
         <image name="powered-by-google-on-white.png" width="104" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VIb-lG-h26"/>
         <segue reference="5YK-eT-8Z7"/>
+        <segue reference="Tyd-4d-APj"/>
         <segue reference="E9u-ti-heE"/>
     </inferredMetricsTieBreakers>
 </document>
