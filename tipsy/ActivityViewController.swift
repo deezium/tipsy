@@ -11,6 +11,7 @@ import UIKit
 import DateTools
 import Amplitude_iOS
 import Parse
+import ParseFacebookUtilsV4
 
 class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
     
