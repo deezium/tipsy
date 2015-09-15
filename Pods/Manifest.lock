@@ -1,24 +1,30 @@
 PODS:
   - Amplitude-iOS (3.0.0)
-  - Crashlytics (3.3.0)
+  - Bolts/Tasks (1.2.2)
+  - Crashlytics (3.3.1)
   - DateTools (1.7.0)
-  - Fabric (1.5.0):
-    - Fabric/Base (= 1.5.0)
-  - Fabric/Base (1.5.0)
+  - Fabric (1.5.1):
+    - Fabric/Base (= 1.5.1)
+  - Fabric/Base (1.5.1)
   - GoogleMaps (1.10.2)
+  - Parse (1.8.3):
+    - Bolts/Tasks (>= 1.2.2)
 
 DEPENDENCIES:
-  - Amplitude-iOS (~> 3.0)
+  - Amplitude-iOS
   - Crashlytics
   - DateTools
   - Fabric
   - GoogleMaps
+  - Parse
 
 SPEC CHECKSUMS:
   Amplitude-iOS: 07875b822c2c935ea7f8021830d375ed4d812d31
-  Crashlytics: 6524671d48a4c3f4100b8c56ee8dd7e34aac820a
+  Bolts: 20a2bd788273360cb1e31530dc19b8544eef2544
+  Crashlytics: 0e61bdda9def51f1e99720f804eebe94865442b2
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
-  Fabric: 374a4a0bbefa219ed201cbc84f2f42e4029302a6
+  Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
   GoogleMaps: 5c92e599b07b0a2a9b367c5dd128edc629bddfea
+  Parse: 4b251ac63b76d12b334a32579cc3b174446f0c39
 
 COCOAPODS: 0.38.2

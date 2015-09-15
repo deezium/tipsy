@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 protocol InitialViewControllerDelegate {
     func initialViewControllerDidLogin(controller: InitialViewController)

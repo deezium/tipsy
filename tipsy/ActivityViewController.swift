@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import DateTools
 import Amplitude_iOS
+import Parse
 
 class ActivityViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
     

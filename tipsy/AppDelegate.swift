@@ -10,6 +10,7 @@ import UIKit
 import Fabric
 import Crashlytics
 import Amplitude_iOS
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {

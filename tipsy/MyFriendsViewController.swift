@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Amplitude_iOS
+import Parse
 
 class MyFriendsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol {
     

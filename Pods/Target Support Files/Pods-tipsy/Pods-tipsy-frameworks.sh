@@ -53,9 +53,13 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods-tipsy/Amplitude_iOS.framework'
+  install_framework 'Pods-tipsy/Bolts.framework'
   install_framework 'Pods-tipsy/DateTools.framework'
+  install_framework 'Pods-tipsy/Parse.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods-tipsy/Amplitude_iOS.framework'
+  install_framework 'Pods-tipsy/Bolts.framework'
   install_framework 'Pods-tipsy/DateTools.framework'
+  install_framework 'Pods-tipsy/Parse.framework'
 fi

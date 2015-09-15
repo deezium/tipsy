@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import CoreLocation
 import Amplitude_iOS
+import Parse
 
 let commentMadeNotificationKey = "commentMadeNotificationKey"
 let planInteractedNotificationKey = "planInteractedNotificationKey"
@@ -599,7 +600,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
             for attendee in attendeeQueryObjects {
                 if let postImage = attendee.objectForKey("profileImage") as? PFFile {
                     let imageData = postImage.getData()
-                    let image = UIImage(data: imageData!)
+                    let image = UIImage(data: imageData)
                     attendeeImageArray.append(image!)
                     
                 }

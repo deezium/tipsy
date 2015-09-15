@@ -9,7 +9,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Bolts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,17 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>534841B5AE149F6055C9F9E2FA6750D7</key>
+		<key>092802133B15A3A5935D37DBA8BC8E38</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90C427BC3FAFC5806E74A90CC940D12D</key>
+		<key>491DFF006761C926FB31B1E8160DCDCB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CBD0976BCE83471B513002749E2F13A4</key>
+		<key>A253714B2B0266B5ADEDC969404F94F0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D05C01FF4FEAB7D0624C97C8D57A6360</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE4C09DF0265E47436B8DEEB265A6987</key>
 		<dict>
 			<key>primary</key>
 			<true/>

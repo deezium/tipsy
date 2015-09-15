@@ -12,6 +12,7 @@ import CoreLocation
 import GoogleMaps
 import Darwin
 import Amplitude_iOS
+import Parse
 
 let planMadeNotificationKey = "planMadeNotificationKey"
 

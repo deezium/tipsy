@@ -10,6 +10,7 @@ import Foundation
 import Darwin
 import UIKit
 import Amplitude_iOS
+import Parse
 
 class PlanTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, QueryControllerProtocol, CLLocationManagerDelegate {
  

@@ -8,6 +8,7 @@
 
 import Foundation
 import Amplitude_iOS
+import Parse
 
 class AboutViewController: UIViewController {
     

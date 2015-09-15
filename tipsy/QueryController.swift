@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 @objc protocol QueryControllerProtocol {
     func didReceiveQueryResults(objects: [PFObject])
@@ -38,7 +39,7 @@ class QueryController {
         query.orderByDescending("createdAt")
         query.limit = 20
         
-        let objects = query.findObjects() as! [PFObject]
+        let objects = query.findObjects() 
         self.delegate!.didReceiveQueryResults(objects)
         
     }
@@ -55,7 +56,7 @@ class QueryController {
         query.orderByDescending("startTime")
         query.limit = 40
         
-        let objects = query.findObjects() as! [PFObject]
+        let objects = query.findObjects() 
         self.delegate!.didReceiveQueryResults(objects)
         
         
