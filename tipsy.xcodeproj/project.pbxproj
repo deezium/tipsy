@@ -232,6 +232,8 @@
 		33327D581B70901D00DED92D /* AddUser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AddUser.png; path = images/AddUser.png; sourceTree = "<group>"; };
 		33327D591B70901D00DED92D /* AddUser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AddUser@2x.png"; path = "images/AddUser@2x.png"; sourceTree = "<group>"; };
 		33327D5A1B70901D00DED92D /* AddUser@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AddUser@3x.png"; path = "images/AddUser@3x.png"; sourceTree = "<group>"; };
+		3332E1CB1BA8CF8D00CE7C27 /* tipsyTurtle100submission.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = tipsyTurtle100submission.mobileprovision; sourceTree = "<group>"; };
+		3332E1CC1BA8CF9400CE7C27 /* tipsy131Submission.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; path = tipsy131Submission.mobileprovision; sourceTree = "<group>"; };
 		3339CDD41B422165001C222C /* Map-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-50.png"; path = "../../../../Downloads/Map-50.png"; sourceTree = "<group>"; };
 		3339CDD61B422186001C222C /* Map-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Map-25.png"; path = "../../../../Downloads/Map-25.png"; sourceTree = "<group>"; };
 		3339CDD81B4222DE001C222C /* RSS-25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "RSS-25.png"; path = "../../../../Downloads/RSS-25.png"; sourceTree = "<group>"; };
@@ -612,6 +614,8 @@
 		336344931B3283F800DF3D90 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3332E1CC1BA8CF9400CE7C27 /* tipsy131Submission.mobileprovision */,
+				3332E1CB1BA8CF8D00CE7C27 /* tipsyTurtle100submission.mobileprovision */,
 				33EAEC2D1B66F38E009B3367 /* AlphaTest9.mobileprovision */,
 				336D98171B7524EC001F1BFD /* AlphaTest22.mobileprovision */,
 				336D98191B75E109001F1BFD /* AlphaTest24.mobileprovision */,
