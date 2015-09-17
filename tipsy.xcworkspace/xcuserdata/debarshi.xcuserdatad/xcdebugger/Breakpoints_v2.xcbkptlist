@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "tipsy/LocationSearchViewController.swift"
-            timestampString = "464199608.40454"
+            timestampString = "464227060.141078"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "LocationSearchViewController"
             landmarkType = "3">
          </BreakpointContent>
