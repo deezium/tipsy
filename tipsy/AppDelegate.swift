@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         Fabric.with([Crashlytics()])
-        GMSServices.provideAPIKey(googleMapsApiKey)
+//        GMSServices.provideAPIKey(googleMapsApiKey)
         
         Amplitude.instance().trackingSessionEvents = true
         

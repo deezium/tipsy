@@ -24,14 +24,13 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.6.0):
     - FBSDKCoreKit
-  - GoogleMaps (1.10.2)
-  - Parse (1.8.3):
+  - Parse (1.8.4):
     - Bolts/Tasks (>= 1.2.2)
-  - ParseFacebookUtilsV4 (1.8.3):
+  - ParseFacebookUtilsV4 (1.8.4):
     - Bolts/Tasks (>= 1.2.2)
     - FBSDKCoreKit (~> 4.0)
     - FBSDKLoginKit (~> 4.0)
-    - Parse (~> 1.8.3)
+    - Parse (~> 1.8.4)
 
 DEPENDENCIES:
   - Amplitude-iOS
@@ -41,7 +40,6 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
-  - GoogleMaps
   - Parse
   - ParseFacebookUtilsV4
 
@@ -54,8 +52,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: 9954492d90c5fd65ae831395697a1660360d61f1
   FBSDKLoginKit: 3d07febbfa884b9878cacba54f705bb41f07d4b6
   FBSDKShareKit: f474f1123791e215d0299b98b3ee92ddd9187d86
-  GoogleMaps: 5c92e599b07b0a2a9b367c5dd128edc629bddfea
-  Parse: 4b251ac63b76d12b334a32579cc3b174446f0c39
-  ParseFacebookUtilsV4: 603b78d4122642f3cdff5eee5b7b90e8d81b1e0c
+  Parse: c09d6efe4b2eea752765bc6f365a55516d909079
+  ParseFacebookUtilsV4: 888a71305d28e883d4e60cc367544f7bae13223a
 
 COCOAPODS: 0.38.2
