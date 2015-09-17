@@ -45,7 +45,7 @@ class PlanDetailViewController: UIViewController, CLLocationManagerDelegate, UIT
     var attendeeQueryObjects = [PFObject]()
 
     
-    @IBOutlet weak var mapView: GMSMapView!
+//    @IBOutlet weak var mapView: GMSMapView!
     let locationManager = CLLocationManager()
     
     func didReceiveQueryResults(objects: [PFObject]) {
