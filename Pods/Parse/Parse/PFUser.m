@@ -92,31 +92,11 @@ static BOOL revocableSessionEnabled_;
 #pragma mark - PFObject
 ///--------------------------------------
 
-#pragma mark Validation
-
-- (BFTask PF_GENERIC(PFVoid) *)_validateDeleteAsync {
-    return [[super _validateDeleteAsync] continueWithSuccessBlock:^id(BFTask PF_GENERIC(PFVoid) *task) {
-        if (!self.isAuthenticated) {
-            NSError *error = [PFErrorUtilities errorWithCode:kPFErrorUserCannotBeAlteredWithoutSession
-                                                     message:@"User cannot be deleted unless they have been authenticated."];
-            return [BFTask taskWithError:error];
-        }
-        return nil;
-    }];
+// Check security on delete
+- (void)checkDeleteParams {
+    PFConsistencyAssert(self.isAuthenticated, @"User cannot be deleted unless they have been authenticated via logIn or signUp");
+    [super checkDeleteParams];
 }
-
-- (BFTask PF_GENERIC(PFVoid) *)_validateSaveEventuallyAsync {
-    return [[super _validateSaveEventuallyAsync] continueWithSuccessBlock:^id(BFTask PF_GENERIC(PFVoid) *task) {
-        if ([self isDirtyForKey:PFUserPasswordRESTKey]) {
-            NSError *error = [PFErrorUtilities errorWithCode:kPFErrorOperationForbidden
-                                                     message:@"Unable to saveEventually a PFUser with dirty password."];
-            return [BFTask taskWithError:error];
-        }
-        return nil;
-    }];
-}
-
-#pragma mark Else
 
 - (NSString *)displayClassName {
     if ([self isMemberOfClass:[PFUser class]]) {
@@ -1220,6 +1200,17 @@ static BOOL revocableSessionEnabled_;
                                             objectId:(NSString *)objectId
                                           isComplete:(BOOL)complete {
     return [PFUserState stateWithParseClassName:className objectId:objectId isComplete:complete];
+}
+
+#pragma mark Validation
+
+- (BFTask *)_validateSaveEventuallyAsync {
+    if ([self isDirtyForKey:PFUserPasswordRESTKey]) {
+        NSError *error = [PFErrorUtilities errorWithCode:kPFErrorOperationForbidden
+                                                 message:@"Unable to saveEventually a PFUser with dirty password."];
+        return [BFTask taskWithError:error];
+    }
+    return [BFTask taskWithResult:nil];
 }
 
 @end
