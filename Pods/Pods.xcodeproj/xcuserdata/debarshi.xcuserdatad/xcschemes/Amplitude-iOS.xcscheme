@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F517F3F48BB28B3DFD3692DB"
+               BlueprintIdentifier = "485166E08BEC8CBE88457197"
                BuildableName = "Amplitude_iOS.framework"
                BlueprintName = "Amplitude-iOS"
                ReferencedContainer = "container:Pods.xcodeproj">

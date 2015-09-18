@@ -12,11 +12,10 @@ import Parse
 
 class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
  
-//    var placesClient: GMSPlacesClient = GMSPlacesClient()
+    var placesClient: GMSPlacesClient = GMSPlacesClient()
     let locationManager = CLLocationManager()
     var currentLocation = CLLocation()
-//    var searchResultData = [GMSAutocompletePrediction]()
-    var searchResultData = NSArray()
+    var searchResultData = [GMSAutocompletePrediction]()
     var selectedPlaceId = String()
     var selectedPlaceName = String()
     var selectedPlaceGeoPoint = PFGeoPoint()
@@ -88,72 +87,72 @@ class LocationSearchViewController: UIViewController, UISearchBarDelegate, CLLoc
         self.locationSearchResults.hidden = true
         
         
-//        placesClient.lookUpPlaceID(selectedPlaceId, callback: {(place, error) -> Void in
-//            if error != nil {
-//                print("lookup place id query error")
-//                return
-//            }
-//            
-//            if place != nil {
-//                self.selectedPlaceName = place!.name
-//                self.selectedPlaceFormattedAddress = place!.formattedAddress
-//                
-//                let selectedPlaceCoordinate = place!.coordinate
-//                
-//                self.selectedPlaceGeoPoint = PFGeoPoint(latitude: selectedPlaceCoordinate.latitude, longitude: selectedPlaceCoordinate.longitude)
-//                let n = self.navigationController
-//                n?.popViewControllerAnimated(true)
-//
-//            }
-//            
-//        })
+        placesClient.lookUpPlaceID(selectedPlaceId, callback: {(place, error) -> Void in
+            if error != nil {
+                print("lookup place id query error")
+                return
+            }
+            
+            if place != nil {
+                self.selectedPlaceName = place!.name
+                self.selectedPlaceFormattedAddress = place!.formattedAddress
+                
+                let selectedPlaceCoordinate = place!.coordinate
+                
+                self.selectedPlaceGeoPoint = PFGeoPoint(latitude: selectedPlaceCoordinate.latitude, longitude: selectedPlaceCoordinate.longitude)
+                let n = self.navigationController
+                n?.popViewControllerAnimated(true)
+
+            }
+            
+        })
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PlaceAutocompleteCell") as! UITableViewCell!
         let place = self.searchResultData[indexPath.row]
         
-//        cell.textLabel!.text = place.attributedFullText.string
+        cell.textLabel!.text = place.attributedFullText.string
         //cell.backgroundColor = UIColor.redColor()
         
         return cell
     }
     
-//    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText == "" {
-//            //self.places = []
-//            print("aint nothin here")
-//            locationSearchResults.hidden = true
-//  //          self.searchResultData = [GMSAutocompletePrediction]()
-//            self.locationSearchResults.reloadData()
-//        }
-//        else {
-//            locationSearchResults.hidden = false
-//            let locValue = currentLocation.coordinate
-//            let northEast = CLLocationCoordinate2DMake(locValue.latitude + 1, locValue.longitude + 1)
-//            let southWest = CLLocationCoordinate2DMake(locValue.latitude - 1, locValue.longitude - 1)
-//    //        let bounds = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
-//      //      let filter = GMSAutocompleteFilter()
-//        //    filter.type = GMSPlacesAutocompleteTypeFilter.NoFilter
-//            
-//          //  placesClient.autocompleteQuery(searchText, bounds: bounds, filter: filter, callback: {
-//                (results, error) -> Void in
-//                if error != nil {
-//                    print("Hay error \(error)")
-//                    return
-//                }
-//                else {
-//                    
-//                    if let results = results {
-//                        self.searchResultData = [GMSAutocompletePrediction]()
-//                        for result in results as! [GMSAutocompletePrediction] {
-//                            self.searchResultData.append(result)
-//                        }
-//                        self.locationSearchResults.reloadData()
-//                        
-//                    }
-//                }
-//            })
-//        }
-//    }
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            //self.places = []
+            print("aint nothin here")
+            locationSearchResults.hidden = true
+            self.searchResultData = [GMSAutocompletePrediction]()
+            self.locationSearchResults.reloadData()
+        }
+        else {
+            locationSearchResults.hidden = false
+            let locValue = currentLocation.coordinate
+            let northEast = CLLocationCoordinate2DMake(locValue.latitude + 1, locValue.longitude + 1)
+            let southWest = CLLocationCoordinate2DMake(locValue.latitude - 1, locValue.longitude - 1)
+            let bounds = GMSCoordinateBounds(coordinate: northEast, coordinate: southWest)
+            let filter = GMSAutocompleteFilter()
+            filter.type = GMSPlacesAutocompleteTypeFilter.NoFilter
+            
+            placesClient.autocompleteQuery(searchText, bounds: bounds, filter: filter, callback: {
+                (results, error) -> Void in
+                if error != nil {
+                    print("Hay error \(error)")
+                    return
+                }
+                else {
+                    
+                    if let results = results {
+                        self.searchResultData = [GMSAutocompletePrediction]()
+                        for result in results as! [GMSAutocompletePrediction] {
+                            self.searchResultData.append(result)
+                        }
+                        self.locationSearchResults.reloadData()
+                        
+                    }
+                }
+            })
+        }
+    }
 }

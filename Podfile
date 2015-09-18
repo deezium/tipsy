@@ -4,12 +4,12 @@ use_frameworks!
 
 target 'tipsy' do
 	pod 'DateTools'
-#	pod 'GoogleMaps' 
+	pod 'GoogleMaps'
 	pod 'Fabric'
 	pod 'Crashlytics'
 	pod 'Amplitude-iOS'
-    pod 'Parse'
-    pod 'ParseFacebookUtilsV4'
+    pod 'Parse', '~> 1.8.4'
+    pod 'ParseFacebookUtilsV4', '~> 1.8.4'
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'FBSDKShareKit'

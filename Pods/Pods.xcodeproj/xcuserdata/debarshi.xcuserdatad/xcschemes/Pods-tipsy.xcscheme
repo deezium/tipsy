@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0C5B880CEEDAFB2AD879647F"
+               BlueprintIdentifier = "A3C3052C235F1A277A3A3E8D"
                BuildableName = "Pods_tipsy.framework"
                BlueprintName = "Pods-tipsy"
                ReferencedContainer = "container:Pods.xcodeproj">
