@@ -320,7 +320,7 @@ Parse.Cloud.afterSave("Comment", function(request){
 
 		var allChannel = "all-" + planId;
 		var commentChannel = "comments-" + planId;
-		var joinChannel = "comments-" + planId;
+//		var joinChannel = "comments-" + planId;
 
 		var allQuery = new Parse.Query(Parse.Installation);
 		allQuery.equalTo('channels', allChannel);
@@ -331,12 +331,15 @@ Parse.Cloud.afterSave("Comment", function(request){
 		commentQuery.equalTo('channels', commentChannel);
 		commentQuery.notEqualTo('user', planCommentingUser);
 
-		var joinQuery = new Parse.Query(Parse.Installation);
-		joinQuery.equalTo('channels', joinChannel);
-		joinQuery.notEqualTo('user', planCommentingUser);
+		// var joinQuery = new Parse.Query(Parse.Installation);
+		// joinQuery.equalTo('channels', joinChannel);
+		// joinQuery.notEqualTo('user', planCommentingUser);
 
-		var pushQuery = Parse.Query.or(allQuery, commentQuery, joinQuery);
+//		var pushQuery = Parse.Query.or(allQuery, commentQuery, joinQuery);
 
+
+		var pushQuery = Parse.Query.or(allQuery, commentQuery);
+		pushQuery.notEqualTo('user', planCommentingUser);
 		var planQuery = new Parse.Query("Plan");
 		planQuery.equalTo('objectId', planId);
 
