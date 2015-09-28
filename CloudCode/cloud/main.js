@@ -216,7 +216,7 @@ Parse.Cloud.afterSave("Plan", function(request){
 		pushQuery.equalTo('channels', 'global');
 		pushQuery.notEqualTo('user', planCreatingUser);
 		pushQuery.equalTo('tipsyFriendsUsingTipsy', userId);
-		pushQuery.withinMiles('latestLocation', planLocation, 20);
+//		pushQuery.withinMiles('latestLocation', planLocation, 20);
 
 // pushQuery plan creating user in array of installation friends
 
