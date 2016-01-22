@@ -17,7 +17,9 @@ import ParseFacebookUtilsV4
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
+    var keys: NSDictionary?
    // var storyboard: UIStoryboard?
+    
     
     let googleMapsApiKey = "AIzaSyDrlwN6ie4HlBZENulJ7pbHs3dOZfSqMtM"
     
@@ -26,24 +28,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         Fabric.with([Crashlytics()])
-        GMSServices.provideAPIKey(googleMapsApiKey)
         
         Amplitude.instance().trackingSessionEvents = true
         
         
+        if let path = NSBundle.mainBundle().pathForResource("Keys", ofType: "plist") {
+            keys = NSDictionary(contentsOfFile: path)
+        }
         
-        // DEVELOPMENT PARAMETERS
-        
-//        Parse.setApplicationId("GmfZQGE8InioR7PvkyPFv3SZamsFNm4jJ3c6qbPu", clientKey: "UxLUds7UwHmVnc9OxNhVXtRRd5Q9jVzeAg3cdO51")
-//        
-//        Amplitude.instance().initializeApiKey("648b71e9e12bc11948c0cad31d252028")
-
-        
-        // PRODUCTION PARAMETERS
-        
-        Parse.setApplicationId("utBelvysdG4ZgK8aghYjOJYaDPjpnn1LmW3b3Egs", clientKey: "RbDtGrF7qXzbucbbpE7bCwCcV5DrVz8kJhYtdOC8")
-      
-        Amplitude.instance().initializeApiKey("b7b0a552d87f1b49de41269d010e37f5")
+        if let dict = keys {
+            let parseApplicationId = keys?["parseApplicationId"] as? String
+            let parseClientKey = keys?["parseClientKey"] as? String
+            let amplitudeApiKey = keys?["amplitudeApiKey"] as? String
+            let googleMapsApiKey = keys?["googleMapsApiKey"] as? String
+            
+            Parse.setApplicationId(parseApplicationId!, clientKey: parseClientKey!)
+            GMSServices.provideAPIKey(googleMapsApiKey)
+            Amplitude.instance().initializeApiKey(amplitudeApiKey)
+            
+        }
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         

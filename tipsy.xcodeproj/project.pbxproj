@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0EB6F515DD0D220EC8E91B1A /* Pods_tipsy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C17C68CBC406450F3E7DF87E /* Pods_tipsy.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		331304361C51B3680089C430 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 331304351C51B3680089C430 /* Keys.plist */; };
 		332476DF1B4C7D8D00CF0881 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332476DE1B4C7D8D00CF0881 /* TabBarController.swift */; };
 		332476E51B4CF0AE00CF0881 /* Compact Camera-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */; };
 		332476ED1B4FDB1E00CF0881 /* login_with_fb.png in Resources */ = {isa = PBXBuildFile; fileRef = 332476EC1B4FDB1E00CF0881 /* login_with_fb.png */; };
@@ -169,7 +170,7 @@
 		33F020451B8652CA0090C91D /* UserGroup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F020421B8652CA0090C91D /* UserGroup@2x.png */; };
 		33F020461B8652CA0090C91D /* UserGroup@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F020431B8652CA0090C91D /* UserGroup@3x.png */; };
 		33F020481B8654CA0090C91D /* PlanCreationVisibilityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F020471B8654CA0090C91D /* PlanCreationVisibilityCell.swift */; };
-		33F0ED9D1BA38E64008D8EB3 /* NewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0ED9C1BA38E63008D8EB3 /* NewCommentCell.swift */; settings = {ASSET_TAGS = (); }; };
+		33F0ED9D1BA38E64008D8EB3 /* NewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F0ED9C1BA38E63008D8EB3 /* NewCommentCell.swift */; };
 		33F385D01B548E770008AFF7 /* DClinkedin.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F385CF1B548E770008AFF7 /* DClinkedin.jpg */; };
 		33F385E91B5494CD0008AFF7 /* firstaid.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E11B5494CD0008AFF7 /* firstaid.png */; };
 		33F385EA1B5494CD0008AFF7 /* firstaid@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33F385E21B5494CD0008AFF7 /* firstaid@2x.png */; };
@@ -215,6 +216,7 @@
 
 /* Begin PBXFileReference section */
 		329318A9E52DEB351C66B293 /* Pods-tipsy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tipsy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-tipsy/Pods-tipsy.debug.xcconfig"; sourceTree = "<group>"; };
+		331304351C51B3680089C430 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		332476DE1B4C7D8D00CF0881 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		332476E41B4CF0AE00CF0881 /* Compact Camera-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Compact Camera-100.png"; sourceTree = "<group>"; };
 		332476EC1B4FDB1E00CF0881 /* login_with_fb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = login_with_fb.png; path = ../login_with_fb.png; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 				335C80F01B62550D00702414 /* Media.xcassets */,
 				335C80F21B62566F00702414 /* tipsyLaunchScreen.xib */,
 				336344941B3283F800DF3D90 /* Info.plist */,
+				331304351C51B3680089C430 /* Keys.plist */,
 				336344BB1B32893900DF3D90 /* Bridging-Header.h */,
 			);
 			name = "Supporting Files";
@@ -967,6 +970,7 @@
 				33F779341B7132FB00CA7807 /* Public-50.png in Resources */,
 				3394DA611B702BA50065F2FD /* GenderNeutralUser@2x.png in Resources */,
 				33F385EE1B5494CD0008AFF7 /* ride@2x.png in Resources */,
+				331304361C51B3680089C430 /* Keys.plist in Resources */,
 				33F779391B713BAB00CA7807 /* Geo-fence-50.png in Resources */,
 				33F0203F1B8652BA0090C91D /* Globe@2x.png in Resources */,
 				33A0E8CF1B83E7030021A8D0 /* Info-100.png in Resources */,
